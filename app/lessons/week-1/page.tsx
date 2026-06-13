@@ -50,15 +50,15 @@ export default function Week1Page() {
             </section>
 
             <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
-              <VideoPlayer title="Week 1 — Greetings & Sawasdee" />
+              <VideoPlayer title="Week 1: Greetings and Sawasdee" />
             </section>
 
             <section aria-labelledby="audio-practice" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <h2 id="audio-practice" className="text-2xl font-bold text-slate-950 text-balance">Audio practice</h2>
               <p className="mt-2 text-slate-600 text-pretty">Place real files in <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio</code> and pass the src path into each player.</p>
               <div className="mt-5 flex flex-col gap-3">
-                <AudioPlayer label="Sawasdee khrap — male pronunciation" />
-                <AudioPlayer label="Sawasdee kha — female pronunciation" />
+                <AudioPlayer label="Sawasdee khrap, male pronunciation" />
+                <AudioPlayer label="Sawasdee kha, female pronunciation" />
                 <AudioPlayer label="Full Week 1 vocabulary audio" />
               </div>
             </section>

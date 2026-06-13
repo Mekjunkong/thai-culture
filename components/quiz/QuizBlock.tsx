@@ -30,7 +30,7 @@ const defaultQuestions: QuizQuestion[] = [
     question: 'What does "ไม่เป็นไร" (mai pen rai) mean?',
     options: ['I am fine', 'No worries / Never mind', 'Excuse me', 'Good morning'],
     correct: 1,
-    explanation: '"ไม่เป็นไร" literally means "it is nothing" — a very common Thai expression of relaxed acceptance.',
+    explanation: '"ไม่เป็นไร" literally means "it is nothing", a very common Thai expression of relaxed acceptance.',
   },
 ]
 

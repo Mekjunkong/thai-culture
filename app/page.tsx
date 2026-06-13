@@ -2,95 +2,182 @@ import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 
 const outcomes = [
-  'Greet Thai people naturally without sounding like a phrasebook',
-  'Understand the cultural logic behind wai, khrap, kha, and mai pen rai',
-  'Practice useful daily Thai through quizzes and audio placeholders ready for real files',
+  'Say hello with the right wai, tone, and politeness particle',
+  'Ask prices and identify everyday objects without freezing at the market',
+  'Understand why Thai phrases change with age, setting, and relationship',
+]
+
+const situations = [
+  { thai: 'สวัสดีครับ / ค่ะ', label: 'Polite greeting', note: 'Use with a wai when the moment calls for respect.' },
+  { thai: 'อันนี้เท่าไหร่', label: 'Market question', note: 'Point, ask, listen for the number, then smile.' },
+  { thai: 'ไม่เป็นไร', label: 'Social ease', note: 'A small phrase that explains a big part of Thai comfort.' },
 ]
 
 const curriculum = [
-  { week: 'Week 1', title: 'Greetings, wai & politeness particles', status: 'Free now', href: '/lessons/week-1' },
-  { week: 'Week 2', title: 'Numbers, prices, colors & daily objects', status: 'Built now', href: '/lessons/week-2' },
-  { week: 'Week 3', title: 'Ordering food and handling spice levels', status: 'Planned', href: '#' },
-  { week: 'Week 4', title: 'Temple, market and local etiquette', status: 'Planned', href: '#' },
+  {
+    week: 'Week 1',
+    title: 'Greetings, wai and politeness particles',
+    status: 'Free now',
+    href: '/lessons/week-1',
+    situation: 'Meeting someone respectfully',
+    outcome: 'Know when to say sawasdee, when to wai, and how khrap or kha changes the feeling.',
+  },
+  {
+    week: 'Week 2',
+    title: 'Numbers, prices, colors and daily objects',
+    status: 'Built now',
+    href: '/lessons/week-2',
+    situation: 'Buying something simple',
+    outcome: 'Ask how much, recognize prices, and describe common things around you.',
+  },
+  {
+    week: 'Week 3',
+    title: 'Ordering food and handling spice levels',
+    status: 'Planned',
+    href: '#',
+    situation: 'Lunch at a local shop',
+    outcome: 'Order one dish clearly, ask for spice level, and respond naturally when staff answer.',
+  },
+  {
+    week: 'Week 4',
+    title: 'Temple, market and local etiquette',
+    status: 'Planned',
+    href: '#',
+    situation: 'Moving through daily public life',
+    outcome: 'Avoid awkward mistakes and understand the polite behavior locals expect.',
+  },
 ]
+
+const trustPoints = ['Beginner path', 'Culture first', 'Audio ready', 'Quiz practice']
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main>
-        <section className="bg-thai-cream px-4 py-16 md:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1.15fr_0.85fr]">
+      <main className="overflow-hidden bg-jasmine text-tamarind">
+        <section className="relative px-4 py-14 sm:py-18 md:py-24">
+          <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_20%_20%,oklch(78%_0.14_84/.24),transparent_34%),radial-gradient(circle_at_82%_12%,oklch(58%_0.18_31/.16),transparent_32%)]" aria-hidden="true" />
+          <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
             <div>
-              <p className="mb-4 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-thai-navy shadow-sm">
-                Thai for real life — not tourist phrases only
+              <p className="inline-flex min-h-11 items-center rounded-full border border-turmeric/30 bg-surface px-4 py-2 text-sm font-bold text-indigo shadow-sm shadow-tamarind/5">
+                Thai for real life, not tourist phrases only
               </p>
-              <h1 className="max-w-3xl text-4xl font-bold leading-tight text-slate-950 text-balance md:text-6xl">
-                Learn Thai language through the culture that makes it make sense.
+              <h1 className="mt-5 max-w-3xl text-[clamp(2.75rem,7vw,5.9rem)] font-black leading-[0.93] tracking-[-0.065em] text-tamarind text-balance">
+                Learn the Thai that makes people feel respected.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 text-pretty">
-                A practical course for foreigners who want to speak politely, understand social context, and feel comfortable in everyday Thailand.
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-tamarind/75 text-pretty md:text-xl md:leading-9">
+                A beginner course for foreigners who want useful words, polite instincts, and the cultural logic behind everyday Thailand.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/lessons/week-1"
-                  className="rounded-xl bg-thai-navy px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold"
+                  className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-semibold text-surface shadow-lg shadow-indigo/20 transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
                 >
                   Start Week 1 free
                 </Link>
                 <Link
                   href="/lessons/week-2"
-                  className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-center font-semibold text-slate-800 transition hover:border-thai-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold"
+                  className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-6 py-3 font-semibold text-tamarind shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-banana hover:text-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
                 >
-                  Open Week 2
+                  Preview Week 2
                 </Link>
               </div>
+              <dl className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+                {trustPoints.map((point) => (
+                  <div key={point} className="rounded-2xl border border-tamarind/10 bg-surface/70 p-3 shadow-sm shadow-tamarind/5">
+                    <dt className="text-xs font-bold uppercase tracking-[0.12em] text-temple">Course</dt>
+                    <dd className="mt-1 text-sm font-semibold text-tamarind">{point}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
-              <div className="rounded-2xl bg-thai-navy p-6 text-white">
-                <p className="text-sm font-semibold text-yellow-200">MVP lesson bundle</p>
-                <h2 className="mt-3 text-2xl font-bold text-balance">Week 1 + Week 2 are now browsable</h2>
-                <p className="mt-4 leading-7 text-blue-50 text-pretty">
-                  The first slice now covers greetings, politeness, numbers, prices, colors, and everyday objects — enough for a small paid-course preview.
-                </p>
+            <aside aria-label="Course preview" className="relative">
+              <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-banana/15 blur-2xl" aria-hidden="true" />
+              <div className="relative rounded-[2rem] border border-tamarind/10 bg-surface p-4 shadow-2xl shadow-tamarind/15 md:p-5">
+                <div className="rounded-[1.5rem] bg-indigo p-5 text-surface md:p-6">
+                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-turmeric">Two lessons ready</p>
+                  <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.035em] text-balance">
+                    Practice the first moments that make Thailand feel less intimidating.
+                  </h2>
+                  <p className="mt-4 max-w-prose leading-7 text-surface/82 text-pretty">
+                    Start with greetings and wai, then walk into prices, colors, and everyday objects. Each phrase is tied to the situation where it actually belongs.
+                  </p>
+                </div>
+
+                <div className="mt-4 grid gap-3">
+                  {situations.map((item, index) => (
+                    <div key={item.label} className="grid gap-3 rounded-2xl border border-tamarind/10 bg-jasmine p-4 sm:grid-cols-[7.5rem_1fr]">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.12em] text-temple">Scene {index + 1}</p>
+                        <p className="mt-2 text-xl font-black text-indigo">{item.thai}</p>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-tamarind">{item.label}</h3>
+                        <p className="mt-1 text-sm leading-6 text-tamarind/70">{item.note}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <ul className="mt-5 grid gap-3 text-sm text-tamarind/75">
+                  {outcomes.map((item) => (
+                    <li key={item} className="flex gap-3 rounded-2xl bg-surface p-3">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-banana text-xs font-black text-surface" aria-hidden="true">✓</span>
+                      <span className="leading-6 text-pretty">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-6 space-y-4">
-                {outcomes.map((item) => (
-                  <li key={item} className="flex gap-3 text-slate-700">
-                    <span className="mt-1 text-thai-gold" aria-hidden="true">✓</span>
-                    <span className="text-pretty">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </aside>
           </div>
         </section>
 
-        <section id="curriculum" className="px-4 py-16">
+        <section id="curriculum" className="bg-surface px-4 py-16 md:py-20">
           <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase text-thai-red">MVP curriculum</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-950 text-balance md:text-4xl">Start with the social basics, then move into daily life.</h2>
+            <div className="grid gap-6 md:grid-cols-[0.72fr_1fr] md:items-end">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-temple">Beginner curriculum</p>
+                <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-tamarind text-balance md:text-5xl">
+                  Start with respect, then move into daily life.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-lg leading-8 text-tamarind/70 text-pretty">
+                Each week is organized around a real situation, so vocabulary, etiquette, and confidence grow together.
+              </p>
             </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {curriculum.map((lesson) => {
+
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {curriculum.map((lesson, index) => {
+                const isLive = lesson.href !== '#'
                 const card = (
-                  <article className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-thai-gold">
-                    <div className="flex items-center justify-between gap-4">
-                      <p className="font-semibold text-thai-navy">{lesson.week}</p>
-                      <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold text-slate-700">{lesson.status}</span>
+                  <article className="group h-full rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 shadow-sm shadow-tamarind/5 transition duration-200 ease-out hover:-translate-y-0.5 hover:border-turmeric/70 hover:shadow-lg hover:shadow-tamarind/10 md:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-sm font-black uppercase tracking-[0.14em] text-indigo">{lesson.week}</p>
+                        <p className="mt-2 text-sm font-semibold text-temple">{lesson.situation}</p>
+                      </div>
+                      <span className={`rounded-full px-3 py-1 text-xs font-bold ${isLive ? 'bg-banana/12 text-banana' : 'bg-tamarind/6 text-tamarind/60'}`}>
+                        {lesson.status}
+                      </span>
                     </div>
-                    <h3 className="mt-3 text-xl font-bold text-slate-950 text-balance">{lesson.title}</h3>
+                    <h3 className="mt-5 text-2xl font-black leading-tight tracking-[-0.025em] text-tamarind text-balance">{lesson.title}</h3>
+                    <p className="mt-3 leading-7 text-tamarind/68 text-pretty">{lesson.outcome}</p>
+                    <div className="mt-6 flex items-center justify-between border-t border-tamarind/10 pt-4">
+                      <span className="text-sm font-bold text-indigo">{isLive ? 'Open lesson' : 'Coming next'}</span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-sm font-black text-temple transition group-hover:bg-turmeric group-hover:text-tamarind" aria-hidden="true">
+                        {index + 1}
+                      </span>
+                    </div>
                   </article>
                 )
 
-                if (lesson.href === '#') {
+                if (!isLive) {
                   return <div key={lesson.week}>{card}</div>
                 }
 
                 return (
-                  <Link key={lesson.week} href={lesson.href} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
+                  <Link key={lesson.week} href={lesson.href} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
                     {card}
                   </Link>
                 )
@@ -99,19 +186,33 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="pricing" className="bg-slate-950 px-4 py-16 text-white">
-          <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-lg">
-            <p className="text-sm font-semibold uppercase text-yellow-200">Launch offer draft</p>
-            <h2 className="mt-3 text-3xl font-bold text-balance md:text-4xl">Two lessons now. Full beginner course can become the paid product.</h2>
-            <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-300 text-pretty">
-              The app is prepared for Supabase progress tracking and Stripe checkout. The next product step is real audio, Week 3 food/café Thai, and a checkout price.
-            </p>
-            <Link
-              href="/lessons/week-1"
-              className="mt-8 inline-flex rounded-xl bg-thai-gold px-6 py-3 font-semibold text-slate-950 transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-            >
-              Try the lesson preview
-            </Link>
+        <section id="pricing" className="bg-indigo px-4 py-16 text-surface md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-8 rounded-[2rem] border border-surface/10 bg-[radial-gradient(circle_at_10%_20%,oklch(78%_0.14_84/.16),transparent_32%),oklch(25%_0.11_274)] p-6 shadow-2xl shadow-indigo/30 md:grid-cols-[0.9fr_1.1fr] md:p-10">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Launch path</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance md:text-5xl">
+                Start free. Build real Thai confidence week by week.
+              </h2>
+            </div>
+            <div className="md:pt-2">
+              <p className="max-w-2xl text-lg leading-8 text-surface/78 text-pretty">
+                Week 1 is free and Week 2 is ready to browse. The full beginner course can add real audio, food and café Thai, progress tracking, and checkout when you are ready to sell it.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/lessons/week-1"
+                  className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 font-bold text-tamarind transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface"
+                >
+                  Try the free lesson
+                </Link>
+                <Link
+                  href="/lessons/week-2"
+                  className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-surface/18 px-6 py-3 font-bold text-surface transition duration-200 ease-out hover:-translate-y-0.5 hover:border-turmeric hover:text-turmeric focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface"
+                >
+                  Open Week 2
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

@@ -23,7 +23,7 @@ export default function AudioPlayer({ src, label }: AudioPlayerProps) {
       <span className="text-2xl">🎧</span>
       <div>
         <p className="text-sm font-semibold text-gray-500">{label}</p>
-        <p className="text-xs text-gray-400">Audio file — add src path to /public/assets/audio/</p>
+        <p className="text-xs text-gray-400">Audio file: add src path to /public/assets/audio/</p>
       </div>
     </div>
   )

@@ -81,7 +81,7 @@ export default function Week2Page() {
             </section>
 
             <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
-              <VideoPlayer title="Week 2 — Numbers, Prices & Market Thai" />
+              <VideoPlayer title="Week 2: Numbers, Prices and Market Thai" />
             </section>
 
             <section aria-labelledby="audio-practice" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -89,7 +89,7 @@ export default function Week2Page() {
               <p className="mt-2 text-slate-600 text-pretty">Add real pronunciation clips in <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio/week-2</code> when ready.</p>
               <div className="mt-5 flex flex-col gap-3">
                 <AudioPlayer label="Thai numbers 0–10" />
-                <AudioPlayer label="Price questions — thao-rai practice" />
+                <AudioPlayer label="Price questions, thao-rai practice" />
                 <AudioPlayer label="Colors and everyday object vocabulary" />
               </div>
             </section>

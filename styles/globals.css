@@ -3,20 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 15, 23, 42;
-  --background-rgb: 248, 250, 252;
+  --foreground-rgb: 54, 38, 28;
+  --background-rgb: 250, 246, 232;
 }
 
 html {
   scroll-behavior: smooth;
+  background: oklch(97% 0.036 88);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: oklch(20% 0.035 64);
+  background: oklch(97% 0.036 88);
 }
 
 ::selection {
-  background: #C9A84C;
-  color: #0f172a;
+  background: oklch(73% 0.14 84);
+  color: oklch(20% 0.035 64);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
