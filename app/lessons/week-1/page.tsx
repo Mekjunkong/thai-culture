@@ -88,9 +88,9 @@ export default function Week1Page() {
             <div className="mt-6 rounded-2xl bg-thai-navy p-5 text-white">
               <p className="font-bold">Continue to Week 2</p>
               <p className="mt-2 text-sm leading-6 text-blue-50">Numbers, colors, prices and everyday objects.</p>
-              <button className="mt-4 w-full rounded-lg bg-thai-gold px-4 py-2 font-semibold text-slate-950 transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-                Unlock full course
-              </button>
+              <Link href="/lessons/week-2" className="mt-4 block w-full rounded-lg bg-thai-gold px-4 py-2 text-center font-semibold text-slate-950 transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                Open Week 2 →
+              </Link>
             </div>
           </aside>
         </div>

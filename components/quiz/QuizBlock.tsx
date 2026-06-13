@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-interface QuizQuestion {
+export interface QuizQuestion {
   id: number
   question: string
   options: string[]
@@ -10,7 +10,7 @@ interface QuizQuestion {
   explanation: string
 }
 
-const questions: QuizQuestion[] = [
+const defaultQuestions: QuizQuestion[] = [
   {
     id: 1,
     question: 'How do you say "Hello" in Thai?',
@@ -34,13 +34,24 @@ const questions: QuizQuestion[] = [
   },
 ]
 
-export default function QuizBlock() {
+interface QuizBlockProps {
+  questions?: QuizQuestion[]
+}
+
+export default function QuizBlock({ questions = defaultQuestions }: QuizBlockProps) {
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState<number | null>(null)
   const [score, setScore] = useState(0)
   const [done, setDone] = useState(false)
 
   const q = questions[current]
+
+  function resetQuiz() {
+    setCurrent(0)
+    setSelected(null)
+    setScore(0)
+    setDone(false)
+  }
 
   function handleSelect(idx: number) {
     if (selected !== null) return
@@ -59,64 +70,66 @@ export default function QuizBlock() {
 
   if (done) {
     return (
-      <div className="bg-white rounded-2xl shadow p-8 text-center">
-        <div className="text-5xl mb-4">{score === questions.length ? '🏆' : '📚'}</div>
-        <h3 className="text-2xl font-bold mb-2">Quiz Complete!</h3>
-        <p className="text-gray-600 mb-4">
-          You scored <span className="font-bold text-thai-navy">{score}/{questions.length}</span>
+      <div className="rounded-2xl bg-white p-8 text-center shadow">
+        <div className="mb-4 text-5xl" aria-hidden="true">{score === questions.length ? '🏆' : '📚'}</div>
+        <h3 className="mb-2 text-2xl font-bold text-slate-950 text-balance">Quiz complete!</h3>
+        <p className="mb-4 text-slate-600">
+          You scored <span className="font-bold text-thai-navy tabular-nums">{score}/{questions.length}</span>
         </p>
         {score === questions.length ? (
-          <p className="text-green-600 font-semibold">Perfect score! ยอดเยี่ยม (Excellent!)</p>
+          <p className="font-semibold text-green-700">Perfect score! ยอดเยี่ยม (Excellent!)</p>
         ) : (
-          <p className="text-gray-500">Review the lesson and try again to reinforce your memory.</p>
+          <p className="text-slate-500 text-pretty">Review the lesson and try again to reinforce your memory.</p>
         )}
         <button
-          onClick={() => { setCurrent(0); setSelected(null); setScore(0); setDone(false) }}
-          className="mt-6 px-6 py-2 bg-thai-navy text-white rounded-lg hover:bg-blue-900 transition"
+          type="button"
+          onClick={resetQuiz}
+          className="mt-6 rounded-lg bg-thai-navy px-6 py-2 font-semibold text-white transition hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold"
         >
-          Retry Quiz
+          Retry quiz
         </button>
       </div>
     )
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow p-8">
-      <div className="flex justify-between items-center mb-4">
-        <span className="text-sm text-gray-400">Question {current + 1} of {questions.length}</span>
-        <span className="text-sm font-semibold text-thai-navy">Score: {score}</span>
+    <div className="rounded-2xl bg-white p-8 shadow">
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <span className="text-sm text-slate-500">Question <span className="tabular-nums">{current + 1}</span> of <span className="tabular-nums">{questions.length}</span></span>
+        <span className="text-sm font-semibold text-thai-navy">Score: <span className="tabular-nums">{score}</span></span>
       </div>
-      <h3 className="text-xl font-bold mb-6">{q.question}</h3>
-      <div className="grid gap-3 mb-6">
+      <h3 className="mb-6 text-xl font-bold text-slate-950 text-balance">{q.question}</h3>
+      <div className="mb-6 grid gap-3">
         {q.options.map((opt, idx) => {
-          let cls = 'w-full text-left px-4 py-3 rounded-lg border-2 transition font-medium '
+          let cls = 'w-full rounded-lg border-2 px-4 py-3 text-left font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold '
           if (selected === null) {
-            cls += 'border-gray-200 hover:border-thai-gold hover:bg-yellow-50 cursor-pointer'
+            cls += 'cursor-pointer border-slate-200 hover:border-thai-gold hover:bg-yellow-50'
           } else if (idx === q.correct) {
-            cls += 'border-green-500 bg-green-50 text-green-800'
+            cls += 'border-green-600 bg-green-50 text-green-900'
           } else if (idx === selected) {
-            cls += 'border-red-400 bg-red-50 text-red-700'
+            cls += 'border-red-500 bg-red-50 text-red-800'
           } else {
-            cls += 'border-gray-200 text-gray-400'
+            cls += 'border-slate-200 text-slate-400'
           }
           return (
-            <button key={idx} className={cls} onClick={() => handleSelect(idx)}>
+            <button key={`${q.id}-${opt}`} type="button" className={cls} onClick={() => handleSelect(idx)}>
               {opt}
             </button>
           )
         })}
       </div>
       {selected !== null && (
-        <div className="mb-6 p-4 bg-blue-50 rounded-lg text-sm text-blue-800">
+        <div className="mb-6 rounded-lg bg-blue-50 p-4 text-sm leading-6 text-blue-900" role="status">
           <strong>Explanation:</strong> {q.explanation}
         </div>
       )}
       {selected !== null && (
         <button
+          type="button"
           onClick={handleNext}
-          className="w-full py-3 bg-thai-navy text-white font-semibold rounded-lg hover:bg-blue-900 transition"
+          className="w-full rounded-lg bg-thai-navy py-3 font-semibold text-white transition hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold"
         >
-          {current + 1 >= questions.length ? 'See Results' : 'Next Question →'}
+          {current + 1 >= questions.length ? 'See results' : 'Next question →'}
         </button>
       )}
     </div>

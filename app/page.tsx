@@ -4,14 +4,14 @@ import Navbar from '@/components/ui/Navbar'
 const outcomes = [
   'Greet Thai people naturally without sounding like a phrasebook',
   'Understand the cultural logic behind wai, khrap, kha, and mai pen rai',
-  'Practice short conversations with quizzes and audio placeholders ready for real files',
+  'Practice useful daily Thai through quizzes and audio placeholders ready for real files',
 ]
 
 const curriculum = [
-  { week: 'Week 1', title: 'Greetings, wai & politeness particles', status: 'Free now' },
-  { week: 'Week 2', title: 'Numbers, prices, colors & daily objects', status: 'Next' },
-  { week: 'Week 3', title: 'Ordering food and handling spice levels', status: 'Planned' },
-  { week: 'Week 4', title: 'Temple, market and local etiquette', status: 'Planned' },
+  { week: 'Week 1', title: 'Greetings, wai & politeness particles', status: 'Free now', href: '/lessons/week-1' },
+  { week: 'Week 2', title: 'Numbers, prices, colors & daily objects', status: 'Built now', href: '/lessons/week-2' },
+  { week: 'Week 3', title: 'Ordering food and handling spice levels', status: 'Planned', href: '#' },
+  { week: 'Week 4', title: 'Temple, market and local etiquette', status: 'Planned', href: '#' },
 ]
 
 export default function HomePage() {
@@ -39,20 +39,20 @@ export default function HomePage() {
                   Start Week 1 free
                 </Link>
                 <Link
-                  href="#curriculum"
+                  href="/lessons/week-2"
                   className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-center font-semibold text-slate-800 transition hover:border-thai-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold"
                 >
-                  View curriculum
+                  Open Week 2
                 </Link>
               </div>
             </div>
 
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
               <div className="rounded-2xl bg-thai-navy p-6 text-white">
-                <p className="text-sm font-semibold text-yellow-200">Free lesson preview</p>
-                <h2 className="mt-3 text-2xl font-bold text-balance">Week 1: Sawasdee, wai, khrap & kha</h2>
+                <p className="text-sm font-semibold text-yellow-200">MVP lesson bundle</p>
+                <h2 className="mt-3 text-2xl font-bold text-balance">Week 1 + Week 2 are now browsable</h2>
                 <p className="mt-4 leading-7 text-blue-50 text-pretty">
-                  Learn how Thai greetings work in real situations, why politeness particles matter, and what to say when you do not know what to say.
+                  The first slice now covers greetings, politeness, numbers, prices, colors, and everyday objects — enough for a small paid-course preview.
                 </p>
               </div>
               <ul className="mt-6 space-y-4">
@@ -74,15 +74,27 @@ export default function HomePage() {
               <h2 className="mt-2 text-3xl font-bold text-slate-950 text-balance md:text-4xl">Start with the social basics, then move into daily life.</h2>
             </div>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {curriculum.map((lesson) => (
-                <article key={lesson.week} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="font-semibold text-thai-navy">{lesson.week}</p>
-                    <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold text-slate-700">{lesson.status}</span>
-                  </div>
-                  <h3 className="mt-3 text-xl font-bold text-slate-950 text-balance">{lesson.title}</h3>
-                </article>
-              ))}
+              {curriculum.map((lesson) => {
+                const card = (
+                  <article className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-thai-gold">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="font-semibold text-thai-navy">{lesson.week}</p>
+                      <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold text-slate-700">{lesson.status}</span>
+                    </div>
+                    <h3 className="mt-3 text-xl font-bold text-slate-950 text-balance">{lesson.title}</h3>
+                  </article>
+                )
+
+                if (lesson.href === '#') {
+                  return <div key={lesson.week}>{card}</div>
+                }
+
+                return (
+                  <Link key={lesson.week} href={lesson.href} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
+                    {card}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -90,15 +102,15 @@ export default function HomePage() {
         <section id="pricing" className="bg-slate-950 px-4 py-16 text-white">
           <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-lg">
             <p className="text-sm font-semibold uppercase text-yellow-200">Launch offer draft</p>
-            <h2 className="mt-3 text-3xl font-bold text-balance md:text-4xl">Free Week 1 now. Full beginner course can become the paid product.</h2>
+            <h2 className="mt-3 text-3xl font-bold text-balance md:text-4xl">Two lessons now. Full beginner course can become the paid product.</h2>
             <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-300 text-pretty">
-              The app is prepared for Supabase progress tracking and Stripe checkout. The next product step is to add real lessons, audio, and a checkout price.
+              The app is prepared for Supabase progress tracking and Stripe checkout. The next product step is real audio, Week 3 food/café Thai, and a checkout price.
             </p>
             <Link
               href="/lessons/week-1"
               className="mt-8 inline-flex rounded-xl bg-thai-gold px-6 py-3 font-semibold text-slate-950 transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              Try the free lesson
+              Try the lesson preview
             </Link>
           </div>
         </section>
