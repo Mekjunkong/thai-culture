@@ -5,22 +5,22 @@ export const STRIPE_PLANS = {
   monthly: {
     priceId: process.env.STRIPE_PRICE_MONTHLY ?? 'price_TEST_monthly',
     name: 'Thai Culture & Language — Monthly',
-    amount: 499,      // USD cents ($4.99/mo)
-    currency: 'usd',
+    amount: 29000, // THB satang (฿290/mo)
+    currency: 'thb',
     interval: 'month' as const,
   },
   annual: {
     priceId: process.env.STRIPE_PRICE_ANNUAL ?? 'price_TEST_annual',
     name: 'Thai Culture & Language — Annual',
-    amount: 9900,     // USD cents ($99/yr)
-    currency: 'usd',
+    amount: 199000, // THB satang (฿1,990/yr)
+    currency: 'thb',
     interval: 'year' as const,
   },
   lifetime: {
     priceId: process.env.STRIPE_PRICE_LIFETIME ?? 'price_TEST_lifetime',
-    name: 'Thai Culture & Language — Lifetime Access',
-    amount: 19900,    // USD cents ($199 one-time)
-    currency: 'usd',
+    name: 'Thai Culture Starter Course — Lifetime Access',
+    amount: 69000, // THB satang (฿690 one-time)
+    currency: 'thb',
     interval: null,
   },
 } as const

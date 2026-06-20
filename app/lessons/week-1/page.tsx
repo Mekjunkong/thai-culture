@@ -1,7 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import Link from 'next/link'
-import VideoPlayer from '@/components/lesson/VideoPlayer'
 import AudioPlayer from '@/components/lesson/AudioPlayer'
 import QuizBlock from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
@@ -49,17 +48,23 @@ export default function Week1Page() {
               </div>
             </section>
 
-            <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
-              <VideoPlayer title="Week 1: Greetings and Sawasdee" />
-            </section>
-
             <section aria-labelledby="audio-practice" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 id="audio-practice" className="text-2xl font-bold text-slate-950 text-balance">Audio practice</h2>
-              <p className="mt-2 text-slate-600 text-pretty">Place real files in <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio</code> and pass the src path into each player.</p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
+                    Audio-first module
+                  </span>
+                  <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-slate-950 text-balance">Listen, repeat, then read</h2>
+                  <p className="mt-2 max-w-2xl text-slate-600 text-pretty">
+                    This course is being built audio-first. Add final MP3 files in <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio</code>; the lesson is already structured for short guided listening blocks.
+                  </p>
+                </div>
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-thai-navy text-3xl text-white" aria-hidden="true">🎧</span>
+              </div>
               <div className="mt-5 flex flex-col gap-3">
-                <AudioPlayer label="Sawasdee khrap, male pronunciation" />
-                <AudioPlayer label="Sawasdee kha, female pronunciation" />
-                <AudioPlayer label="Full Week 1 vocabulary audio" />
+                <AudioPlayer label="Sawasdee khrap / sawasdee kha — greeting practice" />
+                <AudioPlayer label="Wai etiquette — when to bow and when not to" />
+                <AudioPlayer label="Khrap, kha and mai pen rai — social tone practice" />
               </div>
             </section>
 

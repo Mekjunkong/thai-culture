@@ -1,8 +1,8 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import Link from 'next/link'
-import VideoPlayer from '@/components/lesson/VideoPlayer'
 import AudioPlayer from '@/components/lesson/AudioPlayer'
+import CheckoutButton from '@/components/checkout/CheckoutButton'
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
@@ -80,17 +80,23 @@ export default function Week2Page() {
               </div>
             </section>
 
-            <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
-              <VideoPlayer title="Week 2: Numbers, Prices and Market Thai" />
-            </section>
-
             <section aria-labelledby="audio-practice" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 id="audio-practice" className="text-2xl font-bold text-slate-950 text-balance">Audio practice</h2>
-              <p className="mt-2 text-slate-600 text-pretty">Add real pronunciation clips in <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio/week-2</code> when ready.</p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
+                    Audio-first module
+                  </span>
+                  <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-slate-950 text-balance">Numbers you can hear in real shops</h2>
+                  <p className="mt-2 max-w-2xl text-slate-600 text-pretty">
+                    The lesson is prepared for short pronunciation clips and repeat-after-me drills. Final MP3s can be dropped into <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio/week-2</code> when recorded.
+                  </p>
+                </div>
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-thai-navy text-3xl text-white" aria-hidden="true">🎧</span>
+              </div>
               <div className="mt-5 flex flex-col gap-3">
-                <AudioPlayer label="Thai numbers 0–10" />
-                <AudioPlayer label="Price questions, thao-rai practice" />
-                <AudioPlayer label="Colors and everyday object vocabulary" />
+                <AudioPlayer label="Thai numbers 0–10 — slow repeat practice" />
+                <AudioPlayer label="Price questions — an nii thao-rai khrap/kha" />
+                <AudioPlayer label="Colors and daily objects — point and describe" />
               </div>
             </section>
 
@@ -120,9 +126,9 @@ export default function Week2Page() {
             <div className="mt-6 rounded-2xl bg-thai-navy p-5 text-white">
               <p className="font-bold">Next: Week 3</p>
               <p className="mt-2 text-sm leading-6 text-blue-50">Ordering food, spice levels and café Thai.</p>
-              <button className="mt-4 w-full rounded-lg bg-thai-gold px-4 py-2 font-semibold text-slate-950 transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-                Unlock full course
-              </button>
+              <CheckoutButton className="mt-4 w-full rounded-lg bg-thai-gold px-4 py-2 font-semibold text-slate-950 transition hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                Unlock lifetime access — ฿690
+              </CheckoutButton>
             </div>
             <Link href="/lessons/week-1" className="mt-4 block text-center text-sm font-semibold text-thai-navy hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
               Review Week 1

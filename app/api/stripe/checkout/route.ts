@@ -3,20 +3,25 @@ import { getStripe, STRIPE_PLANS, PlanKey } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
   try {
-    const { plan, userId, email } = await req.json() as {
-      plan: PlanKey; userId: string; email: string
+    const body = await req.json().catch(() => ({})) as {
+      plan?: PlanKey; userId?: string; email?: string
     }
+    const plan = body.plan ?? 'lifetime'
     const planConfig = STRIPE_PLANS[plan]
     if (!planConfig) {
       return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
     }
     const session = await getStripe().checkout.sessions.create({
       mode: planConfig.interval ? 'subscription' : 'payment',
-      customer_email: email,
+      ...(body.email ? { customer_email: body.email } : {}),
       line_items: [{ price: planConfig.priceId, quantity: 1 }],
-      metadata: { userId, plan },
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/pricing?canceled=true`,
+      metadata: {
+        plan,
+        ...(body.userId ? { userId: body.userId } : {}),
+        product: 'thai-culture-starter-course',
+      },
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/?checkout=success#pricing`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/?checkout=cancelled#pricing`,
       allow_promotion_codes: true,
     })
     return NextResponse.json({ url: session.url })
