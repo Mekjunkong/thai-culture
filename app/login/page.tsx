@@ -22,7 +22,7 @@ export default function LoginPage() {
               Create an account before or after buying lifetime access. The first version gives learners a working login; saved progress and paid lesson locks can be added next.
             </p>
             <ul className="mt-8 grid gap-3 text-sm leading-6 text-surface/82">
-              {['Email/password login', 'Persistent browser session', 'Ready for future progress tracking', 'Works with the existing Supabase setup'].map((item) => (
+              {['Google login button', 'Email/password login', 'Persistent browser session', 'Ready for future progress tracking', 'Works with the existing Supabase setup'].map((item) => (
                 <li key={item} className="flex gap-3 rounded-2xl border border-surface/10 bg-surface/8 p-3">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-turmeric text-xs font-black text-tamarind" aria-hidden="true">✓</span>
                   <span>{item}</span>

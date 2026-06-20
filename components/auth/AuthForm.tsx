@@ -69,6 +69,28 @@ export default function AuthForm() {
     }
   }
 
+  async function signInWithGoogle() {
+    setError(null)
+    setMessage(null)
+
+    if (!isSupabaseConfigured || !supabase) {
+      setError('Google login needs real Supabase and Google OAuth settings. Email login still works on this device for testing.')
+      return
+    }
+
+    setIsLoading(true)
+    const redirectTo = `${window.location.origin}/auth/callback?next=/lessons/week-1`
+    const { error: oauthError } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo },
+    })
+
+    if (oauthError) {
+      setError(oauthError.message)
+      setIsLoading(false)
+    }
+  }
+
   async function signOut() {
     if (!isSupabaseConfigured || !supabase) {
       window.localStorage.removeItem(localAccountKey)
@@ -100,6 +122,22 @@ export default function AuthForm() {
             {item === 'login' ? 'Login' : 'Create account'}
           </button>
         ))}
+      </div>
+
+      <button
+        type="button"
+        onClick={signInWithGoogle}
+        disabled={isLoading}
+        className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-tamarind/12 bg-white px-5 py-3 font-black text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-indigo hover:text-indigo disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+      >
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface text-base" aria-hidden="true">G</span>
+        Continue with Google
+      </button>
+
+      <div className="my-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-tamarind/38">
+        <span className="h-px flex-1 bg-tamarind/10" />
+        <span>Email</span>
+        <span className="h-px flex-1 bg-tamarind/10" />
       </div>
 
       {signedInEmail ? (
