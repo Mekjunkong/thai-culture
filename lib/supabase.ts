@@ -4,8 +4,15 @@ import type { Database } from './database.types'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? ''
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? ''
 
+export const isSupabaseConfigured = Boolean(
+  supabaseUrl &&
+  supabaseAnonKey &&
+  !supabaseUrl.toLowerCase().includes('your_project_ref') &&
+  supabaseUrl.includes('.supabase.co')
+)
+
 // Client-safe singleton (anon key only)
-export const supabase = supabaseUrl && supabaseAnonKey
+export const supabase = isSupabaseConfigured
   ? createClient<Database>(supabaseUrl, supabaseAnonKey)
   : null
 

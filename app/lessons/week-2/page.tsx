@@ -88,15 +88,15 @@ export default function Week2Page() {
                   </span>
                   <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-slate-950 text-balance">Numbers you can hear in real shops</h2>
                   <p className="mt-2 max-w-2xl text-slate-600 text-pretty">
-                    The lesson is prepared for short pronunciation clips and repeat-after-me drills. Final MP3s can be dropped into <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio/week-2</code> when recorded.
+                    Two real MP3 practice tracks are ready: one for numbers and one for market phrases. Listen once, repeat slowly, then try the quiz.
                   </p>
                 </div>
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-thai-navy text-3xl text-white" aria-hidden="true">🎧</span>
               </div>
               <div className="mt-5 flex flex-col gap-3">
-                <AudioPlayer label="Thai numbers 0–10 — slow repeat practice" />
-                <AudioPlayer label="Price questions — an nii thao-rai khrap/kha" />
-                <AudioPlayer label="Colors and daily objects — point and describe" />
+                <AudioPlayer src="/assets/audio/week-2-numbers.mp3" label="Thai numbers 0–10 — slow repeat practice" />
+                <AudioPlayer src="/assets/audio/week-2-market-phrases.mp3" label="Price questions — an nii thao-rai khrap/kha" />
+                <AudioPlayer label="Bonus practice slot — colors and daily objects" />
               </div>
             </section>
 

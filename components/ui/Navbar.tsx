@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AuthStatus from '@/components/auth/AuthStatus'
 
 const navItems = [
   { href: '/lessons/week-1', label: 'Free lesson' },
@@ -21,6 +22,7 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          <AuthStatus />
           <Link
             href="/#pricing"
             className="inline-flex min-h-11 items-center rounded-xl bg-indigo px-4 py-2 font-bold text-surface transition hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"

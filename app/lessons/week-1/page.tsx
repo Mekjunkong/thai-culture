@@ -56,15 +56,15 @@ export default function Week1Page() {
                   </span>
                   <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-slate-950 text-balance">Listen, repeat, then read</h2>
                   <p className="mt-2 max-w-2xl text-slate-600 text-pretty">
-                    This course is being built audio-first. Add final MP3 files in <code className="rounded bg-slate-100 px-1 py-0.5 text-sm">/public/assets/audio</code>; the lesson is already structured for short guided listening blocks.
+                    Two real MP3 practice tracks are ready for this module. Use them before reading the full lesson so the phrases feel familiar first.
                   </p>
                 </div>
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-thai-navy text-3xl text-white" aria-hidden="true">🎧</span>
               </div>
               <div className="mt-5 flex flex-col gap-3">
-                <AudioPlayer label="Sawasdee khrap / sawasdee kha — greeting practice" />
-                <AudioPlayer label="Wai etiquette — when to bow and when not to" />
-                <AudioPlayer label="Khrap, kha and mai pen rai — social tone practice" />
+                <AudioPlayer src="/assets/audio/week-1-greetings.mp3" label="Sawasdee khrap / sawasdee kha — greeting practice" />
+                <AudioPlayer src="/assets/audio/week-1-wai-particles.mp3" label="Wai etiquette, khrap/kha and mai pen rai practice" />
+                <AudioPlayer label="Bonus practice slot — final conversation audio" />
               </div>
             </section>
 
