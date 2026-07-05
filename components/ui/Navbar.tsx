@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link href="/" className="flex min-h-11 items-center gap-2 text-lg font-black tracking-[-0.02em] text-balance focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-jasmine text-base shadow-inner" aria-hidden="true">ไทย</span>
-          <span>Learn Thai Chiang Mai</span>
+          <span>Thai Lessons Chiang Mai</span>
         </Link>
 
         <div className="hidden items-center gap-6 text-sm font-semibold md:flex">

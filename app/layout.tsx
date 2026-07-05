@@ -5,32 +5,32 @@ import '../styles/globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thai-culture-ruby.vercel.app'),
-  title: 'Learn Thai Chiang Mai | Thai Lessons for Expats & Travelers',
+  metadataBase: new URL('https://thailessonschiangmai.com'),
+  title: 'Thai Lessons Chiang Mai | Learn Thai for Expats & Travelers',
   description:
     'Practical Thai lessons in Chiang Mai and online for expats, digital nomads, retirees, and travelers. Start free, then book private Thai practice.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Learn Thai Chiang Mai',
-    description: 'Thai lessons in Chiang Mai and online for real-life confidence, polite phrases, food, markets, prices, and culture.',
+    title: 'Thai Lessons Chiang Mai',
+    description: 'Thai lessons in Chiang Mai and online for expats, travelers, food, markets, prices, polite phrases, and culture.',
     url: '/',
-    siteName: 'Learn Thai Chiang Mai',
+    siteName: 'Thai Lessons Chiang Mai',
     images: [
       {
         url: '/assets/images/thai-culture-homepage-banner.png',
         width: 1536,
         height: 1024,
-        alt: 'Learn Thai Chiang Mai course and private lessons',
+        alt: 'Thai Lessons Chiang Mai course and private lessons',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Learn Thai Chiang Mai',
-    description: 'Practical Thai lessons in Chiang Mai and online for real-life confidence.',
+    title: 'Thai Lessons Chiang Mai',
+    description: 'Practical Thai lessons in Chiang Mai and online for expats and travelers.',
     images: ['/assets/images/thai-culture-homepage-banner.png'],
   },
 }

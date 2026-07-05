@@ -1,4 +1,4 @@
-# Kanban Missions — Learn Thai Chiang Mai Real Course + PDF Product
+# Kanban Missions — Thai Lessons Chiang Mai Real Course + PDF Product
 
 Purpose: turn the current Thai Culture app into a real sellable Thai-for-expats course business with online lessons, printable/PDF products, and a clear sales funnel.
 
@@ -20,7 +20,7 @@ Purpose: turn the current Thai Culture app into a real sellable Thai-for-expats 
 **User value:** A learner understands what they will get and why it is worth paying for.
 
 **Scope:**
-- Finalize course name: **Learn Thai Chiang Mai**
+- Finalize course name: **Thai Lessons Chiang Mai**
 - Finalize core paid package: **Thai for Chiang Mai Life — Starter Pack**
 - Lock Week 1–4 beginner curriculum
 - Define self-study vs live lesson paths
@@ -152,7 +152,7 @@ Purpose: turn the current Thai Culture app into a real sellable Thai-for-expats 
 - Above-the-fold CTA visible on mobile
 - Pricing visible without login
 - WhatsApp opens with prefilled booking message
-- SEO title/description use Learn Thai Chiang Mai
+- SEO title/description use Thai Lessons Chiang Mai
 
 **Dependencies:** Mission 4–5 if linking resources publicly
 
@@ -193,9 +193,9 @@ Purpose: turn the current Thai Culture app into a real sellable Thai-for-expats 
 **User value:** The business has a memorable and searchable URL.
 
 **Scope:**
-- Preferred name: **Learn Thai Chiang Mai**
+- Preferred name: **Thai Lessons Chiang Mai**
 - Recommended domains:
-  1. `learnthaichiangmai.com`
+  1. `thailessonschiangmai.com`
   2. `learnthaicnx.com`
   3. `thaiforexpatschiangmai.com`
   4. `chiangmaithailessons.com`

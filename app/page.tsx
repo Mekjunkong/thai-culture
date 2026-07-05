@@ -97,7 +97,7 @@ export default function HomePage() {
           <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
             <div>
               <p className="inline-flex min-h-11 items-center rounded-full border border-turmeric/30 bg-surface px-4 py-2 text-sm font-bold text-indigo shadow-sm shadow-tamarind/5">
-                Learn Thai Chiang Mai · Online + in-person lessons
+                Thai Lessons Chiang Mai · Online + in-person lessons
               </p>
               <h1 className="mt-5 max-w-3xl text-[clamp(2.75rem,7vw,5.9rem)] font-black leading-[0.93] tracking-[-0.065em] text-tamarind text-balance">
                 Learn Thai for real life in Chiang Mai.
@@ -327,7 +327,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm shadow-tamarind/5">
               <p className="text-lg leading-8 text-tamarind/72 text-pretty">
-                Learn Thai Chiang Mai is built for real daily life: polite greetings, food orders, market prices, simple conversation, and the small cultural details that help foreigners feel more comfortable in Thailand.
+                Thai Lessons Chiang Mai is built for real daily life: polite greetings, food orders, market prices, simple conversation, and the small cultural details that help foreigners feel more comfortable in Thailand.
               </p>
               <ul className="mt-5 grid gap-3">
                 {seoProof.map((item) => (
