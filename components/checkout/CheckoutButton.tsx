@@ -7,7 +7,7 @@ interface CheckoutButtonProps {
 
 const whatsappNumber = '66929894495'
 const checkoutMessage = encodeURIComponent(
-  'Hi, I want lifetime access to the Thai Culture Starter Course for ฿690.'
+  'Hi, I want to learn Thai. Can I book a trial lesson or Starter Pack for Learn Thai Chiang Mai?'
 )
 
 export default function CheckoutButton({ children, className }: CheckoutButtonProps) {

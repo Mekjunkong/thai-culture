@@ -7,8 +7,8 @@ A practical Thai language course for foreigners — built around the cultural co
 ## Stack
 
 - **Framework:** Next.js 14 (App Router)
-- **Auth:** NextAuth
-- **Database:** Supabase (progress tracking)
+- **Auth:** Supabase Auth (email/password + Google OAuth)
+- **Database:** Supabase (profiles, lessons, progress, subscriptions)
 - **Payments:** Stripe (checkout ready, not yet wired to a price)
 - **Styling:** Tailwind CSS
 - **Content:** Markdown lessons via `react-markdown` + `remark-gfm`
@@ -17,11 +17,13 @@ A practical Thai language course for foreigners — built around the cultural co
 
 ```bash
 npm install
-cp .env.local.example .env.local   # fill in Supabase + Stripe + NextAuth keys
+cp .env.local.example .env.local   # fill in Supabase + Stripe keys
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+For the live Supabase connection steps, see [`SUPABASE_SETUP.md`](./SUPABASE_SETUP.md).
 
 ## Curriculum
 

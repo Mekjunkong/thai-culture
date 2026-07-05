@@ -14,13 +14,18 @@ export default function AuthCallbackPage() {
   useEffect(() => {
     async function finishLogin() {
       if (!isSupabaseConfigured || !supabase) {
-        setError('Google login is not configured yet. Supabase and Google OAuth settings are required.')
+        setError('Google login requires an internet connection. You can still log in with email/password.')
         setMessage('Could not finish Google login.')
         return
       }
 
-      const next = new URLSearchParams(window.location.search).get('next') || '/lessons/week-1'
-      const { data, error: sessionError } = await supabase.auth.getSession()
+      const params = new URLSearchParams(window.location.search)
+      const next = params.get('next') || '/lessons/week-1'
+      const hasAuthCode = params.has('code')
+
+      const { data, error: sessionError } = hasAuthCode
+        ? await supabase.auth.exchangeCodeForSession(window.location.href)
+        : await supabase.auth.getSession()
 
       if (sessionError) {
         setError(sessionError.message)

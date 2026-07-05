@@ -36,8 +36,8 @@ export default function AuthForm() {
       window.localStorage.setItem(localAccountKey, email)
       setSignedInEmail(email)
       setMessage(mode === 'signup'
-        ? 'Local course account created on this device. Connect Supabase later for cross-device accounts.'
-        : 'Logged in on this device. Connect Supabase later for cross-device accounts.'
+        ? 'Your account has been created on this device. Your progress will be saved here.'
+        : 'You are logged in on this device. Your progress is saved here.'
       )
       window.dispatchEvent(new Event('thai-culture-auth-change'))
       return
@@ -59,9 +59,10 @@ export default function AuthForm() {
       const currentEmail = result.data.user?.email ?? email
       setSignedInEmail(currentEmail)
       setMessage(mode === 'signup'
-        ? 'Account created. If email confirmation is enabled, check your inbox before logging in.'
-        : 'You are logged in. Your lesson progress can be connected next.'
+        ? 'Account created. If email confirmation is needed, check your inbox before logging in.'
+        : 'You are logged in. Welcome back to your course.'
       )
+      window.dispatchEvent(new Event('thai-culture-auth-change'))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Authentication failed')
     } finally {
@@ -74,7 +75,7 @@ export default function AuthForm() {
     setMessage(null)
 
     if (!isSupabaseConfigured || !supabase) {
-      setError('Google login needs real Supabase and Google OAuth settings. Email login still works on this device for testing.')
+      setError('Google login requires an internet connection. You can still log in with email/password.')
       return
     }
 
@@ -95,7 +96,7 @@ export default function AuthForm() {
     if (!isSupabaseConfigured || !supabase) {
       window.localStorage.removeItem(localAccountKey)
       setSignedInEmail(null)
-      setMessage('Signed out from this device.')
+      setMessage('Signed out.')
       window.dispatchEvent(new Event('thai-culture-auth-change'))
       return
     }
@@ -103,6 +104,7 @@ export default function AuthForm() {
     await supabase.auth.signOut()
     setSignedInEmail(null)
     setMessage('Signed out.')
+    window.dispatchEvent(new Event('thai-culture-auth-change'))
   }
 
   return (
@@ -124,15 +126,17 @@ export default function AuthForm() {
         ))}
       </div>
 
-      <button
-        type="button"
-        onClick={signInWithGoogle}
-        disabled={isLoading}
-        className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-tamarind/12 bg-white px-5 py-3 font-black text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-indigo hover:text-indigo disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
-      >
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface text-base" aria-hidden="true">G</span>
-        Continue with Google
-      </button>
+      {isSupabaseConfigured && supabase ? (
+        <button
+          type="button"
+          onClick={signInWithGoogle}
+          disabled={isLoading}
+          className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-tamarind/12 bg-white px-5 py-3 font-black text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-indigo hover:text-indigo disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+        >
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface text-base" aria-hidden="true">G</span>
+          Continue with Google
+        </button>
+      ) : null}
 
       <div className="my-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-tamarind/38">
         <span className="h-px flex-1 bg-tamarind/10" />
@@ -195,7 +199,7 @@ export default function AuthForm() {
       {error ? <p className="mt-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold text-red-700">{error}</p> : null}
 
       <p className="mt-5 text-sm leading-6 text-tamarind/60">
-        This account system uses Supabase when real Supabase env vars are configured. Until then, it falls back to a local device login so the course can be tested and sold now.
+        Your course progress is saved on this device. Use the same browser when you return to keep your place.
       </p>
     </div>
   )

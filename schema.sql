@@ -6,6 +6,17 @@
 -- Enable UUID generation
 create extension if not exists "pgcrypto";
 
+-- Reusable updated_at helper
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
 -- ─────────────────────────────────────────────
 -- PROFILES
 -- ─────────────────────────────────────────────
@@ -22,16 +33,24 @@ create table if not exists public.profiles (
 
 -- Auto-create profile on sign-up
 create or replace function public.handle_new_user()
-returns trigger language plpgsql security definer
+returns trigger
+language plpgsql
+security definer
+set search_path = public
 as $$
 begin
   insert into public.profiles (id, email, full_name, avatar_url)
   values (
     new.id,
-    new.email,
-    new.raw_user_meta_data->>'full_name',
+    coalesce(new.email, ''),
+    coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name'),
     new.raw_user_meta_data->>'avatar_url'
-  );
+  )
+  on conflict (id) do update set
+    email = excluded.email,
+    full_name = coalesce(excluded.full_name, public.profiles.full_name),
+    avatar_url = coalesce(excluded.avatar_url, public.profiles.avatar_url),
+    updated_at = now();
   return new;
 end;
 $$;
@@ -40,6 +59,11 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
+
+drop trigger if exists profiles_set_updated_at on public.profiles;
+create trigger profiles_set_updated_at
+  before update on public.profiles
+  for each row execute function public.set_updated_at();
 
 -- ─────────────────────────────────────────────
 -- LESSONS
@@ -95,7 +119,7 @@ create table if not exists public.subscriptions (
   stripe_customer_id      text unique,
   stripe_subscription_id  text unique,
   status                  text not null default 'active'
-                            check (status in ('active','canceled','past_due','trialing','incomplete')),
+                            check (status in ('active','canceled','past_due','trialing','incomplete','incomplete_expired','unpaid','paused')),
   plan                    text not null
                             check (plan in ('monthly','annual','lifetime')),
   current_period_start    timestamptz,
@@ -113,10 +137,13 @@ alter table public.progress     enable row level security;
 alter table public.subscriptions enable row level security;
 
 -- profiles: users can only read/update their own
+drop policy if exists "profiles_select_own" on public.profiles;
+drop policy if exists "profiles_update_own" on public.profiles;
 create policy "profiles_select_own" on public.profiles for select using (auth.uid() = id);
 create policy "profiles_update_own" on public.profiles for update using (auth.uid() = id);
 
 -- lessons: free lessons readable by all auth'd users; paid lessons only for pro/lifetime
+drop policy if exists "lessons_free" on public.lessons;
 create policy "lessons_free" on public.lessons for select
   using (is_free = true or exists (
     select 1 from public.profiles
@@ -124,7 +151,14 @@ create policy "lessons_free" on public.lessons for select
   ));
 
 -- progress: users own their own progress rows
+drop policy if exists "progress_own" on public.progress;
 create policy "progress_own" on public.progress for all using (auth.uid() = user_id);
 
 -- subscriptions: users read their own
+drop policy if exists "subscriptions_own" on public.subscriptions;
 create policy "subscriptions_own" on public.subscriptions for select using (auth.uid() = user_id);
+
+drop trigger if exists subscriptions_set_updated_at on public.subscriptions;
+create trigger subscriptions_set_updated_at
+  before update on public.subscriptions
+  for each row execute function public.set_updated_at();

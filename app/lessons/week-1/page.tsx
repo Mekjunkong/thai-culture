@@ -28,10 +28,10 @@ export default function Week1Page() {
   return (
     <>
       <Navbar />
-      <main className="bg-slate-50 px-4 py-10 md:py-14">
+      <main className="bg-jasmine px-4 py-10 md:py-14 text-tamarind">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
-            <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <section className="rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
               <Link href="/" className="text-sm font-semibold text-thai-navy hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
                 ← Back to course overview
               </Link>
@@ -39,10 +39,10 @@ export default function Week1Page() {
                 <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
                   Week 1 · Free lesson
                 </span>
-                <h1 className="mt-4 text-4xl font-bold leading-tight text-slate-950 text-balance md:text-5xl">
+                <h1 className="mt-4 text-4xl font-bold leading-tight text-tamarind text-balance md:text-5xl">
                   Greetings & Politeness Particles
                 </h1>
-                <p className="mt-4 text-slate-600 text-pretty">
+                <p className="mt-4 text-tamarind/70 text-pretty">
                   Estimated time: <strong>25 min</strong> · Level: <strong>Absolute Beginner</strong>
                 </p>
               </div>
@@ -54,8 +54,8 @@ export default function Week1Page() {
                   <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
                     Audio-first module
                   </span>
-                  <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-slate-950 text-balance">Listen, repeat, then read</h2>
-                  <p className="mt-2 max-w-2xl text-slate-600 text-pretty">
+                  <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-tamarind text-balance">Listen, repeat, then read</h2>
+                  <p className="mt-2 max-w-2xl text-tamarind/70 text-pretty">
                     Two real MP3 practice tracks are ready for this module. Use them before reading the full lesson so the phrases feel familiar first.
                   </p>
                 </div>
@@ -64,16 +64,15 @@ export default function Week1Page() {
               <div className="mt-5 flex flex-col gap-3">
                 <AudioPlayer src="/assets/audio/week-1-greetings.mp3" label="Sawasdee khrap / sawasdee kha — greeting practice" />
                 <AudioPlayer src="/assets/audio/week-1-wai-particles.mp3" label="Wai etiquette, khrap/kha and mai pen rai practice" />
-                <AudioPlayer label="Bonus practice slot — final conversation audio" />
               </div>
             </section>
 
-            <article className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <article className="mt-6 rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
               <MarkdownContent content={content} />
             </article>
 
-            <section aria-labelledby="quiz-heading" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <h2 id="quiz-heading" className="text-2xl font-bold text-slate-950 text-balance">
+            <section aria-labelledby="quiz-heading" className="mt-6 rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
+              <h2 id="quiz-heading" className="text-2xl font-bold text-tamarind text-balance">
                 Check your understanding
               </h2>
               <div className="mt-6">
@@ -84,16 +83,16 @@ export default function Week1Page() {
 
           <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
             <p className="text-sm font-semibold uppercase text-thai-red">Lesson map</p>
-            <ol className="mt-4 space-y-3 text-sm text-slate-700">
-              <li className="rounded-xl bg-thai-cream p-3 font-semibold text-slate-950">1. Sawasdee in real life</li>
-              <li className="rounded-xl bg-slate-50 p-3">2. Wai etiquette</li>
-              <li className="rounded-xl bg-slate-50 p-3">3. Khrap, kha and social tone</li>
-              <li className="rounded-xl bg-slate-50 p-3">4. Quick quiz</li>
+            <ol className="mt-4 space-y-3 text-sm text-tamarind/60">
+              <li className="rounded-xl bg-thai-cream p-3 font-semibold text-tamarind">1. Sawasdee in real life</li>
+              <li className="rounded-xl bg-surface p-3">2. Wai etiquette</li>
+              <li className="rounded-xl bg-surface p-3">3. Khrap, kha and social tone</li>
+              <li className="rounded-xl bg-surface p-3">4. Quick quiz</li>
             </ol>
             <div className="mt-6 rounded-2xl bg-thai-navy p-5 text-white">
               <p className="font-bold">Continue to Week 2</p>
               <p className="mt-2 text-sm leading-6 text-blue-50">Numbers, colors, prices and everyday objects.</p>
-              <Link href="/lessons/week-2" className="mt-4 block w-full rounded-lg bg-thai-gold px-4 py-2 text-center font-semibold text-slate-950 transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <Link href="/lessons/week-2" className="mt-4 block w-full rounded-lg bg-thai-gold px-4 py-2 text-center font-semibold text-tamarind transition hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 Open Week 2 →
               </Link>
             </div>

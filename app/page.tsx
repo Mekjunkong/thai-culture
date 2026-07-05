@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import CheckoutButton from '@/components/checkout/CheckoutButton'
 import Navbar from '@/components/ui/Navbar'
@@ -35,7 +36,7 @@ const curriculum = [
     week: 'Week 3',
     title: 'Ordering food and handling spice levels',
     status: 'Included next',
-    href: '#',
+    href: null,
     situation: 'Lunch at a local shop',
     outcome: 'Order one dish clearly, ask for spice level, and respond naturally when staff answer.',
   },
@@ -43,7 +44,7 @@ const curriculum = [
     week: 'Week 4',
     title: 'Temple, market and local etiquette',
     status: 'Included next',
-    href: '#',
+    href: null,
     situation: 'Moving through daily public life',
     outcome: 'Avoid awkward mistakes and understand the polite behavior locals expect.',
   },
@@ -57,6 +58,35 @@ const included = [
   'Lifetime access to the starter course updates',
 ]
 
+const livePackages = [
+  {
+    name: '30-minute trial',
+    price: '฿199 online / ฿299 in person',
+    detail: 'A friendly level check and first speaking practice for new learners.',
+  },
+  {
+    name: 'Online Thai lesson',
+    price: '฿450 / 60 min',
+    detail: 'Private Zoom or video-call lesson focused on your daily situations.',
+  },
+  {
+    name: 'Chiang Mai in-person lesson',
+    price: '฿600 / 60 min',
+    detail: 'Meet at a cafe or calm local spot and practice real-life Thai together.',
+  },
+  {
+    name: 'Starter Pack',
+    price: '฿990 online / ฿1,290 in person',
+    detail: 'Course access, one private lesson, 50 phrases, and 7 days of WhatsApp voice practice.',
+  },
+]
+
+const seoProof = [
+  'Thai lessons in Chiang Mai for expats and travelers',
+  'Online Thai course with culture notes and audio practice',
+  'Private Thai tutor support by WhatsApp',
+]
+
 export default function HomePage() {
   return (
     <>
@@ -67,49 +97,65 @@ export default function HomePage() {
           <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
             <div>
               <p className="inline-flex min-h-11 items-center rounded-full border border-turmeric/30 bg-surface px-4 py-2 text-sm font-bold text-indigo shadow-sm shadow-tamarind/5">
-                Audio-first Thai culture course · Lifetime access ฿690
+                Learn Thai Chiang Mai · Online + in-person lessons
               </p>
               <h1 className="mt-5 max-w-3xl text-[clamp(2.75rem,7vw,5.9rem)] font-black leading-[0.93] tracking-[-0.065em] text-tamarind text-balance">
-                Learn Thai that feels respectful in real life.
+                Learn Thai for real life in Chiang Mai.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-tamarind/75 text-pretty md:text-xl md:leading-9">
-                A beginner starter course for foreigners in Thailand. Start with practical phrases, then learn the culture behind when and how to use them.
+                Practical Thai lessons and an online course for expats, digital nomads, retirees, and travelers. Learn the useful phrases and the culture behind them.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/lessons/week-1"
-                  className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-semibold text-surface shadow-lg shadow-indigo/20 transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
-                >
-                  Start free lesson
-                </Link>
-                <Link
-                  href="#pricing"
-                  className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-6 py-3 font-semibold text-tamarind shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:border-banana hover:text-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
-                >
-                  See ฿690 course
-                </Link>
-              </div>
-              <dl className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
-                {['Free Week 1', '฿690 lifetime', 'Audio first', 'Culture notes'].map((point) => (
-                  <div key={point} className="rounded-2xl border border-tamarind/10 bg-surface/70 p-3 shadow-sm shadow-tamarind/5">
-                    <dt className="text-xs font-bold uppercase tracking-[0.12em] text-temple">Course</dt>
-                    <dd className="mt-1 text-sm font-semibold text-tamarind">{point}</dd>
-                  </div>
-                ))}
-              </dl>
+              
+                            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                              <Link
+                                href="/lessons/week-1"
+                                className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-semibold text-surface shadow-lg shadow-indigo/20 transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                              >
+                                Try Week 1 free
+                              </Link>
+                              <Link
+                                href="#audio-sample"
+                                className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-6 py-3 font-semibold text-tamarind shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                              >
+                                Hear a sample
+                              </Link>
+                            </div>
+                            <div id="audio-sample" className="mt-6">
+                              <audio controls preload="none" className="w-full max-w-md rounded-xl" aria-label="Sample Thai greeting audio" >
+                                <source src="/assets/audio/week-1-greetings.mp3" type="audio/mpeg" />
+                                Your browser does not support the audio element.
+                              </audio>
+                            </div>
+                            <dl className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+                              {['Free Week 1', 'Private lessons', 'Online course', 'Chiang Mai practice'].map((point) => (
+                                <div key={point} className="rounded-2xl border border-tamarind/10 bg-surface/70 p-3 shadow-sm shadow-tamarind/5">
+                                  <dt className="text-xs font-bold uppercase text-temple">Course</dt>
+                                  <dd className="mt-1 text-sm font-semibold text-tamarind">{point}</dd>
+                                </div>
+                              ))}
+                            </dl>
             </div>
-
             <aside aria-label="Starter course offer" className="relative">
               <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-banana/15 blur-2xl" aria-hidden="true" />
               <div className="relative rounded-[2rem] border border-tamarind/10 bg-surface p-4 shadow-2xl shadow-tamarind/15 md:p-5">
-                <div className="rounded-[1.5rem] bg-indigo p-5 text-surface md:p-6">
-                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-turmeric">Starter course</p>
-                  <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.035em] text-balance">
-                    Pay once. Practice the Thai you need first.
-                  </h2>
-                  <p className="mt-4 max-w-prose leading-7 text-surface/82 text-pretty">
-                    No heavy grammar. No tourist phrase dump. Just beginner Thai, repeated clearly, with the social rules that make it sound natural.
-                  </p>
+                <div className="relative overflow-hidden rounded-[1.5rem] bg-indigo text-surface">
+                  <Image
+                    src="/assets/images/thai-culture-homepage-banner.png"
+                    alt="Notebook, Thai tea, and audio practice setup for learning Thai in a warm local setting"
+                    width={1536}
+                    height={1024}
+                    priority
+                    className="h-72 w-full object-cover md:h-80"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-indigo/88 p-5 md:p-6">
+                    <p className="text-sm font-bold uppercase tracking-[0.14em] text-turmeric">Starter course</p>
+                    <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.035em] text-balance">
+                      Start online, then practice with a real person.
+                    </h2>
+                    <p className="mt-4 max-w-prose leading-7 text-surface/86 text-pretty">
+                      Beginner Thai for food, markets, greetings, prices, and polite daily life in Thailand.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="mt-4 grid gap-3">
@@ -155,7 +201,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid gap-4 md:grid-cols-2">
               {curriculum.map((lesson, index) => {
-                const isLive = lesson.href !== '#'
+                const isLive = Boolean(lesson.href)
                 const card = (
                   <article className="group h-full rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 shadow-sm shadow-tamarind/5 transition duration-200 ease-out hover:-translate-y-0.5 hover:border-turmeric/70 hover:shadow-lg hover:shadow-tamarind/10 md:p-6">
                     <div className="flex items-start justify-between gap-4">
@@ -183,7 +229,7 @@ export default function HomePage() {
                 }
 
                 return (
-                  <Link key={lesson.week} href={lesson.href} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                  <Link key={lesson.week} href={lesson.href ?? '/lessons/week-1'} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
                     {card}
                   </Link>
                 )
@@ -193,39 +239,104 @@ export default function HomePage() {
         </section>
 
         <section id="pricing" className="bg-indigo px-4 py-16 text-surface md:py-20">
-          <div className="mx-auto grid max-w-6xl gap-8 rounded-[2rem] border border-surface/10 bg-[radial-gradient(circle_at_10%_20%,oklch(78%_0.14_84/.16),transparent_32%),oklch(25%_0.11_274)] p-6 shadow-2xl shadow-indigo/30 md:grid-cols-[0.85fr_1.15fr] md:p-10">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Launch offer</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance md:text-5xl">
-                Thai Culture Starter Course
-              </h2>
-              <p className="mt-5 text-6xl font-black tracking-[-0.06em] text-turmeric">฿690</p>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-surface/60">One-time lifetime access</p>
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-8 rounded-[2rem] border border-surface/10 bg-indigo-soft p-6 shadow-2xl shadow-indigo/30 md:grid-cols-[0.82fr_1.18fr] md:p-10">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Online course + live Thai lessons</p>
+                <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance md:text-5xl">
+                  Choose self-study, private practice, or the full Starter Pack.
+                </h2>
+                <p className="mt-5 max-w-xl text-lg leading-8 text-surface/78 text-pretty">
+                  Start free with Week 1. When you are ready, book online or in-person Thai practice in Chiang Mai through WhatsApp.
+                </p>
+                <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-surface/12 bg-surface/8">
+                  <Image
+                    src="/assets/images/thai-culture-homepage-photo.png"
+                    alt="Friendly Thai tutor practicing beginner Thai phrases with an adult learner"
+                    width={1536}
+                    height={1024}
+                    className="h-56 w-full object-cover"
+                  />
+                  <p className="p-4 text-sm font-semibold leading-6 text-surface/78 text-pretty">
+                    Friendly, practical Thai for expats: listen, repeat, roleplay, and use the phrase in a real Chiang Mai situation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                <article className="rounded-[1.5rem] border border-turmeric/40 bg-surface p-5 text-tamarind shadow-lg shadow-tamarind/10">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-sm font-black uppercase tracking-[0.14em] text-temple">Best first offer</p>
+                      <h3 className="mt-2 text-2xl font-black tracking-[-0.025em] text-balance">Thai for Chiang Mai Life — Starter Pack</h3>
+                      <p className="mt-3 leading-7 text-tamarind/70 text-pretty">Course access, one private lesson, 50 useful Thai phrases, and 7 days of WhatsApp voice-note practice.</p>
+                    </div>
+                    <p className="shrink-0 rounded-2xl bg-turmeric px-4 py-3 text-center text-xl font-black text-tamarind">฿990+</p>
+                  </div>
+                  <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <CheckoutButton>Book on WhatsApp</CheckoutButton>
+                    <Link
+                      href="/lessons/week-1"
+                      className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-6 py-3 font-bold text-tamarind transition duration-200 ease-out hover:-translate-y-0.5 hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                    >
+                      Try Week 1 free
+                    </Link>
+                    <a
+                      href="/products/50-thai-phrases-chiang-mai.pdf"
+                      className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-6 py-3 font-bold text-tamarind transition duration-200 ease-out hover:-translate-y-0.5 hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                    >
+                      Download free PDF
+                    </a>
+                  </div>
+                </article>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {livePackages.map((item) => (
+                    <article key={item.name} className="rounded-[1.25rem] border border-surface/10 bg-surface/8 p-4">
+                      <h3 className="text-lg font-black text-surface text-balance">{item.name}</h3>
+                      <p className="mt-2 text-xl font-black text-turmeric">{item.price}</p>
+                      <p className="mt-2 text-sm leading-6 text-surface/72 text-pretty">{item.detail}</p>
+                    </article>
+                  ))}
+                </div>
+
+                <article className="rounded-[1.25rem] border border-surface/10 bg-surface/8 p-4">
+                  <h3 className="text-lg font-black text-surface">Self-study online course</h3>
+                  <p className="mt-2 text-3xl font-black text-turmeric">฿690 lifetime access</p>
+                  <ul className="mt-4 grid gap-2 text-sm leading-6 text-surface/78 sm:grid-cols-2">
+                    {included.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-turmeric" aria-hidden="true">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
             </div>
-            <div className="md:pt-2">
-              <p className="max-w-2xl text-lg leading-8 text-surface/78 text-pretty">
-                Start with Week 1 free. Upgrade when you want the full audio-first starter path for daily Thai confidence.
+          </div>
+        </section>
+
+        <section className="bg-jasmine px-4 py-14 md:py-16">
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[0.7fr_1fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-temple">Why learn with us</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-tamarind text-balance">
+                Learn Thai with the local context that makes the words feel natural.
+              </h2>
+            </div>
+            <div className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm shadow-tamarind/5">
+              <p className="text-lg leading-8 text-tamarind/72 text-pretty">
+                Learn Thai Chiang Mai is built for real daily life: polite greetings, food orders, market prices, simple conversation, and the small cultural details that help foreigners feel more comfortable in Thailand.
               </p>
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                {included.map((item) => (
-                  <li key={item} className="flex gap-3 rounded-2xl border border-surface/10 bg-surface/8 p-3 text-sm leading-6 text-surface/82">
-                    <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-turmeric text-[0.68rem] font-black text-tamarind" aria-hidden="true">✓</span>
+              <ul className="mt-5 grid gap-3">
+                {seoProof.map((item) => (
+                  <li key={item} className="flex gap-3 rounded-2xl bg-jasmine p-3 text-sm font-semibold text-tamarind/75">
+                    <span className="text-temple" aria-hidden="true">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-start">
-                <CheckoutButton>Unlock lifetime access — ฿690</CheckoutButton>
-                <Link
-                  href="/lessons/week-1"
-                  className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-surface/18 px-6 py-3 font-bold text-surface transition duration-200 ease-out hover:-translate-y-0.5 hover:border-turmeric hover:text-turmeric focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface"
-                >
-                  Try Week 1 free
-                </Link>
-              </div>
-              <p className="mt-4 text-sm leading-6 text-surface/60">
-                Checkout currently starts through WhatsApp/manual payment so the course can sell before Stripe is fully configured. Video lessons can be added later; this version is intentionally audio-first.
-              </p>
             </div>
           </div>
         </section>

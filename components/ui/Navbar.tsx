@@ -4,7 +4,7 @@ import AuthStatus from '@/components/auth/AuthStatus'
 const navItems = [
   { href: '/lessons/week-1', label: 'Free lesson' },
   { href: '/#curriculum', label: 'Curriculum' },
-  { href: '/#pricing', label: 'Pricing' },
+  { href: '/#pricing', label: 'Lessons & pricing' },
 ]
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link href="/" className="flex min-h-11 items-center gap-2 text-lg font-black tracking-[-0.02em] text-balance focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-jasmine text-base shadow-inner" aria-hidden="true">ไทย</span>
-          <span>Thai Culture & Language</span>
+          <span>Learn Thai Chiang Mai</span>
         </Link>
 
         <div className="hidden items-center gap-6 text-sm font-semibold md:flex">
@@ -27,7 +27,7 @@ export default function Navbar() {
             href="/#pricing"
             className="inline-flex min-h-11 items-center rounded-xl bg-indigo px-4 py-2 font-bold text-surface transition hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
           >
-            Get ฿690 access
+            Book Thai lesson
           </Link>
         </div>
       </div>

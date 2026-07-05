@@ -60,21 +60,21 @@ export default function Week2Page() {
   return (
     <>
       <Navbar />
-      <main className="bg-slate-50 px-4 py-10 md:py-14">
+      <main className="bg-jasmine px-4 py-10 md:py-14 text-tamarind">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
-            <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <section className="rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
               <Link href="/" className="text-sm font-semibold text-thai-navy hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
                 ← Back to course overview
               </Link>
               <div className="mt-6">
                 <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
-                  Week 2 · MVP lesson
+                  Week 2 · Beginner lesson
                 </span>
-                <h1 className="mt-4 text-4xl font-bold leading-tight text-slate-950 text-balance md:text-5xl">
+                <h1 className="mt-4 text-4xl font-bold leading-tight text-tamarind text-balance md:text-5xl">
                   Numbers, Prices, Colors & Everyday Objects
                 </h1>
-                <p className="mt-4 text-slate-600 text-pretty">
+                <p className="mt-4 text-tamarind/70 text-pretty">
                   Estimated time: <strong>30 min</strong> · Level: <strong>Absolute Beginner</strong>
                 </p>
               </div>
@@ -86,8 +86,8 @@ export default function Week2Page() {
                   <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
                     Audio-first module
                   </span>
-                  <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-slate-950 text-balance">Numbers you can hear in real shops</h2>
-                  <p className="mt-2 max-w-2xl text-slate-600 text-pretty">
+                  <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-tamarind text-balance">Numbers you can hear in real shops</h2>
+                  <p className="mt-2 max-w-2xl text-tamarind/70 text-pretty">
                     Two real MP3 practice tracks are ready: one for numbers and one for market phrases. Listen once, repeat slowly, then try the quiz.
                   </p>
                 </div>
@@ -96,16 +96,15 @@ export default function Week2Page() {
               <div className="mt-5 flex flex-col gap-3">
                 <AudioPlayer src="/assets/audio/week-2-numbers.mp3" label="Thai numbers 0–10 — slow repeat practice" />
                 <AudioPlayer src="/assets/audio/week-2-market-phrases.mp3" label="Price questions — an nii thao-rai khrap/kha" />
-                <AudioPlayer label="Bonus practice slot — colors and daily objects" />
               </div>
             </section>
 
-            <article className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <article className="mt-6 rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
               <MarkdownContent content={content} />
             </article>
 
-            <section aria-labelledby="quiz-heading" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <h2 id="quiz-heading" className="text-2xl font-bold text-slate-950 text-balance">
+            <section aria-labelledby="quiz-heading" className="mt-6 rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
+              <h2 id="quiz-heading" className="text-2xl font-bold text-tamarind text-balance">
                 Check your understanding
               </h2>
               <div className="mt-6">
@@ -116,17 +115,17 @@ export default function Week2Page() {
 
           <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
             <p className="text-sm font-semibold uppercase text-thai-red">Lesson map</p>
-            <ol className="mt-4 space-y-3 text-sm text-slate-700">
-              <li className="rounded-xl bg-thai-cream p-3 font-semibold text-slate-950">1. Numbers 0–10</li>
-              <li className="rounded-xl bg-slate-50 p-3">2. Building 11–100</li>
-              <li className="rounded-xl bg-slate-50 p-3">3. Prices and shopping phrases</li>
-              <li className="rounded-xl bg-slate-50 p-3">4. Colors and everyday objects</li>
-              <li className="rounded-xl bg-slate-50 p-3">5. Quick quiz</li>
+            <ol className="mt-4 space-y-3 text-sm text-tamarind/60">
+              <li className="rounded-xl bg-thai-cream p-3 font-semibold text-tamarind">1. Numbers 0–10</li>
+              <li className="rounded-xl bg-surface p-3">2. Building 11–100</li>
+              <li className="rounded-xl bg-surface p-3">3. Prices and shopping phrases</li>
+              <li className="rounded-xl bg-surface p-3">4. Colors and everyday objects</li>
+              <li className="rounded-xl bg-surface p-3">5. Quick quiz</li>
             </ol>
             <div className="mt-6 rounded-2xl bg-thai-navy p-5 text-white">
               <p className="font-bold">Next: Week 3</p>
               <p className="mt-2 text-sm leading-6 text-blue-50">Ordering food, spice levels and café Thai.</p>
-              <CheckoutButton className="mt-4 w-full rounded-lg bg-thai-gold px-4 py-2 font-semibold text-slate-950 transition hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <CheckoutButton className="mt-4 w-full rounded-lg bg-thai-gold px-4 py-2 font-semibold text-tamarind transition hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 Unlock lifetime access — ฿690
               </CheckoutButton>
             </div>
