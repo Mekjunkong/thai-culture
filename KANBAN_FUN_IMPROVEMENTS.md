@@ -19,7 +19,7 @@ A beginner expat should be able to open the site, complete one mission in 3–5 
 |---|---|---|
 | Too much text before action | Beginner expats feel like they are studying in a classroom | Start with a situation and one small challenge |
 | Phrase tables feel like reference notes | Useful, but boring and easy to forget | Use interactive phrase cards and choices |
-| Not enough audio-first learning | Thai pronunciation cannot be learned from romanization only | Listen → repeat → reveal text |
+| Browser Thai voices sound terrible | Robotic/wrong pronunciation can teach bad habits and reduce trust | Use human audio or voice-note correction; treat browser TTS as optional only |
 | Lessons feel like curriculum weeks | Sounds academic and slow | Rename as missions with clear outcomes |
 | PDF feels like a phrase list | Useful but not exciting | Convert to a 7-day challenge booklet |
 | Live lesson room is functional but flat | Teacher can use it, but it needs more energy | Add roleplay randomizer, scores, and reports |
@@ -40,7 +40,7 @@ A beginner expat should be able to open the site, complete one mission in 3–5 
 
 1. Build one polished interactive mission first: **Order Coffee in Chiang Mai**
 2. Convert homepage/lessons to mission cards
-3. Add audio-first practice
+3. Add high-quality human audio practice
 4. Convert PDF into challenge booklet
 5. Make live teaching room playful
 6. Market the free mission
@@ -83,11 +83,12 @@ As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel 
    - Example: `ขอกาแฟเย็นหวานน้อยครับ`
    - Show meaning: “I’d like iced coffee, less sweet, please.”
 
-5. **Listen and repeat**
-   - Slow audio placeholder
-   - Natural audio placeholder
+5. **Practice pronunciation**
+   - Browser voice must be optional and clearly labeled as a rough computer demo
+   - Add rhythm/chunk cards so learners can practice without bad robot voices
+   - Main pronunciation CTA: send a real WhatsApp voice note to Mike
    - Checklist:
-     - [ ] I listened
+     - [ ] I checked the pronunciation guide
      - [ ] I repeated 3 times
      - [ ] I can say it without looking
 
@@ -111,7 +112,8 @@ As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel 
 - [x] Add sweetness choice buttons
 - [x] Generate phrase based on selected choices
 - [x] Add polite particle toggle: `ครับ` / `ค่ะ`
-- [x] Add slow/natural audio placeholders
+- [x] Replace bad default browser voice with safer Thai-voice detection and optional computer demo labels
+- [x] Add pronunciation warning and rhythm/chunk practice cards
 - [x] Add repeat-3-times checklist using browser state
 - [x] Add roleplay quiz with staff prompt
 - [x] Add completion badge
@@ -139,7 +141,8 @@ As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel 
 
 ### Shipped notes
 
-- Built as interactive client page with choices, phrase builder, speech-synthesis playback, quiz, progress, localStorage completion, and WhatsApp CTA.
+- Built as interactive client page with choices, phrase builder, optional Thai speech-synthesis demo, rhythm/chunk practice cards, quiz, progress, localStorage completion, and WhatsApp CTA.
+- Improved after critique that the computer voices sounded terrible: browser TTS is no longer presented as the main learning voice; the page now prioritizes speak-out-loud practice and human WhatsApp correction.
 - Local verification passed: `npm run lint`, `npm run build`, and HTTP checks for `/` + `/missions/order-coffee`.
 
 ---

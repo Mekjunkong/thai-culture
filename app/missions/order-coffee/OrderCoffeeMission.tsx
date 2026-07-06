@@ -34,9 +34,23 @@ const sweetnessLevels: Sweetness[] = [
 const steps = [
   'Pick a drink',
   'Pick sweetness',
-  'Listen and repeat',
+  'Practice out loud',
   'Answer cafe staff',
 ]
+
+function chooseBestThaiVoice(voices: SpeechSynthesisVoice[]) {
+  const thaiVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('th'))
+  if (thaiVoices.length === 0) return null
+
+  const preferredNames = ['google', 'microsoft', 'premwadee', 'kanya', 'narisa', 'thai']
+  return [...thaiVoices].sort((a, b) => {
+    const score = (voice: SpeechSynthesisVoice) => preferredNames.reduce(
+      (total, keyword, index) => total + (voice.name.toLowerCase().includes(keyword) ? 20 - index : 0),
+      voice.localService ? 3 : 0,
+    )
+    return score(b) - score(a)
+  })[0]
+}
 
 export default function OrderCoffeeMission() {
   const [drinkId, setDrinkId] = useState(drinks[0].id)
@@ -45,6 +59,9 @@ export default function OrderCoffeeMission() {
   const [checks, setChecks] = useState({ listened: false, repeated: false, noLook: false })
   const [quizChoice, setQuizChoice] = useState<string | null>(null)
   const [completed, setCompleted] = useState(false)
+  const [thaiVoiceName, setThaiVoiceName] = useState<string | null>(null)
+  const [speechReady, setSpeechReady] = useState(false)
+  const [audioMessage, setAudioMessage] = useState('')
 
   const drink = drinks.find((item) => item.id === drinkId) ?? drinks[0]
   const sweetness = sweetnessLevels.find((item) => item.id === sweetnessId) ?? sweetnessLevels[1]
@@ -82,6 +99,23 @@ export default function OrderCoffeeMission() {
   }, [])
 
   useEffect(() => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      setSpeechReady(true)
+      return
+    }
+
+    const loadVoices = () => {
+      const voice = chooseBestThaiVoice(window.speechSynthesis.getVoices())
+      setThaiVoiceName(voice?.name ?? null)
+      setSpeechReady(true)
+    }
+
+    loadVoices()
+    window.speechSynthesis.addEventListener('voiceschanged', loadVoices)
+    return () => window.speechSynthesis.removeEventListener('voiceschanged', loadVoices)
+  }, [])
+
+  useEffect(() => {
     if (canComplete) {
       window.localStorage.setItem('tlcm-order-coffee-complete', 'true')
       setCompleted(true)
@@ -90,12 +124,22 @@ export default function OrderCoffeeMission() {
 
   function speak(speed: 'slow' | 'natural') {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
+    const selectedVoice = chooseBestThaiVoice(window.speechSynthesis.getVoices())
+
+    if (!selectedVoice) {
+      setAudioMessage('This browser does not have a good Thai voice. Skip the robot audio and use the speak-out-loud cards below, then send Mike a real voice note for correction.')
+      return
+    }
+
     window.speechSynthesis.cancel()
     const utterance = new SpeechSynthesisUtterance(phrase)
-    utterance.lang = 'th-TH'
-    utterance.rate = speed === 'slow' ? 0.72 : 0.95
-    utterance.pitch = 1
+    utterance.voice = selectedVoice
+    utterance.lang = selectedVoice.lang || 'th-TH'
+    utterance.rate = speed === 'slow' ? 0.68 : 0.88
+    utterance.pitch = 0.96
     window.speechSynthesis.speak(utterance)
+    setThaiVoiceName(selectedVoice.name)
+    setAudioMessage(`Computer audio: ${selectedVoice.name}. Real Thai pronunciation still needs a human voice-note correction.`)
     setChecks((current) => ({ ...current, listened: true }))
   }
 
@@ -216,18 +260,55 @@ export default function OrderCoffeeMission() {
                 <p className="mt-2 text-surface/78">{meaning}</p>
               </div>
 
+              <div className="mt-5 rounded-2xl border border-turmeric/30 bg-banana/10 p-4 text-sm leading-6 text-tamarind/75">
+                <p className="font-black text-tamarind">Pronunciation note</p>
+                <p>
+                  Browser Thai voices can sound robotic or wrong. Use them only as an optional rough demo.
+                  The main practice is: read the rhythm cards, speak out loud, then send a real voice note for correction.
+                </p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-temple">
+                  {speechReady && thaiVoiceName ? `Optional browser voice: ${thaiVoiceName}` : 'No reliable Thai browser voice detected'}
+                </p>
+              </div>
+
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 <button type="button" onClick={() => speak('slow')} className="rounded-2xl bg-banana px-5 py-4 font-black text-tamarind transition hover:-translate-y-0.5">
-                  🔊 Listen slow
+                  🔊 Optional computer demo — slow
                 </button>
                 <button type="button" onClick={() => speak('natural')} className="rounded-2xl border border-tamarind/10 bg-jasmine px-5 py-4 font-black text-tamarind transition hover:-translate-y-0.5 hover:border-turmeric">
-                  🗣️ Listen natural
+                  🗣️ Optional computer demo — natural
                 </button>
+              </div>
+
+              {audioMessage && (
+                <p className="mt-3 rounded-2xl bg-jasmine p-4 text-sm font-semibold leading-6 text-tamarind/70">
+                  {audioMessage}
+                </p>
+              )}
+
+              <div className="mt-5 grid gap-3 rounded-[1.5rem] bg-jasmine p-4 sm:grid-cols-3">
+                <div className="rounded-2xl bg-surface p-4">
+                  <p className="text-xs font-black uppercase tracking-[0.12em] text-temple">Chunk 1</p>
+                  <p className="mt-2 text-2xl font-black text-indigo">ขอ {drink.thai}</p>
+                  <p className="text-sm text-tamarind/60">khǎaw {drink.roman}</p>
+                </div>
+                {!isWater && (
+                  <div className="rounded-2xl bg-surface p-4">
+                    <p className="text-xs font-black uppercase tracking-[0.12em] text-temple">Chunk 2</p>
+                    <p className="mt-2 text-2xl font-black text-indigo">{sweetness.thai}</p>
+                    <p className="text-sm text-tamarind/60">{sweetness.roman}</p>
+                  </div>
+                )}
+                <div className="rounded-2xl bg-surface p-4">
+                  <p className="text-xs font-black uppercase tracking-[0.12em] text-temple">Polite ending</p>
+                  <p className="mt-2 text-2xl font-black text-indigo">{particle}</p>
+                  <p className="text-sm text-tamarind/60">{particle === 'ครับ' ? 'khrap' : 'kha'}</p>
+                </div>
               </div>
 
               <div className="mt-5 grid gap-3">
                 {([
-                  ['listened', 'I listened to the phrase'],
+                  ['listened', 'I checked the pronunciation guide'],
                   ['repeated', 'I repeated it 3 times'],
                   ['noLook', 'I can say it without looking'],
                 ] as const).map(([key, label]) => (
