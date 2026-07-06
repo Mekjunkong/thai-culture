@@ -1,103 +1,117 @@
-# Week 2: Numbers, Prices, Colors & Everyday Objects
+# Week 2: Numbers, Prices, Colors & Market Thai
 
 ## Goal
-By the end of this lesson, you should be able to count from 0–100, recognize common price phrases, name basic colors, and ask simple shopping questions politely.
+By the end of this lesson you can ask prices, understand common numbers, buy one or two items, and avoid awkward bargaining mistakes.
 
-## Lesson 1 — Thai numbers 0–10
+You will learn:
 
-Thai numbers are practical immediately: markets, taxis, room numbers, phone numbers, prices, and time.
+- numbers 0–100
+- the special Thai forms for 20 and final 1
+- how prices sound in real markets
+- how to ask, buy, decline, and ask for a bag
+- when bargaining is normal and when it is not
 
-| Number | Thai script | Romanization | Pronunciation note |
+## 1. Numbers 0–10
+
+| Number | Thai script | Romanization | Sound cue |
 |---:|---|---|---|
-| 0 | ศูนย์ | soon | long **oo** sound |
-| 1 | หนึ่ง | neung | often becomes **et** in 11, 21, 31… |
-| 2 | สอง | song | rising tone |
-| 3 | สาม | saam | long **aa** |
-| 4 | สี่ | sii | long **ii** |
-| 5 | ห้า | haa | also used online as laughter: 555 |
-| 6 | หก | hok | short and clipped |
-| 7 | เจ็ด | jet | like “jet” |
-| 8 | แปด | bpaaet | unaspirated b/p sound |
-| 9 | เก้า | gao | falling tone |
-| 10 | สิบ | sip | used for teens and tens |
+| 0 | ศูนย์ | sǔun | soon |
+| 1 | หนึ่ง | nèung | one |
+| 2 | สอง | sǎawng | song, but longer |
+| 3 | สาม | sǎam | saam |
+| 4 | สี่ | sìi | see |
+| 5 | ห้า | hâa | ha — 555 = hahaha |
+| 6 | หก | hòk | hok |
+| 7 | เจ็ด | jèt | jet |
+| 8 | แปด | bpàaet | between b and p |
+| 9 | เก้า | gâo | gao |
+| 10 | สิบ | sìp | sip |
 
-> Culture note: Thai people often type **555** because the number 5 is pronounced **ha**. So 555 = hahaha.
+## 2. Building bigger prices
 
-## Lesson 2 — Building 11–100
+| Price | Thai | Romanization |
+|---:|---|---|
+| 11 | สิบเอ็ด | sìp-èt |
+| 20 | ยี่สิบ | yîi-sìp |
+| 21 | ยี่สิบเอ็ด | yîi-sìp-èt |
+| 30 | สามสิบ | sǎam-sìp |
+| 40 | สี่สิบ | sìi-sìp |
+| 50 | ห้าสิบ | hâa-sìp |
+| 100 | หนึ่งร้อย | nèung-ráawy |
+| 150 | หนึ่งร้อยห้าสิบ | nèung-ráawy hâa-sìp |
 
-Thai numbers are mostly logical once you know the pattern.
+Two patterns matter most:
 
-| Thai | Romanization | Meaning |
-|---|---|---|
-| สิบเอ็ด | sip et | 11 |
-| สิบสอง | sip song | 12 |
-| ยี่สิบ | yii sip | 20 |
-| ยี่สิบเอ็ด | yii sip et | 21 |
-| สามสิบ | saam sip | 30 |
-| หนึ่งร้อย | neung roi | 100 |
+- **20** is **ยี่สิบ**, not “สองสิบ”.
+- A final **1** becomes **เอ็ด**: 11, 21, 31, 101.
 
-Two important changes:
+## 3. Market phrases
 
-- **20** is **ยี่สิบ** (*yii sip*), not *song sip*.
-- Final **1** becomes **เอ็ด** (*et*) after ten: 11, 21, 31, etc.
+| Situation | Thai script | Romanization | Meaning |
+|---|---|---|---|
+| Ask price | อันนี้เท่าไหร่ครับ / คะ | an-níi thâo-rài khrap/kha? | How much is this? |
+| Buy one | เอาหนึ่งอันครับ / ค่ะ | ao nèung an khrap/kha | I will take one. |
+| Buy two | เอาสองอันครับ / ค่ะ | ao sǎawng an khrap/kha | I will take two. |
+| Ask for discount | ลดได้ไหมครับ / คะ | lót dâai mái khrap/kha? | Can you discount? |
+| Decline politely | ไม่เอา ขอบคุณครับ / ค่ะ | mâi ao, khàawp-khun khrap/kha | I do not want it, thank you. |
+| Ask for bag | มีถุงไหมครับ / คะ | mii thǔng mái khrap/kha? | Do you have a bag? |
 
-## Lesson 3 — Prices and shopping phrases
+## 4. Bargaining culture
 
-These are useful at markets, cafés, street food stalls, and transport counters.
+Bargaining is okay in:
 
-| Thai phrase | Romanization | Meaning |
-|---|---|---|
-| ราคาเท่าไหร่ครับ/คะ | raa-khaa thao-rai khrap/kha | How much is it? |
-| อันนี้เท่าไหร่ครับ/คะ | an nii thao-rai khrap/kha | How much is this one? |
-| แพงไป | phaeng bpai | Too expensive |
-| ลดได้ไหมครับ/คะ | lot dai mai khrap/kha | Can you discount? |
-| เอาอันนี้ครับ/ค่ะ | ao an nii khrap/kha | I’ll take this one |
+- tourist markets
+- clothes/souvenir stalls
+- some local markets without printed prices
 
-Use bargaining carefully. It is normal in some markets, but not in convenience stores, malls, cafés, or places with printed prices.
+Do not bargain in:
 
-## Lesson 4 — Basic colors
+- cafes and restaurants
+- convenience stores
+- supermarkets and malls
+- places with fixed printed prices
 
-| Thai script | Romanization | Meaning |
-|---|---|---|
-| สีแดง | sii daeng | red |
-| สีเหลือง | sii leuang | yellow |
-| สีเขียว | sii khiao | green |
-| สีฟ้า | sii faa | light blue / sky blue |
-| สีน้ำเงิน | sii naam ngoen | dark blue |
-| สีดำ | sii dam | black |
-| สีขาว | sii khaao | white |
+Better beginner phrase than “too expensive”:
 
-The word **สี** (*sii*) means color. Thai usually says “color red” instead of just “red.”
+**ลดได้นิดหน่อยไหมครับ / คะ**  
+*lót dâai nít-nòi mái khrap/kha?*  
+Can you discount a little?
 
-## Lesson 5 — Everyday objects
+## 5. Mini dialogue: buying mangoes
 
-| Thai script | Romanization | Meaning |
-|---|---|---|
-| น้ำ | naam | water |
-| กาแฟ | gaa-fae | coffee |
-| ข้าว | khaao | rice / meal |
-| โทรศัพท์ | tho-ra-sap | phone |
-| กระเป๋า | gra-bpao | bag |
-| เสื้อ | seua | shirt |
-| รองเท้า | rong-thao | shoes |
+**Student:** สวัสดีครับ อันนี้เท่าไหร่ครับ  
+*sà-wàt-dii khrap, an-níi thâo-rài khrap?*  
+Hello, how much is this?
 
-## Mini conversation — at a market
+**Seller:** ห้าสิบบาทค่ะ  
+*hâa-sìp bàat kha*  
+50 baht.
 
-**A:** สวัสดีครับ อันนี้เท่าไหร่ครับ  
-*sawasdee khrap, an nii thao-rai khrap*  
-Hello, how much is this one?
+**Student:** เอาสองอันครับ มีถุงไหมครับ  
+*ao sǎawng an khrap, mii thǔng mái khrap?*  
+I will take two. Do you have a bag?
 
-**B:** หนึ่งร้อยบาทค่ะ  
-*neung roi baat kha*  
-100 baht.
+**Seller:** มีค่ะ  
+*mii kha*  
+Yes.
 
-**A:** เอาอันนี้ครับ ขอบคุณครับ  
-*ao an nii khrap, khob khun khrap*  
-I’ll take this one, thank you.
+**Student:** ขอบคุณครับ  
+*khàawp-khun khrap*  
+Thank you.
 
-## Practice challenge
+## 6. Listening practice with prices
 
-1. Count out loud from 1 to 10 three times.
-2. Ask: **อันนี้เท่าไหร่ครับ/คะ** — how much is this one?
-3. Say three colors around you using **สี + color**.
-4. Take the quiz below.
+Ask your teacher to say these prices in random order. You write the number.
+
+- 20 บาท
+- 35 บาท
+- 50 บาท
+- 80 บาท
+- 100 บาท
+- 150 บาท
+
+## 7. Real-life mission
+
+1. Ask a price using **อันนี้เท่าไหร่ครับ/คะ**.
+2. Buy one item using **เอาหนึ่งอันครับ/ค่ะ**.
+3. Send your teacher a voice note saying three prices in Thai.

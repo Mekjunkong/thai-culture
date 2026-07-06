@@ -35,26 +35,26 @@ const curriculum = [
   {
     week: 'Week 3',
     title: 'Ordering food and handling spice levels',
-    status: 'Included next',
-    href: null,
+    status: 'Full lesson',
+    href: '/lessons/week-3',
     situation: 'Lunch at a local shop',
     outcome: 'Order one dish clearly, ask for spice level, and respond naturally when staff answer.',
   },
   {
     week: 'Week 4',
     title: 'Temple, market and local etiquette',
-    status: 'Included next',
-    href: null,
+    status: 'Full lesson',
+    href: '/lessons/week-4',
     situation: 'Moving through daily public life',
     outcome: 'Avoid awkward mistakes and understand the polite behavior locals expect.',
   },
 ]
 
 const included = [
-  '4 beginner modules built around real Thailand situations',
-  'Audio-first phrase practice and pronunciation prompts',
+  '4 complete beginner modules with dialogues, drills, scripts and homework',
+  'Audio-first phrase practice, speaking drills and printable lesson sheets',
   'Cultural explanations in normal English',
-  'Quick quizzes to check understanding',
+  'Quick quizzes, real-life missions and teacher correction prompts',
   'Lifetime access to the starter course updates',
 ]
 
@@ -150,10 +150,10 @@ export default function HomePage() {
                   <div className="absolute inset-x-0 bottom-0 bg-indigo/88 p-5 md:p-6">
                     <p className="text-sm font-bold uppercase tracking-[0.14em] text-turmeric">Starter course</p>
                     <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.035em] text-balance">
-                      Start online, then practice with a real person.
+                      A real starter course, not just a phrase list.
                     </h2>
                     <p className="mt-4 max-w-prose leading-7 text-surface/86 text-pretty">
-                      Beginner Thai for food, markets, greetings, prices, and polite daily life in Thailand.
+                      Four complete beginner modules for greetings, prices, food, transport, temples, markets and polite local life in Chiang Mai.
                     </p>
                   </div>
                 </div>

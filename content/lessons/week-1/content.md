@@ -1,65 +1,102 @@
-# Week 1: Greetings & Politeness Particles
+# Week 1: Greetings, Wai & Politeness Particles
 
 ## Goal
-By the end of this lesson, you should be able to greet someone politely, choose the right ending particle for your speaker identity, and understand why Thai greetings are about relationship and respect — not just vocabulary.
+By the end of this lesson you can walk into a cafe, hotel, market, condo lobby, or coworking space and greet people politely without sounding stiff or rude.
 
-## Lesson 1 — Sawasdee (สวัสดี)
+You will learn:
 
-**สวัสดี** (*sawasdee*) is the standard Thai greeting. It can mean **hello**, **goodbye**, or **good day** depending on context.
+- how to say hello and goodbye naturally
+- when a wai is expected, optional, or too formal
+- how **khrap / kha / ka** changes the feeling of your sentence
+- how to introduce yourself as a beginner Thai speaker
+- how to recover politely when you do not understand
 
-| Thai script | Romanization | Meaning | Natural use |
+## 1. Core phrases for day one
+
+| Situation | Thai script | Romanization | Natural English |
 |---|---|---|---|
-| สวัสดีครับ | sawasdee khrap | Hello / goodbye | Male speaker, polite |
-| สวัสดีค่ะ | sawasdee kha | Hello / goodbye | Female speaker, polite statement |
-| สวัสดีครับ/ค่ะ | sawasdee khrap/kha | Hello | Safe default for shops, hotels, elders |
-| สบายดีไหม | sabaai dii mai | How are you? | Friendly follow-up |
-| สบายดี | sabaai dii | I am fine | Simple answer |
+| Hello / goodbye | สวัสดีครับ / ค่ะ | sà-wàt-dii khrap / kha | Hello / goodbye politely |
+| Thank you | ขอบคุณครับ / ค่ะ | khàawp-khun khrap / kha | Thank you |
+| Excuse me / sorry | ขอโทษครับ / ค่ะ | khǎaw-thôot khrap / kha | Sorry / excuse me |
+| No problem | ไม่เป็นไรครับ / ค่ะ | mâi bpen rai khrap / kha | It is okay / no worries |
+| I speak a little Thai | ผม/ฉันพูดไทยนิดหน่อย | phǒm/chǎn phûut Thai nít-nòi | I speak a little Thai |
+| Please speak slowly | พูดช้าๆ ได้ไหมครับ / คะ | phûut cháa-cháa dâai mái khrap / kha? | Can you speak slowly? |
 
-> Practical tip: if you remember only one thing, say **sawasdee + your politeness particle**. That already sounds much better than using English only.
+**Teacher note:** Do not overload the student with tones first. Make them useful and polite first, then correct one sound at a time.
 
-## Cultural note — The wai (ไหว้)
+## 2. The wai: what foreigners actually need
 
-The **wai** is the Thai greeting gesture: palms together, slight bow. It communicates respect, not just hello.
+The **wai** is not just “Thai handshake.” It shows respect and relationship.
 
-- **Peers / casual situations:** hands around chest or lower face
-- **Older people / teachers / respected people:** hands closer to nose or forehead
-- **Monks / sacred places:** hands higher, slower and more formal
+Use a small wai when:
 
-You do not need to wai everyone first. In shops, restaurants, hotels, and casual modern settings, a smile plus **sawasdee khrap/kha** is often enough.
+- greeting an older person, teacher, host, or formal service worker
+- entering a massage shop, clinic, temple, or official place
+- someone wai-s you first and you want to respond politely
 
-## Lesson 2 — Politeness particles
+Usually no wai needed when:
 
-Thai uses sentence-ending particles to show politeness and social warmth.
+- ordering at a busy street food stall
+- paying a cashier in 7-Eleven
+- talking casually with younger staff
+- dealing with Grab drivers or delivery riders
 
-| Particle | Common user | Example | Meaning |
+> Safe beginner rule: smile, say **sawasdee khrap/kha**, and copy the level of formality from the Thai person.
+
+## 3. Khrap, kha and ka
+
+| Particle | Common use | Example | Feeling |
 |---|---|---|---|
-| ครับ | khrap | ขอบคุณครับ | Thank you, male speaker |
-| ค่ะ | kha | ขอบคุณค่ะ | Thank you, female speaker statement |
-| คะ | kha | ไปไหนคะ | Question particle, female speaker |
+| ครับ khrap | male speaker | ขอบคุณครับ | polite, respectful |
+| ค่ะ kha | female speaker statement | ขอบคุณค่ะ | polite statement |
+| คะ kha/ka | female speaker question | เท่าไหร่คะ | polite question |
 
-These particles are small, but they change the whole feeling of a sentence. Without them, beginners can sound too direct in formal situations.
+For foreign learners, the big mistake is not pronunciation — it is forgetting the particle in situations where you want to sound warm and respectful.
 
-## Lesson 3 — Mini conversation
+## 4. Mini dialogue: condo lobby
 
-**A:** สวัสดีครับ — *sawasdee khrap* — Hello.  
-**B:** สวัสดีค่ะ — *sawasdee kha* — Hello.  
-**A:** สบายดีไหมครับ — *sabaai dii mai khrap* — How are you?  
-**B:** สบายดีค่ะ ขอบคุณค่ะ — *sabaai dii kha, khob khun kha* — I am fine, thank you.
+**Staff:** สวัสดีค่ะ  
+*sà-wàt-dii kha*  
+Hello.
 
-## Essential vocabulary
+**Student:** สวัสดีครับ ผมพูดไทยนิดหน่อย  
+*sà-wàt-dii khrap, phǒm phûut Thai nít-nòi*  
+Hello. I speak a little Thai.
 
-- **ขอบคุณ** (*khob khun*) — thank you
-- **ขอโทษ** (*kho thot*) — sorry / excuse me
-- **ใช่** (*chai*) — yes / correct
-- **ไม่ใช่** (*mai chai*) — no / not correct
-- **ไม่เป็นไร** (*mai pen rai*) — no worries / never mind / it is okay
+**Staff:** ได้ค่ะ  
+*dâai kha*  
+Okay.
 
-## Practice challenge
+**Student:** พูดช้าๆ ได้ไหมครับ  
+*phûut cháa-cháa dâai mái khrap?*  
+Can you speak slowly?
 
-Say these out loud three times:
+**Staff:** ได้ค่ะ ไม่เป็นไรค่ะ  
+*dâai kha, mâi bpen rai kha*  
+Yes, no problem.
 
-1. **สวัสดีครับ / สวัสดีค่ะ** — hello
-2. **ขอบคุณครับ / ขอบคุณค่ะ** — thank you
-3. **ไม่เป็นไรครับ / ไม่เป็นไรค่ะ** — no worries
+## 5. Pronunciation drills
 
-Then take the quiz below.
+Repeat each line 5 times. Keep it slow.
+
+1. สวัสดีครับ — sà-wàt-dii khrap
+2. สวัสดีค่ะ — sà-wàt-dii kha
+3. ขอบคุณครับ — khàawp-khun khrap
+4. ขอโทษครับ — khǎaw-thôot khrap
+5. ไม่เป็นไรครับ — mâi bpen rai khrap
+
+## 6. Real-life mission
+
+Before the next lesson, do these three things in Chiang Mai or online:
+
+1. Say **sawasdee khrap/kha** to one service worker.
+2. Say **khàawp-khun khrap/kha** after paying.
+3. Send your teacher a voice note with these three phrases.
+
+## 7. Quick self-check
+
+Can you answer these?
+
+- What phrase means “I speak a little Thai”?
+- When is a wai not necessary?
+- What should you say when someone speaks too fast?
