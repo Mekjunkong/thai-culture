@@ -2,8 +2,8 @@ import Link from 'next/link'
 import AuthStatus from '@/components/auth/AuthStatus'
 
 const navItems = [
-  { href: '/lessons/week-1', label: 'Free lesson' },
-  { href: '/#curriculum', label: 'Curriculum' },
+  { href: '/missions/order-coffee', label: 'Free mission' },
+  { href: '/#missions', label: 'Missions' },
   { href: '/#pricing', label: 'Lessons & pricing' },
 ]
 

@@ -51,7 +51,7 @@ A beginner expat should be able to open the site, complete one mission in 3–5 
 
 ## Mission card 1 — Order Coffee in Chiang Mai
 
-**Status:** Ready  
+**Status:** Done — shipped locally and ready for deployment  
 **Route:** `/missions/order-coffee`  
 **Learning promise:** “In 5 minutes, you can order iced coffee less sweet in Thai.”  
 **Business goal:** Make the product feel fun immediately and create a reason to book a correction lesson.
@@ -105,37 +105,42 @@ As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel 
 
 ### Build tasks
 
-- [ ] Create `/missions/order-coffee` route/page
-- [ ] Add mission hero with cafe scene and clear 5-minute promise
-- [ ] Add drink choice buttons
-- [ ] Add sweetness choice buttons
-- [ ] Generate phrase based on selected choices
-- [ ] Add polite particle toggle: `ครับ` / `ค่ะ`
-- [ ] Add slow/natural audio placeholders
-- [ ] Add repeat-3-times checklist using browser state
-- [ ] Add roleplay quiz with staff prompt
-- [ ] Add completion badge
-- [ ] Save completion to `localStorage`
-- [ ] Add WhatsApp voice-correction CTA
-- [ ] Link mission from homepage
-- [ ] Add SEO metadata: “Order coffee in Thai Chiang Mai”
-- [ ] Test mobile layout
+- [x] Create `/missions/order-coffee` route/page
+- [x] Add mission hero with cafe scene and clear 5-minute promise
+- [x] Add drink choice buttons
+- [x] Add sweetness choice buttons
+- [x] Generate phrase based on selected choices
+- [x] Add polite particle toggle: `ครับ` / `ค่ะ`
+- [x] Add slow/natural audio placeholders
+- [x] Add repeat-3-times checklist using browser state
+- [x] Add roleplay quiz with staff prompt
+- [x] Add completion badge
+- [x] Save completion to `localStorage`
+- [x] Add WhatsApp voice-correction CTA
+- [x] Link mission from homepage
+- [x] Add SEO metadata: “Order coffee in Thai Chiang Mai”
+- [x] Test mobile layout
 
 ### Acceptance criteria
 
-- [ ] Learner can complete the page in 3–5 minutes
-- [ ] Page has at least 5 interactive actions
-- [ ] Text blocks are short; no large lecture sections
-- [ ] A beginner can understand without grammar knowledge
-- [ ] Page ends with a clear small win and booking CTA
-- [ ] Works on mobile
-- [ ] `npm run lint` passes
-- [ ] `npm run build` passes
+- [x] Learner can complete the page in 3–5 minutes
+- [x] Page has at least 5 interactive actions
+- [x] Text blocks are short; no large lecture sections
+- [x] A beginner can understand without grammar knowledge
+- [x] Page ends with a clear small win and booking CTA
+- [x] Works on mobile
+- [x] `npm run lint` passes
+- [x] `npm run build` passes
 
 ### Marketing hook after shipped
 
 - Facebook post title: “Free 5-minute Thai mission: order coffee in Chiang Mai”
 - Reel/TikTok hook: “Can you order coffee in Thai before this video ends?”
+
+### Shipped notes
+
+- Built as interactive client page with choices, phrase builder, speech-synthesis playback, quiz, progress, localStorage completion, and WhatsApp CTA.
+- Local verification passed: `npm run lint`, `npm run build`, and HTTP checks for `/` + `/missions/order-coffee`.
 
 ---
 
@@ -178,19 +183,19 @@ Cards:
 
 ### Build tasks
 
-- [ ] Add mission card section near top of homepage
-- [ ] Replace “course week” language above the fold with “mission” language
-- [ ] Add time labels: 3 min / 5 min / 7 min
-- [ ] Add difficulty labels: Easy / Real Life / Challenge
-- [ ] Link coffee card to `/missions/order-coffee`
-- [ ] Keep SEO phrase “Thai Lessons Chiang Mai” visible
-- [ ] Keep pricing and WhatsApp CTA visible
+- [x] Add mission card section near top of homepage
+- [x] Replace “course week” language above the fold with “mission” language
+- [x] Add time labels: 3 min / 5 min / 7 min
+- [x] Add difficulty labels: Easy / Real Life / Challenge
+- [x] Link coffee card to `/missions/order-coffee`
+- [x] Keep SEO phrase “Thai Lessons Chiang Mai” visible
+- [x] Keep pricing and WhatsApp CTA visible
 
 ### Acceptance criteria
 
-- [ ] Homepage feels like “try something now,” not “read about a course”
-- [ ] At least one mission is immediately clickable
-- [ ] Visitor understands the offer in 10 seconds
+- [x] Homepage feels like “try something now,” not “read about a course”
+- [x] At least one mission is immediately clickable
+- [x] Visitor understands the offer in 10 seconds
 
 ---
 

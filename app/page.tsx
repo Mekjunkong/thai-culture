@@ -15,6 +15,45 @@ const audioFirst = [
   { title: 'Culture notes', detail: 'Know when a phrase feels polite, casual, too direct or respectful.' },
 ]
 
+const missionCards = [
+  {
+    title: 'Order coffee less sweet',
+    time: '5 min',
+    level: 'Easy',
+    href: '/missions/order-coffee',
+    emoji: '☕',
+    skill: 'Drink + sweetness + polite order',
+    outcome: 'Build one real cafe phrase and practice it before you visit a coffee shop.',
+  },
+  {
+    title: 'Say hello without feeling awkward',
+    time: '3 min',
+    level: 'Easy',
+    href: '/lessons/week-1',
+    emoji: '🙏',
+    skill: 'Greeting + wai + polite ending',
+    outcome: 'Know when to say sawasdee and how khrap/kha changes the feeling.',
+  },
+  {
+    title: 'Buy something at a market',
+    time: '5 min',
+    level: 'Real life',
+    href: '/lessons/week-2',
+    emoji: '🥭',
+    skill: 'Ask price + quantity',
+    outcome: 'Ask how much and buy one simple item without freezing.',
+  },
+  {
+    title: 'Tell a driver where to stop',
+    time: '5 min',
+    level: 'Real life',
+    href: '/lessons/week-4',
+    emoji: '🚗',
+    skill: 'Directions + stop here',
+    outcome: 'Use simple Thai with Grab, red truck or local drivers.',
+  },
+]
+
 const curriculum = [
   {
     week: 'Week 1',
@@ -108,10 +147,10 @@ export default function HomePage() {
               
                             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                               <Link
-                                href="/lessons/week-1"
+                                href="/missions/order-coffee"
                                 className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-semibold text-surface shadow-lg shadow-indigo/20 transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
                               >
-                                Try Week 1 free
+                                Start free coffee mission
                               </Link>
                               <Link
                                 href="#audio-sample"
@@ -185,7 +224,44 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="curriculum" className="bg-surface px-4 py-16 md:py-20">
+        <section id="missions" className="bg-surface px-4 py-16 md:py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-6 md:grid-cols-[0.7fr_1fr] md:items-end">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-temple">Choose today’s Thai mission</p>
+                <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-tamarind text-balance md:text-5xl">
+                  Less lecture. More real-life wins.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-lg leading-8 text-tamarind/70 text-pretty">
+                Start with one useful situation, tap your choices, say the phrase, then try it outside. The first mission is free and interactive.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {missionCards.map((mission, index) => (
+                <Link key={mission.title} href={mission.href} className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                  <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm shadow-tamarind/5 transition duration-200 ease-out group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-tamarind/10 ${index === 0 ? 'border-turmeric/70 bg-banana/12' : 'border-tamarind/10 bg-jasmine'}`}>
+                    <div className="flex items-start justify-between gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-surface text-2xl shadow-inner" aria-hidden="true">{mission.emoji}</span>
+                      <span className="rounded-full bg-surface px-3 py-1 text-xs font-black text-indigo">{mission.time}</span>
+                    </div>
+                    <p className="mt-5 text-xs font-black uppercase tracking-[0.14em] text-temple">{mission.level} mission</p>
+                    <h3 className="mt-2 text-2xl font-black leading-tight tracking-[-0.03em] text-tamarind text-balance">{mission.title}</h3>
+                    <p className="mt-3 text-sm font-bold text-indigo">{mission.skill}</p>
+                    <p className="mt-3 leading-7 text-tamarind/68 text-pretty">{mission.outcome}</p>
+                    <div className="mt-5 flex items-center justify-between border-t border-tamarind/10 pt-4">
+                      <span className="font-black text-indigo">Start mission</span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-sm font-black text-temple transition group-hover:bg-turmeric group-hover:text-tamarind" aria-hidden="true">→</span>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="curriculum" className="bg-jasmine px-4 py-16 md:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-6 md:grid-cols-[0.72fr_1fr] md:items-end">
               <div>
