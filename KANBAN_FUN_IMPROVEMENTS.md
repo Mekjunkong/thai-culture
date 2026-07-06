@@ -1,216 +1,368 @@
-# Thai Lessons Chiang Mai — Fun Learning Improvement Kanban
+# Thai Lessons Chiang Mai — Fun Learning Mission Kanban
 
-This board turns the critique into concrete missions. Goal: make the product feel less like a lecture and more like a fun, easy, real-life Thai practice game for expats.
+This board turns the honest critique into buildable missions. The goal is to make the product feel less like a lecture and more like a fun, easy, real-life Thai practice game for Chiang Mai expats.
 
 ## Product principle
 
-Do not start with a grammar explanation. Start with a real-life mission.
+Do not start with grammar. Start with a real-life win.
 
 **Old feeling:** “Read this lesson about Thai.”  
-**New feeling:** “Can you order coffee in Thai in 5 minutes?”
+**New feeling:** “Complete this 5-minute mission and use Thai today.”
+
+## North Star
+
+A beginner expat should be able to open the site, complete one mission in 3–5 minutes, feel confident, and naturally book a live correction lesson with Mike.
+
+## Critique summary
+
+| Current issue | Why it hurts learning | New direction |
+|---|---|---|
+| Too much text before action | Beginner expats feel like they are studying in a classroom | Start with a situation and one small challenge |
+| Phrase tables feel like reference notes | Useful, but boring and easy to forget | Use interactive phrase cards and choices |
+| Not enough audio-first learning | Thai pronunciation cannot be learned from romanization only | Listen → repeat → reveal text |
+| Lessons feel like curriculum weeks | Sounds academic and slow | Rename as missions with clear outcomes |
+| PDF feels like a phrase list | Useful but not exciting | Convert to a 7-day challenge booklet |
+| Live lesson room is functional but flat | Teacher can use it, but it needs more energy | Add roleplay randomizer, scores, and reports |
 
 ---
 
-## 🎯 North Star
+# Kanban workflow
 
-Create a beginner Thai product where learners can:
+## Status meanings
 
-1. complete a useful mission in under 5 minutes,
-2. hear and repeat Thai before reading long explanations,
-3. choose answers and roleplay real situations,
-4. feel small wins through badges/checklists,
-5. naturally book live correction with Mike.
+- **Backlog** — useful idea, not ready to build yet
+- **Ready** — clear enough to start
+- **In progress** — currently being designed/built
+- **Review** — needs test with real learner or teacher
+- **Done** — shipped and verified
+
+## Priority order
+
+1. Build one polished interactive mission first: **Order Coffee in Chiang Mai**
+2. Convert homepage/lessons to mission cards
+3. Add audio-first practice
+4. Convert PDF into challenge booklet
+5. Make live teaching room playful
+6. Market the free mission
 
 ---
 
-## 🚧 Mission 1 — Build the first fun interactive lesson
+# NOW — Sprint 1: Build the first fun mission
 
-### Title
-**Mission: Order Coffee in Chiang Mai**
+## Mission card 1 — Order Coffee in Chiang Mai
 
-### Why this first
-- every expat orders drinks
-- easy to understand visually
-- useful on day one
-- good marketing hook
-- easy to connect to live lesson booking
+**Status:** Ready  
+**Route:** `/missions/order-coffee`  
+**Learning promise:** “In 5 minutes, you can order iced coffee less sweet in Thai.”  
+**Business goal:** Make the product feel fun immediately and create a reason to book a correction lesson.
 
-### Tasks
-- [ ] Create route `/missions/order-coffee`
-- [ ] Add hero scene: “You are at a Chiang Mai cafe. Order iced coffee less sweet.”
-- [ ] Add choose-your-drink buttons: iced coffee, Thai tea, water, smoothie
-- [ ] Add choose sweetness buttons: normal, less sweet, no sugar
-- [ ] Generate the correct Thai phrase from the learner’s choices
-- [ ] Add slow audio button placeholder for each phrase
-- [ ] Add “repeat 3 times” checklist
-- [ ] Add mini roleplay: staff asks “เอาอะไรคะ?” learner chooses response
-- [ ] Add success badge: “Cafe Mission Complete”
-- [ ] Add CTA: “Send your voice note to Mike for correction”
+### Learner story
+
+As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel confident in a real cafe today.
+
+### Screen flow
+
+1. **Scene intro**
+   - “You are at a Chiang Mai cafe.”
+   - Goal: order one drink with sweetness level.
+   - Big button: “Start cafe mission”
+
+2. **Choose your drink**
+   - Iced coffee — กาแฟเย็น
+   - Thai tea — ชาไทย
+   - Water — น้ำเปล่า
+   - Smoothie — สมูทตี้
+
+3. **Choose sweetness**
+   - Normal sweet — หวานปกติ
+   - Less sweet — หวานน้อย
+   - No sugar — ไม่ใส่น้ำตาล
+
+4. **Build my Thai phrase**
+   - Pattern: `เอา + drink + หนึ่งแก้ว + sweetness + ครับ/ค่ะ`
+   - Example: `เอากาแฟเย็นหนึ่งแก้ว หวานน้อยครับ`
+   - Show meaning: “I’ll have one iced coffee, less sweet.”
+
+5. **Listen and repeat**
+   - Slow audio placeholder
+   - Natural audio placeholder
+   - Checklist:
+     - [ ] I listened
+     - [ ] I repeated 3 times
+     - [ ] I can say it without looking
+
+6. **Cafe staff roleplay**
+   - Staff asks: `เอาอะไรคะ?` — “What would you like?”
+   - Learner chooses correct answer from 3 options
+
+7. **Success badge**
+   - “Cafe Mission Complete”
+   - “Today’s Thai win: I can order a drink in Thai.”
+
+8. **Booking CTA**
+   - “Want Mike to correct your pronunciation? Send a WhatsApp voice note.”
+   - Link to WhatsApp with prefilled text.
+
+### Build tasks
+
+- [ ] Create `/missions/order-coffee` route/page
+- [ ] Add mission hero with cafe scene and clear 5-minute promise
+- [ ] Add drink choice buttons
+- [ ] Add sweetness choice buttons
+- [ ] Generate phrase based on selected choices
+- [ ] Add polite particle toggle: `ครับ` / `ค่ะ`
+- [ ] Add slow/natural audio placeholders
+- [ ] Add repeat-3-times checklist using browser state
+- [ ] Add roleplay quiz with staff prompt
+- [ ] Add completion badge
+- [ ] Save completion to `localStorage`
+- [ ] Add WhatsApp voice-correction CTA
+- [ ] Link mission from homepage
+- [ ] Add SEO metadata: “Order coffee in Thai Chiang Mai”
+- [ ] Test mobile layout
 
 ### Acceptance criteria
-- Learner can finish in 3–5 minutes
-- Page has more interaction than text
-- At least 3 clickable choices
-- Ends with clear next action
+
+- [ ] Learner can complete the page in 3–5 minutes
+- [ ] Page has at least 5 interactive actions
+- [ ] Text blocks are short; no large lecture sections
+- [ ] A beginner can understand without grammar knowledge
+- [ ] Page ends with a clear small win and booking CTA
+- [ ] Works on mobile
+- [ ] `npm run lint` passes
+- [ ] `npm run build` passes
+
+### Marketing hook after shipped
+
+- Facebook post title: “Free 5-minute Thai mission: order coffee in Chiang Mai”
+- Reel/TikTok hook: “Can you order coffee in Thai before this video ends?”
 
 ---
 
-## 🚧 Mission 2 — Redesign lesson structure into mission cards
+# NEXT — Sprint 2: Turn course into mission cards
 
-### Problem
-Current lessons are useful but still feel like textbook pages.
+## Mission card 2 — Redesign homepage around missions
 
-### Tasks
-- [ ] Rename Week 1 to “Mission: Say Hello Without Feeling Awkward”
-- [ ] Rename Week 2 to “Mission: Buy Something at a Market”
-- [ ] Rename Week 3 to “Mission: Order Food or Coffee”
-- [ ] Rename Week 4 to “Mission: Tell a Driver Where to Stop”
-- [ ] Add mission cards at top of homepage
-- [ ] Add estimated time per mission: 3 min, 5 min, 7 min
-- [ ] Add difficulty labels: Easy, Normal, Real Life
-- [ ] Add “Start mission” instead of “Open lesson”
+**Status:** Ready  
+**Goal:** Make the first impression feel playful and action-based.
+
+### Current problem
+
+The homepage explains the course, but learners should immediately see practical missions they can complete.
+
+### New homepage section
+
+Title: **Choose today’s Thai mission**
+
+Cards:
+
+1. **Say hello without feeling awkward**
+   - Time: 3 minutes
+   - Skill: greeting + wai + polite ending
+   - CTA: Start mission
+
+2. **Order coffee less sweet**
+   - Time: 5 minutes
+   - Skill: drink + sweetness + polite order
+   - CTA: Start mission
+
+3. **Buy mangoes at a market**
+   - Time: 5 minutes
+   - Skill: ask price + quantity
+   - CTA: Start mission
+
+4. **Tell a driver where to stop**
+   - Time: 5 minutes
+   - Skill: directions + stop here
+   - CTA: Start mission
+
+### Build tasks
+
+- [ ] Add mission card section near top of homepage
+- [ ] Replace “course week” language above the fold with “mission” language
+- [ ] Add time labels: 3 min / 5 min / 7 min
+- [ ] Add difficulty labels: Easy / Real Life / Challenge
+- [ ] Link coffee card to `/missions/order-coffee`
+- [ ] Keep SEO phrase “Thai Lessons Chiang Mai” visible
+- [ ] Keep pricing and WhatsApp CTA visible
 
 ### Acceptance criteria
-- Homepage feels action-based, not curriculum-based
-- User sees what they can do after each mission
-- Mission names are easy for non-language learners to understand
+
+- [ ] Homepage feels like “try something now,” not “read about a course”
+- [ ] At least one mission is immediately clickable
+- [ ] Visitor understands the offer in 10 seconds
 
 ---
 
-## 🚧 Mission 3 — Add audio-first practice
+# NEXT — Sprint 3: Audio-first practice
 
-### Problem
-Thai cannot be learned well from text only.
+## Mission card 3 — Add audio before long explanations
 
-### Tasks
-- [ ] Record Week 3 audio: cafe order, sweetness, spice levels
-- [ ] Record Week 4 audio: driver phrases, help phrases, bathroom phrase
-- [ ] Add slow-speed audio and natural-speed audio
-- [ ] Add repeat buttons beside key phrases
+**Status:** Backlog until first mission UI is shipped  
+**Goal:** Make Thai pronunciation easier and less dependent on romanization.
+
+### Build tasks
+
+- [ ] Record teacher/native audio for core coffee phrases
+- [ ] Add slow-speed and natural-speed versions
+- [ ] Add reusable audio button component
 - [ ] Add “listen first, then reveal text” pattern
-- [ ] Add audio QR codes to PDF after audio is live
+- [ ] Add audio to Week 1–4 key phrases
+- [ ] Add QR/audio links in PDF after audio is live
 
 ### Acceptance criteria
-- Every core phrase has audio
-- Learner can practice without reading first
-- PDF connects to audio practice
+
+- [ ] Every core mission phrase has audio
+- [ ] Learner can practice without reading first
+- [ ] Audio works on mobile browsers
 
 ---
 
-## 🚧 Mission 4 — Make phrase learning card-based
+# NEXT — Sprint 4: Replace lecture tables with phrase cards
 
-### Problem
-Tables are good for reference but boring for learning.
+## Mission card 4 — Phrase cards instead of large tables
 
-### Tasks
+**Status:** Backlog  
+**Goal:** Make phrase practice feel lighter and interactive.
+
+### Build tasks
+
 - [ ] Create reusable `PhraseCard` component
-- [ ] Show Thai phrase on front
-- [ ] Add buttons: Show meaning, Show romanization, Play audio, I can say it
-- [ ] Replace long phrase tables on lesson pages with card groups
-- [ ] Keep table only as “Reference sheet” at bottom
-- [ ] Track simple progress in browser localStorage
+- [ ] Card front: Thai phrase only
+- [ ] Buttons: Show meaning, Show romanization, Play audio, I can say it
+- [ ] Save “I can say it” state in `localStorage`
+- [ ] Convert Week 1 phrases into cards
+- [ ] Convert Week 2 phrases into cards
+- [ ] Keep a small reference table at bottom only
 
 ### Acceptance criteria
-- Learner interacts with phrases one at a time
-- Page visually feels lighter
-- Student can mark phrases as learned
+
+- [ ] Learner sees one phrase at a time
+- [ ] Lesson pages feel visually lighter
+- [ ] Learner can mark progress
 
 ---
 
-## 🚧 Mission 5 — Add game progress and confidence
+# NEXT — Sprint 5: Game progress and confidence
 
-### Problem
-Learners need visible progress to keep going.
+## Mission card 5 — Add mission progress and badges
 
-### Tasks
-- [ ] Add mission completion badge
+**Status:** Backlog  
+**Goal:** Give learners motivation and small wins.
+
+### Build tasks
+
+- [ ] Add mission progress bar
+- [ ] Add badge component
 - [ ] Add confidence checklist:
   - [ ] I recognize it
   - [ ] I can repeat it
   - [ ] I can say it without looking
   - [ ] I used it in real life
-- [ ] Add progress bar on mission pages
-- [ ] Add “Today’s Thai win” completion message
-- [ ] Add homepage progress cards
+- [ ] Save progress in `localStorage`
+- [ ] Add “Today’s Thai win” message
+- [ ] Show completed missions on homepage
 
 ### Acceptance criteria
-- Learner feels a small win after each mission
-- Progress survives page refresh
-- CTA to book correction appears after completion
+
+- [ ] Learner feels rewarded at the end
+- [ ] Progress survives refresh
+- [ ] CTA to book correction appears after completion
 
 ---
 
-## 🚧 Mission 6 — Convert PDF into a challenge booklet
+# NEXT — Sprint 6: Convert PDF into challenge booklet
 
-### Problem
-Current PDF is useful but list-like.
+## Mission card 6 — 7-Day Chiang Mai Thai Challenge
 
-### Tasks
-- [ ] Rename PDF subtitle to “7-Day Chiang Mai Thai Challenge”
-- [ ] Add daily challenge pages:
-  - [ ] Day 1: greet 3 people
-  - [ ] Day 2: order one drink
-  - [ ] Day 3: ask one price
-  - [ ] Day 4: tell a driver where to stop
-  - [ ] Day 5: ask for help
-  - [ ] Day 6: introduce yourself
-  - [ ] Day 7: record a 60-second Thai survival story
-- [ ] Add checkboxes and reflection prompts
-- [ ] Add “send voice note to Mike” QR/WhatsApp CTA
+**Status:** Backlog  
+**Goal:** Make the PDF feel like an activity product, not only a phrase list.
+
+### New title
+
+**50 Thai Phrases for Chiang Mai Life: 7-Day Challenge**
+
+### Daily challenge plan
+
+- Day 1: Greet 3 people politely
+- Day 2: Order one drink
+- Day 3: Ask one price at a market
+- Day 4: Tell a driver where to stop
+- Day 5: Ask for help or the bathroom
+- Day 6: Introduce yourself simply
+- Day 7: Record a 60-second Thai survival story
+
+### Build tasks
+
+- [ ] Add daily challenge pages
+- [ ] Add checkboxes
+- [ ] Add reflection prompts
+- [ ] Add “record your voice” task
+- [ ] Add WhatsApp CTA for correction
 - [ ] Add printable certificate page
+- [ ] Regenerate PDF
 
 ### Acceptance criteria
-- PDF feels like a challenge, not a dictionary
-- Learner has one clear task per day
-- PDF naturally leads to live lesson booking
+
+- [ ] PDF has one clear action per day
+- [ ] It feels like a guided challenge
+- [ ] It naturally leads to live lesson booking
 
 ---
 
-## 🚧 Mission 7 — Make teaching room playful for live lessons
+# NEXT — Sprint 7: Make live lessons playful
 
-### Problem
-Teaching room is useful, but it can be more dynamic.
+## Mission card 7 — Playful online teaching room
 
-### Tasks
-- [ ] Add “spin the situation” section: cafe, market, taxi, condo, temple
-- [ ] Add roleplay card randomizer
-- [ ] Add teacher correction buttons: tone, particle, speed, confidence
+**Status:** Backlog  
+**Goal:** Help Mike teach lively private lessons without preparing slides.
+
+### Build tasks
+
+- [ ] Add “spin the situation” randomizer: cafe, market, taxi, condo, temple
+- [ ] Add random roleplay cards
+- [ ] Add correction buttons: tone, particle, speed, confidence
 - [ ] Add student score: pronunciation / politeness / confidence
 - [ ] Add one-click WhatsApp lesson report generator
-- [ ] Add “next lesson recommendation” generator
+- [ ] Add next-lesson recommendation generator
 
 ### Acceptance criteria
-- Mike can use it live without preparing slides
-- Student sees clear feedback
-- Follow-up message is easy to send after class
+
+- [ ] Teacher can run a lesson from one page
+- [ ] Student sees clear feedback
+- [ ] Follow-up message is easy to send after class
 
 ---
 
-## 🔜 Backlog — Marketing after fun lesson exists
+# REVIEW — Real learner testing checklist
 
-- [ ] Record short demo video: “Order coffee in Thai in 30 seconds”
-- [ ] Create Facebook post: “Free 5-minute Thai coffee mission for Chiang Mai expats”
-- [ ] Create 10 reels/TikTok scripts from the coffee mission
-- [ ] Add lead magnet CTA: “Get the 7-Day Chiang Mai Thai Challenge PDF”
-- [ ] Collect first 3 student testimonials
+After the coffee mission is live, test with 3 people.
+
+## Test questions
+
+- [ ] Can they finish without help?
+- [ ] Do they smile or feel it is fun?
+- [ ] Can they say the phrase after 5 minutes?
+- [ ] Do they understand when to use it?
+- [ ] Would they send a voice note for correction?
+- [ ] Would they pay for a live lesson?
+
+## Success target
+
+- 2 out of 3 testers complete mission without explanation
+- 2 out of 3 can say the phrase from memory
+- 1 out of 3 asks about live lesson or correction
 
 ---
 
-## Priority order
+# DONE
 
-1. Build `/missions/order-coffee`
-2. Add mission cards to homepage
-3. Add audio for coffee phrases
-4. Convert PDF into challenge booklet
-5. Add progress/badges
-6. Improve all weeks into mission pages
+- [x] Honest critique created: `docs/fun-learning-critique.md`
+- [x] Fun-learning kanban created
+- [x] Main product kanban links to fun-learning direction
 
-## Definition of “fun enough”
+---
 
-The product is fun enough when a new visitor can say:
+# Immediate next action
 
-> “Oh, I can try this now. It only takes 5 minutes.”
-
-Not:
-
-> “I need to study this later.”
+Build **Mission: Order Coffee in Chiang Mai** at `/missions/order-coffee`, then link it from the homepage as the first free interactive mission.
