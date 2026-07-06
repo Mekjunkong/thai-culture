@@ -2,6 +2,15 @@
 
 This board is for turning the site into a real sellable Thai-learning product, not only a landing page.
 
+## Current critique direction
+
+The course is useful, but it still feels too text-heavy and lecture-like. The next product direction is to make it feel like a fun, easy, real-life Thai mission game for Chiang Mai expats.
+
+Detailed critique: `docs/fun-learning-critique.md`  
+Detailed fun-learning board: `KANBAN_FUN_IMPROVEMENTS.md`
+
+Priority: build one polished interactive mission first — **Mission: Order Coffee in Chiang Mai** — before rewriting every lesson.
+
 ## ✅ Done
 
 - Brand selected: **Thai Lessons Chiang Mai**
