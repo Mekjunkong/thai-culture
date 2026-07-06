@@ -20,7 +20,7 @@ type Sweetness = {
 
 const drinks: Drink[] = [
   { id: 'iced-coffee', emoji: '🧊☕', label: 'Iced coffee', thai: 'กาแฟเย็น', roman: 'gaa-fae yen' },
-  { id: 'thai-tea', emoji: '🧋', label: 'Thai tea', thai: 'ชาไทย', roman: 'chaa thai' },
+  { id: 'thai-tea', emoji: '🧋', label: 'Thai tea', thai: 'ชาเย็น', roman: 'chaa yen' },
   { id: 'water', emoji: '💧', label: 'Water', thai: 'น้ำเปล่า', roman: 'naam bplao' },
   { id: 'smoothie', emoji: '🥭', label: 'Smoothie', thai: 'สมูทตี้', roman: 'sa-moot-dtii' },
 ]
@@ -49,9 +49,18 @@ export default function OrderCoffeeMission() {
   const drink = drinks.find((item) => item.id === drinkId) ?? drinks[0]
   const sweetness = sweetnessLevels.find((item) => item.id === sweetnessId) ?? sweetnessLevels[1]
 
-  const phrase = useMemo(() => `เอา${drink.thai}หนึ่งแก้ว ${sweetness.thai}${particle}`, [drink.thai, sweetness.thai, particle])
-  const roman = useMemo(() => `ao ${drink.roman} neung gaew, ${sweetness.roman} ${particle === 'ครับ' ? 'khrap' : 'kha'}`, [drink.roman, sweetness.roman, particle])
-  const meaning = `I’ll have one ${drink.label.toLowerCase()}, ${sweetness.meaning}.`
+  const isWater = drink.id === 'water'
+  const phrase = useMemo(
+    () => isWater ? `ขอ${drink.thai}${particle}` : `ขอ${drink.thai}${sweetness.thai}${particle}`,
+    [drink.thai, sweetness.thai, particle, isWater],
+  )
+  const roman = useMemo(
+    () => isWater
+      ? `khǎaw ${drink.roman} ${particle === 'ครับ' ? 'khrap' : 'kha'}`
+      : `khǎaw ${drink.roman} ${sweetness.roman} ${particle === 'ครับ' ? 'khrap' : 'kha'}`,
+    [drink.roman, sweetness.roman, particle, isWater],
+  )
+  const meaning = isWater ? 'I’d like plain water, please.' : `I’d like ${drink.label.toLowerCase()}, ${sweetness.meaning}, please.`
 
   const quizOptions = useMemo(
     () => [

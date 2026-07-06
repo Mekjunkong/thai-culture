@@ -79,9 +79,9 @@ As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel 
    - No sugar — ไม่ใส่น้ำตาล
 
 4. **Build my Thai phrase**
-   - Pattern: `เอา + drink + หนึ่งแก้ว + sweetness + ครับ/ค่ะ`
-   - Example: `เอากาแฟเย็นหนึ่งแก้ว หวานน้อยครับ`
-   - Show meaning: “I’ll have one iced coffee, less sweet.”
+   - Pattern: `ขอ + drink + sweetness + ครับ/ค่ะ`
+   - Example: `ขอกาแฟเย็นหวานน้อยครับ`
+   - Show meaning: “I’d like iced coffee, less sweet, please.”
 
 5. **Listen and repeat**
    - Slow audio placeholder
