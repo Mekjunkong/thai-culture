@@ -15,11 +15,19 @@ html {
 body {
   color: oklch(20% 0.035 64);
   background: oklch(97% 0.036 88);
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
   background: oklch(73% 0.14 84);
   color: oklch(20% 0.035 64);
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
