@@ -3,7 +3,7 @@ import AuthStatus from '@/components/auth/AuthStatus'
 
 const navItems = [
   { href: '/missions/order-coffee', label: 'Free mission' },
-  { href: '/#missions', label: 'Missions' },
+  { href: '/missions', label: 'Mission library' },
   { href: '/#pricing', label: 'Lessons & pricing' },
 ]
 
