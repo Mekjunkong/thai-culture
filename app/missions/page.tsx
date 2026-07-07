@@ -108,14 +108,14 @@ export default function MissionsPage() {
         <section className="px-4 py-12 md:py-16">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
-              <p className="inline-flex min-h-11 items-center rounded-full border border-tamarind/10 bg-surface px-4 py-2 text-sm font-bold text-indigo shadow-sm">
-                Mission library · No login to start
+              <p className="inline-flex min-h-11 items-center rounded-full border border-tamarind/10 bg-surface px-4 py-2 text-sm font-black text-indigo shadow-sm">
+                Free Thai practice · No login to start
               </p>
-              <h1 className="mt-6 text-5xl font-black leading-none text-balance md:text-7xl">
-                5-minute Thai missions for Chiang Mai.
+              <h1 className="mt-6 text-5xl font-black leading-none tracking-[-0.06em] text-balance md:text-7xl">
+                Pick one Thai mission and use it today.
               </h1>
               <p className="mt-6 text-lg leading-8 text-tamarind/72 text-pretty md:text-xl md:leading-9">
-                Choose one real situation, learn one useful Thai phrase, complete a small roleplay, then use it outside. This is built to feel easier than a lecture and more practical than a phrase list.
+                Short practical missions for Chiang Mai life: cafes, markets, food, transport, greetings, condos, and temples. Start free, then book human correction when you want help speaking clearly.
               </p>
             </div>
 
