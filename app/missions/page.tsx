@@ -64,9 +64,9 @@ const missions = [
   },
   {
     title: 'Tell a driver where to stop',
-    href: '/lessons/week-4',
+    href: '/missions/driver-stop',
     emoji: '🚗',
-    status: 'Lesson ready',
+    status: 'Live interactive mission',
     time: '5 min',
     level: 'Practical',
     phrase: 'จอดตรงนี้ครับ',

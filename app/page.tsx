@@ -37,12 +37,12 @@ const missionCards = [
   {
     title: 'Tell a driver to stop',
     time: '5 min',
-    href: '/lessons/week-4',
+    href: '/missions/driver-stop',
     emoji: '🚗',
     situation: 'Transport',
     phrase: 'จอดตรงนี้ครับ',
     outcome: 'Use simple directions with Grab, songthaew, or local drivers.',
-    status: 'Lesson',
+    status: 'Live',
   },
 ]
 
@@ -120,6 +120,7 @@ const lessonFormats = [
   'In-person Thai lessons in Chiang Mai cafes',
   'WhatsApp voice-note pronunciation correction',
   'Practical Thai phrasebook and mission practice',
+  'Printable on-site lesson PDF for cafe, market, food, transport, and condo practice',
 ]
 
 const faqs = [
@@ -161,10 +162,10 @@ export default function HomePage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/missions/order-coffee"
+                  href="/practice"
                   className="inline-flex min-h-13 items-center justify-center rounded-2xl bg-indigo px-7 py-4 font-black text-surface shadow-lg shadow-indigo/20 transition duration-150 ease-out hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
                 >
-                  Start free coffee mission
+                  Open free practice app
                 </Link>
                 <Link
                   href="#pricing"
@@ -238,11 +239,11 @@ export default function HomePage() {
                   Learn by doing one real situation at a time.
                 </h2>
                 <p className="mt-4 max-w-2xl leading-8 text-tamarind/70 text-pretty">
-                  Every card is a small practical win: phrase, meaning, rhythm, and one mini challenge.
+                  Every card is a small practical win: phrase, meaning, rhythm, and one mini challenge. For a kids-app style experience with stars and quizzes, open the new practice app.
                 </p>
               </div>
-              <Link href="/missions" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-5 py-3 font-black text-indigo transition duration-150 ease-out hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                See all missions
+              <Link href="/practice" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-5 py-3 font-black text-indigo transition duration-150 ease-out hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                Open practice app
               </Link>
             </div>
 
@@ -306,6 +307,9 @@ export default function HomePage() {
                   <p className="mt-2 font-bold leading-7 text-surface/90 text-pretty">{format}</p>
                 </div>
               ))}
+              <a href="/products/onsite-chiang-mai-thai-lesson-pack.pdf" className="rounded-2xl border border-turmeric/40 bg-turmeric p-5 font-black text-tamarind transition duration-150 ease-out hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                Download on-site teacher PDF →
+              </a>
             </div>
           </div>
         </section>
@@ -405,6 +409,9 @@ export default function HomePage() {
               </Link>
               <Link href="/missions/market-price" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-surface/20 px-6 py-3 font-black text-surface transition duration-150 ease-out hover:border-turmeric focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
                 Start market mission
+              </Link>
+              <Link href="/practice" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-surface/20 px-6 py-3 font-black text-surface transition duration-150 ease-out hover:border-turmeric focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                Open practice app
               </Link>
             </div>
           </div>

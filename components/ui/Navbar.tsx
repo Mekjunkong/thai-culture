@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 const navItems = [
+  { href: '/practice', label: 'Practice app' },
   { href: '/missions', label: 'Missions' },
   { href: '/#how-it-works', label: 'How it works' },
   { href: '/#pricing', label: 'Pricing' },
@@ -32,10 +33,10 @@ export default function Navbar() {
             ))}
           </div>
           <Link
-            href="/missions"
+            href="/practice"
             className="hidden min-h-11 items-center rounded-xl border border-tamarind/12 bg-surface px-4 py-2 font-black text-indigo transition duration-150 ease-out hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric sm:inline-flex"
           >
-            Start free
+            Practice free
           </Link>
           <Link
             href="/#pricing"
