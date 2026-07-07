@@ -147,7 +147,74 @@ As an expat in Chiang Mai, I want to order coffee in simple Thai, so I can feel 
 
 ---
 
-# NEXT — Sprint 2: Turn course into mission cards
+# DONE — Sprint 2: Turn course into mission cards + market mission
+
+## Mission card 2A — Ask the price at a Chiang Mai market
+
+**Status:** Done — shipped locally and ready for deployment  
+**Route:** `/missions/market-price`  
+**Learning promise:** “In 5 minutes, you can ask how much and buy fruit at a local market.”  
+**Business goal:** Add a second free interactive mission so the site feels like a real mission library, not a one-page demo.
+
+### Learner story
+
+As an expat in Chiang Mai, I want to ask prices and buy fruit politely, so I can shop at markets without feeling awkward.
+
+### Screen flow
+
+1. **Scene intro**
+   - “You are at a Chiang Mai market.”
+   - Goal: ask the price and buy one fruit item.
+2. **Ask the price**
+   - Phrase: `ราคาเท่าไหร่ครับ/ค่ะ`
+   - Chunk rhythm: `ราคา` · `เท่าไหร่` · polite ending
+3. **Choose item**
+   - Mangoes — `มะม่วง`
+   - Bananas — `กล้วย`
+   - Coconut — `มะพร้าว`
+   - Watermelon — `แตงโม`
+4. **Choose quantity**
+   - `หนึ่งกิโล`
+   - `ครึ่งกิโล`
+   - `หนึ่งลูก`
+5. **Build buying phrase**
+   - Pattern: `ขอ + item + quantity + ครับ/ค่ะ`
+   - Example: `ขอมะม่วงหนึ่งกิโลครับ`
+6. **Market roleplay**
+   - Vendor gives a simple price in Thai.
+   - Learner chooses the baht amount and correct buying phrase.
+7. **Success + WhatsApp CTA**
+   - “Today’s Thai win: I can ask a price and buy one thing at a market.”
+   - CTA: send Mike a voice note for correction.
+
+### Build tasks
+
+- [x] Create `/missions/market-price` route/page
+- [x] Add market mission hero with 5-minute promise
+- [x] Add price question phrase card
+- [x] Add item choice buttons
+- [x] Add quantity choice buttons
+- [x] Generate buying phrase based on choices
+- [x] Add polite particle toggle: `ครับ` / `ค่ะ`
+- [x] Add rhythm/chunk practice cards without relying on bad browser voices
+- [x] Add price recognition quiz
+- [x] Add roleplay answer quiz
+- [x] Add completion progress and badge state
+- [x] Save completion to `localStorage`
+- [x] Add WhatsApp voice-correction CTA
+- [x] Link market mission from homepage and mission library
+
+### Acceptance criteria
+
+- [x] Learner can complete the page in 3–5 minutes
+- [x] Page has at least 5 interactive actions
+- [x] Text blocks are short; no large lecture sections
+- [x] A beginner can understand without grammar knowledge
+- [x] Page ends with a clear small win and booking CTA
+
+---
+
+# DONE — Sprint 2: Turn course into mission cards
 
 ## Mission card 2 — Redesign homepage around missions
 

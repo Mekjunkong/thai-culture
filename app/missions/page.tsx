@@ -40,9 +40,9 @@ const missions = [
   },
   {
     title: 'Ask the price at a market',
-    href: '/lessons/week-2',
+    href: '/missions/market-price',
     emoji: '🥭',
-    status: 'Lesson ready',
+    status: 'Live',
     time: '5 min',
     level: 'Beginner',
     phrase: 'ราคาเท่าไหร่ครับ',

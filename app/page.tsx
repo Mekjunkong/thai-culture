@@ -28,11 +28,11 @@ const missionCards = [
     title: 'Ask the price at a market',
     time: '5 min',
     level: 'Useful',
-    href: '/lessons/week-2',
+    href: '/missions/market-price',
     emoji: '🥭',
     situation: 'Local market',
     outcome: 'Ask how much, understand common prices, and buy one item.',
-    status: 'Lesson + practice',
+    status: 'Live interactive mission',
   },
   {
     title: 'Tell a driver where to stop',
