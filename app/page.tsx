@@ -370,6 +370,12 @@ export default function HomePage() {
                 <p className="mt-3 leading-7 text-tamarind/70">Give students corrections, phrase bank, homework, confidence score, and a clear next mission after every lesson.</p>
                 <p className="mt-5 font-black text-indigo">View report →</p>
               </Link>
+              <Link href="/teacher-dashboard" className="rounded-[1.5rem] border border-indigo/20 bg-indigo p-5 text-surface shadow-sm transition hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric sm:col-span-2">
+                <p className="text-sm font-black uppercase text-turmeric">Teacher operations</p>
+                <h3 className="mt-3 text-2xl font-black">Teacher dashboard</h3>
+                <p className="mt-3 leading-7 text-surface/78">Run leads, class preparation, after-class follow-up, WhatsApp scripts, and product upsells from one checklist.</p>
+                <p className="mt-5 font-black text-turmeric">Open teacher tools →</p>
+              </Link>
             </div>
           </div>
         </section>

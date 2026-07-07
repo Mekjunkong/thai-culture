@@ -95,6 +95,7 @@ const deliverables = [
   'Teacher correction boxes for tone, rhythm, vowel length, and confidence',
   'WhatsApp voice-note correction path after class',
   'Clear upgrade path from free practice to trial, Starter Pack, and 5 lessons',
+  'Teacher dashboard for lead handling, preparation, reports, scripts, and upsells',
 ]
 
 export default function ProductsPage() {
@@ -205,6 +206,32 @@ export default function ProductsPage() {
                   <p className="text-sm font-black text-turmeric">{item.lesson}</p>
                   <h3 className="mt-3 text-xl font-black leading-tight">{item.focus}</h3>
                   <p className="mt-3 text-sm leading-6 text-surface/75">{item.result}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-jasmine px-4 py-16 md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase text-temple">Teacher operations layer</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">The product now has a back-office system.</h2>
+              <p className="mt-5 text-lg leading-8 text-tamarind/72">A good lesson product is not only a landing page. It needs a repeatable way to handle leads, prepare lessons, send follow-up, and sell the next useful step without confusion.</p>
+              <Link href="/teacher-dashboard" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                Open teacher dashboard →
+              </Link>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                ['Lead pipeline', 'New lead → intake → trial → lesson report → next offer.'],
+                ['Preparation checklist', 'Choose one mission, phrase bank, likely replies, and correction focus.'],
+                ['Follow-up scripts', 'Copy WhatsApp messages for trial, Starter Pack, mission walk, and 5-lesson upsell.'],
+                ['Mission matching', 'Turn cafe, market, food, driver, or condo needs into the right lesson product.'],
+              ].map(([title, detail]) => (
+                <article key={title} className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
+                  <p className="text-xl font-black text-indigo">{title}</p>
+                  <p className="mt-3 leading-7 text-tamarind/70">{detail}</p>
                 </article>
               ))}
             </div>

@@ -6,6 +6,7 @@ const navItems = [
   { href: '/missions', label: 'Missions' },
   { href: '/products', label: 'Products' },
   { href: '/book', label: 'Intake' },
+  { href: '/teacher-dashboard', label: 'Teacher tools' },
   { href: '/#how-it-works', label: 'How it works' },
   { href: '/#pricing', label: 'Pricing' },
 ]
