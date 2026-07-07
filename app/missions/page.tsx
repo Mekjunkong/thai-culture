@@ -53,9 +53,9 @@ const missions = [
   },
   {
     title: 'Order food and spice level',
-    href: '/lessons/week-3',
+    href: '/missions/order-food-spice',
     emoji: '🍜',
-    status: 'Lesson ready',
+    status: 'Live interactive mission',
     time: '6 min',
     level: 'Practical',
     phrase: 'ไม่เผ็ดครับ',

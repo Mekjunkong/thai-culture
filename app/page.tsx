@@ -25,14 +25,14 @@ const missionCards = [
     status: 'Live',
   },
   {
-    title: 'Say hello politely',
-    time: '3 min',
-    href: '/lessons/week-1',
-    emoji: '🙏',
-    situation: 'First meeting',
-    phrase: 'สวัสดีครับ / ค่ะ',
-    outcome: 'Greet neighbors, staff, and Thai friends naturally.',
-    status: 'Lesson',
+    title: 'Order food and spice level',
+    time: '6 min',
+    href: '/missions/order-food-spice',
+    emoji: '🍜',
+    situation: 'Restaurant',
+    phrase: 'เอาข้าวซอยไม่เผ็ดครับ',
+    outcome: 'Order one meal, choose spice level, and ask for the bill.',
+    status: 'Live',
   },
   {
     title: 'Tell a driver to stop',
@@ -247,9 +247,9 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {missionCards.map((mission, index) => (
+              {missionCards.map((mission) => (
                 <Link key={mission.title} href={mission.href} className="group block rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                  <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out group-hover:shadow-lg ${index < 2 ? 'border-turmeric bg-banana/10' : 'border-tamarind/10 bg-jasmine'}`}>
+                  <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out group-hover:shadow-lg ${mission.status === 'Live' ? 'border-turmeric bg-banana/10' : 'border-tamarind/10 bg-jasmine'}`}>
                     <div className="flex items-start justify-between gap-4">
                       <span className="flex size-12 items-center justify-center rounded-2xl bg-surface text-2xl shadow-inner" aria-hidden="true">{mission.emoji}</span>
                       <span className="rounded-full bg-surface px-3 py-1 text-xs font-black text-indigo">{mission.status} · {mission.time}</span>
