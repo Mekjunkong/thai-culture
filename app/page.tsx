@@ -314,6 +314,36 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className="px-4 py-16 md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase text-temple">Online + on-site products</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance md:text-5xl">
+                Choose free practice, online correction, or a real Chiang Mai mission walk.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-tamarind/72 text-pretty">
+                The product is now clearer: free missions first, then a speaking trial, Starter Pack, on-site mission walk, or 5-lesson survival path.
+              </p>
+              <Link href="/products" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-black text-surface transition duration-150 ease-out hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                Compare all products →
+              </Link>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                ['Online coaching', 'Video-call roleplay, screen-share missions, and WhatsApp voice-note correction.'],
+                ['On-site Chiang Mai', 'Cafe, market, restaurant, transport, or condo missions with printed workbook support.'],
+                ['Starter Pack', 'One private lesson, workbook, practice missions, and 7 days of voice correction.'],
+                ['5-lesson path', 'A structured survival Thai package instead of random one-off lessons.'],
+              ].map(([title, detail]) => (
+                <article key={title} className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
+                  <p className="text-xl font-black text-indigo">{title}</p>
+                  <p className="mt-3 leading-7 text-tamarind/70 text-pretty">{detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="pricing" className="px-4 py-16 md:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">

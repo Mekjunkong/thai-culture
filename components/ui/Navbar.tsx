@@ -4,7 +4,7 @@ import BrandLogo from './BrandLogo'
 const navItems = [
   { href: '/practice', label: 'Practice app' },
   { href: '/missions', label: 'Missions' },
-  { href: '/products/onsite-chiang-mai-thai-lesson-pack.pdf', label: 'Workbook' },
+  { href: '/products', label: 'Products' },
   { href: '/#how-it-works', label: 'How it works' },
   { href: '/#pricing', label: 'Pricing' },
 ]
