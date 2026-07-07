@@ -5,6 +5,7 @@ const navItems = [
   { href: '/practice', label: 'Practice app' },
   { href: '/missions', label: 'Missions' },
   { href: '/products', label: 'Products' },
+  { href: '/book', label: 'Intake' },
   { href: '/#how-it-works', label: 'How it works' },
   { href: '/#pricing', label: 'Pricing' },
 ]
@@ -34,7 +35,7 @@ export default function Navbar() {
             Practice free
           </Link>
           <Link
-            href="/#pricing"
+            href="/book"
             className="inline-flex min-h-11 items-center rounded-xl bg-indigo px-4 py-2 font-black text-surface transition duration-150 ease-out hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
           >
             Book lesson

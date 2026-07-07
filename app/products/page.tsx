@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
-import CheckoutButton from '@/components/checkout/CheckoutButton'
 
 export const metadata: Metadata = {
   title: 'Thai Lesson Products Online & On-site | Thai Lessons Chiang Mai',
@@ -34,7 +33,7 @@ const productLadder = [
     bestFor: 'First correction and confidence check',
     outcome: 'Leave with one sentence you can say more naturally and one clear next step.',
     includes: ['Friendly level check', 'One mission roleplay', 'Pronunciation correction for tone, rhythm, and polite ending'],
-    href: '#book',
+    href: '/book',
     cta: 'Book trial',
   },
   {
@@ -44,7 +43,7 @@ const productLadder = [
     bestFor: 'Beginners who want a useful first week',
     outcome: 'Practice 5 real-life Chiang Mai situations and get 7 days of voice-note correction.',
     includes: ['One private lesson', 'Branded PDF workbook', 'Practice app + missions', '7 days WhatsApp voice correction'],
-    href: '#book',
+    href: '/book',
     cta: 'Book Starter Pack',
   },
   {
@@ -54,7 +53,7 @@ const productLadder = [
     bestFor: 'On-site learners who want real-world practice',
     outcome: 'Practice Thai in a real cafe, market, transport, or condo situation with teacher support.',
     includes: ['Printed mission card', 'Real-world roleplay', 'Teacher correction notes', 'After-class voice-note homework'],
-    href: '#book',
+    href: '/book',
     cta: 'Ask for mission walk',
   },
   {
@@ -64,7 +63,7 @@ const productLadder = [
     bestFor: 'Expats staying in Chiang Mai for 1 month or longer',
     outcome: 'Build a practical beginner foundation across cafe, market, food, transport, and personal life.',
     includes: ['5 private sessions', 'Personal phrase bank', 'Weekly speaking homework', 'Before/after confidence tracker'],
-    href: '#book',
+    href: '/book',
     cta: 'Plan 5 lessons',
   },
 ]
@@ -158,13 +157,9 @@ export default function ProductsPage() {
                   <ul className="mt-4 space-y-2 border-t border-tamarind/10 pt-4 text-sm leading-6 text-tamarind/70">
                     {product.includes.map((item) => <li key={item}>✓ {item}</li>)}
                   </ul>
-                  {product.href === '#book' ? (
-                    <div className="mt-5"><CheckoutButton>{product.cta}</CheckoutButton></div>
-                  ) : (
-                    <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-5 py-3 font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                      {product.cta}
-                    </Link>
-                  )}
+                  <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-5 py-3 font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                    {product.cta}
+                  </Link>
                 </article>
               ))}
             </div>
@@ -222,7 +217,12 @@ export default function ProductsPage() {
             <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">Start with one trial or one Starter Pack.</h2>
             <p className="mx-auto mt-4 max-w-2xl leading-8 text-tamarind/70">Send one message with your situation: cafe, market, restaurant, driver, condo, work, dating, or daily life. I will suggest the best lesson format.</p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <CheckoutButton>Book on WhatsApp</CheckoutButton>
+              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 font-black text-tamarind transition hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo">
+                Fill student intake
+              </Link>
+              <Link href="/lesson-report" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-6 py-3 font-black text-indigo transition hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                Lesson report template
+              </Link>
               <Link href="/practice" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-6 py-3 font-black text-indigo transition hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
                 Try free practice first
               </Link>

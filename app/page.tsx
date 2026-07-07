@@ -168,10 +168,10 @@ export default function HomePage() {
                   Open free practice app
                 </Link>
                 <Link
-                  href="#pricing"
+                  href="/book"
                   className="inline-flex min-h-13 items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-7 py-4 font-black text-tamarind shadow-sm transition duration-150 ease-out hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
                 >
-                  Book human correction
+                  Fill student intake
                 </Link>
               </div>
 
@@ -334,12 +334,42 @@ export default function HomePage() {
                 ['On-site Chiang Mai', 'Cafe, market, restaurant, transport, or condo missions with printed workbook support.'],
                 ['Starter Pack', 'One private lesson, workbook, practice missions, and 7 days of voice correction.'],
                 ['5-lesson path', 'A structured survival Thai package instead of random one-off lessons.'],
+                ['Student intake', 'A clear pre-lesson brief so each class starts with the right mission and phrase bank.'],
+                ['Lesson report', 'After-class corrections, homework, confidence score, and the next booking step.'],
               ].map(([title, detail]) => (
                 <article key={title} className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
                   <p className="text-xl font-black text-indigo">{title}</p>
                   <p className="mt-3 leading-7 text-tamarind/70 text-pretty">{detail}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface px-4 py-16 md:py-20">
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase text-temple">Professional lesson system</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance md:text-5xl">
+                Better before class. Clearer after class.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-tamarind/72 text-pretty">
+                The product now has two missing service pieces: a student intake before booking and a printable lesson report after each session. This makes online and on-site lessons feel like a real paid product, not only a casual chat.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link href="/book" className="rounded-[1.5rem] border border-turmeric bg-banana/10 p-5 shadow-sm transition hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                <p className="text-sm font-black uppercase text-temple">Before lesson</p>
+                <h3 className="mt-3 text-2xl font-black text-indigo">Student intake form</h3>
+                <p className="mt-3 leading-7 text-tamarind/70">Collect level, goals, location, schedule, and real-life situations, then send a prepared WhatsApp booking message.</p>
+                <p className="mt-5 font-black text-indigo">Open intake →</p>
+              </Link>
+              <Link href="/lesson-report" className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 shadow-sm transition hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                <p className="text-sm font-black uppercase text-temple">After lesson</p>
+                <h3 className="mt-3 text-2xl font-black text-indigo">Lesson report template</h3>
+                <p className="mt-3 leading-7 text-tamarind/70">Give students corrections, phrase bank, homework, confidence score, and a clear next mission after every lesson.</p>
+                <p className="mt-5 font-black text-indigo">View report →</p>
+              </Link>
             </div>
           </div>
         </section>
