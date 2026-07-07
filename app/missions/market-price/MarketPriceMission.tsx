@@ -82,6 +82,7 @@ export default function MarketPriceMission() {
   const progressCount = progress.filter(Boolean).length
   const progressPercent = Math.round((progressCount / steps.length) * 100)
   const canComplete = progressCount === steps.length && checks.noLook
+  const nextAction = progressCount < 1 ? 'Ask the price out loud' : progressCount < 2 ? 'Choose fruit' : progressCount < 3 ? 'Practice the buying phrase' : progressCount < 4 ? 'Finish the vendor roleplay' : checks.noLook ? 'Mission complete' : 'Say both phrases without looking'
 
   useEffect(() => {
     const saved = window.localStorage.getItem('tlcm-market-price-complete')
@@ -105,12 +106,16 @@ export default function MarketPriceMission() {
 
   return (
     <div className="bg-jasmine text-tamarind">
-      <section className="relative overflow-hidden px-4 py-12 md:py-16">
-        <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_12%_12%,oklch(78%_0.14_84/.30),transparent_30%),radial-gradient(circle_at_82%_6%,oklch(58%_0.18_31/.15),transparent_34%)]" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl">
+      <section className="px-4 py-10 md:py-14">
+        <div className="mx-auto max-w-6xl">
+          <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm font-bold text-tamarind/60">
+            <a href="/missions" className="text-indigo underline-offset-4 hover:underline">Missions</a>
+            <span aria-hidden="true">/</span>
+            <span>Market price</span>
+          </nav>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="inline-flex rounded-full border border-turmeric/40 bg-surface px-4 py-2 text-sm font-black uppercase tracking-[0.14em] text-indigo shadow-sm">
+              <p className="inline-flex min-h-11 items-center rounded-full border border-turmeric/40 bg-surface px-4 py-2 text-sm font-black uppercase text-indigo shadow-sm">
                 Free 5-minute Thai mission
               </p>
               <h1 className="mt-5 text-[clamp(2.5rem,7vw,5.6rem)] font-black leading-[0.94] tracking-[-0.06em] text-balance">
@@ -119,7 +124,7 @@ export default function MarketPriceMission() {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 md:text-xl md:leading-9">
                 Practice two useful phrases: ask “How much?” and buy fruit politely. Short, practical, and made for real market confidence.
               </p>
-              <div className="mt-7 grid gap-3 sm:grid-cols-4">
+              <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
                   <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
                     <span className="block text-xs uppercase tracking-[0.12em]">Step {index + 1}</span>
@@ -129,7 +134,7 @@ export default function MarketPriceMission() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/12 md:p-6">
+            <aside className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/12 md:p-6" aria-label="Mission progress">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.14em] text-temple">Mission progress</p>
@@ -139,13 +144,14 @@ export default function MarketPriceMission() {
                   {completed ? '🏆' : '🥭'}
                 </div>
               </div>
-              <div className="mt-4 h-4 overflow-hidden rounded-full bg-jasmine">
-                <div className="h-full rounded-full bg-banana transition-all duration-500" style={{ width: `${progressPercent}%` }} />
+              <div className="mt-4 h-4 overflow-hidden rounded-full bg-jasmine" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progressPercent} aria-label="Mission progress">
+                <div className="h-full rounded-full bg-banana transition-all duration-150 ease-out" style={{ width: `${progressPercent}%` }} />
               </div>
               <p className="mt-4 rounded-2xl bg-jasmine p-4 text-sm leading-6 text-tamarind/75">
                 Today’s Thai win: <strong>I can ask a price and buy one thing at a market.</strong>
               </p>
-            </div>
+              <p className="mt-3 text-sm font-black text-indigo">Next: {nextAction}</p>
+            </aside>
           </div>
         </div>
       </section>
@@ -184,7 +190,8 @@ export default function MarketPriceMission() {
                     setPriceChoice(null)
                     setRoleplayChoice(null)
                   }}
-                  className={`rounded-2xl border p-4 text-left transition hover:-translate-y-0.5 ${itemId === marketItem.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`}
+                  className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${itemId === marketItem.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`}
+                  aria-pressed={itemId === marketItem.id}
                 >
                   <span className="text-3xl" aria-hidden="true">{marketItem.emoji}</span>
                   <span className="mt-3 block font-black text-tamarind">{marketItem.label}</span>
@@ -205,7 +212,8 @@ export default function MarketPriceMission() {
                       key={ending}
                       type="button"
                       onClick={() => setParticle(ending)}
-                      className={`rounded-full px-4 py-2 ${particle === ending ? 'bg-indigo text-surface' : 'text-tamarind/65'}`}
+                      className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turmeric ${particle === ending ? 'bg-indigo text-surface' : 'text-tamarind/65'}`}
+                      aria-pressed={particle === ending}
                     >
                       {ending}
                     </button>
@@ -223,7 +231,8 @@ export default function MarketPriceMission() {
                       setPriceChoice(null)
                       setRoleplayChoice(null)
                     }}
-                    className={`rounded-2xl border p-4 text-left transition hover:-translate-y-0.5 ${quantityId === marketQuantity.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`}
+                    className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${quantityId === marketQuantity.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`}
+                    aria-pressed={quantityId === marketQuantity.id}
                   >
                     <span className="font-black text-tamarind">{marketQuantity.label}</span>
                     <span className="mt-1 block text-lg font-bold text-indigo">{marketQuantity.thai}</span>
@@ -286,7 +295,8 @@ export default function MarketPriceMission() {
                       key={price}
                       type="button"
                       onClick={() => setPriceChoice(price)}
-                      className={`rounded-2xl border p-4 text-center text-lg font-black transition hover:-translate-y-0.5 ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
+                      className={`rounded-2xl border p-4 text-center text-lg font-black transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
+                      aria-pressed={isSelected}
                     >
                       {price} baht
                     </button>
@@ -304,7 +314,8 @@ export default function MarketPriceMission() {
                       key={option}
                       type="button"
                       onClick={() => setRoleplayChoice(option)}
-                      className={`rounded-2xl border p-4 text-left text-lg font-bold transition hover:-translate-y-0.5 ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
+                      className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
+                      aria-pressed={isSelected}
                     >
                       {option}
                     </button>
@@ -336,7 +347,7 @@ export default function MarketPriceMission() {
               href={`https://wa.me/66929894495?text=${whatsappText}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 text-center font-black text-tamarind shadow-lg shadow-tamarind/20 transition hover:-translate-y-0.5"
+              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 text-center font-black text-tamarind shadow-lg shadow-tamarind/20 transition duration-150 ease-out"
             >
               WhatsApp Mike
             </a>
