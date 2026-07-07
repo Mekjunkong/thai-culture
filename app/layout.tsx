@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/assets/brand/favicon.svg', type: 'image/svg+xml' },
+      { url: '/assets/brand/logo-mark-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/assets/brand/logo-mark-512.png', sizes: '512x512', type: 'image/png' }],
+  },
   openGraph: {
     title: 'Thai Lessons Chiang Mai',
     description: 'Thai lessons in Chiang Mai and online for expats, travelers, food, markets, prices, polite phrases, and culture.',
@@ -19,10 +26,10 @@ export const metadata: Metadata = {
     siteName: 'Thai Lessons Chiang Mai',
     images: [
       {
-        url: '/assets/images/thai-culture-homepage-banner.png',
-        width: 1536,
-        height: 1024,
-        alt: 'Thai Lessons Chiang Mai course and private lessons',
+        url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thai Lessons Chiang Mai — real-life Thai missions for expats',
       },
     ],
     type: 'website',
@@ -31,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Thai Lessons Chiang Mai',
     description: 'Practical Thai lessons in Chiang Mai and online for expats and travelers.',
-    images: ['/assets/images/thai-culture-homepage-banner.png'],
+    images: ['/assets/brand/og-thai-lessons-chiang-mai.png'],
   },
 }
 

@@ -120,7 +120,7 @@ const lessonFormats = [
   'In-person Thai lessons in Chiang Mai cafes',
   'WhatsApp voice-note pronunciation correction',
   'Practical Thai phrasebook and mission practice',
-  'Printable on-site lesson PDF for cafe, market, food, transport, and condo practice',
+  'Printable branded onsite workbook with QR mission cards, roleplays, and teacher correction boxes',
 ]
 
 const faqs = [
@@ -308,7 +308,7 @@ export default function HomePage() {
                 </div>
               ))}
               <a href="/products/onsite-chiang-mai-thai-lesson-pack.pdf" className="rounded-2xl border border-turmeric/40 bg-turmeric p-5 font-black text-tamarind transition duration-150 ease-out hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Download on-site teacher PDF →
+                Download branded onsite workbook →
               </a>
             </div>
           </div>

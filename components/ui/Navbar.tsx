@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import BrandLogo from './BrandLogo'
 
 const navItems = [
   { href: '/practice', label: 'Practice app' },
   { href: '/missions', label: 'Missions' },
+  { href: '/products/onsite-chiang-mai-thai-lesson-pack.pdf', label: 'Workbook' },
   { href: '/#how-it-works', label: 'How it works' },
   { href: '/#pricing', label: 'Pricing' },
 ]
@@ -11,14 +13,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-20 border-b border-tamarind/10 bg-surface/95 px-4 py-3 text-tamarind shadow-sm shadow-tamarind/5 backdrop-blur md:px-6">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
-        <Link
-          href="/"
-          className="flex min-h-11 items-center gap-2 text-base font-black tracking-[-0.02em] text-balance focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric md:text-lg"
-          aria-label="Thai Lessons Chiang Mai home"
-        >
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-jasmine text-sm shadow-inner" aria-hidden="true">ไทย</span>
-          <span className="leading-tight">Thai Lessons Chiang Mai</span>
-        </Link>
+        <BrandLogo />
 
         <div className="flex items-center gap-2 text-sm font-semibold">
           <div className="hidden items-center gap-5 lg:flex">

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Thai Lessons Chiang Mai logo mark</title>
+<desc id="desc">Rounded navy badge with Thai text, Doi Suthep mountain line, and golden sun.</desc>
+<rect width="256" height="256" rx="64" fill="#273566"/>
+<circle cx="196" cy="58" r="24" fill="#E2B44A"/>
+<path d="M33 162 C62 129 83 118 109 143 C127 160 138 158 153 139 C176 109 205 111 225 141" fill="none" stroke="#FBF6E8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M38 184 C80 166 119 166 158 184 C184 196 207 196 224 186" fill="none" stroke="#E2B44A" stroke-width="10" stroke-linecap="round" opacity="0.92"/>
+<text x="128" y="116" text-anchor="middle" font-family="Noto Sans Thai, Noto Sans, Arial, sans-serif" font-size="72" font-weight="900" fill="#FBF6E8" letter-spacing="-2">ไทย</text>
+<path d="M68 211 H188" stroke="#FBF6E8" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#FBF6E8"/>
+<circle cx="1050" cy="100" r="110" fill="#E2B44A" opacity="0.35"/>
+<circle cx="120" cy="540" r="160" fill="#A74838" opacity="0.10"/>
+<g transform="translate(86 86) scale(1.25)">
+<title id="title">Thai Lessons Chiang Mai logo mark</title>
+<desc id="desc">Rounded navy badge with Thai text, Doi Suthep mountain line, and golden sun.</desc>
+<rect width="256" height="256" rx="64" fill="#273566"/>
+<circle cx="196" cy="58" r="24" fill="#E2B44A"/>
+<path d="M33 162 C62 129 83 118 109 143 C127 160 138 158 153 139 C176 109 205 111 225 141" fill="none" stroke="#FBF6E8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
+<path d="M38 184 C80 166 119 166 158 184 C184 196 207 196 224 186" fill="none" stroke="#E2B44A" stroke-width="10" stroke-linecap="round" opacity="0.92"/>
+<text x="128" y="116" text-anchor="middle" font-family="Noto Sans Thai, Noto Sans, Arial, sans-serif" font-size="72" font-weight="900" fill="#FBF6E8" letter-spacing="-2">ไทย</text>
+<path d="M68 211 H188" stroke="#FBF6E8" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+</g>
+<text x="400" y="190" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900" fill="#30241D" letter-spacing="-4">Thai Lessons</text>
+<text x="400" y="275" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900" fill="#30241D" letter-spacing="-4">Chiang Mai</text>
+<rect x="400" y="322" width="540" height="62" rx="31" fill="#E2B44A"/>
+<text x="670" y="363" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="900" fill="#30241D">Real-life Thai missions for expats</text>
+<text x="400" y="455" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#273566">Coffee · Markets · Food · Drivers · Condo help</text>
+<text x="400" y="512" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#A74838">Free practice app + in-person Chiang Mai lessons</text>
+</svg>

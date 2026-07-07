@@ -5,95 +5,246 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chiang Mai Thai Survival Starter Workbook</title>
 <style>
-@font-face{font-family:NotoThai;src:url('/usr/share/fonts/truetype/noto/NotoSansThai-Regular.ttf')}@font-face{font-family:NotoThai;font-weight:800;src:url('/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf')}
-@page{size:A4;margin:14mm 14mm 16mm}@page cover{margin:0}@page{ @bottom-left{content:'Thai Lessons Chiang Mai · Survival Starter Workbook';font-size:8px;color:#7a6a5d} @bottom-right{content:counter(page);font-size:8px;color:#7a6a5d}}
-:root{--cream:#fbf6e8;--paper:#fffdf8;--ink:#30241d;--muted:#6f6258;--navy:#273566;--navy2:#1e294f;--gold:#e2b44a;--gold2:#f3d27c;--red:#a74838;--green:#457852;--line:#eadfca;--soft:#f7ecd4}*{box-sizing:border-box}body{margin:0;background:white;color:var(--ink);font-family:NotoThai,Inter,system-ui,sans-serif;line-height:1.45}.cover{page:cover;min-height:297mm;padding:24mm 18mm;background:linear-gradient(135deg,var(--navy) 0%,#35437a 52%,#efe0b8 52%,var(--cream) 100%);color:white;display:flex;flex-direction:column;justify-content:space-between}.cover .badge{display:inline-block;width:max-content;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 13px;background:rgba(255,255,255,.11);font-weight:800;letter-spacing:.04em;text-transform:uppercase}.cover h1{font-size:57px;line-height:.92;letter-spacing:-.07em;margin:18mm 0 7mm;max-width:170mm}.cover .sub{font-size:18px;line-height:1.55;max-width:150mm;color:rgba(255,255,255,.85)}.cover-card{width:92mm;margin-left:auto;background:rgba(255,253,248,.94);color:var(--ink);border-radius:18px;padding:14px;box-shadow:0 18px 55px rgba(0,0,0,.22)}.cover-card h2{margin:0 0 8px;color:var(--navy);font-size:18px}.cover-card p{margin:7px 0;font-size:11px}.brand{font-size:16px;font-weight:900;color:var(--navy);background:var(--gold);padding:8px 13px;border-radius:999px;display:inline-block}.page-break{break-before:page}h1,h2,h3{line-height:1.08;margin:0 0 10px;color:var(--navy)}h1{font-size:34px;letter-spacing:-.04em}h2{font-size:25px;letter-spacing:-.025em;margin-top:10px}h3{font-size:17px;color:var(--red);margin-top:14px}p{margin:0 0 8px}.muted{color:var(--muted)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:13px;break-inside:avoid}.dark{background:var(--navy);color:white;border:none}.dark h2,.dark h3{color:white}.gold{background:var(--soft);border-color:var(--gold)}.pill{display:inline-block;border-radius:999px;background:var(--soft);border:1px solid var(--line);padding:5px 9px;font-size:10px;font-weight:900;color:var(--red);text-transform:uppercase;letter-spacing:.035em}.mission-head{display:grid;grid-template-columns:22mm 1fr;gap:10px;align-items:center;margin-bottom:10px}.emoji{width:20mm;height:20mm;border-radius:13px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:26px}.goal{font-weight:800;color:var(--green)}table{width:100%;border-collapse:separate;border-spacing:0;margin:8px 0 12px;break-inside:avoid}th{background:var(--navy);color:white;font-size:10px;text-align:left;padding:7px;border-right:1px solid rgba(255,255,255,.2)}th:first-child{border-radius:10px 0 0 0}th:last-child{border-radius:0 10px 0 0;border-right:none}td{border-left:1px solid var(--line);border-bottom:1px solid var(--line);padding:7px;vertical-align:top;font-size:10.5px;background:white}td:last-child{border-right:1px solid var(--line)}tr:last-child td:first-child{border-radius:0 0 0 10px}tr:last-child td:last-child{border-radius:0 0 10px 0}.thai{font-size:16px;font-weight:900;color:var(--navy)}.roman{font-weight:800;color:var(--red)}.formula{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.box{border:1px dashed var(--gold);background:#fff9ea;border-radius:12px;padding:9px;min-height:26mm}.blank{height:16mm;border-bottom:1px solid #b9aa98}.lines{background:repeating-linear-gradient(to bottom,transparent 0,transparent 19px,#d9cbb9 20px);min-height:82px;border:1px solid var(--line);border-radius:12px}.checklist{display:grid;grid-template-columns:1fr 1fr;gap:6px}.check{border:1px solid var(--line);border-radius:10px;padding:7px;background:white;font-size:10.5px}.teacher{border-left:5px solid var(--gold);padding:9px 12px;background:#fff8e8;border-radius:0 12px 12px 0}.mini{font-size:9px}.offer{background:linear-gradient(135deg,var(--navy),#35437a);color:white;border-radius:20px;padding:18px;margin-top:8px}.offer h2{color:white;font-size:28px}.qrbox{border:2px dashed rgba(255,255,255,.35);border-radius:16px;height:36mm;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);font-weight:800}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.small-table td{font-size:9.4px;padding:5px}.no-break{break-inside:avoid}.center{text-align:center}.price{font-size:22px;font-weight:900;color:var(--gold)}
+@font-face{font-family:NotoThai;src:url('/usr/share/fonts/truetype/noto/NotoSansThai-Regular.ttf')}
+@font-face{font-family:NotoThai;font-weight:800;src:url('/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf')}
+@page{size:A4;margin:14mm 13mm 16mm;@bottom-left{content:'Thai Lessons Chiang Mai · Survival Starter Workbook';font-size:8px;color:#7a6a5d}@bottom-right{content:counter(page);font-size:8px;color:#7a6a5d}}
+@page cover{margin:0}
+:root{--cream:#fbf6e8;--paper:#fffdf8;--ink:#30241d;--muted:#6f6258;--navy:#273566;--gold:#e2b44a;--red:#a74838;--green:#457852;--line:#eadfca;--soft:#f7ecd4}
+*{box-sizing:border-box}body{margin:0;background:white;color:var(--ink);font-family:NotoThai,Inter,Arial,sans-serif;line-height:1.42}h1,h2,h3,p{margin:0}h1{font-size:34px;line-height:1.02;letter-spacing:-.04em;color:var(--navy)}h2{font-size:22px;line-height:1.12;color:var(--navy);margin-bottom:6px}h3{font-size:15px;color:var(--red);margin:0 0 7px}p{font-size:11.5px;margin-bottom:7px}table{width:100%;border-collapse:collapse;font-size:9.5px}th{background:var(--navy);color:white;text-align:left;padding:6px}td{border:1px solid var(--line);padding:5px;vertical-align:top}section{break-inside:avoid}.page-break{break-before:page}.cover{page:cover;min-height:297mm;padding:22mm 17mm;background:linear-gradient(135deg,var(--navy) 0%,#35437a 55%,#efe0b8 55%,var(--cream) 100%);color:white;display:flex;flex-direction:column;justify-content:space-between}.cover-logo{width:112mm;background:white;border-radius:24px;padding:10px;box-shadow:0 18px 60px rgba(0,0,0,.22)}.cover h1{color:white;font-size:57px;line-height:.92;max-width:166mm;margin:15mm 0 7mm}.sub{font-size:18px;max-width:150mm;color:rgba(255,255,255,.86)}.cover-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:12mm;align-items:end}.cover-card{background:rgba(255,253,248,.95);color:var(--ink);border-radius:20px;padding:13px;box-shadow:0 18px 55px rgba(0,0,0,.2)}.cover-card p{font-size:11px}.badge,.eyebrow{display:inline-block;border-radius:999px;background:var(--gold);color:var(--ink);font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:6px 10px;font-size:9px;margin-bottom:8px}.card,.hero-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;break-inside:avoid}.navy{background:var(--navy);color:white;border:none}.navy h2,.navy .label{color:white}.gold{background:var(--soft);border-color:var(--gold)}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}.label{font-weight:900;text-transform:uppercase;color:var(--red);font-size:9px;letter-spacing:.05em}.thai{font-family:NotoThai,Arial,sans-serif;font-weight:800}.big{font-size:25px;line-height:1.2;margin:5px 0 4px;color:white}.roman{color:var(--gold);font-weight:800}.muted,.note{color:var(--muted)}.mission-head{display:grid;grid-template-columns:18mm 1fr 22mm;gap:10px;align-items:center;margin-bottom:10px}.emoji{width:18mm;height:18mm;border-radius:15px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:28px}.goal{font-size:13px;font-weight:800;color:var(--green)}.qr{width:22mm;height:22mm;border:1px solid var(--line);border-radius:8px;padding:2px;background:white}.builder{display:grid;gap:6px;margin-top:8px}.builder div{border:1px dashed #bba98d;border-radius:10px;min-height:25px;padding:6px;background:white;font-size:10px;color:var(--muted)}.line{border-bottom:1px solid var(--line);padding:5px 0;display:grid;grid-template-columns:18mm 1fr;gap:6px;font-size:10px}.line small{grid-column:2;color:var(--muted)}.checks{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:6px 0 12px}.checks span{border:1px solid var(--line);border-radius:9px;padding:6px;background:white;font-size:10px}.link{font-size:8.5px;color:var(--navy);word-break:break-all}.bottom{align-items:start}.logo-strip{display:flex;align-items:center;gap:8px;margin-bottom:9px}.logo-strip img{width:32px}.package{background:var(--navy);color:white;border-radius:22px;padding:18px;margin-top:12px}.package h2{color:white}.price{font-size:25px;color:var(--gold);font-weight:900}.lines{height:110px;border:1px solid var(--line);border-radius:14px;background:repeating-linear-gradient(white,white 25px,#eadfca 26px)}.lesson-report td{height:28px}.qr-card{display:flex;gap:10px;align-items:center}.qr-card img{width:28mm;height:28mm}
 </style>
 </head>
 <body>
 <section class="cover">
   <div>
-    <span class="badge">In-person Chiang Mai edition</span>
+    <img class="cover-logo" src="../assets/brand/logo-full.svg" alt="Thai Lessons Chiang Mai logo" />
+    <p class="badge" style="margin-top:13mm">In-person Chiang Mai edition</p>
     <h1>Chiang Mai Thai Survival Starter Workbook</h1>
-    <p class="sub">A practical, printable workbook for expats who want to use Thai today — in cafes, markets, restaurants, transport, condos, and daily polite situations.</p>
+    <p class="sub">A practical, printable lesson kit for expats who want to speak Thai in cafes, markets, restaurants, transport, condos, and friendly daily life.</p>
   </div>
-  <div class="cover-card">
-    <h2>What the student gets</h2>
-    <p>✓ 6 real-life missions</p><p>✓ phrase builders + roleplays</p><p>✓ pronunciation rhythm practice</p><p>✓ 7-day speaking challenge</p><p>✓ voice-note correction path</p>
-    <p class="brand">Thai Lessons Chiang Mai</p>
+  <div class="cover-grid">
+    <div class="cover-card"><h2>What the student gets</h2><p>✓ 6 real-life missions</p><p>✓ phrase builders + roleplays</p><p>✓ QR links to online practice</p><p>✓ correction boxes for teacher feedback</p><p>✓ 7-day speaking challenge</p></div>
+    <div class="cover-card"><h2>Best use</h2><p><b>First onsite lesson:</b> cafe, market, restaurant, or transport.</p><p><b>Next step:</b> send voice notes and book Starter Pack.</p><p><b>Brand promise:</b> one useful Thai sentence you can use today.</p></div>
   </div>
 </section>
 
 <section>
-  <span class="pill">Start here</span><h1>How to use this workbook</h1>
-  <div class="intro-grid">
-    <div class="card"><h3>For the student</h3><p>Do not try to memorize everything. Choose one mission that matches your real life this week. Practice the phrase, use it once, then send a voice note for correction.</p></div>
-    <div class="card"><h3>For the teacher</h3><p>Teach one situation per lesson. Use the phrase builder, roleplay the likely reply, then walk the learner into a real cafe, market, lobby, or map situation.</p></div>
-    <div class="card gold"><h3>Lesson promise</h3><p class="goal">By the end of each lesson, the learner can say one useful sentence in a real Chiang Mai situation.</p></div>
-    <div class="card"><h3>Pronunciation rule</h3><p>Romanization is only a guide. First build confidence and politeness. Then correct rhythm, vowel length, and tone feeling with voice notes.</p></div>
+  <div class="logo-strip"><img src="../assets/brand/logo-mark.svg" /><span class="eyebrow">Start here</span></div>
+  <h1>How to use this workbook</h1>
+  <div class="three">
+    <div class="card"><h3>1. Choose one situation</h3><p>Do not study every page at once. Pick the mission the learner needs this week.</p></div>
+    <div class="card"><h3>2. Build one sentence</h3><p>Use the base sentence, swap one detail, then say it without looking.</p></div>
+    <div class="card"><h3>3. Use it outside</h3><p>Try the phrase in real life or record a voice note for correction.</p></div>
   </div>
-  <h2>60-minute on-site lesson flow</h2>
+  <h2 style="margin-top:12px">60-minute onsite lesson flow</h2>
   <table><tr><th>Time</th><th>Teacher action</th><th>Student output</th></tr>
-    <tr><td>0–5</td><td>Choose the mission: cafe, market, restaurant, driver, condo, or social Thai.</td><td>“I need Thai for ____ this week.”</td></tr>
-    <tr><td>5–15</td><td>Teach khrap/kha, slow rhythm, and the phrase formula.</td><td>Student repeats the base phrase 5 times.</td></tr>
-    <tr><td>15–35</td><td>Build variations with choices from the table.</td><td>Student makes 3 personal sentences.</td></tr>
-    <tr><td>35–50</td><td>Roleplay likely replies and real-world body language.</td><td>Student answers without reading.</td></tr>
-    <tr><td>50–60</td><td>Assign one real-life try + voice note.</td><td>Student knows exactly what to do after class.</td></tr>
+    <tr><td>0–5</td><td>Pick the mission and real-life location.</td><td>“I need Thai for ____ this week.”</td></tr>
+    <tr><td>5–15</td><td>Teach polite ending, slow rhythm, and base sentence.</td><td>Repeat base phrase 5 times.</td></tr>
+    <tr><td>15–30</td><td>Build 3 personal variations.</td><td>Say personal sentence from memory.</td></tr>
+    <tr><td>30–45</td><td>Roleplay likely replies and body language.</td><td>Answer without freezing.</td></tr>
+    <tr><td>45–55</td><td>Correct tone, rhythm, vowel length, polite ending.</td><td>Record clean voice note.</td></tr>
+    <tr><td>55–60</td><td>Assign real-world challenge and next booking.</td><td>Knows what to use after class.</td></tr>
   </table>
-</section>
-
-<section class="page-break">
-  <span class="pill">Foundation</span><h1>Thai survival basics before missions</h1>
   <div class="two">
-    <div class="card"><h3>Polite endings</h3><p><span class="thai">ครับ</span> <span class="roman">khrap</span> — commonly used by men.</p><p><span class="thai">ค่ะ / คะ</span> <span class="roman">kha</span> — commonly used by women. Use คะ for many questions.</p></div>
-    <div class="card"><h3>Useful beginner sentence formula</h3><p><strong>Request</strong> + <strong>thing/action</strong> + <strong>detail</strong> + <strong>polite ending</strong></p><p class="muted">Example: ขอกาแฟเย็น + หวานน้อย + ครับ</p></div>
+    <div class="card gold"><h3>Teacher rule</h3><p>Correct rhythm and confidence first. Do not overload beginners with grammar. The product promise is “usable today.”</p></div>
+    <div class="card"><h3>Pronunciation rule</h3><p>Romanization is a guide only. Use Thai script + rhythm chunks + human correction for better speaking.</p></div>
   </div>
-  <table><tr><th>Function</th><th>Thai</th><th>Roman</th><th>Use when...</th></tr>
-    <tr><td>Hello</td><td class="thai">สวัสดีครับ / ค่ะ</td><td class="roman">sà-wàt-dii khrap / kha</td><td>Entering a shop, class, condo office.</td></tr>
-    <tr><td>Thank you</td><td class="thai">ขอบคุณครับ / ค่ะ</td><td class="roman">khàawp-khun khrap / kha</td><td>Every time someone helps.</td></tr>
-    <tr><td>Sorry / excuse me</td><td class="thai">ขอโทษครับ / ค่ะ</td><td class="roman">khǎaw-thôot khrap / kha</td><td>Interrupting or getting attention politely.</td></tr>
-    <tr><td>Can you speak slowly?</td><td class="thai">พูดช้าๆ ได้ไหมครับ / คะ</td><td class="roman">phûut cháa-cháa dâai mái?</td><td>When Thai comes back too fast.</td></tr>
-    <tr><td>I speak a little Thai</td><td class="thai">พูดไทยนิดหน่อย</td><td class="roman">phûut Thai nít-nòi</td><td>Lower pressure and create friendliness.</td></tr>
-  </table>
-  <div class="teacher"><strong>Teacher cue:</strong> Correct rhythm before grammar. Learners need a successful feeling first.</div>
 </section>
 
-<section class="page-break no-break">
-  <div class="mission-head"><div class="emoji">☕</div><div><span class="pill">Mission 1</span><h1>Cafe Thai</h1><p class="goal">Outcome: Order one drink naturally</p></div></div>
-  <div class="card dark"><h2>Base sentence: ขอกาแฟเย็นหวานน้อยครับ / ค่ะ</h2><p>khǎaw gaa-fae yen wǎan nói khrap / kha</p><p>I would like iced coffee, less sweet, please.</p></div>
-  <h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">ขอกาแฟเย็นครับ / ค่ะ</td><td class="roman">khǎaw gaa-fae yen khrap / kha</td><td>I would like iced coffee, please.</td></tr><tr><td class="thai">หวานน้อย</td><td class="roman">wǎan nói</td><td>Less sweet.</td></tr><tr><td class="thai">ไม่ใส่น้ำตาล</td><td class="roman">mâi sài náam-dtaan</td><td>No sugar.</td></tr><tr><td class="thai">ใส่น้ำแข็งน้อย</td><td class="roman">sài náam-khǎeng nói</td><td>Less ice.</td></tr><tr><td class="thai">คิดเงินครับ / ค่ะ</td><td class="roman">khít ngoen khrap / kha</td><td>Bill please.</td></tr></table><h3>Build your own sentence</h3><div class="formula"><div class="box"><strong>1. Request/action</strong><div class="blank"></div></div><div class="box"><strong>2. Item/place</strong><div class="blank"></div></div><div class="box"><strong>3. Detail</strong><div class="blank"></div></div><div class="box"><strong>4. Polite ending</strong><div class="blank"></div></div></div><h3>Roleplay script</h3><div class="card gold"><p>Staff: รับอะไรดีคะ? — What would you like?</p><p>Student: ขอกาแฟเย็นหวานน้อยครับ/ค่ะ</p><p>Staff: เอาหวานปกติไหม? — Normal sweet?</p><p>Student: หวานน้อยครับ/ค่ะ</p></div><h3>After-class challenge</h3><div class="two"><div class="card"><p>□ Say the base phrase 5 times.</p><p>□ Say one variation without reading.</p><p>□ Use the phrase once in real life.</p></div><div class="card"><p><strong>Voice note homework:</strong></p><p>Record the base sentence + one personal sentence. Send to Mike for correction.</p></div></div></section>
-<section class="page-break no-break">
-  <div class="mission-head"><div class="emoji">🥭</div><div><span class="pill">Mission 2</span><h1>Market Thai</h1><p class="goal">Outcome: Ask price and buy one item</p></div></div>
-  <div class="card dark"><h2>Base sentence: อันนี้เท่าไหร่ครับ / คะ</h2><p>an-níi thâo-rài khrap / kha?</p><p>How much is this?</p></div>
-  <h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">อันนี้เท่าไหร่ครับ / คะ</td><td class="roman">an-níi thâo-rài khrap / kha?</td><td>How much is this?</td></tr><tr><td class="thai">ราคาเท่าไหร่ครับ / คะ</td><td class="roman">raa-khaa thâo-rài khrap / kha?</td><td>What is the price?</td></tr><tr><td class="thai">เอาหนึ่งกิโลครับ / ค่ะ</td><td class="roman">ao nèung gii-loh khrap / kha</td><td>I will take one kilo.</td></tr><tr><td class="thai">ลดได้นิดหน่อยไหมครับ / คะ</td><td class="roman">lót dâai nít-nòi mái khrap / kha?</td><td>Can you discount a little?</td></tr><tr><td class="thai">ไม่เอา ขอบคุณครับ / ค่ะ</td><td class="roman">mâi ao, khàawp-khun khrap / kha</td><td>I do not want it, thank you.</td></tr></table><h3>Build your own sentence</h3><div class="formula"><div class="box"><strong>1. Request/action</strong><div class="blank"></div></div><div class="box"><strong>2. Item/place</strong><div class="blank"></div></div><div class="box"><strong>3. Detail</strong><div class="blank"></div></div><div class="box"><strong>4. Polite ending</strong><div class="blank"></div></div></div><h3>Roleplay script</h3><div class="card gold"><p>Student points at mangoes.</p><p>Student: อันนี้เท่าไหร่ครับ/คะ?</p><p>Seller: ห้าสิบบาท — 50 baht.</p><p>Student: เอาหนึ่งกิโลครับ/ค่ะ</p></div><h3>After-class challenge</h3><div class="two"><div class="card"><p>□ Say the base phrase 5 times.</p><p>□ Say one variation without reading.</p><p>□ Use the phrase once in real life.</p></div><div class="card"><p><strong>Voice note homework:</strong></p><p>Record the base sentence + one personal sentence. Send to Mike for correction.</p></div></div></section>
-<section class="page-break no-break">
-  <div class="mission-head"><div class="emoji">🍜</div><div><span class="pill">Mission 3</span><h1>Restaurant Thai</h1><p class="goal">Outcome: Order food and control spice level</p></div></div>
-  <div class="card dark"><h2>Base sentence: เอาข้าวซอยไม่เผ็ดกินที่นี่ครับ / ค่ะ</h2><p>ao khaao soi mâi phèt gin thîi-nîi khrap / kha</p><p>I will have khao soi, not spicy, eat here, please.</p></div>
-  <h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">เอาข้าวซอยครับ / ค่ะ</td><td class="roman">ao khaao soi khrap / kha</td><td>I will have khao soi.</td></tr><tr><td class="thai">ไม่เผ็ด</td><td class="roman">mâi phèt</td><td>Not spicy.</td></tr><tr><td class="thai">เผ็ดนิดหน่อย</td><td class="roman">phèt nít-nòi</td><td>A little spicy.</td></tr><tr><td class="thai">กินที่นี่ครับ / ค่ะ</td><td class="roman">gin thîi-nîi khrap / kha</td><td>Eat here.</td></tr><tr><td class="thai">กลับบ้านครับ / ค่ะ</td><td class="roman">glàp bâan khrap / kha</td><td>Take away.</td></tr></table><h3>Build your own sentence</h3><div class="formula"><div class="box"><strong>1. Request/action</strong><div class="blank"></div></div><div class="box"><strong>2. Item/place</strong><div class="blank"></div></div><div class="box"><strong>3. Detail</strong><div class="blank"></div></div><div class="box"><strong>4. Polite ending</strong><div class="blank"></div></div></div><h3>Roleplay script</h3><div class="card gold"><p>Staff: รับอะไรดีคะ? — What would you like?</p><p>Student: เอาข้าวซอยไม่เผ็ดครับ/ค่ะ</p><p>Staff: กินที่นี่ไหม? — Eat here?</p><p>Student: กินที่นี่ครับ/ค่ะ</p></div><h3>After-class challenge</h3><div class="two"><div class="card"><p>□ Say the base phrase 5 times.</p><p>□ Say one variation without reading.</p><p>□ Use the phrase once in real life.</p></div><div class="card"><p><strong>Voice note homework:</strong></p><p>Record the base sentence + one personal sentence. Send to Mike for correction.</p></div></div></section>
-<section class="page-break no-break">
-  <div class="mission-head"><div class="emoji">🚗</div><div><span class="pill">Mission 4</span><h1>Transport Thai</h1><p class="goal">Outcome: Tell a driver where to stop</p></div></div>
-  <div class="card dark"><h2>Base sentence: จอดตรงนี้ครับ / ค่ะ</h2><p>jàwt dtrong-níi khrap / kha</p><p>Stop here, please.</p></div>
-  <h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">จอดตรงนี้ครับ / ค่ะ</td><td class="roman">jàwt dtrong-níi khrap / kha</td><td>Stop here.</td></tr><tr><td class="thai">ตรงไปครับ / ค่ะ</td><td class="roman">dtrong bpai khrap / kha</td><td>Go straight.</td></tr><tr><td class="thai">เลี้ยวซ้ายครับ / ค่ะ</td><td class="roman">líao sáai khrap / kha</td><td>Turn left.</td></tr><tr><td class="thai">เลี้ยวขวาครับ / ค่ะ</td><td class="roman">líao khwǎa khrap / kha</td><td>Turn right.</td></tr><tr><td class="thai">ไปที่นี่ได้ไหมครับ / คะ</td><td class="roman">bpai thîi-nîi dâai mái khrap / kha?</td><td>Can you go here?</td></tr></table><h3>Build your own sentence</h3><div class="formula"><div class="box"><strong>1. Request/action</strong><div class="blank"></div></div><div class="box"><strong>2. Item/place</strong><div class="blank"></div></div><div class="box"><strong>3. Detail</strong><div class="blank"></div></div><div class="box"><strong>4. Polite ending</strong><div class="blank"></div></div></div><h3>Roleplay script</h3><div class="card gold"><p>Student shows phone map.</p><p>Student: ไปที่นี่ได้ไหมครับ/คะ?</p><p>Driver drives near location.</p><p>Student: จอดตรงนี้ครับ/ค่ะ</p></div><h3>After-class challenge</h3><div class="two"><div class="card"><p>□ Say the base phrase 5 times.</p><p>□ Say one variation without reading.</p><p>□ Use the phrase once in real life.</p></div><div class="card"><p><strong>Voice note homework:</strong></p><p>Record the base sentence + one personal sentence. Send to Mike for correction.</p></div></div></section>
-<section class="page-break no-break">
-  <div class="mission-head"><div class="emoji">🏢</div><div><span class="pill">Mission 5</span><h1>Condo Help Thai</h1><p class="goal">Outcome: Ask for help with a problem</p></div></div>
-  <div class="card dark"><h2>Base sentence: ช่วยได้ไหมครับ / คะ มีปัญหา</h2><p>chûai dâai mái khrap / kha? mii bpan-hǎa</p><p>Can you help? There is a problem.</p></div>
-  <h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">ช่วยได้ไหมครับ / คะ</td><td class="roman">chûai dâai mái khrap / kha?</td><td>Can you help?</td></tr><tr><td class="thai">มีปัญหา</td><td class="roman">mii bpan-hǎa</td><td>There is a problem.</td></tr><tr><td class="thai">เสียแล้ว</td><td class="roman">sǐa láew</td><td>It is broken.</td></tr><tr><td class="thai">เรียกช่างได้ไหมครับ / คะ</td><td class="roman">rîak châang dâai mái khrap / kha?</td><td>Can you call a technician?</td></tr><tr><td class="thai">ต้องรอนานไหมครับ / คะ</td><td class="roman">dtâwng raaw naan mái khrap / kha?</td><td>Do I need to wait long?</td></tr></table><h3>Build your own sentence</h3><div class="formula"><div class="box"><strong>1. Request/action</strong><div class="blank"></div></div><div class="box"><strong>2. Item/place</strong><div class="blank"></div></div><div class="box"><strong>3. Detail</strong><div class="blank"></div></div><div class="box"><strong>4. Polite ending</strong><div class="blank"></div></div></div><h3>Roleplay script</h3><div class="card gold"><p>Student at condo office.</p><p>Student: ขอโทษครับ/ค่ะ ช่วยได้ไหม?</p><p>Staff: มีอะไรคะ? — What is it?</p><p>Student: แอร์เสียแล้ว เรียกช่างได้ไหมครับ/คะ</p></div><h3>After-class challenge</h3><div class="two"><div class="card"><p>□ Say the base phrase 5 times.</p><p>□ Say one variation without reading.</p><p>□ Use the phrase once in real life.</p></div><div class="card"><p><strong>Voice note homework:</strong></p><p>Record the base sentence + one personal sentence. Send to Mike for correction.</p></div></div></section>
-<section class="page-break no-break">
-  <div class="mission-head"><div class="emoji">🙂</div><div><span class="pill">Mission 6</span><h1>Friendly Social Thai</h1><p class="goal">Outcome: Introduce yourself simply</p></div></div>
-  <div class="card dark"><h2>Base sentence: ผม/ฉันชื่อ Mike อยู่เชียงใหม่ครับ / ค่ะ</h2><p>phǒm/chǎn chûue Mike, yùu Chiang Mai khrap / kha</p><p>My name is Mike. I live/stay in Chiang Mai.</p></div>
-  <h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">คุณชื่ออะไรครับ / คะ</td><td class="roman">khun chûue à-rai khrap / kha?</td><td>What is your name?</td></tr><tr><td class="thai">ผม/ฉันชื่อ...</td><td class="roman">phǒm/chǎn chûue...</td><td>My name is...</td></tr><tr><td class="thai">มาจาก...</td><td class="roman">maa jàak...</td><td>I come from...</td></tr><tr><td class="thai">อยู่เชียงใหม่</td><td class="roman">yùu Chiang Mai</td><td>I live/stay in Chiang Mai.</td></tr><tr><td class="thai">ยินดีที่ได้รู้จัก</td><td class="roman">yin-dii thîi dâai rúu-jàk</td><td>Nice to meet you.</td></tr></table><h3>Build your own sentence</h3><div class="formula"><div class="box"><strong>1. Request/action</strong><div class="blank"></div></div><div class="box"><strong>2. Item/place</strong><div class="blank"></div></div><div class="box"><strong>3. Detail</strong><div class="blank"></div></div><div class="box"><strong>4. Polite ending</strong><div class="blank"></div></div></div><h3>Roleplay script</h3><div class="card gold"><p>Teacher: คุณชื่ออะไรครับ/คะ?</p><p>Student: ผม/ฉันชื่อ...</p><p>Teacher: มาจากไหน? — Where from?</p><p>Student: มาจาก... อยู่เชียงใหม่ครับ/ค่ะ</p></div><h3>After-class challenge</h3><div class="two"><div class="card"><p>□ Say the base phrase 5 times.</p><p>□ Say one variation without reading.</p><p>□ Use the phrase once in real life.</p></div><div class="card"><p><strong>Voice note homework:</strong></p><p>Record the base sentence + one personal sentence. Send to Mike for correction.</p></div></div></section>
 <section class="page-break">
-  <span class="pill">Practice pages</span><h1>Student speaking tracker</h1>
-  <table><tr><th>Mission</th><th>I practiced</th><th>I used it outside</th><th>I sent voice note</th><th>Teacher correction</th></tr>
+  <span class="eyebrow">Foundation</span><h1>Survival Thai basics</h1>
+  <div class="two">
+    <div class="card"><h3>Polite endings</h3><p><span class="thai">ครับ</span> <b>khrap</b> — commonly used by men.</p><p><span class="thai">ค่ะ</span> <b>kha</b> — many statements by women.</p><p><span class="thai">คะ</span> <b>kha?</b> — many questions by women.</p></div>
+    <div class="card"><h3>Beginner formula</h3><p><b>Request/action</b> + <b>thing/place</b> + <b>detail</b> + <b>polite ending</b></p><p class="note">Example: ขอ + กาแฟเย็น + หวานน้อย + ครับ</p></div>
+  </div>
+  <table style="margin-top:10px"><tr><th>Function</th><th>Thai</th><th>Roman</th><th>Use when...</th></tr>
+    <tr><td>Hello</td><td class="thai">สวัสดีครับ / ค่ะ</td><td>sà-wàt-dii khrap / kha</td><td>Entering a shop, class, or condo office.</td></tr>
+    <tr><td>Thank you</td><td class="thai">ขอบคุณครับ / ค่ะ</td><td>khàawp-khun khrap / kha</td><td>Every time someone helps.</td></tr>
+    <tr><td>Excuse me / sorry</td><td class="thai">ขอโทษครับ / ค่ะ</td><td>khǎaw-thôot khrap / kha</td><td>Getting attention politely.</td></tr>
+    <tr><td>Please speak slowly</td><td class="thai">พูดช้าๆ ได้ไหมครับ / คะ</td><td>phûut cháa-cháa dâai mái?</td><td>When Thai comes back too fast.</td></tr>
+    <tr><td>A little Thai</td><td class="thai">พูดไทยนิดหน่อย</td><td>phûut Thai nít-nòi</td><td>Lower pressure and create friendliness.</td></tr>
+  </table>
+</section>
+
+
+<section class="mission page-break">
+  <header class="mission-head">
+    <div class="emoji">☕</div>
+    <div>
+      <p class="eyebrow">Mission 01</p>
+      <h1>Cafe Thai</h1>
+      <p class="goal">Outcome: Order one drink naturally</p>
+    </div>
+    <img class="qr" src="../assets/brand/qr/coffee.png" alt="QR code for Cafe Thai online practice" />
+  </header>
+  <div class="hero-card navy">
+    <p class="label">Base sentence</p>
+    <h2 class="thai big">ขอกาแฟเย็นหวานน้อยครับ / ค่ะ</h2>
+    <p class="roman">khǎaw gaa-fae yen wǎan nói khrap / kha</p>
+    <p>I would like iced coffee, less sweet, please.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">ขอกาแฟเย็นครับ / ค่ะ</td><td>khǎaw gaa-fae yen khrap / kha</td><td>I would like iced coffee.</td></tr><tr><td class="thai">หวานน้อย</td><td>wǎan nói</td><td>Less sweet.</td></tr><tr><td class="thai">ไม่ใส่น้ำตาล</td><td>mâi sài náam-dtaan</td><td>No sugar.</td></tr><tr><td class="thai">ใส่น้ำแข็งน้อย</td><td>sài náam-khǎeng nói</td><td>Less ice.</td></tr></table></div>
+    <div class="card gold"><h3>Build your sentence</h3><div class="builder"><div>1 Request / action</div><div>2 Item / place</div><div>3 Detail</div><div>4 Polite ending</div></div><p class="note">Write your personal sentence, then say it without looking.</p></div>
+  </div>
+  <div class="two bottom">
+    <div class="card"><h3>Roleplay</h3><div class="line"><b>Staff</b><span class="thai">รับอะไรดีคะ?</span><small>What would you like?</small></div><div class="line"><b>Student</b><span class="thai">ขอกาแฟเย็นหวานน้อยครับ/ค่ะ</span><small>Iced coffee, less sweet, please.</small></div><div class="line"><b>Staff</b><span class="thai">หวานน้อยนะคะ</span><small>Less sweet, okay.</small></div><div class="line"><b>Student</b><span class="thai">ครับ/ค่ะ ขอบคุณครับ/ค่ะ</span><small>Yes, thank you.</small></div></div>
+    <div class="card"><h3>Teacher correction box</h3><div class="checks"><span>□ Tone</span><span>□ Vowel length</span><span>□ Rhythm</span><span>□ Polite ending</span><span>□ Confidence</span></div><h3>Real-world challenge</h3><p>Use the phrase once at a cafe and notice if the staff repeats your order.</p><p class="link">Online practice: https://thailessonschiangmai.com/missions/order-coffee</p></div>
+  </div>
+</section>
+<section class="mission page-break">
+  <header class="mission-head">
+    <div class="emoji">🥭</div>
+    <div>
+      <p class="eyebrow">Mission 02</p>
+      <h1>Market Thai</h1>
+      <p class="goal">Outcome: Ask a price and buy one item</p>
+    </div>
+    <img class="qr" src="../assets/brand/qr/market.png" alt="QR code for Market Thai online practice" />
+  </header>
+  <div class="hero-card navy">
+    <p class="label">Base sentence</p>
+    <h2 class="thai big">ราคาเท่าไหร่ครับ / คะ</h2>
+    <p class="roman">raa-khaa thâo-rài khrap / kha?</p>
+    <p>What is the price?</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">อันนี้เท่าไหร่ครับ / คะ</td><td>an-níi thâo-rài khrap / kha?</td><td>How much is this?</td></tr><tr><td class="thai">เอาหนึ่งกิโลครับ / ค่ะ</td><td>ao nèung gii-loh khrap / kha</td><td>I will take one kilo.</td></tr><tr><td class="thai">แพงไปนิดนึง</td><td>phaeng bpai nít-neung</td><td>A little expensive.</td></tr><tr><td class="thai">ไม่เอา ขอบคุณครับ / ค่ะ</td><td>mâi ao, khàawp-khun khrap / kha</td><td>No thank you.</td></tr></table></div>
+    <div class="card gold"><h3>Build your sentence</h3><div class="builder"><div>1 Request / action</div><div>2 Item / place</div><div>3 Detail</div><div>4 Polite ending</div></div><p class="note">Write your personal sentence, then say it without looking.</p></div>
+  </div>
+  <div class="two bottom">
+    <div class="card"><h3>Roleplay</h3><div class="line"><b>Student</b><span class="thai">ราคาเท่าไหร่ครับ/คะ?</span><small>What is the price?</small></div><div class="line"><b>Seller</b><span class="thai">ห้าสิบบาท</span><small>50 baht.</small></div><div class="line"><b>Student</b><span class="thai">เอาหนึ่งกิโลครับ/ค่ะ</span><small>I will take one kilo.</small></div><div class="line"><b>Seller</b><span class="thai">ได้ค่ะ</span><small>Okay.</small></div></div>
+    <div class="card"><h3>Teacher correction box</h3><div class="checks"><span>□ Tone</span><span>□ Vowel length</span><span>□ Rhythm</span><span>□ Polite ending</span><span>□ Confidence</span></div><h3>Real-world challenge</h3><p>Ask the price of fruit, even if you do not buy it.</p><p class="link">Online practice: https://thailessonschiangmai.com/missions/market-price</p></div>
+  </div>
+</section>
+<section class="mission page-break">
+  <header class="mission-head">
+    <div class="emoji">🍜</div>
+    <div>
+      <p class="eyebrow">Mission 03</p>
+      <h1>Restaurant Thai</h1>
+      <p class="goal">Outcome: Order food and control spice level</p>
+    </div>
+    <img class="qr" src="../assets/brand/qr/food.png" alt="QR code for Restaurant Thai online practice" />
+  </header>
+  <div class="hero-card navy">
+    <p class="label">Base sentence</p>
+    <h2 class="thai big">เอาข้าวซอยไม่เผ็ดกินที่นี่ครับ / ค่ะ</h2>
+    <p class="roman">ao khaao soi mâi phèt gin thîi-nîi khrap / kha</p>
+    <p>I will have khao soi, not spicy, eat here, please.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">เอาข้าวซอยครับ / ค่ะ</td><td>ao khaao soi khrap / kha</td><td>I will have khao soi.</td></tr><tr><td class="thai">ไม่เผ็ด</td><td>mâi phèt</td><td>Not spicy.</td></tr><tr><td class="thai">เผ็ดนิดหน่อย</td><td>phèt nít-nòi</td><td>A little spicy.</td></tr><tr><td class="thai">กินที่นี่ / กลับบ้าน</td><td>gin thîi-nîi / glàp bâan</td><td>Eat here / take away.</td></tr></table></div>
+    <div class="card gold"><h3>Build your sentence</h3><div class="builder"><div>1 Request / action</div><div>2 Item / place</div><div>3 Detail</div><div>4 Polite ending</div></div><p class="note">Write your personal sentence, then say it without looking.</p></div>
+  </div>
+  <div class="two bottom">
+    <div class="card"><h3>Roleplay</h3><div class="line"><b>Staff</b><span class="thai">รับอะไรดีคะ?</span><small>What would you like?</small></div><div class="line"><b>Student</b><span class="thai">เอาข้าวซอยไม่เผ็ดครับ/ค่ะ</span><small>Khao soi, not spicy.</small></div><div class="line"><b>Staff</b><span class="thai">กินที่นี่ไหมคะ?</span><small>Eat here?</small></div><div class="line"><b>Student</b><span class="thai">กินที่นี่ครับ/ค่ะ</span><small>Eat here, please.</small></div></div>
+    <div class="card"><h3>Teacher correction box</h3><div class="checks"><span>□ Tone</span><span>□ Vowel length</span><span>□ Rhythm</span><span>□ Polite ending</span><span>□ Confidence</span></div><h3>Real-world challenge</h3><p>Order one dish and say your spice level clearly.</p><p class="link">Online practice: https://thailessonschiangmai.com/missions/order-food-spice</p></div>
+  </div>
+</section>
+<section class="mission page-break">
+  <header class="mission-head">
+    <div class="emoji">🚗</div>
+    <div>
+      <p class="eyebrow">Mission 04</p>
+      <h1>Transport Thai</h1>
+      <p class="goal">Outcome: Tell a driver where to stop</p>
+    </div>
+    <img class="qr" src="../assets/brand/qr/driver.png" alt="QR code for Transport Thai online practice" />
+  </header>
+  <div class="hero-card navy">
+    <p class="label">Base sentence</p>
+    <h2 class="thai big">จอดตรงนี้ครับ / ค่ะ</h2>
+    <p class="roman">jàwt dtrong-níi khrap / kha</p>
+    <p>Stop here, please.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">ตรงไปครับ / ค่ะ</td><td>dtrong bpai khrap / kha</td><td>Go straight.</td></tr><tr><td class="thai">เลี้ยวซ้ายครับ / ค่ะ</td><td>líao sáai khrap / kha</td><td>Turn left.</td></tr><tr><td class="thai">เลี้ยวขวาครับ / ค่ะ</td><td>líao khwǎa khrap / kha</td><td>Turn right.</td></tr><tr><td class="thai">ไปที่นี่ได้ไหมครับ / คะ</td><td>bpai thîi-nîi dâai mái?</td><td>Can you go here?</td></tr></table></div>
+    <div class="card gold"><h3>Build your sentence</h3><div class="builder"><div>1 Request / action</div><div>2 Item / place</div><div>3 Detail</div><div>4 Polite ending</div></div><p class="note">Write your personal sentence, then say it without looking.</p></div>
+  </div>
+  <div class="two bottom">
+    <div class="card"><h3>Roleplay</h3><div class="line"><b>Student</b><span class="thai">ไปที่นี่ได้ไหมครับ/คะ?</span><small>Can you go here?</small></div><div class="line"><b>Driver</b><span class="thai">ได้ครับ</span><small>Yes.</small></div><div class="line"><b>Student</b><span class="thai">ตรงไปครับ/ค่ะ</span><small>Go straight.</small></div><div class="line"><b>Student</b><span class="thai">จอดตรงนี้ครับ/ค่ะ</span><small>Stop here, please.</small></div></div>
+    <div class="card"><h3>Teacher correction box</h3><div class="checks"><span>□ Tone</span><span>□ Vowel length</span><span>□ Rhythm</span><span>□ Polite ending</span><span>□ Confidence</span></div><h3>Real-world challenge</h3><p>Practice with a map first, then use “stop here” in a real ride.</p><p class="link">Online practice: https://thailessonschiangmai.com/missions/driver-stop</p></div>
+  </div>
+</section>
+<section class="mission page-break">
+  <header class="mission-head">
+    <div class="emoji">🏢</div>
+    <div>
+      <p class="eyebrow">Mission 05</p>
+      <h1>Condo Help Thai</h1>
+      <p class="goal">Outcome: Ask for help with a small problem</p>
+    </div>
+    <img class="qr" src="../assets/brand/qr/practice.png" alt="QR code for Condo Help Thai online practice" />
+  </header>
+  <div class="hero-card navy">
+    <p class="label">Base sentence</p>
+    <h2 class="thai big">ช่วยได้ไหมครับ / คะ มีปัญหา</h2>
+    <p class="roman">chûai dâai mái khrap / kha? mii bpan-hǎa</p>
+    <p>Can you help? There is a problem.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">มีปัญหา</td><td>mii bpan-hǎa</td><td>There is a problem.</td></tr><tr><td class="thai">เสียแล้ว</td><td>sǐa láew</td><td>It is broken.</td></tr><tr><td class="thai">แอร์เสีย</td><td>ae sǐa</td><td>The air conditioner is broken.</td></tr><tr><td class="thai">เรียกช่างได้ไหมครับ / คะ</td><td>rîak châang dâai mái?</td><td>Can you call a technician?</td></tr></table></div>
+    <div class="card gold"><h3>Build your sentence</h3><div class="builder"><div>1 Request / action</div><div>2 Item / place</div><div>3 Detail</div><div>4 Polite ending</div></div><p class="note">Write your personal sentence, then say it without looking.</p></div>
+  </div>
+  <div class="two bottom">
+    <div class="card"><h3>Roleplay</h3><div class="line"><b>Student</b><span class="thai">ขอโทษครับ/ค่ะ ช่วยได้ไหม?</span><small>Excuse me, can you help?</small></div><div class="line"><b>Staff</b><span class="thai">มีอะไรคะ?</span><small>What is it?</small></div><div class="line"><b>Student</b><span class="thai">แอร์เสียแล้ว</span><small>The aircon is broken.</small></div><div class="line"><b>Student</b><span class="thai">เรียกช่างได้ไหมครับ/คะ?</span><small>Can you call a technician?</small></div></div>
+    <div class="card"><h3>Teacher correction box</h3><div class="checks"><span>□ Tone</span><span>□ Vowel length</span><span>□ Rhythm</span><span>□ Polite ending</span><span>□ Confidence</span></div><h3>Real-world challenge</h3><p>Prepare one sentence for a real condo/apartment problem.</p><p class="link">Online practice: https://thailessonschiangmai.com/practice</p></div>
+  </div>
+</section>
+<section class="mission page-break">
+  <header class="mission-head">
+    <div class="emoji">🙂</div>
+    <div>
+      <p class="eyebrow">Mission 06</p>
+      <h1>Friendly Social Thai</h1>
+      <p class="goal">Outcome: Introduce yourself simply</p>
+    </div>
+    <img class="qr" src="../assets/brand/qr/practice.png" alt="QR code for Friendly Social Thai online practice" />
+  </header>
+  <div class="hero-card navy">
+    <p class="label">Base sentence</p>
+    <h2 class="thai big">ผม / ฉันชื่อ ___ อยู่เชียงใหม่ครับ / ค่ะ</h2>
+    <p class="roman">phǒm / chǎn chûue ___ yùu Chiang Mai khrap / kha</p>
+    <p>My name is ___. I live/stay in Chiang Mai.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Phrase bank</h3><table><tr><th>Thai</th><th>Roman</th><th>Meaning</th></tr><tr><td class="thai">คุณชื่ออะไรครับ / คะ</td><td>khun chûue à-rai?</td><td>What is your name?</td></tr><tr><td class="thai">มาจาก...</td><td>maa jàak...</td><td>I come from...</td></tr><tr><td class="thai">อยู่เชียงใหม่</td><td>yùu Chiang Mai</td><td>I live/stay in Chiang Mai.</td></tr><tr><td class="thai">ยินดีที่ได้รู้จัก</td><td>yin-dii thîi dâai rúu-jàk</td><td>Nice to meet you.</td></tr></table></div>
+    <div class="card gold"><h3>Build your sentence</h3><div class="builder"><div>1 Request / action</div><div>2 Item / place</div><div>3 Detail</div><div>4 Polite ending</div></div><p class="note">Write your personal sentence, then say it without looking.</p></div>
+  </div>
+  <div class="two bottom">
+    <div class="card"><h3>Roleplay</h3><div class="line"><b>Teacher</b><span class="thai">คุณชื่ออะไรครับ/คะ?</span><small>What is your name?</small></div><div class="line"><b>Student</b><span class="thai">ผม/ฉันชื่อ...</span><small>My name is...</small></div><div class="line"><b>Teacher</b><span class="thai">มาจากไหน?</span><small>Where from?</small></div><div class="line"><b>Student</b><span class="thai">มาจาก... อยู่เชียงใหม่ครับ/ค่ะ</span><small>I am from... I live in Chiang Mai.</small></div></div>
+    <div class="card"><h3>Teacher correction box</h3><div class="checks"><span>□ Tone</span><span>□ Vowel length</span><span>□ Rhythm</span><span>□ Polite ending</span><span>□ Confidence</span></div><h3>Real-world challenge</h3><p>Introduce yourself to one Thai person or record it as a voice note.</p><p class="link">Online practice: https://thailessonschiangmai.com/practice</p></div>
+  </div>
+</section>
+
+<section class="page-break">
+  <span class="eyebrow">Teacher tools</span><h1>Speaking tracker + lesson report</h1>
+  <table class="lesson-report"><tr><th>Mission</th><th>Practiced</th><th>Used outside</th><th>Voice note</th><th>Correction notes</th></tr>
     <tr><td>Cafe</td><td>□</td><td>□</td><td>□</td><td></td></tr><tr><td>Market</td><td>□</td><td>□</td><td>□</td><td></td></tr><tr><td>Restaurant</td><td>□</td><td>□</td><td>□</td><td></td></tr><tr><td>Transport</td><td>□</td><td>□</td><td>□</td><td></td></tr><tr><td>Condo help</td><td>□</td><td>□</td><td>□</td><td></td></tr><tr><td>Social Thai</td><td>□</td><td>□</td><td>□</td><td></td></tr>
   </table>
-  <h2>My useful phrases</h2><div class="lines"></div><h2>Words I hear often in Chiang Mai</h2><div class="lines"></div>
+  <div class="two"><div><h2 style="margin-top:12px">My useful phrases</h2><div class="lines"></div></div><div><h2 style="margin-top:12px">Words I hear often</h2><div class="lines"></div></div></div>
 </section>
+
 <section class="page-break">
-  <span class="pill">7-day challenge</span><h1>Turn one lesson into real speaking</h1>
+  <span class="eyebrow">7-day challenge</span><h1>Turn one lesson into real speaking</h1>
   <table><tr><th>Day</th><th>Task</th><th>Done</th></tr>
     <tr><td>Day 1</td><td>Record greeting + thank you.</td><td>□</td></tr><tr><td>Day 2</td><td>Order one drink less sweet.</td><td>□</td></tr><tr><td>Day 3</td><td>Ask one price at a shop or market.</td><td>□</td></tr><tr><td>Day 4</td><td>Order food and choose spice level.</td><td>□</td></tr><tr><td>Day 5</td><td>Say “stop here” to a driver or in practice.</td><td>□</td></tr><tr><td>Day 6</td><td>Ask for help with one small problem.</td><td>□</td></tr><tr><td>Day 7</td><td>Send a 60-second Thai voice note to Mike.</td><td>□</td></tr>
   </table>
-  <div class="offer"><h2>Next step: Starter Pack</h2><p>If this workbook helped, continue with one private lesson, 50 Chiang Mai phrases, mission practice, and 7 days of WhatsApp voice-note correction.</p><div class="two"><div><p class="price">Book on WhatsApp</p><p>+66 92 989 4495</p><p>Thai Lessons Chiang Mai</p></div><div class="qrbox">Add QR code here later</div></div></div>
+  <div class="two">
+    <div class="card"><h3>5-lesson Starter Pack outline</h3><p>1 Cafe + polite endings</p><p>2 Market + numbers</p><p>3 Food + spice level</p><p>4 Transport + map directions</p><p>5 Personal situation + voice correction</p></div>
+    <div class="card qr-card"><img src="../assets/brand/qr/whatsapp.png" alt="WhatsApp QR" /><div><h3>Book / send voice note</h3><p>WhatsApp: +66 92 989 4495</p><p>Send one phrase from this workbook and ask for correction.</p></div></div>
+  </div>
+  <div class="package"><h2>Next step: Starter Pack</h2><p>Continue with one private lesson, 50 Chiang Mai phrases, mission practice, and 7 days of WhatsApp voice-note correction.</p><p class="price">฿990 online / ฿1,290 in person</p><p>Thai Lessons Chiang Mai · thailessonschiangmai.com</p></div>
+</section>
+
+<section class="page-break">
+  <span class="eyebrow">Completion</span><h1>Chiang Mai Thai Mission Certificate</h1>
+  <div class="card" style="height:165mm;text-align:center;padding-top:30mm">
+    <img src="../assets/brand/logo-mark.svg" style="width:34mm" alt="Thai Lessons Chiang Mai mark" />
+    <h2 style="font-size:34px;margin-top:12mm">I completed my first Thai mission</h2>
+    <p style="font-size:16px;margin-top:8mm">Name: ________________________________</p>
+    <p style="font-size:16px;margin-top:8mm">Mission used in real life: ________________________________</p>
+    <p style="font-size:16px;margin-top:8mm">Teacher signature: ________________________________</p>
+  </div>
 </section>
 </body></html>
