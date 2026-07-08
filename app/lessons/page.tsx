@@ -52,10 +52,34 @@ const weeks = [
   },
 ]
 
+const courseStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Free 4-Week Beginner Thai Course',
+  description:
+    'A free structured beginner Thai course covering greetings and politeness, numbers and prices, ordering food and coffee, and transport and local etiquette. Includes audio practice, cultural context, and quizzes.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Thai Lessons Chiang Mai',
+    url: 'https://thailessonschiangmai.com',
+  },
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'THB' },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: 'PT2H',
+  },
+}
+
 export default function LessonsIndexPage() {
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseStructuredData) }}
+      />
       <main className="bg-jasmine text-tamarind">
         <section className="px-4 py-12 md:py-16">
           <div className="mx-auto max-w-6xl">

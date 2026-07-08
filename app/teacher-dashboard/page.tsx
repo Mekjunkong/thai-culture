@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Teacher Dashboard & Lesson Operations | Thai Lessons Chiang Mai',
   description:
     'Internal teacher checklist for Thai lesson leads, class preparation, lesson reports, WhatsApp follow-up, and product upsells.',
+  robots: { index: false, follow: false },
   alternates: { canonical: '/teacher-dashboard' },
   openGraph: {
     title: 'Teacher Dashboard & Lesson Operations',

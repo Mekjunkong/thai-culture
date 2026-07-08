@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Thai Lesson Report Template | Thai Lessons Chiang Mai',
   description:
     'Printable lesson report template for Thai Lessons Chiang Mai: mission, phrase bank, pronunciation corrections, homework, and next booking step.',
+  robots: { index: false, follow: false },
   alternates: { canonical: '/lesson-report' },
 }
 
