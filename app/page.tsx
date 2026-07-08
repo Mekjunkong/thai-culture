@@ -155,16 +155,28 @@ const faqs = [
 
 const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Thai Lessons Chiang Mai',
-  description:
-    'Practical Thai lessons for expats and travelers, online and in person in Chiang Mai. Free interactive missions, a 4-week beginner course, and private lessons with human correction.',
-  url: 'https://thailessonschiangmai.com',
-  areaServed: 'Chiang Mai, Thailand',
-  priceRange: '฿199–฿2,500',
-  makesOffer: [
-    { '@type': 'Offer', name: '30-minute trial lesson', price: '199', priceCurrency: 'THB' },
-    { '@type': 'Offer', name: 'Starter Pack', price: '990', priceCurrency: 'THB' },
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      name: 'Thai Lessons Chiang Mai',
+      description:
+        'Practical Thai lessons for expats and travelers, online and in person in Chiang Mai. Free interactive missions, a 4-week beginner course, and private lessons with human correction.',
+      url: 'https://thailessonschiangmai.com',
+      areaServed: 'Chiang Mai, Thailand',
+      priceRange: '฿199–฿2,500',
+      makesOffer: [
+        { '@type': 'Offer', name: '30-minute trial lesson', price: '199', priceCurrency: 'THB' },
+        { '@type': 'Offer', name: 'Starter Pack', price: '990', priceCurrency: 'THB' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
   ],
 }
 

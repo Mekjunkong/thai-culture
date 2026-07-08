@@ -6,6 +6,7 @@ import SiteFooter from '@/components/ui/SiteFooter'
 export const metadata = {
   title: 'Login | Thai Culture Starter Course',
   description: 'Login or create an account for the Thai Culture Starter Course.',
+  robots: { index: false, follow: false },
 }
 
 export default function LoginPage() {
