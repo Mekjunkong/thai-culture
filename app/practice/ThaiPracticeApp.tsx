@@ -158,7 +158,7 @@ export default function ThaiPracticeApp() {
   if (screen === 'home') {
     return (
       <main className="bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
-        <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-white/70 bg-[oklch(99%_0.006_294)] p-5 shadow-2xl shadow-indigo/15">
+        <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-[oklch(99%_0.006_294)] p-5 shadow-2xl shadow-indigo/15">
           <section className="rounded-[1.5rem] bg-gradient-to-br from-indigo to-indigo-soft p-6 text-surface">
             <p className="text-sm font-black uppercase text-turmeric">Kids-app style · built for Thai learners</p>
             <h1 className="mt-3 text-4xl font-black leading-none tracking-[-0.05em] text-balance">Thai practice app for Chiang Mai life.</h1>
@@ -174,7 +174,7 @@ export default function ThaiPracticeApp() {
             {categories.map((item) => {
               const done = progress.completed.includes(item.id)
               return (
-                <article key={item.id} className="rounded-[1.5rem] border-[3px] border-white/70 bg-jasmine p-4 shadow-lg shadow-indigo/8">
+                <article key={item.id} className="rounded-[1.5rem] border-[3px] border-surface/70 bg-jasmine p-4 shadow-lg shadow-indigo/8">
                   <div className="flex items-start gap-3">
                     <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface text-3xl shadow-inner" aria-hidden="true">{item.emoji}</span>
                     <div className="min-w-0 flex-1">
@@ -206,7 +206,7 @@ export default function ThaiPracticeApp() {
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
             <p className="font-black text-indigo">{cardIndex + 1} / {category.words.length}</p>
           </div>
-          <button type="button" onClick={() => setFlipped((value) => !value)} className="min-h-[360px] w-full rounded-[2rem] border-[3px] border-white/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15 transition duration-150 active:scale-[0.99]" aria-pressed={flipped}>
+          <button type="button" onClick={() => setFlipped((value) => !value)} className="min-h-[360px] w-full rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15 transition duration-150 active:scale-[0.99]" aria-pressed={flipped}>
             <p className="text-6xl" aria-hidden="true">{currentCard.emoji}</p>
             {!flipped ? (
               <>
@@ -242,7 +242,7 @@ export default function ThaiPracticeApp() {
           <div className="h-3 overflow-hidden rounded-full bg-surface" role="progressbar" aria-valuenow={quizPercent} aria-valuemin={0} aria-valuemax={100} aria-label="Quiz progress">
             <div className="h-full rounded-full bg-turmeric transition-all duration-150" style={{ width: `${quizPercent}%` }} />
           </div>
-          <section className="mt-5 rounded-[2rem] border-[3px] border-white/70 bg-surface p-6 shadow-2xl shadow-indigo/15">
+          <section className="mt-5 rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 shadow-2xl shadow-indigo/15">
             <p className="text-sm font-black uppercase text-temple">Choose the meaning</p>
             <p className="mt-5 text-center text-6xl" aria-hidden="true">{currentQuestion.word.emoji}</p>
             <h1 className="mt-5 text-center text-5xl font-black leading-tight text-indigo">{currentQuestion.word.thai}</h1>
@@ -252,7 +252,7 @@ export default function ThaiPracticeApp() {
                 const isSelected = selected === option
                 const isCorrect = option === currentQuestion.word.english
                 return (
-                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-2xl border p-4 text-left font-black transition duration-150 ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
+                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-2xl border p-4 text-left font-black transition duration-150 ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
                     {option}
                   </button>
                 )
@@ -266,7 +266,7 @@ export default function ThaiPracticeApp() {
 
   return (
     <main className="min-h-screen bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
-      <section className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-white/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15">
+      <section className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15">
         <p className="text-7xl" aria-hidden="true">🏆</p>
         <p className="mt-5 text-sm font-black uppercase text-temple">Session complete</p>
         <h1 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">You earned {sessionStars} stars.</h1>

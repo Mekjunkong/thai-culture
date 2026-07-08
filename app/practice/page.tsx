@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/ui/Navbar'
+import SiteFooter from '@/components/ui/SiteFooter'
 import ThaiPracticeApp from './ThaiPracticeApp'
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function PracticePage() {
     <>
       <Navbar />
       <ThaiPracticeApp />
+      <SiteFooter />
     </>
   )
 }

@@ -28,4 +28,4 @@ Warm, practical, culturally respectful, reassuring, and human. The course should
 - Decorative Thai motifs that do not support comprehension.
 
 ## Current product state
-Week 1 and Week 2 are built and browsable. Week 1 covers greetings, wai, politeness particles, and mai pen rai. Week 2 covers numbers, prices, colors, and everyday objects. Supabase progress tracking and Stripe checkout are planned/ready in the app architecture.
+A free 4-week beginner course (greetings, numbers/prices, food ordering, transport/etiquette) is browsable at /lessons. Four interactive 5-minute missions and a flashcard practice app are live. Paid products (trial lesson, Starter Pack, Mission Walk, 5-lesson path) convert through WhatsApp booking via the /book intake form. Teacher dashboard and lesson-report tools exist but are kept off customer-facing navigation (footer "For teachers" link only). Supabase progress tracking and Stripe checkout are planned/ready in the app architecture.

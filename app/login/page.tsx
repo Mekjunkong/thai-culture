@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import AuthForm from '@/components/auth/AuthForm'
 import Navbar from '@/components/ui/Navbar'
+import SiteFooter from '@/components/ui/SiteFooter'
 
 export const metadata = {
   title: 'Login | Thai Culture Starter Course',
@@ -37,6 +38,7 @@ export default function LoginPage() {
           <AuthForm />
         </div>
       </main>
+      <SiteFooter />
     </>
   )
 }

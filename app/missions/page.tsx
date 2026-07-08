@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
+import SiteFooter from '@/components/ui/SiteFooter'
 
 export const metadata: Metadata = {
   title: '5-Minute Thai Missions for Chiang Mai | Thai Lessons Chiang Mai',
@@ -187,6 +188,7 @@ export default function MissionsPage() {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   )
 }

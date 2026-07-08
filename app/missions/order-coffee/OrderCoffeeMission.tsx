@@ -343,7 +343,7 @@ export default function OrderCoffeeMission() {
                       key={option}
                       type="button"
                       onClick={() => setQuizChoice(option)}
-                      className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
+                      className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
                       aria-pressed={isSelected}
                     >
                       {option}
@@ -352,7 +352,7 @@ export default function OrderCoffeeMission() {
                 })}
               </div>
               {quizChoice && (
-                <p className={`mt-4 rounded-2xl p-4 font-bold ${quizChoice === phrase ? 'bg-banana/12 text-banana' : 'bg-red-50 text-red-700'}`}>
+                <p className={`mt-4 rounded-2xl p-4 font-bold ${quizChoice === phrase ? 'bg-banana/12 text-banana' : 'bg-temple/10 text-temple'}`}>
                   {quizChoice === phrase ? 'Correct — cafe mission almost complete!' : 'Good try. Choose the answer that orders your drink.'}
                 </p>
               )}

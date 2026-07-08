@@ -223,7 +223,7 @@ export default function DriverStopMission() {
                 {driverOptions.map((option) => {
                   const isSelected = driverChoice === option
                   const isCorrect = option === stopPhrase
-                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`} aria-pressed={isSelected}>{option}</button>
+                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`} aria-pressed={isSelected}>{option}</button>
                 })}
               </div>
 
@@ -232,7 +232,7 @@ export default function DriverStopMission() {
                 {directionOptions.map((option) => {
                   const isSelected = directionChoice === option
                   const isCorrect = option === directionPhrase
-                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-red-300 bg-red-50 text-red-700' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`} aria-pressed={isSelected}>{option}</button>
+                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`} aria-pressed={isSelected}>{option}</button>
                 })}
               </div>
 

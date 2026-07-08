@@ -54,7 +54,7 @@ export default function AuthCallbackPage() {
         <section className="mx-auto max-w-xl rounded-[2rem] border border-tamarind/10 bg-surface p-6 text-center shadow-2xl shadow-tamarind/10 md:p-8">
           <p className="text-sm font-black uppercase tracking-[0.16em] text-temple">Google login</p>
           <h1 className="mt-4 text-3xl font-black tracking-[-0.04em] text-balance">{message}</h1>
-          {error ? <p className="mt-4 rounded-2xl bg-red-50 p-4 text-sm font-semibold text-red-700">{error}</p> : null}
+          {error ? <p className="mt-4 rounded-2xl bg-temple/10 p-4 text-sm font-semibold text-temple">{error}</p> : null}
           <Link href="/login" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-6 py-3 font-black text-surface transition hover:bg-indigo-soft">
             Back to login
           </Link>

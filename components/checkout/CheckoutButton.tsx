@@ -18,7 +18,7 @@ export default function CheckoutButton({ children, className }: CheckoutButtonPr
       rel="noreferrer"
       className={className ?? 'inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 font-bold text-tamarind transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface'}
     >
-      {children ?? 'Get lifetime access'}
+      {children ?? 'Ask on WhatsApp'}
     </a>
   )
 }

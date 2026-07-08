@@ -5,6 +5,7 @@ import AudioPlayer from '@/components/lesson/AudioPlayer'
 import CheckoutButton from '@/components/checkout/CheckoutButton'
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
+import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
 
 export const metadata = {
@@ -64,11 +65,11 @@ export default function Week2Page() {
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
             <section className="rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
-              <Link href="/" className="text-sm font-semibold text-thai-navy hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
-                ← Back to course overview
+              <Link href="/lessons" className="text-sm font-semibold text-indigo hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                ← Back to all lessons
               </Link>
               <div className="mt-6">
-                <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
+                <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-semibold uppercase text-temple">
                   Week 2 · Beginner lesson
                 </span>
                 <h1 className="mt-4 text-4xl font-bold leading-tight text-tamarind text-balance md:text-5xl">
@@ -80,10 +81,10 @@ export default function Week2Page() {
               </div>
             </section>
 
-            <section aria-labelledby="audio-practice" className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <section aria-labelledby="audio-practice" className="mt-6 rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <span className="rounded-full bg-thai-cream px-3 py-1 text-xs font-semibold uppercase text-thai-red">
+                  <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-semibold uppercase text-temple">
                     Audio-first module
                   </span>
                   <h2 id="audio-practice" className="mt-4 text-2xl font-bold text-tamarind text-balance">Numbers you can hear in real shops</h2>
@@ -91,7 +92,7 @@ export default function Week2Page() {
                     Two real MP3 practice tracks are ready: one for numbers and one for market phrases. Listen once, repeat slowly, then try the quiz.
                   </p>
                 </div>
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-thai-navy text-3xl text-white" aria-hidden="true">🎧</span>
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo text-3xl text-surface" aria-hidden="true">🎧</span>
               </div>
               <div className="mt-5 flex flex-col gap-3">
                 <AudioPlayer src="/assets/audio/week-2-numbers.mp3" label="Thai numbers 0–10 — slow repeat practice" />
@@ -113,28 +114,29 @@ export default function Week2Page() {
             </section>
           </div>
 
-          <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
-            <p className="text-sm font-semibold uppercase text-thai-red">Lesson map</p>
+          <aside className="h-fit rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm lg:sticky lg:top-24">
+            <p className="text-sm font-semibold uppercase text-temple">Lesson map</p>
             <ol className="mt-4 space-y-3 text-sm text-tamarind/60">
-              <li className="rounded-xl bg-thai-cream p-3 font-semibold text-tamarind">1. Numbers 0–10</li>
+              <li className="rounded-xl bg-jasmine p-3 font-semibold text-tamarind">1. Numbers 0–10</li>
               <li className="rounded-xl bg-surface p-3">2. Building 11–100</li>
               <li className="rounded-xl bg-surface p-3">3. Prices and shopping phrases</li>
               <li className="rounded-xl bg-surface p-3">4. Colors and everyday objects</li>
               <li className="rounded-xl bg-surface p-3">5. Quick quiz</li>
             </ol>
-            <div className="mt-6 rounded-2xl bg-thai-navy p-5 text-white">
+            <div className="mt-6 rounded-2xl bg-indigo p-5 text-surface">
               <p className="font-bold">Next: Week 3</p>
-              <p className="mt-2 text-sm leading-6 text-blue-50">Ordering food, spice levels and café Thai.</p>
-              <CheckoutButton className="mt-4 w-full rounded-lg bg-thai-gold px-4 py-2 font-semibold text-tamarind transition hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <p className="mt-2 text-sm leading-6 text-surface/85">Ordering food, spice levels and café Thai.</p>
+              <CheckoutButton className="mt-4 w-full rounded-lg bg-turmeric px-4 py-2 font-semibold text-tamarind transition hover:bg-turmeric-bright disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
                 Unlock lifetime access — ฿690
               </CheckoutButton>
             </div>
-            <Link href="/lessons/week-1" className="mt-4 block text-center text-sm font-semibold text-thai-navy hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-thai-gold">
+            <Link href="/lessons/week-1" className="mt-4 block text-center text-sm font-semibold text-indigo hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
               Review Week 1
             </Link>
           </aside>
         </div>
       </main>
+      <SiteFooter />
     </>
   )
 }
