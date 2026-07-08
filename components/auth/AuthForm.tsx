@@ -131,7 +131,7 @@ export default function AuthForm() {
           type="button"
           onClick={signInWithGoogle}
           disabled={isLoading}
-          className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-tamarind/12 bg-white px-5 py-3 font-black text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-indigo hover:text-indigo disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+          className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-tamarind/12 bg-surface px-5 py-3 font-black text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-indigo hover:text-indigo disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
         >
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface text-base" aria-hidden="true">G</span>
           Continue with Google
@@ -167,7 +167,7 @@ export default function AuthForm() {
             required
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-tamarind/12 bg-white px-4 py-3 text-tamarind outline-none transition focus:border-indigo focus:ring-4 focus:ring-indigo/10"
+            className="mt-2 w-full rounded-2xl border border-tamarind/12 bg-surface px-4 py-3 text-tamarind outline-none transition focus:border-indigo focus:ring-4 focus:ring-indigo/10"
             placeholder="you@example.com"
           />
         </div>
@@ -181,7 +181,7 @@ export default function AuthForm() {
             minLength={6}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-tamarind/12 bg-white px-4 py-3 text-tamarind outline-none transition focus:border-indigo focus:ring-4 focus:ring-indigo/10"
+            className="mt-2 w-full rounded-2xl border border-tamarind/12 bg-surface px-4 py-3 text-tamarind outline-none transition focus:border-indigo focus:ring-4 focus:ring-indigo/10"
             placeholder="At least 6 characters"
           />
         </div>
@@ -196,7 +196,7 @@ export default function AuthForm() {
       </form>
 
       {message ? <p className="mt-4 rounded-2xl bg-banana/10 p-3 text-sm font-semibold text-banana">{message}</p> : null}
-      {error ? <p className="mt-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold text-red-700">{error}</p> : null}
+      {error ? <p className="mt-4 rounded-2xl bg-temple/10 p-3 text-sm font-semibold text-temple">{error}</p> : null}
 
       <p className="mt-5 text-sm leading-6 text-tamarind/60">
         Your course progress is saved on this device. Use the same browser when you return to keep your place.

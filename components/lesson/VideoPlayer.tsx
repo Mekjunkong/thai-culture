@@ -22,10 +22,10 @@ export default function VideoPlayer({ title, videoId, thumbnailUrl }: VideoPlaye
   }
 
   return (
-    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg bg-thai-navy flex flex-col items-center justify-center text-white">
+    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg bg-indigo flex flex-col items-center justify-center text-surface">
       <div className="text-6xl mb-4">🎬</div>
       <p className="text-lg font-semibold">{title}</p>
-      <p className="text-sm text-yellow-200 mt-2">Video coming soon, audio lesson below</p>
+      <p className="text-sm text-turmeric-bright mt-2">Video coming soon, audio lesson below</p>
     </div>
   )
 }

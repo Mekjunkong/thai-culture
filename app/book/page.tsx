@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
+import SiteFooter from '@/components/ui/SiteFooter'
 import IntakeForm from './IntakeForm'
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function BookPage() {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   )
 }

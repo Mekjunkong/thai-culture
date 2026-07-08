@@ -17,7 +17,7 @@ export default function LessonReportPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-jasmine px-4 py-10 text-tamarind print:bg-white print:py-0">
+      <main className="bg-jasmine px-4 py-10 text-tamarind print:bg-surface print:py-0">
         <section className="mx-auto max-w-5xl rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/10 md:p-8 print:border-0 print:shadow-none">
           <div className="flex flex-col gap-4 border-b border-tamarind/10 pb-6 md:flex-row md:items-start md:justify-between print:pb-4">
             <div>
@@ -35,7 +35,7 @@ export default function LessonReportPage() {
 
           <div className="mt-6 grid gap-3 md:grid-cols-4">
             {['Student name', 'Date', 'Lesson format', 'Teacher'].map((label) => (
-              <div key={label} className="rounded-2xl border border-tamarind/10 bg-jasmine p-4 print:bg-white">
+              <div key={label} className="rounded-2xl border border-tamarind/10 bg-jasmine p-4 print:bg-surface">
                 <p className="text-xs font-black uppercase text-temple">{label}</p>
                 <div className="mt-8 border-b border-tamarind/30" />
               </div>
@@ -43,7 +43,7 @@ export default function LessonReportPage() {
           </div>
 
           <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_0.8fr]">
-            <section className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-white">
+            <section className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-surface">
               <p className="text-sm font-black uppercase text-temple">Today’s mission</p>
               <h2 className="mt-2 text-2xl font-black">Situation + outcome</h2>
               <div className="mt-8 space-y-8">
@@ -53,7 +53,7 @@ export default function LessonReportPage() {
               </div>
             </section>
 
-            <section className="rounded-[1.5rem] border border-turmeric bg-banana/10 p-5 print:bg-white">
+            <section className="rounded-[1.5rem] border border-turmeric bg-banana/10 p-5 print:bg-surface">
               <p className="text-sm font-black uppercase text-temple">Confidence score</p>
               <h2 className="mt-2 text-2xl font-black">Before → after</h2>
               <div className="mt-5 grid grid-cols-2 gap-3">
@@ -67,7 +67,7 @@ export default function LessonReportPage() {
             </section>
           </div>
 
-          <section className="mt-6 rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-white">
+          <section className="mt-6 rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-surface">
             <p className="text-sm font-black uppercase text-temple">Phrase bank</p>
             <div className="mt-4 overflow-hidden rounded-2xl border border-tamarind/10">
               <table className="w-full border-collapse text-left text-sm">
@@ -82,7 +82,7 @@ export default function LessonReportPage() {
           </section>
 
           <section className="mt-6 grid gap-5 lg:grid-cols-2">
-            <div className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-white">
+            <div className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-surface">
               <p className="text-sm font-black uppercase text-temple">Pronunciation corrections</p>
               <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 {correctionAreas.map((area) => <div key={area} className="rounded-xl border border-tamarind/10 bg-surface p-3 font-bold">□ {area}</div>)}
@@ -93,7 +93,7 @@ export default function LessonReportPage() {
               </div>
             </div>
 
-            <div className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-white">
+            <div className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5 print:bg-surface">
               <p className="text-sm font-black uppercase text-temple">Homework + next step</p>
               <div className="mt-4 grid gap-2">
                 {homeworkIdeas.map((idea) => <div key={idea} className="rounded-xl border border-tamarind/10 bg-surface p-3 font-bold">□ {idea}</div>)}
@@ -105,7 +105,7 @@ export default function LessonReportPage() {
             </div>
           </section>
 
-          <section className="mt-6 rounded-[1.5rem] bg-indigo p-5 text-surface print:border print:border-tamarind/20 print:bg-white print:text-tamarind">
+          <section className="mt-6 rounded-[1.5rem] bg-indigo p-5 text-surface print:border print:border-tamarind/20 print:bg-surface print:text-tamarind">
             <p className="text-sm font-black uppercase text-turmeric print:text-temple">Teacher note</p>
             <p className="mt-2 leading-7 text-surface/80 print:text-tamarind/70">
               End every lesson by filling this report with the student. It makes the service feel tangible, improves retention, and gives a natural reason to book the Starter Pack or 5-Lesson Survival Path.
