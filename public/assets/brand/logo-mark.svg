@@ -1,10 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-<title id="title">Thai Lessons Chiang Mai logo mark</title>
-<desc id="desc">Rounded navy badge with Thai text, Doi Suthep mountain line, and golden sun.</desc>
-<rect width="256" height="256" rx="64" fill="#273566"/>
-<circle cx="196" cy="58" r="24" fill="#E2B44A"/>
-<path d="M33 162 C62 129 83 118 109 143 C127 160 138 158 153 139 C176 109 205 111 225 141" fill="none" stroke="#FBF6E8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
-<path d="M38 184 C80 166 119 166 158 184 C184 196 207 196 224 186" fill="none" stroke="#E2B44A" stroke-width="10" stroke-linecap="round" opacity="0.92"/>
-<text x="128" y="116" text-anchor="middle" font-family="Noto Sans Thai, Noto Sans, Arial, sans-serif" font-size="72" font-weight="900" fill="#FBF6E8" letter-spacing="-2">ไทย</text>
-<path d="M68 211 H188" stroke="#FBF6E8" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+  <title id="title">Thai Lessons Chiang Mai premium mark</title>
+  <desc id="desc">Minimal ivory academy badge with a midnight monogram, Chiang Mai mountain line, and warm gold accent.</desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF8EA"/>
+      <stop offset="0.52" stop-color="#F7E8C5"/>
+      <stop offset="1" stop-color="#E7C982"/>
+    </linearGradient>
+    <linearGradient id="midnight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151A33"/>
+      <stop offset="1" stop-color="#273566"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#151A33" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#midnight)"/>
+  <rect x="18" y="18" width="220" height="220" rx="46" fill="url(#ivory)" filter="url(#softShadow)"/>
+  <rect x="30" y="30" width="196" height="196" rx="38" fill="none" stroke="#151A33" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="190" cy="64" r="12" fill="#B8892B"/>
+  <path d="M58 155 C78 132 94 126 112 143 C126 157 138 154 151 138 C168 118 188 120 204 143" fill="none" stroke="#151A33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 177 C94 166 119 166 146 177 C169 186 188 185 204 178" fill="none" stroke="#B8892B" stroke-width="5" stroke-linecap="round"/>
+  <text x="128" y="115" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" fill="#151A33" letter-spacing="-2">TL</text>
+  <path d="M86 202 H170" stroke="#151A33" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
 </svg>

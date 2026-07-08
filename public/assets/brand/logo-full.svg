@@ -1,14 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 240" role="img" aria-labelledby="title desc">
-<title id="title">Thai Lessons Chiang Mai</title>
-<desc id="desc">Logo for Thai Lessons Chiang Mai, practical Thai missions for expats.</desc>
-<rect x="18" y="18" width="204" height="204" rx="54" fill="#273566"/>
-<circle cx="178" cy="66" r="20" fill="#E2B44A"/>
-<path d="M48 152 C73 124 91 116 113 137 C128 152 140 149 153 133 C173 107 197 111 214 136" fill="none" stroke="#FBF6E8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.94"/>
-<path d="M54 174 C90 158 122 158 156 174 C180 185 199 184 214 176" fill="none" stroke="#E2B44A" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
-<text x="120" y="111" text-anchor="middle" font-family="Noto Sans Thai, Noto Sans, Arial, sans-serif" font-size="60" font-weight="900" fill="#FBF6E8" letter-spacing="-1.5">ไทย</text>
-<path d="M75 200 H165" stroke="#FBF6E8" stroke-width="7" stroke-linecap="round" opacity="0.45"/>
-<text x="255" y="92" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="900" fill="#30241D" letter-spacing="-2.2">Thai Lessons</text>
-<text x="255" y="143" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="900" fill="#30241D" letter-spacing="-2.2">Chiang Mai</text>
-<rect x="255" y="166" width="314" height="42" rx="21" fill="#E2B44A"/>
-<text x="412" y="194" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900" fill="#30241D">Real-life Thai missions for expats</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 240" role="img" aria-labelledby="title desc">
+  <title id="title">Thai Lessons Chiang Mai</title>
+  <desc id="desc">Premium academy-style logo for Thai Lessons Chiang Mai.</desc>
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF8EA"/>
+      <stop offset="0.52" stop-color="#F7E8C5"/>
+      <stop offset="1" stop-color="#E7C982"/>
+    </linearGradient>
+    <linearGradient id="midnight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151A33"/>
+      <stop offset="1" stop-color="#273566"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="18" width="204" height="204" rx="48" fill="url(#midnight)"/>
+  <rect x="34" y="34" width="172" height="172" rx="36" fill="url(#ivory)"/>
+  <rect x="46" y="46" width="148" height="148" rx="28" fill="none" stroke="#151A33" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="174" cy="62" r="10" fill="#B8892B"/>
+  <path d="M66 146 C83 127 98 122 113 136 C126 149 136 147 148 133 C163 116 181 118 195 137" fill="none" stroke="#151A33" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M72 166 C96 157 118 157 141 166 C161 174 178 173 194 167" fill="none" stroke="#B8892B" stroke-width="4.5" stroke-linecap="round"/>
+  <text x="120" y="111" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#151A33" letter-spacing="-2">TL</text>
+  <path d="M84 188 H156" stroke="#151A33" stroke-width="3.5" stroke-linecap="round" opacity="0.22"/>
+  <text x="260" y="91" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#151A33" letter-spacing="-1.8">Thai Lessons</text>
+  <text x="260" y="143" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#151A33" letter-spacing="-1.8">Chiang Mai</text>
+  <path d="M262 165 H600" stroke="#B8892B" stroke-width="3" stroke-linecap="round"/>
+  <text x="260" y="196" font-family="Avenir Next, Montserrat, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F5A32" letter-spacing="3.6">PRIVATE THAI ACADEMY</text>
 </svg>
