@@ -11,6 +11,7 @@ import MarkdownContent from '@/components/lesson/MarkdownContent'
 export const metadata = {
   title: 'Week 2: Numbers, Prices, Colors & Everyday Objects | Thai Culture & Language',
   description: 'Beginner Thai lesson covering numbers, prices, colors, everyday objects, market phrases, and a quick quiz.',
+  alternates: { canonical: '/lessons/week-2' },
 }
 
 const week2Questions: QuizQuestion[] = [

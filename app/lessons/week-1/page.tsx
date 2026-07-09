@@ -10,6 +10,7 @@ import MarkdownContent from '@/components/lesson/MarkdownContent'
 export const metadata = {
   title: 'Week 1: Greetings & Politeness Particles | Thai Culture & Language',
   description: 'Free beginner Thai lesson covering sawasdee, wai, khrap, kha, and mai pen rai with cultural context and a quiz.',
+  alternates: { canonical: '/lessons/week-1' },
 }
 
 function getLessonContent() {

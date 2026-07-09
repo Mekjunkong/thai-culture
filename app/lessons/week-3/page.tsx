@@ -10,6 +10,7 @@ import MarkdownContent from '@/components/lesson/MarkdownContent'
 export const metadata = {
   title: 'Week 3: Ordering Food, Coffee & Spice Levels | Thai Lessons Chiang Mai',
   description: 'Beginner Thai lesson for ordering food and coffee in Chiang Mai: spice levels, sweetness, eat here, takeaway, and bill please.',
+  alternates: { canonical: '/lessons/week-3' },
 }
 
 const week3Questions: QuizQuestion[] = [

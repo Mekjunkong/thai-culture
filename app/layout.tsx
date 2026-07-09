@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   title: 'Thai Lessons Chiang Mai | Learn Thai for Expats & Travelers',
   description:
     'Practical Thai lessons in Chiang Mai and online for expats, digital nomads, retirees, and travelers. Start free, then book private Thai practice.',
-  alternates: {
-    canonical: '/',
-  },
   icons: {
     icon: [
       { url: '/assets/brand/favicon.svg', type: 'image/svg+xml' },
