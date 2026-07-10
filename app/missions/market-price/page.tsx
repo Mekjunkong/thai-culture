@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: '/missions/market-price',
   },
   openGraph: {
-    title: 'Ask the Price in Thai — Chiang Mai Market Mission',
+    title: 'Ask the Price in Thai - Chiang Mai Market Mission',
     description: 'A fun, beginner-friendly Thai mission for expats: ask how much and buy fruit at a Chiang Mai market.',
     url: '/missions/market-price',
     type: 'article',

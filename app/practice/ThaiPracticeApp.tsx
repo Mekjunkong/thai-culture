@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { getDueIds, getLearnedCount, gradeCard, localDateKey, localYesterdayKey, type Grade } from '@/lib/srs'
+import Reveal from '@/components/ui/Reveal'
 
 type Word = { id: string; thai: string; roman: string; english: string; emoji: string; note?: string }
 type Category = { id: string; title: string; emoji: string; situation: string; words: Word[] }
@@ -216,9 +217,9 @@ export default function ThaiPracticeApp() {
       <main className="bg-jasmine px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-5 shadow-2xl shadow-indigo/15">
           <section className="rounded-[1.5rem] bg-gradient-to-br from-indigo to-indigo-soft p-6 text-surface">
-            <p className="text-sm font-black uppercase text-turmeric">Kids-app style · built for Thai learners</p>
+            <p className="text-sm font-bold text-turmeric">Kids-app style · built for Thai learners</p>
             <h1 className="mt-3 text-4xl font-black leading-none tracking-[-0.05em] text-balance">Thai practice app for Chiang Mai life.</h1>
-            <p className="mt-4 leading-7 text-surface/80 text-pretty">Flashcards, quick quizzes, stars, streaks, and practical phrase categories — adapted from your kids learning app idea.</p>
+            <p className="mt-4 leading-7 text-surface/80 text-pretty">Flashcards, quick quizzes, stars, streaks, and practical phrase categories - adapted from your kids learning app idea.</p>
             <div className="mt-5 grid grid-cols-3 gap-3 text-center">
               <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-turmeric">{progress.stars}</p><p className="text-xs font-bold">stars</p></div>
               <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-turmeric">{progress.streak}</p><p className="text-xs font-bold">streak</p></div>
@@ -234,7 +235,7 @@ export default function ThaiPracticeApp() {
                 <p className="mt-1 text-sm leading-6 text-tamarind/65">
                   {dueCount === 0
                     ? `All caught up! ${learnedCount}/${allWordIds.length} phrases learned. Come back tomorrow.`
-                    : `${dueCount} phrase${dueCount === 1 ? '' : 's'} due right now, mixed from every category — the words you're about to forget.`}
+                    : `${dueCount} phrase${dueCount === 1 ? '' : 's'} due right now, mixed from every category - the words you're about to forget.`}
                 </p>
                 {dueCount > 0 && (
                   <button
@@ -250,25 +251,27 @@ export default function ThaiPracticeApp() {
           </section>
 
           <section className="mt-5 grid gap-3">
-            {categories.map((item) => {
+            {categories.map((item, index) => {
               const done = progress.completed.includes(item.id)
               return (
-                <article key={item.id} className="rounded-[1.5rem] border-[3px] border-surface/70 bg-jasmine p-4 shadow-lg shadow-indigo/8">
-                  <div className="flex items-start gap-3">
-                    <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface text-3xl shadow-inner" aria-hidden="true">{item.emoji}</span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-3">
-                        <h2 className="text-xl font-black leading-tight">{item.title}</h2>
-                        {done && <span className="rounded-full bg-banana/15 px-2 py-1 text-xs font-black text-banana">Done</span>}
-                      </div>
-                      <p className="mt-1 text-sm leading-6 text-tamarind/65">{item.situation}</p>
-                      <div className="mt-3 grid grid-cols-2 gap-2">
-                        <button type="button" onClick={() => startFlashcards(item)} className="min-h-11 rounded-2xl bg-indigo px-3 py-2 font-black text-surface shadow-md shadow-indigo/15 transition duration-150 active:scale-[0.98]">Flashcards</button>
-                        <button type="button" onClick={() => startQuiz(item)} className="min-h-11 rounded-2xl bg-turmeric px-3 py-2 font-black text-tamarind shadow-md shadow-tamarind/10 transition duration-150 active:scale-[0.98]">Quiz</button>
+                <Reveal key={item.id} index={index}>
+                  <article className="rounded-[1.5rem] border-[3px] border-surface/70 bg-jasmine p-4 shadow-lg shadow-indigo/8">
+                    <div className="flex items-start gap-3">
+                      <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface text-3xl shadow-inner" aria-hidden="true">{item.emoji}</span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-3">
+                          <h2 className="text-xl font-black leading-tight">{item.title}</h2>
+                          {done && <span className="rounded-full bg-banana/15 px-2 py-1 text-xs font-black text-banana">Done</span>}
+                        </div>
+                        <p className="mt-1 text-sm leading-6 text-tamarind/65">{item.situation}</p>
+                        <div className="mt-3 grid grid-cols-2 gap-2">
+                          <button type="button" onClick={() => startFlashcards(item)} className="min-h-11 rounded-2xl bg-indigo px-3 py-2 font-black text-surface shadow-md shadow-indigo/15 transition duration-150 active:scale-[0.98]">Flashcards</button>
+                          <button type="button" onClick={() => startQuiz(item)} className="min-h-11 rounded-2xl bg-turmeric px-3 py-2 font-black text-tamarind shadow-md shadow-tamarind/10 transition duration-150 active:scale-[0.98]">Quiz</button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Reveal>
               )
             })}
           </section>
@@ -322,7 +325,7 @@ export default function ThaiPracticeApp() {
             <div className="h-full rounded-full bg-turmeric transition-all duration-150" style={{ width: `${quizPercent}%` }} />
           </div>
           <section className="mt-5 rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 shadow-2xl shadow-indigo/15">
-            <p className="text-sm font-black uppercase text-temple">Choose the meaning</p>
+            <p className="text-sm font-bold text-temple">Choose the meaning</p>
             <p className="mt-5 text-center text-6xl" aria-hidden="true">{currentQuestion.word.emoji}</p>
             <h1 className="mt-5 text-center text-5xl font-black leading-tight text-indigo">{currentQuestion.word.thai}</h1>
             <p className="mt-3 text-center text-lg font-bold text-temple">{currentQuestion.word.roman}</p>
@@ -345,7 +348,7 @@ export default function ThaiPracticeApp() {
 
   if (screen === 'review') {
     if (!reviewCard) {
-      // Queue was empty (nothing due) — bounce back to home rather than render blank.
+      // Queue was empty (nothing due) - bounce back to home rather than render blank.
       setScreen('home')
       return null
     }
@@ -392,11 +395,11 @@ export default function ThaiPracticeApp() {
     <main className="min-h-screen bg-jasmine px-4 py-8 text-tamarind">
       <section className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15">
         <p className="text-7xl" aria-hidden="true">🏆</p>
-        <p className="mt-5 text-sm font-black uppercase text-temple">Session complete</p>
+        <p className="mt-5 text-sm font-bold text-temple">Session complete</p>
         <h1 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">You earned {sessionStars} stars.</h1>
         <p className="mt-4 leading-7 text-tamarind/70">
           {lastSessionType === 'review'
-            ? `Daily review done — ${reviewDoneCount} phrase${reviewDoneCount === 1 ? '' : 's'} reviewed across every category. Each one will resurface right before you'd forget it.`
+            ? `Daily review done - ${reviewDoneCount} phrase${reviewDoneCount === 1 ? '' : 's'} reviewed across every category. Each one will resurface right before you'd forget it.`
             : `Completed: ${category.title}. Keep the streak going with another small Chiang Mai situation.`}
         </p>
         <div className="mt-6 grid gap-3">

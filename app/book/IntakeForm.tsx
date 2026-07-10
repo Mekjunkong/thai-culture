@@ -101,7 +101,7 @@ export default function IntakeForm() {
     <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr]">
       <form className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-xl shadow-tamarind/10 md:p-7">
         <p className="mb-5 rounded-2xl bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
-          Your answers below build a WhatsApp message to Mike — nothing is sent until you tap the button. Your progress is saved automatically if you need to come back to this later.
+          Your answers below build a WhatsApp message to Mike - nothing is sent until you tap the button. Your progress is saved automatically if you need to come back to this later.
         </p>
         <div className="grid gap-4 md:grid-cols-2">
           <label className="grid gap-2 font-bold text-tamarind/78">
@@ -222,7 +222,7 @@ export default function IntakeForm() {
         </div>
         {needsNudge && (
           <p className="mt-4 text-sm font-semibold text-temple">
-            Add your name and goal above so Mike can prepare the right first lesson — or send as-is if you&apos;d rather explain over chat.
+            Add your name and goal above so Mike can prepare the right first lesson - or send as-is if you&apos;d rather explain over chat.
           </p>
         )}
         <a

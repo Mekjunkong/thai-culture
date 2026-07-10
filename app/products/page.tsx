@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
+import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
   title: 'Thai Lesson Products Online & On-site | Thai Lessons Chiang Mai',
@@ -50,7 +51,7 @@ const productLadder = [
   {
     level: '04',
     name: 'Chiang Mai Mission Walk',
-    price: '฿1,500–฿2,500',
+    price: '฿1,500-฿2,500',
     bestFor: 'On-site learners who want real-world practice',
     outcome: 'Practice Thai in a real cafe, market, transport, or condo situation with teacher support.',
     includes: ['Printed mission card', 'Real-world roleplay', 'Teacher correction notes', 'After-class voice-note homework'],
@@ -126,7 +127,7 @@ export default function ProductsPage() {
             </div>
 
             <aside className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/10">
-              <p className="text-sm font-black uppercase text-temple">Product promise</p>
+              <p className="text-sm font-bold text-temple">Product promise</p>
               <h2 className="mt-3 text-3xl font-black leading-tight">One useful Thai sentence you can use today.</h2>
               <div className="mt-5 grid gap-3">
                 {deliverables.slice(0, 4).map((item) => (
@@ -143,25 +144,27 @@ export default function ProductsPage() {
         <section id="products" className="bg-surface px-4 py-16 md:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
-              <p className="text-sm font-black uppercase text-temple">Product ladder</p>
+              <p className="text-sm font-bold text-temple">Product ladder</p>
               <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">From free practice to real speaking support.</h2>
               <p className="mt-4 leading-8 text-tamarind/70">Try the method free first. When you want real feedback, pick the level of support that matches how long you are staying and how fast you want to improve.</p>
             </div>
             <div className="mt-10 grid gap-4 lg:grid-cols-5">
-              {productLadder.map((product) => (
-                <article key={product.name} className={`rounded-[1.5rem] border p-5 shadow-sm ${product.name === 'Starter Pack' ? 'border-turmeric bg-banana/10 shadow-lg shadow-tamarind/10' : 'border-tamarind/10 bg-jasmine'}`}>
-                  <p className="text-sm font-black text-temple">{product.level}</p>
-                  <h3 className="mt-3 text-2xl font-black leading-tight">{product.name}</h3>
-                  <p className="mt-3 text-xl font-black text-indigo">{product.price}</p>
-                  <p className="mt-3 text-sm font-bold text-tamarind/55">Best for: {product.bestFor}</p>
-                  <p className="mt-4 min-h-24 leading-7 text-tamarind/70">{product.outcome}</p>
-                  <ul className="mt-4 space-y-2 border-t border-tamarind/10 pt-4 text-sm leading-6 text-tamarind/70">
-                    {product.includes.map((item) => <li key={item}>✓ {item}</li>)}
-                  </ul>
-                  <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-5 py-3 font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                    {product.cta}
-                  </Link>
-                </article>
+              {productLadder.map((product, index) => (
+                <Reveal key={product.name} index={index}>
+                  <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out hover:-translate-y-0.5 hover:shadow-lg ${product.name === 'Starter Pack' ? 'border-turmeric bg-banana/10 shadow-lg shadow-tamarind/10' : 'border-tamarind/10 bg-jasmine'}`}>
+                    <p className="text-sm font-black text-temple">{product.level}</p>
+                    <h3 className="mt-3 text-2xl font-black leading-tight">{product.name}</h3>
+                    <p className="mt-3 text-xl font-black text-indigo">{product.price}</p>
+                    <p className="mt-3 text-sm font-bold text-tamarind/55">Best for: {product.bestFor}</p>
+                    <p className="mt-4 min-h-24 leading-7 text-tamarind/70">{product.outcome}</p>
+                    <ul className="mt-4 space-y-2 border-t border-tamarind/10 pt-4 text-sm leading-6 text-tamarind/70">
+                      {product.includes.map((item) => <li key={item}>✓ {item}</li>)}
+                    </ul>
+                    <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-5 py-3 font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                      {product.cta}
+                    </Link>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -170,7 +173,7 @@ export default function ProductsPage() {
         <section className="px-4 py-16 md:py-20">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
             <article className="rounded-[2rem] border border-tamarind/10 bg-surface p-6 shadow-sm">
-              <p className="text-sm font-black uppercase text-temple">Online product</p>
+              <p className="text-sm font-bold text-temple">Online product</p>
               <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">Remote lessons that still feel personal.</h2>
               <div className="mt-6 grid gap-3">
                 {onlineFlow.map(([step, detail]) => (
@@ -182,7 +185,7 @@ export default function ProductsPage() {
               </div>
             </article>
             <article className="rounded-[2rem] border border-turmeric bg-banana/10 p-6 shadow-lg shadow-tamarind/10">
-              <p className="text-sm font-black uppercase text-temple">On-site product</p>
+              <p className="text-sm font-bold text-temple">On-site product</p>
               <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">Chiang Mai lessons should feel like a local mission.</h2>
               <div className="mt-6 grid gap-3">
                 {onsiteFlow.map(([step, detail]) => (
@@ -198,15 +201,17 @@ export default function ProductsPage() {
 
         <section className="bg-indigo px-4 py-16 text-surface md:py-20">
           <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-black uppercase text-turmeric">5-lesson survival path</p>
+            <p className="text-sm font-bold text-turmeric">5-lesson survival path</p>
             <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">A real beginner package, not random lessons.</h2>
             <div className="mt-10 grid gap-3 md:grid-cols-5">
-              {curriculum.map((item) => (
-                <article key={item.lesson} className="rounded-[1.5rem] border border-surface/10 bg-surface/10 p-5">
-                  <p className="text-sm font-black text-turmeric">{item.lesson}</p>
-                  <h3 className="mt-3 text-xl font-black leading-tight">{item.focus}</h3>
-                  <p className="mt-3 text-sm leading-6 text-surface/75">{item.result}</p>
-                </article>
+              {curriculum.map((item, index) => (
+                <Reveal key={item.lesson} index={index}>
+                  <article className="rounded-[1.5rem] border border-surface/10 bg-surface/10 p-5">
+                    <p className="text-sm font-black text-turmeric">{item.lesson}</p>
+                    <h3 className="mt-3 text-xl font-black leading-tight">{item.focus}</h3>
+                    <p className="mt-3 text-sm leading-6 text-surface/75">{item.result}</p>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -214,7 +219,7 @@ export default function ProductsPage() {
 
         <section id="book" className="px-4 py-16 md:py-20">
           <div className="mx-auto max-w-4xl rounded-[2rem] bg-surface p-6 text-center shadow-2xl shadow-tamarind/10 md:p-10">
-            <p className="text-sm font-black uppercase text-temple">Best next step</p>
+            <p className="text-sm font-bold text-temple">Best next step</p>
             <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">Start with one trial or one Starter Pack.</h2>
             <p className="mx-auto mt-4 max-w-2xl leading-8 text-tamarind/70">Send one message with your situation: cafe, market, restaurant, driver, condo, work, dating, or daily life. I will suggest the best lesson format.</p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">

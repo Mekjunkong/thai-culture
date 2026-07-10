@@ -96,8 +96,8 @@ export default function Week2Page() {
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo text-3xl text-surface" aria-hidden="true">🎧</span>
               </div>
               <div className="mt-5 flex flex-col gap-3">
-                <AudioPlayer src="/assets/audio/week-2-numbers.mp3" label="Thai numbers 0–10 — slow repeat practice" />
-                <AudioPlayer src="/assets/audio/week-2-market-phrases.mp3" label="Price questions — an nii thao-rai khrap/kha" />
+                <AudioPlayer src="/assets/audio/week-2-numbers.mp3" label="Thai numbers 0-10 - slow repeat practice" />
+                <AudioPlayer src="/assets/audio/week-2-market-phrases.mp3" label="Price questions - an nii thao-rai khrap/kha" />
               </div>
             </section>
 
@@ -118,8 +118,8 @@ export default function Week2Page() {
           <aside className="h-fit rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm lg:sticky lg:top-24">
             <p className="text-sm font-semibold uppercase text-temple">Lesson map</p>
             <ol className="mt-4 space-y-3 text-sm text-tamarind/60">
-              <li className="rounded-xl bg-jasmine p-3 font-semibold text-tamarind">1. Numbers 0–10</li>
-              <li className="rounded-xl bg-surface p-3">2. Building 11–100</li>
+              <li className="rounded-xl bg-jasmine p-3 font-semibold text-tamarind">1. Numbers 0-10</li>
+              <li className="rounded-xl bg-surface p-3">2. Building 11-100</li>
               <li className="rounded-xl bg-surface p-3">3. Prices and shopping phrases</li>
               <li className="rounded-xl bg-surface p-3">4. Colors and everyday objects</li>
               <li className="rounded-xl bg-surface p-3">5. Quick quiz</li>
@@ -128,7 +128,7 @@ export default function Week2Page() {
               <p className="font-bold">Next: Week 3</p>
               <p className="mt-2 text-sm leading-6 text-surface/85">Ordering food, spice levels and café Thai.</p>
               <CheckoutButton className="mt-4 w-full rounded-lg bg-turmeric px-4 py-2 font-semibold text-tamarind transition hover:bg-turmeric-bright disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Unlock lifetime access — ฿690
+                Unlock lifetime access - ฿690
               </CheckoutButton>
             </div>
             <Link href="/lessons/week-1" className="mt-4 block text-center text-sm font-semibold text-indigo hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">

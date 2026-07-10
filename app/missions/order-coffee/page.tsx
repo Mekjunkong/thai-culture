@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: '/missions/order-coffee',
   },
   openGraph: {
-    title: 'Order Coffee in Thai — Chiang Mai Mission',
+    title: 'Order Coffee in Thai - Chiang Mai Mission',
     description: 'A fun, beginner-friendly Thai mission for expats: order coffee less sweet in Chiang Mai.',
     url: '/missions/order-coffee',
     type: 'article',

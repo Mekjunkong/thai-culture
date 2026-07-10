@@ -283,7 +283,7 @@ export default function MarketPriceMission() {
               <h2 className="text-2xl font-black tracking-[-0.03em]">4. Market roleplay</h2>
               <p className="mt-2 text-tamarind/70">Vendor says:</p>
               <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-indigo">{priceWord.thai}</p>
-              <p className="mt-2 text-sm text-tamarind/60">{priceWord.roman} — {totalPrice} baht</p>
+              <p className="mt-2 text-sm text-tamarind/60">{priceWord.roman} - {totalPrice} baht</p>
 
               <p className="mt-5 font-black text-tamarind">What price did you hear?</p>
               <div className="mt-3 grid gap-3 sm:grid-cols-3">
@@ -326,7 +326,7 @@ export default function MarketPriceMission() {
               {(priceChoice || roleplayChoice) && (
                 <p className={`mt-4 rounded-2xl p-4 font-bold ${priceChoice === totalPrice && roleplayChoice === buyPhrase ? 'bg-banana/12 text-banana' : 'bg-jasmine text-tamarind/70'}`}>
                   {priceChoice === totalPrice && roleplayChoice === buyPhrase
-                    ? 'Correct — market mission almost complete!'
+                    ? 'Correct - market mission almost complete!'
                     : 'Keep going. Listen for the baht amount, then choose the phrase that buys your item.'}
                 </p>
               )}

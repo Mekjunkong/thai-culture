@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
+import Reveal from '@/components/ui/Reveal'
 import IntakeForm from './IntakeForm'
 
 export const metadata: Metadata = {
@@ -38,12 +39,14 @@ export default function BookPage() {
                 </p>
               </div>
               <div className="grid gap-3">
-                {steps.map(([number, title, detail]) => (
-                  <article key={title} className="rounded-2xl border border-tamarind/10 bg-surface p-4 shadow-sm">
-                    <p className="text-sm font-black text-temple">Step {number}</p>
-                    <h2 className="mt-1 text-xl font-black text-indigo">{title}</h2>
-                    <p className="mt-1 leading-7 text-tamarind/70">{detail}</p>
-                  </article>
+                {steps.map(([number, title, detail], index) => (
+                  <Reveal key={title} index={index}>
+                    <article className="rounded-2xl border border-tamarind/10 bg-surface p-4 shadow-sm">
+                      <p className="text-sm font-black text-temple">Step {number}</p>
+                      <h2 className="mt-1 text-xl font-black text-indigo">{title}</h2>
+                      <p className="mt-1 leading-7 text-tamarind/70">{detail}</p>
+                    </article>
+                  </Reveal>
                 ))}
               </div>
             </div>

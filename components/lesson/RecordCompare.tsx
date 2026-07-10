@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 /**
  * Listen → record → compare: play the native audio, record yourself, then A/B
  * compare the rise and fall of your tones against the teacher's. Uses the
- * MediaRecorder API — recording never leaves the device.
+ * MediaRecorder API - recording never leaves the device.
  */
 export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
   const [supported, setSupported] = useState(true)
@@ -68,7 +68,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
       </p>
       {!myAudioUrl && (
         <p className="mt-1 text-xs text-tamarind/50">
-          Your browser will ask for microphone access so you can hear your own voice. Nothing is uploaded — the recording stays on this device.
+          Your browser will ask for microphone access so you can hear your own voice. Nothing is uploaded - the recording stays on this device.
         </p>
       )}
       <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -92,7 +92,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
       </div>
       {myAudioUrl && (
         <p className="mt-2 text-xs text-tamarind/60">
-          Sounding different from the teacher at first is completely normal — that&apos;s exactly what practice is for. Play the teacher audio above, then your recording. Compare the <strong>rise and fall</strong> of each word — matching the melody matters more than speed. Happy with it? Send it to Mike on WhatsApp for real feedback.
+          Sounding different from the teacher at first is completely normal - that&apos;s exactly what practice is for. Play the teacher audio above, then your recording. Compare the <strong>rise and fall</strong> of each word - matching the melody matters more than speed. Happy with it? Send it to Mike on WhatsApp for real feedback.
         </p>
       )}
       {error && <p className="mt-2 text-xs text-temple">{error}</p>}

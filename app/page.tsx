@@ -11,6 +11,7 @@ import {
 import CheckoutButton from '@/components/checkout/CheckoutButton'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
+import Reveal from '@/components/ui/Reveal'
 
 export const metadata = {
   alternates: { canonical: '/' },
@@ -261,11 +262,13 @@ export default function HomePage() {
 
         <section aria-label="Learning format highlights" className="px-4 pb-10">
           <div className="mx-auto grid max-w-6xl gap-3 sm:grid-cols-3">
-            {proofPoints.map(item => (
-              <div key={item.label} className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
-                <p className="text-3xl font-black text-indigo">{item.value}</p>
-                <p className="mt-2 text-sm leading-6 text-tamarind/65 text-pretty">{item.label}</p>
-              </div>
+            {proofPoints.map((item, index) => (
+              <Reveal key={item.label} index={index}>
+                <div className="rounded-[1.5rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
+                  <p className="text-3xl font-black text-indigo">{item.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-tamarind/65 text-pretty">{item.label}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -292,7 +295,7 @@ export default function HomePage() {
                 />
               </div>
               <p className="text-lg leading-8 text-tamarind/75 text-pretty">
-                That&apos;s why missions stay small and specific, and why there&apos;s always a clear next step from free practice to a private lesson with real correction — <span className="font-bold text-indigo">not a bigger grammar course to get through.</span>
+                That&apos;s why missions stay small and specific, and why there&apos;s always a clear next step from free practice to a private lesson with real correction - <span className="font-bold text-indigo">not a bigger grammar course to get through.</span>
               </p>
             </div>
           </div>
@@ -316,29 +319,31 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {missionCards.map(mission => {
+              {missionCards.map((mission, index) => {
                 const MissionIcon = mission.icon
                 return (
-                <Link key={mission.title} href={mission.href} className="group block rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                  <article className="h-full rounded-[1.5rem] border border-turmeric bg-banana/10 p-5 shadow-sm transition duration-150 ease-out group-hover:shadow-lg">
-                    <div className="flex items-start justify-between gap-4">
-                      <span className="flex size-12 items-center justify-center rounded-2xl bg-surface text-indigo shadow-inner" aria-hidden="true">
-                        <MissionIcon className="size-6" weight="duotone" />
-                      </span>
-                      <span className="rounded-full bg-surface px-3 py-1 text-xs font-black text-indigo">Free {mission.time}</span>
-                    </div>
-                    <p className="mt-5 text-xs font-black text-temple">{mission.situation}</p>
-                    <h3 className="mt-2 text-2xl font-black leading-tight text-balance">{mission.title}</h3>
-                    <div className="mt-4 rounded-2xl bg-indigo p-4 text-surface">
-                      <p className="text-lg font-black">{mission.phrase}</p>
-                    </div>
-                    <p className="mt-4 min-h-20 text-sm leading-6 text-tamarind/70 text-pretty">{mission.outcome}</p>
-                    <p className="mt-5 inline-flex items-center gap-2 border-t border-tamarind/10 pt-4 font-black text-indigo">
-                      Start mission
-                      <ArrowRightIcon className="size-4 transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
-                    </p>
-                  </article>
-                </Link>
+                <Reveal key={mission.title} index={index}>
+                  <Link href={mission.href} className="group block h-full rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                    <article className="h-full rounded-[1.5rem] border border-turmeric bg-banana/10 p-5 shadow-sm transition duration-150 ease-out group-hover:-translate-y-0.5 group-hover:shadow-lg">
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="flex size-12 items-center justify-center rounded-2xl bg-surface text-indigo shadow-inner" aria-hidden="true">
+                          <MissionIcon className="size-6" weight="duotone" />
+                        </span>
+                        <span className="rounded-full bg-surface px-3 py-1 text-xs font-black text-indigo">Free {mission.time}</span>
+                      </div>
+                      <p className="mt-5 text-xs font-black text-temple">{mission.situation}</p>
+                      <h3 className="mt-2 text-2xl font-black leading-tight text-balance">{mission.title}</h3>
+                      <div className="mt-4 rounded-2xl bg-indigo p-4 text-surface">
+                        <p className="text-lg font-black">{mission.phrase}</p>
+                      </div>
+                      <p className="mt-4 min-h-20 text-sm leading-6 text-tamarind/70 text-pretty">{mission.outcome}</p>
+                      <p className="mt-5 inline-flex items-center gap-2 border-t border-tamarind/10 pt-4 font-black text-indigo">
+                        Start mission
+                        <ArrowRightIcon className="size-4 transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
+                      </p>
+                    </article>
+                  </Link>
+                </Reveal>
                 )
               })}
             </div>
@@ -362,16 +367,18 @@ export default function HomePage() {
             </div>
             <ol className="grid gap-3">
               {courseWeeks.map((week, index) => (
-                <li key={week.href}>
-                  <Link href={week.href} className="group flex items-center gap-4 rounded-2xl border border-tamarind/10 bg-surface p-4 shadow-sm transition duration-150 ease-out hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                    <span aria-hidden="true" className={`text-4xl font-black ${index === 0 ? 'text-turmeric' : 'text-tamarind/15'}`}>{index + 1}</span>
-                    <span className="flex-1">
-                      <span className="block text-xs font-black text-temple">{week.label} / {week.time}</span>
-                      <span className="mt-1 block text-lg font-black leading-tight">{week.title}</span>
-                    </span>
-                    <ArrowRightIcon className="size-5 text-indigo transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
-                  </Link>
-                </li>
+                <Reveal key={week.href} index={index}>
+                  <li>
+                    <Link href={week.href} className="group flex items-center gap-4 rounded-2xl border border-tamarind/10 bg-surface p-4 shadow-sm transition duration-150 ease-out hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                      <span aria-hidden="true" className={`text-4xl font-black ${index === 0 ? 'text-turmeric' : 'text-tamarind/15'}`}>{index + 1}</span>
+                      <span className="flex-1">
+                        <span className="block text-xs font-black text-temple">{week.label} / {week.time}</span>
+                        <span className="mt-1 block text-lg font-black leading-tight">{week.title}</span>
+                      </span>
+                      <ArrowRightIcon className="size-5 text-indigo transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
+                    </Link>
+                  </li>
+                </Reveal>
               ))}
             </ol>
           </div>
@@ -386,12 +393,14 @@ export default function HomePage() {
               </h2>
             </div>
             <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {howItWorks.map(item => (
-                <article key={item.step} className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-6">
-                  <p className="text-xl font-black text-turmeric">{item.step}</p>
-                  <h3 className="mt-4 text-2xl font-black leading-tight text-balance">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-tamarind/70 text-pretty">{item.detail}</p>
-                </article>
+              {howItWorks.map((item, index) => (
+                <Reveal key={item.step} index={index}>
+                  <article className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-6">
+                    <p className="text-xl font-black text-turmeric">{item.step}</p>
+                    <h3 className="mt-4 text-2xl font-black leading-tight text-balance">{item.title}</h3>
+                    <p className="mt-3 leading-7 text-tamarind/70 text-pretty">{item.detail}</p>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -436,16 +445,18 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
-              {lessonOptions.map(option => (
-                <article key={option.name} className={`flex flex-col rounded-[1.5rem] border p-6 shadow-sm ${option.featured ? 'border-turmeric bg-surface shadow-lg shadow-tamarind/10' : 'border-tamarind/10 bg-surface'}`}>
-                  <p className="inline-flex self-start rounded-full bg-jasmine px-3 py-1 text-xs font-black text-temple">{option.tag}</p>
-                  <h3 className="mt-5 text-2xl font-black leading-tight text-balance">{option.name}</h3>
-                  <p className="mt-3 text-2xl font-black text-indigo md:text-3xl">{option.price}</p>
-                  <p className="mb-6 mt-4 flex-1 leading-7 text-tamarind/70 text-pretty">{option.detail}</p>
-                  <Link href={option.href} className={`inline-flex min-h-12 items-center justify-center rounded-2xl px-5 py-3 font-black transition duration-150 ease-out active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${option.featured ? 'bg-turmeric text-tamarind hover:bg-turmeric-bright focus-visible:outline-indigo' : 'bg-indigo text-surface hover:bg-indigo-soft focus-visible:outline-turmeric'}`}>
-                    {option.cta}
-                  </Link>
-                </article>
+              {lessonOptions.map((option, index) => (
+                <Reveal key={option.name} index={index}>
+                  <article className={`flex h-full flex-col rounded-[1.5rem] border p-6 shadow-sm ${option.featured ? 'border-turmeric bg-surface shadow-lg shadow-tamarind/10' : 'border-tamarind/10 bg-surface'}`}>
+                    <p className="inline-flex self-start rounded-full bg-jasmine px-3 py-1 text-xs font-black text-temple">{option.tag}</p>
+                    <h3 className="mt-5 text-2xl font-black leading-tight text-balance">{option.name}</h3>
+                    <p className="mt-3 text-2xl font-black text-indigo md:text-3xl">{option.price}</p>
+                    <p className="mb-6 mt-4 flex-1 leading-7 text-tamarind/70 text-pretty">{option.detail}</p>
+                    <Link href={option.href} className={`inline-flex min-h-12 items-center justify-center rounded-2xl px-5 py-3 font-black transition duration-150 ease-out active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${option.featured ? 'bg-turmeric text-tamarind hover:bg-turmeric-bright focus-visible:outline-indigo' : 'bg-indigo text-surface hover:bg-indigo-soft focus-visible:outline-turmeric'}`}>
+                      {option.cta}
+                    </Link>
+                  </article>
+                </Reveal>
               ))}
             </div>
             <div className="mt-8 grid gap-3 rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-6 sm:grid-cols-2">
@@ -473,11 +484,13 @@ export default function HomePage() {
               Quick answers before you start.
             </h2>
             <div className="mt-10 grid gap-3">
-              {faqs.map(faq => (
-                <article key={faq.question} className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-6">
-                  <h3 className="text-xl font-black text-indigo">{faq.question}</h3>
-                  <p className="mt-3 leading-7 text-tamarind/70 text-pretty">{faq.answer}</p>
-                </article>
+              {faqs.map((faq, index) => (
+                <Reveal key={faq.question} index={index}>
+                  <article className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-6">
+                    <h3 className="text-xl font-black text-indigo">{faq.question}</h3>
+                    <p className="mt-3 leading-7 text-tamarind/70 text-pretty">{faq.answer}</p>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>
