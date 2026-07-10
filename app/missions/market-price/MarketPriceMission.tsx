@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import SpeakButton from '@/components/ui/SpeakButton'
 
 type MarketItem = {
   id: string
@@ -161,7 +162,10 @@ export default function MarketPriceMission() {
           <section className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
             <h2 className="text-2xl font-black tracking-[-0.03em]">1. Ask the price</h2>
             <div className="mt-5 rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Say this first</p>
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Say this first</p>
+                <SpeakButton text={askPhrase} onSpeak={() => setChecks((current) => ({ ...current, asked: true }))} />
+              </div>
               <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{askPhrase}</p>
               <p className="mt-4 text-lg text-surface/78">{askRoman}</p>
               <p className="mt-2 text-surface/78">How much is it?</p>
@@ -242,7 +246,10 @@ export default function MarketPriceMission() {
               </div>
 
               <div className="mt-5 rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Then buy it</p>
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Then buy it</p>
+                  <SpeakButton text={buyPhrase} onSpeak={() => setChecks((current) => ({ ...current, repeated: true }))} />
+                </div>
                 <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{buyPhrase}</p>
                 <p className="mt-4 text-lg text-surface/78">{buyRoman}</p>
                 <p className="mt-2 text-surface/78">I’d like {item.label.toLowerCase()}, {quantity.label.toLowerCase()}, please.</p>

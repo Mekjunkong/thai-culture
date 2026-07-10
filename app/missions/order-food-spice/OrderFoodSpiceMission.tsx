@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import SpeakButton from '@/components/ui/SpeakButton'
 
 type FoodItem = {
   id: string
@@ -254,7 +255,10 @@ export default function OrderFoodSpiceMission() {
               </div>
 
               <div className="mt-5 rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                <p className="text-sm font-black uppercase text-turmeric">Say this</p>
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-black uppercase text-turmeric">Say this</p>
+                  <SpeakButton text={orderPhrase} onSpeak={() => setChecks((current) => ({ ...current, repeated: true }))} />
+                </div>
                 <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{orderPhrase}</p>
                 <p className="mt-4 text-lg text-surface/78">{orderRoman}</p>
                 <p className="mt-2 text-surface/78">{orderMeaning}</p>

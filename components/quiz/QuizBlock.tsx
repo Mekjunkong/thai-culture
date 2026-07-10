@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import SpeakButton from '@/components/ui/SpeakButton'
+
+const THAI_SCRIPT_PATTERN = /[฀-๿]/
 
 export interface QuizQuestion {
   id: number
@@ -120,7 +123,12 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
       </div>
       {selected !== null && (
         <div className="mb-6 rounded-lg bg-jasmine p-4 text-sm leading-6 text-indigo" role="status">
-          <strong>Explanation:</strong> {q.explanation}
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <p><strong>Explanation:</strong> {q.explanation}</p>
+            {THAI_SCRIPT_PATTERN.test(q.options[q.correct]) && (
+              <SpeakButton text={q.options[q.correct]} label="Hear it" className="shrink-0" />
+            )}
+          </div>
         </div>
       )}
       {selected !== null && (

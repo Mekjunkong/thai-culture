@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import SpeakButton from '@/components/ui/SpeakButton'
 
 type Place = { id: string; label: string; thai: string; roman: string; clue: string }
 type Direction = { id: string; label: string; thai: string; roman: string; meaning: string }
@@ -162,13 +163,19 @@ export default function DriverStopMission() {
 
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 <div className="rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                  <p className="text-sm font-black uppercase text-turmeric">Say this to stop</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-sm font-black uppercase text-turmeric">Say this to stop</p>
+                    <SpeakButton text={stopPhrase} onSpeak={() => setChecks((current) => ({ ...current, stop: true }))} />
+                  </div>
                   <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{stopPhrase}</p>
                   <p className="mt-4 text-lg text-surface/78">{stopRoman}</p>
                   <p className="mt-2 text-surface/78">Please stop {place.label.toLowerCase()}.</p>
                 </div>
                 <div className="rounded-[1.5rem] bg-jasmine p-5 md:p-7">
-                  <p className="text-sm font-black uppercase text-temple">Direction phrase</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-sm font-black uppercase text-temple">Direction phrase</p>
+                    <SpeakButton text={directionPhrase} onSpeak={() => setChecks((current) => ({ ...current, directions: true }))} />
+                  </div>
                   <p className="mt-3 text-4xl font-black leading-tight text-indigo md:text-5xl">{directionPhrase}</p>
                   <p className="mt-4 text-lg text-tamarind/70">{directionRoman}</p>
                   <p className="mt-2 text-tamarind/70">{direction.meaning}, please.</p>
