@@ -84,7 +84,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
         <button
           type="button"
           onClick={resetQuiz}
-          className="mt-6 rounded-lg bg-indigo px-6 py-2 font-semibold text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+          className="mt-6 rounded-2xl bg-indigo px-6 py-2 font-semibold text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
         >
           Retry quiz
         </button>
@@ -101,7 +101,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
       <h3 className="mb-6 text-xl font-bold text-tamarind text-balance">{q.question}</h3>
       <div className="mb-6 grid gap-3">
         {q.options.map((opt, idx) => {
-          let cls = 'w-full rounded-lg border-2 px-4 py-3 text-left font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric '
+          let cls = 'w-full rounded-2xl border-2 px-4 py-3 text-left font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric '
           if (selected === null) {
             cls += 'cursor-pointer border-tamarind/10 hover:border-turmeric hover:bg-jasmine'
           } else if (idx === q.correct) {
@@ -127,7 +127,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
         <button
           type="button"
           onClick={handleNext}
-          className="w-full rounded-lg bg-indigo py-3 font-semibold text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+          className="w-full rounded-2xl bg-indigo py-3 font-semibold text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
         >
           {current + 1 >= questions.length ? 'See results' : 'Next question →'}
         </button>

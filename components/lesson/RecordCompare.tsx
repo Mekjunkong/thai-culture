@@ -66,11 +66,16 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
       <p className="text-xs font-semibold uppercase tracking-wide text-tamarind/60">
         🎙 Tone practice: listen → record → compare
       </p>
+      {!myAudioUrl && (
+        <p className="mt-1 text-xs text-tamarind/50">
+          Your browser will ask for microphone access so you can hear your own voice. Nothing is uploaded — the recording stays on this device.
+        </p>
+      )}
       <div className="mt-2 flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={toggleRecording}
-          className={`min-h-11 rounded-lg px-4 py-2 text-sm font-bold transition ${
+          className={`min-h-11 rounded-2xl px-4 py-2 text-sm font-bold transition ${
             recording
               ? 'animate-pulse bg-temple text-surface'
               : 'bg-indigo text-surface hover:bg-indigo-soft'
@@ -87,7 +92,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
       </div>
       {myAudioUrl && (
         <p className="mt-2 text-xs text-tamarind/60">
-          Play the teacher audio above, then your recording. Compare the <strong>rise and fall</strong> of each word — matching the melody matters more than speed. Happy with it? Send it to Mike on WhatsApp for real feedback.
+          Sounding different from the teacher at first is completely normal — that&apos;s exactly what practice is for. Play the teacher audio above, then your recording. Compare the <strong>rise and fall</strong> of each word — matching the melody matters more than speed. Happy with it? Send it to Mike on WhatsApp for real feedback.
         </p>
       )}
       {error && <p className="mt-2 text-xs text-temple">{error}</p>}

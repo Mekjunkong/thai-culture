@@ -37,7 +37,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         th: ({ children }) => <th className="px-4 py-3 font-semibold">{children}</th>,
         td: ({ children }) => <td className="px-4 py-3 align-top text-tamarind/75">{children}</td>,
         blockquote: ({ children }) => (
-          <blockquote className="my-6 rounded-2xl border-l-4 border-turmeric bg-jasmine px-5 py-4 text-tamarind/85">
+          <blockquote className="my-6 rounded-2xl border border-turmeric/40 bg-jasmine px-5 py-4 text-tamarind/85">
             {children}
           </blockquote>
         ),

@@ -213,8 +213,8 @@ export default function ThaiPracticeApp() {
 
   if (screen === 'home') {
     return (
-      <main className="bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
-        <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-[oklch(99%_0.006_294)] p-5 shadow-2xl shadow-indigo/15">
+      <main className="bg-jasmine px-4 py-8 text-tamarind">
+        <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-5 shadow-2xl shadow-indigo/15">
           <section className="rounded-[1.5rem] bg-gradient-to-br from-indigo to-indigo-soft p-6 text-surface">
             <p className="text-sm font-black uppercase text-turmeric">Kids-app style · built for Thai learners</p>
             <h1 className="mt-3 text-4xl font-black leading-none tracking-[-0.05em] text-balance">Thai practice app for Chiang Mai life.</h1>
@@ -279,7 +279,7 @@ export default function ThaiPracticeApp() {
 
   if (screen === 'flashcards') {
     return (
-      <main className="min-h-screen bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
+      <main className="min-h-screen bg-jasmine px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
@@ -312,7 +312,7 @@ export default function ThaiPracticeApp() {
   if (screen === 'quiz' && currentQuestion) {
     const quizPercent = Math.round(((questionIndex + (selected ? 1 : 0)) / questions.length) * 100)
     return (
-      <main className="min-h-screen bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
+      <main className="min-h-screen bg-jasmine px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
@@ -350,7 +350,7 @@ export default function ThaiPracticeApp() {
       return null
     }
     return (
-      <main className="min-h-screen bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
+      <main className="min-h-screen bg-jasmine px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
@@ -389,7 +389,7 @@ export default function ThaiPracticeApp() {
   }
 
   return (
-    <main className="min-h-screen bg-[oklch(95%_0.035_294)] px-4 py-8 text-tamarind">
+    <main className="min-h-screen bg-jasmine px-4 py-8 text-tamarind">
       <section className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15">
         <p className="text-7xl" aria-hidden="true">🏆</p>
         <p className="mt-5 text-sm font-black uppercase text-temple">Session complete</p>

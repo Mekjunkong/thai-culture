@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 type IntakeState = {
   name: string
@@ -14,6 +14,7 @@ type IntakeState = {
 }
 
 const whatsappNumber = '66929894495'
+const DRAFT_KEY = 'tlcm-intake-draft-v1'
 
 const situationOptions = [
   'Cafe / ordering drinks',
@@ -40,8 +41,27 @@ const initialState: IntakeState = {
 export default function IntakeForm() {
   const [form, setForm] = useState<IntakeState>(initialState)
 
+  // Restore an in-progress draft (e.g. phone locked mid-form, tab reloaded).
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(DRAFT_KEY)
+      if (raw) setForm((current) => ({ ...current, ...JSON.parse(raw) }))
+    } catch {
+      // Ignore a corrupted draft and start fresh.
+    }
+  }, [])
+
+  // Autosave the draft as the learner fills it in.
+  useEffect(() => {
+    window.localStorage.setItem(DRAFT_KEY, JSON.stringify(form))
+  }, [form])
+
   function updateField(field: keyof IntakeState, value: string) {
     setForm((current) => ({ ...current, [field]: value }))
+  }
+
+  function handleSend() {
+    window.localStorage.removeItem(DRAFT_KEY)
   }
 
   function toggleSituation(option: string) {
@@ -75,9 +95,14 @@ export default function IntakeForm() {
     )
   }, [form])
 
+  const needsNudge = !form.name.trim() || !form.goal.trim()
+
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr]">
       <form className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-xl shadow-tamarind/10 md:p-7">
+        <p className="mb-5 rounded-2xl bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
+          Your answers below build a WhatsApp message to Mike — nothing is sent until you tap the button. Your progress is saved automatically if you need to come back to this later.
+        </p>
         <div className="grid gap-4 md:grid-cols-2">
           <label className="grid gap-2 font-bold text-tamarind/78">
             Name
@@ -140,6 +165,7 @@ export default function IntakeForm() {
 
         <fieldset className="mt-5">
           <legend className="font-black text-tamarind">Which real-life situations do you need?</legend>
+          <p className="mt-1 text-sm text-tamarind/60">Choose as many as apply.</p>
           <div className="mt-3 grid gap-2 md:grid-cols-2">
             {situationOptions.map((option) => {
               const checked = form.situations.includes(option)
@@ -194,10 +220,16 @@ export default function IntakeForm() {
           <p><strong>Situations:</strong> {form.situations.join(', ') || '-'}</p>
           <p><strong>Goal:</strong> {form.goal || 'Not written yet'}</p>
         </div>
+        {needsNudge && (
+          <p className="mt-4 text-sm font-semibold text-temple">
+            Add your name and goal above so Mike can prepare the right first lesson — or send as-is if you&apos;d rather explain over chat.
+          </p>
+        )}
         <a
           href={`https://wa.me/${whatsappNumber}?text=${message}`}
           target="_blank"
           rel="noreferrer"
+          onClick={handleSend}
           className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-indigo px-6 py-3 text-center font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
         >
           Send intake on WhatsApp
