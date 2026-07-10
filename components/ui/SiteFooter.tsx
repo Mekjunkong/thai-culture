@@ -10,7 +10,7 @@ const learnLinks = [
 const lessonLinks = [
   { href: '/#pricing', label: 'Lessons & pricing' },
   { href: '/products', label: 'All products' },
-  { href: '/book', label: 'Book a lesson' },
+  { href: '/book', label: 'Book a trial' },
 ]
 
 const whatsappHref =
@@ -23,7 +23,7 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr] lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <p className="text-xl font-black tracking-[-0.03em]">
+            <p className="text-xl font-black">
               Thai Lessons <span className="text-turmeric">Chiang Mai</span>
             </p>
             <p className="mt-3 max-w-xs leading-7 text-jasmine/70 text-pretty">
@@ -41,7 +41,7 @@ export default function SiteFooter() {
           </div>
 
           <nav aria-label="Learn for free">
-            <p className="text-sm font-black uppercase tracking-wide text-turmeric">Learn free</p>
+            <p className="text-sm font-black text-turmeric">Learn free</p>
             <ul className="mt-4 space-y-1">
               {learnLinks.map(link => (
                 <li key={link.href}>
@@ -57,7 +57,7 @@ export default function SiteFooter() {
           </nav>
 
           <nav aria-label="Lessons and booking">
-            <p className="text-sm font-black uppercase tracking-wide text-turmeric">Lessons</p>
+            <p className="text-sm font-black text-turmeric">Lessons</p>
             <ul className="mt-4 space-y-1">
               {lessonLinks.map(link => (
                 <li key={link.href}>
@@ -73,7 +73,7 @@ export default function SiteFooter() {
           </nav>
 
           <div>
-            <p className="text-sm font-black uppercase tracking-wide text-turmeric">Contact</p>
+            <p className="text-sm font-black text-turmeric">Contact</p>
             <ul className="mt-4 space-y-2 leading-7 text-jasmine/75">
               <li>Chiang Mai, Thailand</li>
               <li>Online lessons worldwide</li>

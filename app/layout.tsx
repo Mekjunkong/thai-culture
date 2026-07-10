@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: '/assets/brand/og-thai-lessons-chiang-mai.png',
         width: 1200,
         height: 630,
-        alt: 'Thai Lessons Chiang Mai — real-life Thai missions for expats',
+        alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
       },
     ],
     type: 'website',
