@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Complete a free Thai transport mission for Chiang Mai expats: tell a driver to stop here, go straight, turn left, and turn right.',
   alternates: { canonical: '/missions/driver-stop' },
   openGraph: {
-    title: 'Tell a Driver Where to Stop in Thai — Chiang Mai Mission',
+    title: 'Tell a Driver Where to Stop in Thai - Chiang Mai Mission',
     description: 'A practical Thai transport mission for Grab, songthaew, taxi, and local drivers in Chiang Mai.',
     url: '/missions/driver-stop',
     type: 'article',

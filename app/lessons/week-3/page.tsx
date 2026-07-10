@@ -10,6 +10,7 @@ import MarkdownContent from '@/components/lesson/MarkdownContent'
 export const metadata = {
   title: 'Week 3: Ordering Food, Coffee & Spice Levels | Thai Lessons Chiang Mai',
   description: 'Beginner Thai lesson for ordering food and coffee in Chiang Mai: spice levels, sweetness, eat here, takeaway, and bill please.',
+  alternates: { canonical: '/lessons/week-3' },
 }
 
 const week3Questions: QuizQuestion[] = [
@@ -25,7 +26,7 @@ const week3Questions: QuizQuestion[] = [
     question: 'How do you say “less sweet” for coffee or Thai tea?',
     options: ['หวานน้อย', 'คิดเงิน', 'กินที่นี่', 'เอาอันนี้'],
     correct: 0,
-    explanation: 'หวานน้อย (waan noi) means less sweet — very useful in Thai cafes.',
+    explanation: 'หวานน้อย (waan noi) means less sweet - very useful in Thai cafes.',
   },
   {
     id: 3,

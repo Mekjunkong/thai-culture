@@ -216,7 +216,7 @@ export default function DriverStopMission() {
               <h2 className="text-2xl font-black tracking-[-0.03em]">4. Driver roleplay</h2>
               <p className="mt-2 text-tamarind/70">Driver asks on the phone:</p>
               <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-indigo">อยู่ตรงไหนครับ?</p>
-              <p className="mt-2 text-sm text-tamarind/60">yuu dtrong nai khrap? — Where are you?</p>
+              <p className="mt-2 text-sm text-tamarind/60">yuu dtrong nai khrap? - Where are you?</p>
 
               <p className="mt-5 font-black text-tamarind">Choose how to say stop here:</p>
               <div className="mt-3 grid gap-3">
@@ -238,7 +238,7 @@ export default function DriverStopMission() {
 
               {(driverChoice || directionChoice) && (
                 <p className={`mt-4 rounded-2xl p-4 font-bold ${driverChoice === stopPhrase && directionChoice === directionPhrase ? 'bg-banana/12 text-banana' : 'bg-jasmine text-tamarind/70'}`}>
-                  {driverChoice === stopPhrase && directionChoice === directionPhrase ? 'Correct — transport mission almost complete!' : 'Keep going. Choose the stop phrase, then choose the direction phrase.'}
+                  {driverChoice === stopPhrase && directionChoice === directionPhrase ? 'Correct - transport mission almost complete!' : 'Keep going. Choose the stop phrase, then choose the direction phrase.'}
                 </p>
               )}
             </div>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: '/missions/order-food-spice',
   },
   openGraph: {
-    title: 'Order Food and Choose Spice Level in Thai — Chiang Mai Mission',
+    title: 'Order Food and Choose Spice Level in Thai - Chiang Mai Mission',
     description: 'A practical Thai restaurant mission for expats: order food, control spice level, and ask for the bill.',
     url: '/missions/order-food-spice',
     type: 'article',

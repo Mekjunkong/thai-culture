@@ -305,7 +305,7 @@ export default function OrderFoodSpiceMission() {
               <h2 className="text-2xl font-black tracking-[-0.03em]">4. Restaurant roleplay</h2>
               <p className="mt-2 text-tamarind/70">Restaurant staff says:</p>
               <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-indigo">รับอะไรดีคะ?</p>
-              <p className="mt-2 text-sm text-tamarind/60">rap a-rai dee kha? — What would you like?</p>
+              <p className="mt-2 text-sm text-tamarind/60">rap a-rai dee kha? - What would you like?</p>
 
               <p className="mt-5 font-black text-tamarind">Choose your answer:</p>
               <div className="mt-3 grid gap-3">
@@ -348,7 +348,7 @@ export default function OrderFoodSpiceMission() {
               {(roleplayChoice || billChoice) && (
                 <p className={`mt-4 rounded-2xl p-4 font-bold ${roleplayChoice === orderPhrase && billChoice === billPhrase ? 'bg-banana/12 text-banana' : 'bg-jasmine text-tamarind/70'}`}>
                   {roleplayChoice === orderPhrase && billChoice === billPhrase
-                    ? 'Correct — restaurant mission almost complete!'
+                    ? 'Correct - restaurant mission almost complete!'
                     : 'Keep going. First choose the full food order, then choose the phrase for the bill.'}
                 </p>
               )}

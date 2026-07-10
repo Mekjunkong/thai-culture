@@ -170,7 +170,7 @@ export default function OrderCoffeeMission() {
                 Order coffee in Chiang Mai.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 md:text-xl md:leading-9">
-                Choose your drink, choose sweetness, build the Thai phrase, then answer cafe staff. No grammar lecture — just one real phrase you can use today.
+                Choose your drink, choose sweetness, build the Thai phrase, then answer cafe staff. No grammar lecture - just one real phrase you can use today.
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
@@ -282,10 +282,10 @@ export default function OrderCoffeeMission() {
 
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 <button type="button" onClick={() => speak('slow')} className="rounded-2xl bg-banana px-5 py-4 font-black text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo">
-                  🔊 Optional computer demo — slow
+                  🔊 Optional computer demo - slow
                 </button>
                 <button type="button" onClick={() => speak('natural')} className="rounded-2xl border border-tamarind/10 bg-jasmine px-5 py-4 font-black text-tamarind transition duration-150 ease-out hover:border-turmeric focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                  🗣️ Optional computer demo — natural
+                  🗣️ Optional computer demo - natural
                 </button>
               </div>
 
@@ -333,7 +333,7 @@ export default function OrderCoffeeMission() {
               <h2 className="text-2xl font-black tracking-[-0.03em]">4. Cafe roleplay</h2>
               <p className="mt-2 text-tamarind/70">Cafe staff says:</p>
               <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-indigo">เอาอะไรคะ?</p>
-              <p className="mt-2 text-sm text-tamarind/60">ao a-rai kha? — What would you like?</p>
+              <p className="mt-2 text-sm text-tamarind/60">ao a-rai kha? - What would you like?</p>
               <div className="mt-5 grid gap-3">
                 {quizOptions.map((option) => {
                   const isSelected = quizChoice === option
@@ -353,7 +353,7 @@ export default function OrderCoffeeMission() {
               </div>
               {quizChoice && (
                 <p className={`mt-4 rounded-2xl p-4 font-bold ${quizChoice === phrase ? 'bg-banana/12 text-banana' : 'bg-temple/10 text-temple'}`}>
-                  {quizChoice === phrase ? 'Correct — cafe mission almost complete!' : 'Good try. Choose the answer that orders your drink.'}
+                  {quizChoice === phrase ? 'Correct - cafe mission almost complete!' : 'Good try. Choose the answer that orders your drink.'}
                 </p>
               )}
             </div>

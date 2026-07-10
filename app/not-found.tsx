@@ -8,9 +8,9 @@ export default function NotFound() {
       <Navbar />
       <main className="bg-jasmine px-4 py-20 text-tamarind md:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-black uppercase text-temple">Page not found</p>
-          <h1 className="mt-4 text-5xl font-black leading-none tracking-[-0.05em] text-balance md:text-6xl">
-            ไม่เป็นไร — mai pen rai.
+          <p className="text-sm font-black text-temple">Page not found</p>
+          <h1 className="mt-4 text-5xl font-black leading-none text-balance md:text-6xl">
+            ไม่เป็นไร - mai pen rai.
           </h1>
           <p className="mx-auto mt-5 max-w-md text-lg leading-8 text-tamarind/72 text-pretty">
             No worries. This page does not exist, but your next Thai phrase is

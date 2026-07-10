@@ -10,6 +10,7 @@ import MarkdownContent from '@/components/lesson/MarkdownContent'
 export const metadata = {
   title: 'Week 4: Transport, Temples, Markets & Local Etiquette | Thai Lessons Chiang Mai',
   description: 'Beginner Thai lesson for getting around Chiang Mai, talking to drivers, asking for help, and understanding temple and market etiquette.',
+  alternates: { canonical: '/lessons/week-4' },
 }
 
 const week4Questions: QuizQuestion[] = [

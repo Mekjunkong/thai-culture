@@ -1,7 +1,19 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import {
+  ArrowRightIcon,
+  BasketIcon,
+  BowlFoodIcon,
+  BuildingApartmentIcon,
+  CarIcon,
+  CoffeeIcon,
+  HandWavingIcon,
+  MapPinIcon,
+  ToiletIcon,
+} from '@phosphor-icons/react/ssr'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
+import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
   title: '5-Minute Thai Missions for Chiang Mai | Thai Lessons Chiang Mai',
@@ -12,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: '5-Minute Thai Missions for Chiang Mai',
-    description: 'Choose a real Chiang Mai situation and practice one useful Thai phrase in 3–5 minutes.',
+    description: 'Choose a real Chiang Mai situation and practice one useful Thai phrase in 3-5 minutes.',
     url: '/missions',
     type: 'website',
   },
@@ -22,7 +34,7 @@ const missions = [
   {
     title: 'Order coffee less sweet',
     href: '/missions/order-coffee',
-    emoji: '☕',
+    icon: CoffeeIcon,
     status: 'Live interactive mission',
     time: '5 min',
     level: 'Beginner',
@@ -33,7 +45,7 @@ const missions = [
   {
     title: 'Ask the price at a market',
     href: '/missions/market-price',
-    emoji: '🥭',
+    icon: BasketIcon,
     status: 'Live interactive mission',
     time: '5 min',
     level: 'Beginner',
@@ -44,7 +56,7 @@ const missions = [
   {
     title: 'Say hello politely',
     href: '/lessons/week-1',
-    emoji: '🙏',
+    icon: HandWavingIcon,
     status: 'Lesson ready',
     time: '3 min',
     level: 'Beginner',
@@ -55,7 +67,7 @@ const missions = [
   {
     title: 'Order food and spice level',
     href: '/missions/order-food-spice',
-    emoji: '🍜',
+    icon: BowlFoodIcon,
     status: 'Live interactive mission',
     time: '6 min',
     level: 'Practical',
@@ -66,7 +78,7 @@ const missions = [
   {
     title: 'Tell a driver where to stop',
     href: '/missions/driver-stop',
-    emoji: '🚗',
+    icon: CarIcon,
     status: 'Live interactive mission',
     time: '5 min',
     level: 'Practical',
@@ -77,7 +89,7 @@ const missions = [
   {
     title: 'Ask where the bathroom is',
     href: '/products/50-thai-phrases-chiang-mai.html',
-    emoji: '🚻',
+    icon: ToiletIcon,
     status: 'Phrasebook',
     time: '2 min',
     level: 'Easy',
@@ -88,7 +100,7 @@ const missions = [
   {
     title: 'Talk to condo security',
     href: '/products/50-thai-phrases-chiang-mai.html',
-    emoji: '🏢',
+    icon: BuildingApartmentIcon,
     status: 'Planned mission',
     time: '5 min',
     level: 'Daily life',
@@ -99,7 +111,7 @@ const missions = [
   {
     title: 'Visit a temple politely',
     href: '/lessons/week-4',
-    emoji: '🛕',
+    icon: MapPinIcon,
     status: 'Lesson ready',
     time: '5 min',
     level: 'Culture',
@@ -131,7 +143,7 @@ export default function MissionsPage() {
                 </p>
               </div>
               <div className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
-                <p className="text-sm font-black uppercase text-temple">Recommended learning path</p>
+                <p className="text-sm font-bold text-temple">Recommended learning path</p>
                 <div className="mt-4 grid gap-3">
                   {filters.map((item, index) => (
                     <div key={item} className="flex gap-3 rounded-2xl bg-jasmine p-4">
@@ -146,23 +158,31 @@ export default function MissionsPage() {
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {missions.map((mission, index) => {
                 const isLive = mission.status.startsWith('Live')
+                const MissionIcon = mission.icon
                 return (
-                  <Link key={mission.title} href={mission.href} className="group block rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                    <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out group-hover:shadow-lg ${isLive ? 'border-turmeric bg-banana/10' : 'border-tamarind/10 bg-surface'} ${index === 0 ? 'lg:col-span-2' : ''}`}>
-                      <div className="flex items-start justify-between gap-4">
-                        <span className="flex size-12 items-center justify-center rounded-2xl bg-jasmine text-2xl shadow-inner" aria-hidden="true">{mission.emoji}</span>
-                        <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-black text-indigo">{mission.time}</span>
-                      </div>
-                      <p className="mt-5 text-xs font-black uppercase text-temple">{mission.status} · {mission.level}</p>
-                      <h2 className="mt-2 text-2xl font-black leading-tight text-balance">{mission.title}</h2>
-                      <p className="mt-2 text-sm font-bold text-tamarind/55">Best for: {mission.bestFor}</p>
-                      <div className="mt-4 rounded-2xl bg-indigo p-4 text-surface">
-                        <p className="text-xl font-black">{mission.phrase}</p>
-                      </div>
-                      <p className="mt-4 min-h-20 text-sm leading-6 text-tamarind/70 text-pretty">{mission.outcome}</p>
-                      <p className="mt-5 border-t border-tamarind/10 pt-4 font-black text-indigo">{isLive ? 'Start interactive mission' : 'Open lesson'} →</p>
-                    </article>
-                  </Link>
+                  <Reveal key={mission.title} index={index}>
+                    <Link href={mission.href} className="group block h-full rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                      <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out group-hover:-translate-y-0.5 group-hover:shadow-lg ${isLive ? 'border-turmeric bg-banana/10' : 'border-tamarind/10 bg-surface'} ${index === 0 ? 'lg:col-span-2' : ''}`}>
+                        <div className="flex items-start justify-between gap-4">
+                          <span className="flex size-12 items-center justify-center rounded-2xl bg-jasmine text-indigo shadow-inner" aria-hidden="true">
+                            <MissionIcon className="size-6" weight="duotone" />
+                          </span>
+                          <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-black text-indigo">{mission.time}</span>
+                        </div>
+                        <p className="mt-5 text-xs font-black uppercase text-temple">{mission.status} · {mission.level}</p>
+                        <h2 className="mt-2 text-2xl font-black leading-tight text-balance">{mission.title}</h2>
+                        <p className="mt-2 text-sm font-bold text-tamarind/55">Best for: {mission.bestFor}</p>
+                        <div className="mt-4 rounded-2xl bg-indigo p-4 text-surface">
+                          <p className="text-xl font-black">{mission.phrase}</p>
+                        </div>
+                        <p className="mt-4 min-h-20 text-sm leading-6 text-tamarind/70 text-pretty">{mission.outcome}</p>
+                        <p className="mt-5 inline-flex items-center gap-2 border-t border-tamarind/10 pt-4 font-black text-indigo">
+                          {isLive ? 'Start interactive mission' : 'Open lesson'}
+                          <ArrowRightIcon className="size-4 transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
+                        </p>
+                      </article>
+                    </Link>
+                  </Reveal>
                 )
               })}
             </div>
@@ -172,17 +192,19 @@ export default function MissionsPage() {
         <section className="bg-surface px-4 py-14">
           <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-center">
             <div>
-              <p className="text-sm font-black uppercase text-temple">Practice design</p>
+              <p className="text-sm font-bold text-temple">Practice design</p>
               <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance">
                 Practice first. Explanation second.
               </h2>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
-              {['Real situation', 'One useful phrase', 'Human correction'].map((item) => (
-                <div key={item} className="rounded-2xl border border-tamarind/10 bg-jasmine p-5 shadow-sm">
-                  <p className="font-black text-indigo">{item}</p>
-                  <p className="mt-2 text-sm leading-6 text-tamarind/65 text-pretty">Small, practical, and easy to try in Chiang Mai today.</p>
-                </div>
+              {['Real situation', 'One useful phrase', 'Human correction'].map((item, index) => (
+                <Reveal key={item} index={index}>
+                  <div className="rounded-2xl border border-tamarind/10 bg-jasmine p-5 shadow-sm">
+                    <p className="font-black text-indigo">{item}</p>
+                    <p className="mt-2 text-sm leading-6 text-tamarind/65 text-pretty">Small, practical, and easy to try in Chiang Mai today.</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>

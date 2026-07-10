@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
+import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
   title: 'Free 4-Week Beginner Thai Course | Thai Lessons Chiang Mai',
@@ -101,38 +102,40 @@ export default function LessonsIndexPage() {
           <div className="mx-auto max-w-6xl">
             <ol className="grid gap-4">
               {weeks.map((week, index) => (
-                <li key={week.href}>
-                  <Link
-                    href={week.href}
-                    className="group block rounded-[1.75rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
-                  >
-                    <article className="grid gap-5 rounded-[1.75rem] border border-tamarind/10 bg-surface p-6 shadow-sm transition duration-150 ease-out group-hover:shadow-lg md:grid-cols-[auto_1fr_auto] md:items-center md:p-8">
-                      <p
-                        aria-hidden="true"
-                        className={`text-6xl font-black tracking-[-0.05em] md:text-7xl ${index === 0 ? 'text-turmeric' : 'text-tamarind/15'}`}
-                      >
-                        {index + 1}
-                      </p>
-                      <div>
-                        <p className="text-sm font-black uppercase text-temple">
-                          {week.number} · {week.time}
+                <Reveal key={week.href} index={index}>
+                  <li>
+                    <Link
+                      href={week.href}
+                      className="group block rounded-[1.75rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                    >
+                      <article className="grid gap-5 rounded-[1.75rem] border border-tamarind/10 bg-surface p-6 shadow-sm transition duration-150 ease-out group-hover:-translate-y-0.5 group-hover:shadow-lg md:grid-cols-[auto_1fr_auto] md:items-center md:p-8">
+                        <p
+                          aria-hidden="true"
+                          className={`text-6xl font-black tracking-[-0.05em] md:text-7xl ${index === 0 ? 'text-turmeric' : 'text-tamarind/15'}`}
+                        >
+                          {index + 1}
                         </p>
-                        <h2 className="mt-2 text-2xl font-black leading-tight text-balance md:text-3xl">
-                          {week.title}
-                        </h2>
-                        <p className="mt-3 max-w-2xl leading-7 text-tamarind/70 text-pretty">
-                          {week.outcome}
+                        <div>
+                          <p className="text-sm font-bold text-temple">
+                            {week.number} · {week.time}
+                          </p>
+                          <h2 className="mt-2 text-2xl font-black leading-tight text-balance md:text-3xl">
+                            {week.title}
+                          </h2>
+                          <p className="mt-3 max-w-2xl leading-7 text-tamarind/70 text-pretty">
+                            {week.outcome}
+                          </p>
+                          <p className="mt-3 text-sm font-bold text-indigo">
+                            Where you will use it: {week.situations}
+                          </p>
+                        </div>
+                        <p className="font-black text-indigo transition duration-150 ease-out group-hover:translate-x-1 md:justify-self-end">
+                          Start {week.number.toLowerCase()} →
                         </p>
-                        <p className="mt-3 text-sm font-bold text-indigo">
-                          Where you will use it: {week.situations}
-                        </p>
-                      </div>
-                      <p className="font-black text-indigo transition duration-150 ease-out group-hover:translate-x-1 md:justify-self-end">
-                        Start {week.number.toLowerCase()} →
-                      </p>
-                    </article>
-                  </Link>
-                </li>
+                      </article>
+                    </Link>
+                  </li>
+                </Reveal>
               ))}
             </ol>
           </div>
@@ -142,7 +145,7 @@ export default function LessonsIndexPage() {
           <div className="mx-auto max-w-6xl rounded-[2rem] bg-indigo p-6 text-surface md:p-10">
             <div className="grid gap-6 md:grid-cols-[1.2fr_auto] md:items-center">
               <div>
-                <p className="text-sm font-black uppercase text-turmeric">After the course</p>
+                <p className="text-sm font-bold text-turmeric">After the course</p>
                 <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight tracking-[-0.03em] text-balance md:text-4xl">
                   Reading is the start. Speaking with correction is the upgrade.
                 </h2>

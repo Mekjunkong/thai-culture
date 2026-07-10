@@ -23,8 +23,8 @@ export default function BrandLogo({ className = '', compact = false }: BrandLogo
       />
       {!compact && (
         <span className="leading-none">
-          <span className="block font-serif text-lg font-bold tracking-[-0.04em] text-[#151A33] md:text-xl">Thai Lessons</span>
-          <span className="mt-1 block text-[0.63rem] font-black uppercase tracking-[0.22em] text-[#8A6926] md:text-[0.68rem]">Chiang Mai</span>
+          <span className="block text-lg font-black text-[#151A33] md:text-xl">Thai Lessons</span>
+          <span className="mt-1 block text-[0.68rem] font-black text-[#8A6926] md:text-xs">Chiang Mai</span>
         </span>
       )}
     </Link>
