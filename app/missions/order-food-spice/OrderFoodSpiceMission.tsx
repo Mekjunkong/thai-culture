@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
 import SpeakButton from '@/components/ui/SpeakButton'
 
@@ -136,6 +137,16 @@ export default function OrderFoodSpiceMission() {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 text-pretty md:text-xl md:leading-9">
                 Build one practical restaurant phrase: choose food, choose spice level, say eat here or takeaway, then ask for the bill.
               </p>
+              <div className="mt-6 overflow-hidden rounded-[1.5rem] shadow-lg shadow-tamarind/10">
+                <Image
+                  src="/assets/images/mission-order-food-spice.jpg"
+                  alt="Thai street food vendor grilling seafood at a market stall"
+                  width={1600}
+                  height={1200}
+                  priority
+                  className="h-48 w-full object-cover md:h-56"
+                />
+              </div>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
                   <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
