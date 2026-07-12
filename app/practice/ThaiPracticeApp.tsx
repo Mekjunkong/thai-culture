@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { getDueIds, getLearnedCount, gradeCard, localDateKey, localYesterdayKey, type Grade } from '@/lib/srs'
 import Reveal from '@/components/ui/Reveal'
 import SpeakButton from '@/components/ui/SpeakButton'
@@ -250,6 +251,10 @@ export default function ThaiPracticeApp() {
               </div>
             </div>
           </section>
+
+          <Link href="/tones" className="mt-3 block rounded-2xl border border-indigo/30 bg-surface p-3 font-bold text-indigo">
+            🎵 New: Tone trainer — hear &amp; speak the 5 tones →
+          </Link>
 
           <section className="mt-5 grid gap-3">
             {categories.map((item, index) => {

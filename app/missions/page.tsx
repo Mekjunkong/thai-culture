@@ -185,6 +185,20 @@ export default function MissionsPage() {
                   </Reveal>
                 )
               })}
+              <Reveal index={missions.length}>
+                <Link href="/tones" className="group block h-full rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                  <article className="flex h-full flex-col justify-between rounded-[1.5rem] border border-turmeric bg-banana/10 p-5 shadow-sm transition duration-150 ease-out group-hover:-translate-y-0.5 group-hover:shadow-lg">
+                    <div>
+                      <p className="text-xs font-black uppercase text-temple">New tool</p>
+                      <h2 className="mt-2 text-2xl font-black leading-tight text-balance">🎵 New: Tone trainer — hear and speak the 5 tones</h2>
+                    </div>
+                    <p className="mt-5 inline-flex items-center gap-2 border-t border-tamarind/10 pt-4 font-black text-indigo">
+                      Start tone trainer
+                      <ArrowRightIcon className="size-4 transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
+                    </p>
+                  </article>
+                </Link>
+              </Reveal>
             </div>
           </div>
         </section>
