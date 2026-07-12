@@ -33,7 +33,7 @@ export default function MinimalPairDrill() {
   const current = queue[0]
 
   function srcFor(item: ToneItem, male: boolean) {
-    return male ? maleVariant(item.audio) : item.audio
+    return male && item.kind === 'minimal-pair' ? maleVariant(item.audio) : item.audio
   }
 
   function play(src: string, then?: string) {
@@ -88,7 +88,7 @@ export default function MinimalPairDrill() {
     setAnswered(null)
   }
 
-  const contour = answered ? getContour(current.audio) : null
+  const contour = answered ? getContour(srcFor(current, useMale)) : null
 
   return (
     <div className="rounded-2xl border border-tamarind/10 bg-surface p-4 sm:p-6">
