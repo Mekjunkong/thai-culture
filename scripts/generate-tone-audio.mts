@@ -24,7 +24,7 @@ function escapeXml(text: string): string {
 }
 
 export function ssmlFor(text: string, voice: string): string {
-  return `<speak version="1.0" xml:lang="th-TH"><voice name="${voice}"><prosody rate="-10%">${escapeXml(text)}</prosody></voice></speak>`
+  return `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="th-TH"><voice name="${voice}"><prosody rate="-10%">${escapeXml(text)}</prosody></voice></speak>`
 }
 
 export function contentHash(text: string, voice: string): string {
@@ -61,6 +61,11 @@ async function readJson<T>(file: string, fallback: T): Promise<T> {
   }
 }
 
+async function persist(contours: Record<string, number[]>, manifest: Record<string, string>): Promise<void> {
+  await writeFile(CONTOURS_PATH, JSON.stringify(contours, null, 1))
+  await writeFile(MANIFEST_PATH, JSON.stringify(manifest, null, 1))
+}
+
 async function main() {
   const localOnly = process.argv.includes('--local-only')
   const key = process.env.AZURE_SPEECH_KEY
@@ -80,26 +85,27 @@ async function main() {
 
   let generated = 0
   let extracted = 0
-  for (const { audio, voice, text } of targets) {
-    const filePath = path.join(AUDIO_DIR, audio)
-    const hash = contentHash(text, voice)
-    const upToDate = manifest[audio] === hash && existsSync(filePath)
-    if (!localOnly && !upToDate) {
-      const mp3 = await synthesize(text, voice, key as string, region)
-      await writeFile(filePath, mp3)
-      manifest[audio] = hash
-      generated++
-      console.log(`tts  ${audio}  (${text})`)
+  try {
+    for (const { audio, voice, text } of targets) {
+      const filePath = path.join(AUDIO_DIR, audio)
+      const hash = contentHash(text, voice)
+      const upToDate = manifest[audio] === hash && existsSync(filePath)
+      if (!localOnly && !upToDate) {
+        const mp3 = await synthesize(text, voice, key as string, region)
+        await writeFile(filePath, mp3)
+        manifest[audio] = hash
+        generated++
+        console.log(`tts  ${audio}  (${text})`)
+      }
+      if (existsSync(filePath) && (!upToDate || localOnly || !contours[audio]?.length)) {
+        contours[audio] = await extractContour(new Uint8Array(await readFile(filePath)))
+        extracted++
+        if (contours[audio].length === 0) console.warn(`warn: empty contour for ${audio}`)
+      }
     }
-    if (existsSync(filePath) && (!upToDate || localOnly || !contours[audio]?.length)) {
-      contours[audio] = await extractContour(new Uint8Array(await readFile(filePath)))
-      extracted++
-      if (contours[audio].length === 0) console.warn(`warn: empty contour for ${audio}`)
-    }
+  } finally {
+    await persist(contours, manifest)
   }
-
-  await writeFile(CONTOURS_PATH, JSON.stringify(contours, null, 1))
-  await writeFile(MANIFEST_PATH, JSON.stringify(manifest, null, 1))
   console.log(`done: ${generated} synthesized, ${extracted} contours extracted, ${targets.length} total files`)
 }
 
