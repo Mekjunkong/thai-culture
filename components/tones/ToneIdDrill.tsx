@@ -31,6 +31,7 @@ export default function ToneIdDrill() {
 
   function play(src: string) {
     if (!audioRef.current) return
+    audioRef.current.onended = null
     audioRef.current.src = src
     void audioRef.current.play().catch(() => undefined)
   }
