@@ -12,7 +12,8 @@ interface PitchCanvasProps {
 const RANGE_SEMITONES = 6 // curve is clamped to ±6 st around the median
 
 function drawCurve(ctx: CanvasRenderingContext2D, curve: number[], w: number, h: number, upTo: number, color: string, width: number) {
-  const n = Math.max(2, Math.floor(curve.length * upTo))
+  const clampedUpTo = Math.min(1, Math.max(0, upTo))
+  const n = Math.max(2, Math.floor(curve.length * clampedUpTo))
   ctx.strokeStyle = color
   ctx.lineWidth = width
   ctx.lineCap = 'round'
@@ -53,8 +54,9 @@ export default function PitchCanvas({ native, learner = null, progress = 1 }: Pi
     ctx.lineTo(w - 8, h / 2)
     ctx.stroke()
     ctx.setLineDash([])
-    if (native.length > 1) drawCurve(ctx, native, w, h, progress, '#4f46e5', 3.5) // indigo — teacher
-    if (learner && learner.length > 1) drawCurve(ctx, learner, w, h, 1, '#dc2626', 2.5) // temple red — you
+    // Resolved sRGB values of the indigo/temple Tailwind tokens from tailwind.config.ts — must track tailwind.config.ts
+    if (native.length > 1) drawCurve(ctx, native, w, h, progress, '#151655', 3.5) // indigo (oklch(25% 0.11 274)) — teacher
+    if (learner && learner.length > 1) drawCurve(ctx, learner, w, h, 1, '#c13522', 2.5) // temple (oklch(54% 0.18 31)) — you
   }, [native, learner, progress])
 
   return (
