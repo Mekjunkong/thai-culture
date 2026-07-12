@@ -21,6 +21,7 @@ export function useToneRecorder() {
   const chunksRef = useRef<Blob[]>([])
   const streamRef = useRef<MediaStream | null>(null)
   const urlRef = useRef<string | null>(null)
+  const busyRef = useRef(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined' && (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === 'undefined')) {
@@ -33,15 +34,15 @@ export function useToneRecorder() {
   }, [])
 
   async function analyze(blob: Blob): Promise<number[]> {
+    const ctx = new AudioContext()
     try {
-      const ctx = new AudioContext()
       const buffer = await ctx.decodeAudioData(await blob.arrayBuffer())
       const samples = buffer.getChannelData(0)
-      const contour = normalizeContour(detectPitch(samples, buffer.sampleRate))
-      void ctx.close()
-      return contour
+      return normalizeContour(detectPitch(samples, buffer.sampleRate))
     } catch {
       return []
+    } finally {
+      void ctx.close()
     }
   }
 
@@ -54,10 +55,12 @@ export function useToneRecorder() {
 
   async function toggle() {
     setError(null)
-    if (recording) {
-      recorderRef.current?.stop()
+    if (recorderRef.current?.state === 'recording') {
+      recorderRef.current.stop()
       return
     }
+    if (busyRef.current) return
+    busyRef.current = true
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
       streamRef.current = stream
@@ -82,6 +85,8 @@ export function useToneRecorder() {
       setRecording(true)
     } catch {
       setError('Microphone access was blocked. Allow the microphone in your browser to practice speaking.')
+    } finally {
+      busyRef.current = false
     }
   }
 
