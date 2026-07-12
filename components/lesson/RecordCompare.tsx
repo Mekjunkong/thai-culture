@@ -20,6 +20,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
   const chunksRef = useRef<Blob[]>([])
   const streamRef = useRef<MediaStream | null>(null)
   const myAudioUrlRef = useRef<string | null>(null)
+  const takeRef = useRef(0)
   const nativeContour = getContour(nativeSrc)
 
   useEffect(() => {
@@ -56,18 +57,26 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
         setRecording(false)
         stream.getTracks().forEach((track) => track.stop())
         streamRef.current = null
+        // Only the latest take may write myContour: a re-record bumps takeRef,
+        // so a slower decode from an older take is discarded instead of
+        // clobbering the newer curve.
+        const take = takeRef.current
         void (async () => {
           const ctx = new AudioContext()
           try {
             const buffer = await ctx.decodeAudioData(await blob.arrayBuffer())
-            setMyContour(normalizeContour(detectPitch(buffer.getChannelData(0), buffer.sampleRate)))
+            if (take === takeRef.current) {
+              setMyContour(normalizeContour(detectPitch(buffer.getChannelData(0), buffer.sampleRate)))
+            }
           } catch {
-            setMyContour(null)
+            if (take === takeRef.current) setMyContour(null)
           } finally {
             void ctx.close()
           }
         })()
       }
+      takeRef.current += 1
+      setMyContour(null)
       recorder.start()
       setRecording(true)
     } catch {
