@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "tones:generate": "tsx scripts/generate-tone-audio.mts"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
