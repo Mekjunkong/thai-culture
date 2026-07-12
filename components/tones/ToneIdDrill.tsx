@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { Tone } from '@/lib/pitch'
 import { gradeCard } from '@/lib/srs'
+import { buildSession } from '@/lib/toneSession'
 import { TONE_CURRICULUM, TONE_LABELS, type ToneItem } from '@/data/tone-curriculum'
 import { getContour } from '@/lib/toneContours'
 import PitchCanvas from '@/components/tones/PitchCanvas'
@@ -11,18 +12,9 @@ import PitchCanvas from '@/components/tones/PitchCanvas'
 const TONES: Tone[] = ['mid', 'low', 'falling', 'high', 'rising']
 const SESSION_SIZE = 10
 
-function shuffle<T>(xs: T[]): T[] {
-  const out = [...xs]
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[out[i], out[j]] = [out[j], out[i]]
-  }
-  return out
-}
-
 export default function ToneIdDrill() {
   const pool = useMemo(() => TONE_CURRICULUM.filter((i) => i.kind === 'tone-id'), [])
-  const [queue, setQueue] = useState<ToneItem[]>(() => shuffle(pool).slice(0, SESSION_SIZE))
+  const [queue, setQueue] = useState<ToneItem[]>(() => buildSession(pool, SESSION_SIZE))
   const [answered, setAnswered] = useState<Tone | null>(null)
   const [correctCount, setCorrectCount] = useState(0)
   const [doneCount, setDoneCount] = useState(0)
@@ -48,7 +40,7 @@ export default function ToneIdDrill() {
         <p className="mt-2 font-black text-tamarind">{correctCount} / {doneCount} first-try correct</p>
         <p className="mt-1 text-sm text-tamarind/60">Tones you missed will come back in your daily review.</p>
         <div className="mt-4 flex justify-center gap-3">
-          <button type="button" onClick={() => { setQueue(shuffle(pool).slice(0, SESSION_SIZE)); setCorrectCount(0); setDoneCount(0) }} className="min-h-11 rounded-2xl bg-indigo px-4 py-2 font-black text-surface">Practice again</button>
+          <button type="button" onClick={() => { setQueue(buildSession(pool, SESSION_SIZE)); setCorrectCount(0); setDoneCount(0) }} className="min-h-11 rounded-2xl bg-indigo px-4 py-2 font-black text-surface">Practice again</button>
           <Link href="/tones" className="min-h-11 rounded-2xl border border-tamarind/15 px-4 py-2 font-black text-tamarind">Back</Link>
         </div>
       </div>
