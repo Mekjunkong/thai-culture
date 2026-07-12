@@ -25,9 +25,16 @@ const config: Config = {
         turmeric: 'oklch(73% 0.14 84)',
         'turmeric-bright': 'oklch(80% 0.15 88)',
         banana: 'oklch(45% 0.12 145)',
+        paper: '#F7F4EE',
+        ink: '#2B2620',
+        clay: '#B8452E',
+        sand: '#F1EBDD',
+        honey: '#F1C88A',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-newsreader)', 'Georgia', 'serif'],
+        public: ['var(--font-public-sans)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'soft-rise': '0 24px 80px oklch(20% 0.035 64 / 0.14)',

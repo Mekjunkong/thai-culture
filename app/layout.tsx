@@ -1,8 +1,15 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Newsreader, Public_Sans } from 'next/font/google'
 import '../styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  variable: '--font-newsreader',
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
+})
+const publicSans = Public_Sans({ subsets: ['latin'], variable: '--font-public-sans' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thailessonschiangmai.com'),
@@ -48,7 +55,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${newsreader.variable} ${publicSans.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
