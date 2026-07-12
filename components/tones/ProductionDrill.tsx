@@ -79,7 +79,7 @@ export default function ProductionDrill() {
       )}
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <button type="button" onClick={playTeacher} className="min-h-11 rounded-2xl border border-indigo/30 bg-jasmine px-4 py-2 font-black text-indigo">▶ Teacher</button>
+        <button type="button" onClick={playTeacher} disabled={recorder.recording} className="min-h-11 rounded-2xl border border-indigo/30 bg-jasmine px-4 py-2 font-black text-indigo disabled:opacity-50">▶ Teacher</button>
         {recorder.supported ? (
           <button
             type="button"
