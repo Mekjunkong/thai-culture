@@ -24,7 +24,7 @@ export default function AudioPlayer({ src, label }: AudioPlayerProps) {
         <button
           type="button"
           onClick={() => setShowPractice((value) => !value)}
-          className="mt-3 text-sm font-semibold text-indigo underline-offset-2 hover:underline"
+          className="mt-3 text-sm font-semibold text-clay underline-offset-2 hover:underline"
         >
           {showPractice ? 'Hide tone practice' : '🎙 Practice speaking this (record & compare)'}
         </button>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
-import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
   title: 'Free 4-Week Beginner Thai Course | Thai Lessons Chiang Mai',
@@ -18,38 +17,36 @@ export const metadata: Metadata = {
   },
 }
 
+const eyebrow = 'text-xs font-medium uppercase tracking-[.14em] text-clay'
+
 const weeks = [
   {
-    number: 'Week 1',
+    number: 1,
     href: '/lessons/week-1',
-    title: 'Greetings & politeness particles',
-    outcome: 'Greet anyone naturally with sawasdee, use the wai correctly, and end sentences politely with khrap or kha.',
-    situations: 'First meetings, shops, neighbors',
-    time: '25 min',
+    title: 'Greetings & politeness',
+    meta: 'Week 1 · 25 min · Free',
+    cta: 'Start →',
   },
   {
-    number: 'Week 2',
+    number: 2,
     href: '/lessons/week-2',
-    title: 'Numbers, prices, colors & objects',
-    outcome: 'Understand prices when vendors answer, count confidently, and name the everyday things you actually buy.',
-    situations: 'Markets, 7-Eleven, street stalls',
-    time: '30 min',
+    title: 'Numbers, prices & objects',
+    meta: 'Week 2 · 30 min',
+    cta: 'Continue →',
   },
   {
-    number: 'Week 3',
+    number: 3,
     href: '/lessons/week-3',
-    title: 'Ordering food, coffee & spice levels',
-    outcome: 'Order a full meal your way: spice level, sweetness, eat here or takeaway, and ask for the bill.',
-    situations: 'Cafes, restaurants, food courts',
-    time: '30 min',
+    title: 'Food, coffee & spice levels',
+    meta: 'Week 3 · 30 min',
+    cta: 'Continue →',
   },
   {
-    number: 'Week 4',
+    number: 4,
     href: '/lessons/week-4',
-    title: 'Transport, temples & local etiquette',
-    outcome: 'Direct drivers, ask for help politely, and feel at ease with temple and market etiquette.',
-    situations: 'Grab, songthaews, temples',
-    time: '30 min',
+    title: 'Transport & local etiquette',
+    meta: 'Week 4 · 30 min',
+    cta: 'Continue →',
   },
 ]
 
@@ -81,88 +78,68 @@ export default function LessonsIndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseStructuredData) }}
       />
-      <main className="bg-jasmine text-tamarind">
-        <section className="px-4 py-12 md:py-16">
-          <div className="mx-auto max-w-6xl">
-            <p className="inline-flex min-h-11 items-center rounded-full border border-tamarind/10 bg-surface px-4 py-2 text-sm font-black text-indigo shadow-sm">
-              Free course · No login, no credit card
-            </p>
-            <h1 className="mt-6 max-w-3xl text-5xl font-black leading-none tracking-[-0.05em] text-balance md:text-7xl">
-              The free 4-week beginner Thai course.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-tamarind/72 text-pretty md:text-xl md:leading-9">
-              Four structured lessons with audio practice, cultural context, and a
-              quiz at the end of each week. Everything is chosen for real life in
-              Thailand, not a textbook.
-            </p>
-          </div>
-        </section>
+      <main className="bg-paper font-public text-ink">
+        <div className="mx-auto max-w-[1180px] px-6 pt-16">
+          <span className={eyebrow}>Free 4-week course</span>
+          <h1 className="mt-4 max-w-[16ch] font-serif text-4xl font-bold leading-[1.15] text-ink sm:text-5xl">
+            Want structure? Follow the beginner path.
+          </h1>
+          <p className="mt-[18px] max-w-[52ch] text-base leading-[1.7] text-ink/68">
+            Four weekly lessons with audio practice, cultural notes, and a short
+            quiz. Completely free.
+          </p>
+        </div>
 
-        <section aria-label="Course weeks" className="px-4 pb-16 md:pb-20">
-          <div className="mx-auto max-w-6xl">
-            <ol className="grid gap-4">
-              {weeks.map((week, index) => (
-                <Reveal key={week.href} index={index}>
-                  <li>
-                    <Link
-                      href={week.href}
-                      className="group block rounded-[1.75rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
-                    >
-                      <article className="grid gap-5 rounded-[1.75rem] border border-tamarind/10 bg-surface p-6 shadow-sm transition duration-150 ease-out group-hover:-translate-y-0.5 group-hover:shadow-lg md:grid-cols-[auto_1fr_auto] md:items-center md:p-8">
-                        <p
-                          aria-hidden="true"
-                          className={`text-6xl font-black tracking-[-0.05em] md:text-7xl ${index === 0 ? 'text-turmeric' : 'text-tamarind/15'}`}
-                        >
-                          {index + 1}
-                        </p>
-                        <div>
-                          <p className="text-sm font-bold text-temple">
-                            {week.number} · {week.time}
-                          </p>
-                          <h2 className="mt-2 text-2xl font-black leading-tight text-balance md:text-3xl">
-                            {week.title}
-                          </h2>
-                          <p className="mt-3 max-w-2xl leading-7 text-tamarind/70 text-pretty">
-                            {week.outcome}
-                          </p>
-                          <p className="mt-3 text-sm font-bold text-indigo">
-                            Where you will use it: {week.situations}
-                          </p>
-                        </div>
-                        <p className="font-black text-indigo transition duration-150 ease-out group-hover:translate-x-1 md:justify-self-end">
-                          Start {week.number.toLowerCase()} →
-                        </p>
-                      </article>
-                    </Link>
-                  </li>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="px-4 pb-20 md:pb-24">
-          <div className="mx-auto max-w-6xl rounded-[2rem] bg-indigo p-6 text-surface md:p-10">
-            <div className="grid gap-6 md:grid-cols-[1.2fr_auto] md:items-center">
-              <div>
-                <p className="text-sm font-bold text-turmeric">After the course</p>
-                <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight tracking-[-0.03em] text-balance md:text-4xl">
-                  Reading is the start. Speaking with correction is the upgrade.
-                </h2>
-                <p className="mt-4 max-w-2xl leading-8 text-surface/78 text-pretty">
-                  Book a 30-minute trial and a real teacher will check your tones,
-                  rhythm, and polite endings on the phrases you just learned.
-                </p>
-              </div>
-              <Link
-                href="/book"
-                className="inline-flex min-h-13 items-center justify-center rounded-2xl bg-turmeric px-7 py-4 font-black text-tamarind transition duration-150 ease-out hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface md:justify-self-end"
+        <div className="mx-auto max-w-[1180px] px-6 py-14">
+          {weeks.map((week, index) => (
+            <Link
+              key={week.href}
+              href={week.href}
+              className={`flex items-center gap-6 border-t border-ink/12 py-7 hover:text-clay ${
+                index === weeks.length - 1 ? 'border-b' : ''
+              }`}
+            >
+              <span
+                className={`font-serif text-4xl ${index === 0 ? 'text-clay' : 'text-ink/18'}`}
               >
-                Book a trial lesson
-              </Link>
+                {week.number}
+              </span>
+              <span className="flex-1">
+                <span className="block text-xs font-semibold text-ink/50">{week.meta}</span>
+                <span className="mt-1.5 block font-serif text-[22px] text-ink">{week.title}</span>
+              </span>
+              <span className="text-sm font-semibold">{week.cta}</span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mx-6 mb-16 bg-ink px-12 py-14 text-center text-paper">
+          <p className="font-serif text-2xl italic">Prefer real situations to lectures?</p>
+          <Link
+            href="/missions"
+            className="mt-5 inline-flex min-h-11 items-center justify-center bg-clay px-7 py-3.5 text-sm font-semibold text-paper transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+          >
+            Try the free missions instead
+          </Link>
+        </div>
+
+        <div className="mx-auto max-w-[1180px] px-6 pb-16">
+          <div className="flex flex-col items-center justify-between gap-4 border-t border-ink/12 pt-8 text-center sm:flex-row sm:text-left">
+            <div>
+              <span className={eyebrow}>After the course</span>
+              <p className="mt-2 max-w-md text-base leading-[1.7] text-ink/68">
+                Reading is the start. Book a 30-minute trial and a real teacher will
+                check your tones, rhythm, and polite endings.
+              </p>
             </div>
+            <Link
+              href="/book"
+              className="inline-flex min-h-11 items-center justify-center gap-2 bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+            >
+              Book a trial lesson
+            </Link>
           </div>
-        </section>
+        </div>
       </main>
       <SiteFooter />
     </>

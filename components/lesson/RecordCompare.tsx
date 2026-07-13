@@ -77,8 +77,8 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
           onClick={toggleRecording}
           className={`min-h-11 rounded-2xl px-4 py-2 text-sm font-bold transition ${
             recording
-              ? 'animate-pulse bg-temple text-surface'
-              : 'bg-indigo text-surface hover:bg-indigo-soft'
+              ? 'animate-pulse bg-clay text-surface'
+              : 'bg-ink text-surface hover:bg-ink/85'
           }`}
         >
           {recording ? '■ Stop recording' : myAudioUrl ? '🎙 Record again' : '🎙 Record yourself'}
@@ -95,7 +95,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
           Sounding different from the teacher at first is completely normal - that&apos;s exactly what practice is for. Play the teacher audio above, then your recording. Compare the <strong>rise and fall</strong> of each word - matching the melody matters more than speed. Happy with it? Send it to Mike on WhatsApp for real feedback.
         </p>
       )}
-      {error && <p className="mt-2 text-xs text-temple">{error}</p>}
+      {error && <p className="mt-2 text-xs text-clay">{error}</p>}
       <span className="sr-only">Recording stays on your device and is never uploaded to a server.</span>
     </div>
   )

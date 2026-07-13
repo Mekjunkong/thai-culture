@@ -157,16 +157,16 @@ export default function OrderCoffeeMission() {
       <section className="px-4 py-10 md:py-14">
         <div className="mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm font-bold text-tamarind/60">
-            <a href="/missions" className="text-indigo underline-offset-4 hover:underline">Missions</a>
+            <a href="/missions" className="text-clay underline-offset-4 hover:underline">Missions</a>
             <span aria-hidden="true">/</span>
             <span>Order coffee</span>
           </nav>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="inline-flex min-h-11 items-center rounded-full border border-turmeric/40 bg-surface px-4 py-2 text-sm font-black uppercase text-indigo shadow-sm">
+              <p className="inline-flex min-h-11 items-center rounded-full border border-honey/40 bg-surface px-4 py-2 text-sm font-black uppercase text-clay shadow-sm">
                 Free 5-minute Thai mission
               </p>
-              <h1 className="mt-5 text-[clamp(2.5rem,7vw,5.6rem)] font-black leading-[0.94] tracking-[-0.06em] text-balance">
+              <h1 className="mt-5 font-serif text-[clamp(2.5rem,7vw,5.6rem)] font-bold leading-[1.05] text-balance">
                 Order coffee in Chiang Mai.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 md:text-xl md:leading-9">
@@ -174,7 +174,7 @@ export default function OrderCoffeeMission() {
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
-                  <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
+                  <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-honey/50 bg-sand/12 text-honey' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
                     <span className="block text-xs uppercase tracking-[0.12em]">Step {index + 1}</span>
                     {step}
                   </div>
@@ -185,20 +185,20 @@ export default function OrderCoffeeMission() {
             <aside className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/12 md:p-6" aria-label="Mission progress">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-black uppercase tracking-[0.14em] text-temple">Mission progress</p>
-                  <p className="mt-1 text-3xl font-black text-indigo">{progressPercent}%</p>
+                  <p className="text-sm font-black uppercase tracking-[0.14em] text-clay">Mission progress</p>
+                  <p className="mt-1 text-3xl font-black text-clay">{progressPercent}%</p>
                 </div>
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-jasmine text-4xl shadow-inner" aria-hidden="true">
                   {completed ? '🏆' : '☕'}
                 </div>
               </div>
               <div className="mt-4 h-4 overflow-hidden rounded-full bg-jasmine" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progressPercent} aria-label="Mission progress">
-                <div className="h-full rounded-full bg-banana transition-all duration-150 ease-out" style={{ width: `${progressPercent}%` }} />
+                <div className="h-full rounded-full bg-sand transition-all duration-150 ease-out" style={{ width: `${progressPercent}%` }} />
               </div>
               <p className="mt-4 rounded-2xl bg-jasmine p-4 text-sm leading-6 text-tamarind/75">
                 Today’s Thai win: <strong>I can order one drink politely in Thai.</strong>
               </p>
-              <p className="mt-3 text-sm font-black text-indigo">Next: {nextAction}</p>
+              <p className="mt-3 text-sm font-black text-clay">Next: {nextAction}</p>
             </aside>
           </div>
         </div>
@@ -214,12 +214,12 @@ export default function OrderCoffeeMission() {
                   key={item.id}
                   type="button"
                   onClick={() => setDrinkId(item.id)}
-                  className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${drinkId === item.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`}
+                  className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${drinkId === item.id ? 'border-honey bg-sand/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-honey/60'}`}
                   aria-pressed={drinkId === item.id}
                 >
                   <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
                   <span className="mt-3 block font-black text-tamarind">{item.label}</span>
-                  <span className="mt-1 block text-lg font-bold text-indigo">{item.thai}</span>
+                  <span className="mt-1 block text-lg font-bold text-clay">{item.thai}</span>
                   <span className="text-sm text-tamarind/60">{item.roman}</span>
                 </button>
               ))}
@@ -232,11 +232,11 @@ export default function OrderCoffeeMission() {
                   key={item.id}
                   type="button"
                   onClick={() => setSweetnessId(item.id)}
-                  className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${sweetnessId === item.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`}
+                  className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${sweetnessId === item.id ? 'border-honey bg-sand/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-honey/60'}`}
                   aria-pressed={sweetnessId === item.id}
                 >
                   <span className="font-black text-tamarind">{item.label}</span>
-                  <span className="ml-2 font-bold text-indigo">{item.thai}</span>
+                  <span className="ml-2 font-bold text-clay">{item.thai}</span>
                   <span className="mt-1 block text-sm text-tamarind/60">{item.roman}</span>
                 </button>
               ))}
@@ -253,7 +253,7 @@ export default function OrderCoffeeMission() {
                       key={item}
                       type="button"
                       onClick={() => setParticle(item)}
-                      className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turmeric ${particle === item ? 'bg-indigo text-surface' : 'text-tamarind/65'}`}
+                      className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay ${particle === item ? 'bg-ink text-surface' : 'text-tamarind/65'}`}
                       aria-pressed={particle === item}
                     >
                       {item}
@@ -262,29 +262,29 @@ export default function OrderCoffeeMission() {
                 </div>
               </div>
 
-              <div className="mt-5 rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Say this</p>
+              <div className="mt-5 rounded-[1.5rem] bg-ink p-5 text-surface md:p-7">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-honey">Say this</p>
                 <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{phrase}</p>
                 <p className="mt-4 text-lg text-surface/78">{roman}</p>
                 <p className="mt-2 text-surface/78">{meaning}</p>
               </div>
 
-              <div className="mt-5 rounded-2xl border border-turmeric/30 bg-banana/10 p-4 text-sm leading-6 text-tamarind/75">
+              <div className="mt-5 rounded-2xl border border-honey/30 bg-sand/10 p-4 text-sm leading-6 text-tamarind/75">
                 <p className="font-black text-tamarind">Pronunciation note</p>
                 <p>
                   Browser Thai voices can sound robotic or wrong. Use them only as an optional rough demo.
                   The main practice is: read the rhythm cards, speak out loud, then send a real voice note for correction.
                 </p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-temple">
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-clay">
                   {speechReady && thaiVoiceName ? `Optional browser voice: ${thaiVoiceName}` : 'No reliable Thai browser voice detected'}
                 </p>
               </div>
 
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <button type="button" onClick={() => speak('slow')} className="rounded-2xl bg-banana px-5 py-4 font-black text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo">
+                <button type="button" onClick={() => speak('slow')} className="rounded-2xl bg-sand px-5 py-4 font-black text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                   🔊 Optional computer demo - slow
                 </button>
-                <button type="button" onClick={() => speak('natural')} className="rounded-2xl border border-tamarind/10 bg-jasmine px-5 py-4 font-black text-tamarind transition duration-150 ease-out hover:border-turmeric focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+                <button type="button" onClick={() => speak('natural')} className="rounded-2xl border border-tamarind/10 bg-jasmine px-5 py-4 font-black text-tamarind transition duration-150 ease-out hover:border-honey focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                   🗣️ Optional computer demo - natural
                 </button>
               </div>
@@ -297,20 +297,20 @@ export default function OrderCoffeeMission() {
 
               <div className="mt-5 grid gap-3 rounded-[1.5rem] bg-jasmine p-4 sm:grid-cols-3">
                 <div className="rounded-2xl bg-surface p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.12em] text-temple">Chunk 1</p>
-                  <p className="mt-2 text-2xl font-black text-indigo">ขอ {drink.thai}</p>
+                  <p className="text-xs font-black uppercase tracking-[0.12em] text-clay">Chunk 1</p>
+                  <p className="mt-2 text-2xl font-black text-clay">ขอ {drink.thai}</p>
                   <p className="text-sm text-tamarind/60">khǎaw {drink.roman}</p>
                 </div>
                 {!isWater && (
                   <div className="rounded-2xl bg-surface p-4">
-                    <p className="text-xs font-black uppercase tracking-[0.12em] text-temple">Chunk 2</p>
-                    <p className="mt-2 text-2xl font-black text-indigo">{sweetness.thai}</p>
+                    <p className="text-xs font-black uppercase tracking-[0.12em] text-clay">Chunk 2</p>
+                    <p className="mt-2 text-2xl font-black text-clay">{sweetness.thai}</p>
                     <p className="text-sm text-tamarind/60">{sweetness.roman}</p>
                   </div>
                 )}
                 <div className="rounded-2xl bg-surface p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.12em] text-temple">Polite ending</p>
-                  <p className="mt-2 text-2xl font-black text-indigo">{particle}</p>
+                  <p className="text-xs font-black uppercase tracking-[0.12em] text-clay">Polite ending</p>
+                  <p className="mt-2 text-2xl font-black text-clay">{particle}</p>
                   <p className="text-sm text-tamarind/60">{particle === 'ครับ' ? 'khrap' : 'kha'}</p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export default function OrderCoffeeMission() {
                   ['noLook', 'I can say it without looking'],
                 ] as const).map(([key, label]) => (
                   <label key={key} className="flex cursor-pointer items-center gap-3 rounded-2xl bg-jasmine p-4 font-semibold text-tamarind/78">
-                    <input type="checkbox" checked={checks[key]} onChange={() => toggleCheck(key)} className="h-5 w-5 accent-indigo" />
+                    <input type="checkbox" checked={checks[key]} onChange={() => toggleCheck(key)} className="h-5 w-5 accent-clay" />
                     {label}
                   </label>
                 ))}
@@ -332,7 +332,7 @@ export default function OrderCoffeeMission() {
             <div className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
               <h2 className="text-2xl font-black tracking-[-0.03em]">4. Cafe roleplay</h2>
               <p className="mt-2 text-tamarind/70">Cafe staff says:</p>
-              <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-indigo">เอาอะไรคะ?</p>
+              <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-clay">เอาอะไรคะ?</p>
               <p className="mt-2 text-sm text-tamarind/60">ao a-rai kha? - What would you like?</p>
               <div className="mt-5 grid gap-3">
                 {quizOptions.map((option) => {
@@ -343,7 +343,7 @@ export default function OrderCoffeeMission() {
                       key={option}
                       type="button"
                       onClick={() => setQuizChoice(option)}
-                      className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`}
+                      className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
                       aria-pressed={isSelected}
                     >
                       {option}
@@ -352,7 +352,7 @@ export default function OrderCoffeeMission() {
                 })}
               </div>
               {quizChoice && (
-                <p className={`mt-4 rounded-2xl p-4 font-bold ${quizChoice === phrase ? 'bg-banana/12 text-banana' : 'bg-temple/10 text-temple'}`}>
+                <p className={`mt-4 rounded-2xl p-4 font-bold ${quizChoice === phrase ? 'bg-sand/12 text-honey' : 'bg-clay/10 text-clay'}`}>
                   {quizChoice === phrase ? 'Correct - cafe mission almost complete!' : 'Good try. Choose the answer that orders your drink.'}
                 </p>
               )}
@@ -360,10 +360,10 @@ export default function OrderCoffeeMission() {
           </section>
         </div>
 
-        <section className="mx-auto mt-6 max-w-6xl rounded-[2rem] border border-tamarind/10 bg-indigo p-6 text-surface shadow-xl shadow-tamarind/12 md:p-8">
+        <section className="mx-auto mt-6 max-w-6xl rounded-[2rem] border border-tamarind/10 bg-ink p-6 text-surface shadow-xl shadow-tamarind/12 md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">{completed ? 'Mission complete 🏆' : 'Finish the checklist to complete'}</p>
+              <p className="text-sm font-black uppercase tracking-[0.16em] text-honey">{completed ? 'Mission complete 🏆' : 'Finish the checklist to complete'}</p>
               <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] md:text-4xl">Send your voice note for correction.</h2>
               <p className="mt-3 max-w-2xl leading-7 text-surface/82">
                 Reading is not enough. Record yourself saying the phrase and send it to Mike. He can correct pronunciation, speed, tone feeling, and politeness.
@@ -373,7 +373,7 @@ export default function OrderCoffeeMission() {
               href={`https://wa.me/66929894495?text=${whatsappText}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 text-center font-black text-tamarind shadow-lg shadow-tamarind/20 transition duration-150 ease-out"
+              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-honey px-6 py-3 text-center font-black text-tamarind shadow-lg shadow-tamarind/20 transition duration-150 ease-out"
             >
               WhatsApp Mike
             </a>

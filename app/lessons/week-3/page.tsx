@@ -62,14 +62,14 @@ export default function Week3Page() {
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
             <section className="rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
-              <Link href="/lessons" className="text-sm font-semibold text-indigo hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+              <Link href="/lessons" className="text-sm font-semibold text-clay hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                 ← Back to all lessons
               </Link>
               <div className="mt-6">
-                <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-semibold uppercase text-temple">
+                <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-semibold uppercase text-clay">
                   Week 3 · Food and cafe Thai
                 </span>
-                <h1 className="mt-4 text-4xl font-bold leading-tight text-tamarind text-balance md:text-5xl">
+                <h1 className="mt-4 font-serif text-4xl font-bold leading-tight text-tamarind text-balance md:text-5xl">
                   Ordering Food, Coffee & Spice Levels
                 </h1>
                 <p className="mt-4 text-tamarind/70 text-pretty">
@@ -79,7 +79,7 @@ export default function Week3Page() {
             </section>
 
             <section className="mt-6 rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm">
-              <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-semibold uppercase text-temple">
+              <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-semibold uppercase text-clay">
                 Speaking-first class
               </span>
               <h2 className="mt-4 text-2xl font-bold text-tamarind text-balance">Useful Thai for the first meal you order alone</h2>
@@ -103,7 +103,7 @@ export default function Week3Page() {
           </div>
 
           <aside className="h-fit rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm lg:sticky lg:top-24">
-            <p className="text-sm font-semibold uppercase text-temple">Lesson map</p>
+            <p className="text-sm font-semibold uppercase text-clay">Lesson map</p>
             <ol className="mt-4 space-y-3 text-sm text-tamarind/60">
               <li className="rounded-xl bg-jasmine p-3 font-semibold text-tamarind">1. Food ordering survival phrases</li>
               <li className="rounded-xl bg-surface p-3">2. Spice levels</li>
@@ -111,14 +111,14 @@ export default function Week3Page() {
               <li className="rounded-xl bg-surface p-3">4. Restaurant roleplay</li>
               <li className="rounded-xl bg-surface p-3">5. Real-life mission</li>
             </ol>
-            <div className="mt-6 rounded-2xl bg-indigo p-5 text-surface">
+            <div className="mt-6 rounded-2xl bg-ink p-5 text-surface">
               <p className="font-bold">Next: Week 4</p>
               <p className="mt-2 text-sm leading-6 text-surface/85">Transport, temples, markets and local etiquette.</p>
-              <Link href="/lessons/week-4" className="mt-4 block w-full rounded-lg bg-turmeric px-4 py-2 text-center font-semibold text-tamarind transition hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+              <Link href="/lessons/week-4" className="mt-4 block w-full rounded-lg bg-honey px-4 py-2 text-center font-semibold text-tamarind transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
                 Open Week 4 →
               </Link>
             </div>
-            <CheckoutButton className="mt-4 block w-full rounded-lg bg-indigo px-4 py-3 text-center font-semibold text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+            <CheckoutButton className="mt-4 block w-full rounded-lg bg-ink px-4 py-3 text-center font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
               Book live practice
             </CheckoutButton>
           </aside>
