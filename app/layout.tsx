@@ -55,7 +55,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${newsreader.variable} ${publicSans.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${newsreader.variable} ${publicSans.variable} font-public antialiased`}>
         {children}
       </body>
     </html>

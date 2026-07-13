@@ -27,7 +27,7 @@ export default function TeacherDashboardPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-jasmine text-tamarind">
+      <main className="bg-paper text-tamarind">
         <section className="px-4 py-12 md:py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
@@ -41,20 +41,20 @@ export default function TeacherDashboardPage() {
                 Use this dashboard before and after every student session: match leads to missions, prepare the class, send the report, and follow up with the right next offer.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/book" className="inline-flex min-h-13 items-center justify-center rounded-2xl bg-ink px-7 py-4 font-black text-surface shadow-lg shadow-ink/20 transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <Link href="/book" className="inline-flex min-h-13 items-center justify-center rounded-none bg-ink px-7 py-4 font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                   Open intake form
                 </Link>
-                <Link href="/lesson-report" className="inline-flex min-h-13 items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-7 py-4 font-black text-tamarind shadow-sm transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <Link href="/lesson-report" className="inline-flex min-h-13 items-center justify-center rounded-none border border-tamarind/15 bg-surface px-7 py-4 font-bold text-tamarind shadow-sm transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                   Open lesson report
                 </Link>
               </div>
             </div>
-            <aside className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/10">
-              <p className="text-sm font-black uppercase text-clay">Why this improves the product</p>
+            <aside className="rounded-none border border-tamarind/10 bg-surface p-5">
+              <p className="text-sm font-bold uppercase text-clay">Why this improves the product</p>
               <div className="mt-5 grid gap-3">
                 {operatingPrinciples.map((item, index) => (
-                  <div key={item} className="rounded-2xl bg-jasmine p-4">
-                    <p className="text-sm font-black text-clay">0{index + 1}</p>
+                  <div key={item} className="rounded-none bg-jasmine p-4">
+                    <p className="text-sm font-bold text-clay">0{index + 1}</p>
                     <p className="mt-2 font-bold leading-7 text-tamarind/75">{item}</p>
                   </div>
                 ))}

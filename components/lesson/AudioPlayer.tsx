@@ -13,7 +13,7 @@ export default function AudioPlayer({ src, label }: AudioPlayerProps) {
 
   if (src) {
     return (
-      <div className="rounded-2xl border border-tamarind/10 bg-surface p-4 shadow-sm shadow-tamarind/5">
+      <div className="rounded-none border border-tamarind/10 bg-surface p-4 shadow-sm shadow-tamarind/5">
         <div className="flex items-center gap-4">
           <span className="text-2xl" aria-hidden="true">🎧</span>
           <div className="min-w-0 flex-1">
@@ -34,7 +34,7 @@ export default function AudioPlayer({ src, label }: AudioPlayerProps) {
   }
 
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-dashed border-tamarind/20 bg-jasmine p-4">
+    <div className="flex items-center gap-4 rounded-none border border-dashed border-tamarind/20 bg-jasmine p-4">
       <span className="text-2xl">🎧</span>
       <div>
         <p className="text-sm font-semibold text-tamarind/70">{label}</p>

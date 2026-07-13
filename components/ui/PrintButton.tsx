@@ -10,7 +10,7 @@ export default function PrintButton({ children = 'Print', className }: PrintButt
     <button
       type="button"
       onClick={() => window.print()}
-      className={className ?? 'inline-flex min-h-11 items-center rounded-xl bg-ink px-4 py-2 font-black text-surface'}
+      className={className ?? 'inline-flex min-h-11 items-center rounded-none bg-ink px-4 py-2 font-bold text-surface'}
     >
       {children}
     </button>

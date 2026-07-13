@@ -9,7 +9,7 @@ interface VideoPlayerProps {
 export default function VideoPlayer({ title, videoId, thumbnailUrl }: VideoPlayerProps) {
   if (videoId) {
     return (
-      <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+      <div className="relative w-full aspect-video rounded-none overflow-hidden">
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${videoId}`}
           title={title}
@@ -22,7 +22,7 @@ export default function VideoPlayer({ title, videoId, thumbnailUrl }: VideoPlaye
   }
 
   return (
-    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg bg-ink flex flex-col items-center justify-center text-surface">
+    <div className="relative w-full aspect-video rounded-none overflow-hidden bg-ink flex flex-col items-center justify-center text-surface">
       <div className="text-6xl mb-4">🎬</div>
       <p className="text-lg font-semibold">{title}</p>
       <p className="text-sm text-honey mt-2">Video coming soon, audio lesson below</p>

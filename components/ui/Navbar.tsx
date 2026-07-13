@@ -31,11 +31,11 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-tamarind/10 bg-surface/95 text-tamarind shadow-sm shadow-tamarind/5 backdrop-blur">
-      <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:px-6">
+    <header className="z-40 border-b border-ink/8 bg-paper text-ink">
+      <nav aria-label="Main" className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-6 py-[18px]">
         <BrandLogo />
 
-        <div className="hidden items-center gap-5 text-sm font-semibold lg:flex">
+        <div className="hidden items-center gap-8 text-[13.5px] font-normal lg:flex">
           {navItems.map(item => {
             const active = item.href !== '/#pricing' && pathname?.startsWith(item.href)
             return (
@@ -46,7 +46,7 @@ export default function Navbar() {
                 className={`inline-flex min-h-11 items-center border-b-2 transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${
                   active
                     ? 'border-honey text-clay'
-                    : 'border-transparent text-tamarind/68 hover:text-clay'
+                    : 'border-transparent text-ink/65 hover:text-clay'
                 }`}
               >
                 {item.label}
@@ -58,7 +58,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/book"
-            className="inline-flex min-h-11 items-center rounded-xl bg-ink px-4 py-2 text-sm font-black text-surface transition duration-150 ease-out hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+            className="inline-flex min-h-11 items-center bg-clay px-[22px] py-[11px] text-[13px] font-semibold text-paper transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
           >
             Book a trial
           </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className="inline-flex size-11 items-center justify-center rounded-xl border border-tamarind/12 bg-surface text-tamarind transition duration-150 ease-out hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay lg:hidden"
+            className="inline-flex size-11 items-center justify-center border border-ink/20 bg-paper text-ink transition duration-150 ease-out hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay lg:hidden"
           >
             {open ? (
               <XIcon className="size-5" weight="bold" aria-hidden="true" />
@@ -80,14 +80,14 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-tamarind/10 bg-surface px-4 pb-5 pt-2 lg:hidden">
+        <div id="mobile-menu" className="border-t border-ink/8 bg-paper px-6 pb-5 pt-2 lg:hidden">
           <ul className="grid gap-1">
             {navItems.map(item => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center rounded-xl px-3 font-bold text-tamarind/80 transition duration-150 ease-out hover:bg-jasmine hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
+                  className="flex min-h-12 items-center px-3 font-semibold text-ink/75 transition duration-150 ease-out hover:bg-sand hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
                 >
                   {item.label}
                 </Link>
@@ -97,7 +97,7 @@ export default function Navbar() {
           <Link
             href="/book"
             onClick={() => setOpen(false)}
-            className="mt-3 flex min-h-12 items-center justify-center rounded-xl bg-ink px-4 font-black text-surface transition duration-150 ease-out hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
+            className="mt-3 flex min-h-12 items-center justify-center bg-clay px-4 font-semibold text-paper transition duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
           >
             Book a trial
           </Link>

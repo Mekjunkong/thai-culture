@@ -62,7 +62,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
   if (!supported) return null
 
   return (
-    <div className="mt-3 rounded-xl border border-tamarind/10 bg-jasmine p-3">
+    <div className="mt-3 rounded-none border border-tamarind/10 bg-jasmine p-3">
       <p className="text-xs font-semibold uppercase tracking-wide text-tamarind/60">
         🎙 Tone practice: listen → record → compare
       </p>
@@ -75,7 +75,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
         <button
           type="button"
           onClick={toggleRecording}
-          className={`min-h-11 rounded-2xl px-4 py-2 text-sm font-bold transition ${
+          className={`min-h-11 rounded-none px-4 py-2 text-sm font-bold transition ${
             recording
               ? 'animate-pulse bg-clay text-surface'
               : 'bg-ink text-surface hover:bg-ink/85'

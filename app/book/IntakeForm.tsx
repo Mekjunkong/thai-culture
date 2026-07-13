@@ -99,8 +99,8 @@ export default function IntakeForm() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr]">
-      <form className="min-w-0 rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-xl shadow-tamarind/10 md:p-7">
-        <p className="mb-5 rounded-2xl bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
+      <form className="min-w-0 rounded-none border border-tamarind/10 bg-surface p-5 md:p-7">
+        <p className="mb-5 rounded-none bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
           Your answers below build a WhatsApp message to Mike - nothing is sent until you tap the button. Your progress is saved automatically if you need to come back to this later.
         </p>
         <div className="grid gap-4 md:grid-cols-2">
@@ -109,7 +109,7 @@ export default function IntakeForm() {
             <input
               value={form.name}
               onChange={(event) => updateField('name', event.target.value)}
-              className="min-h-12 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
               placeholder="Your name"
             />
           </label>
@@ -118,7 +118,7 @@ export default function IntakeForm() {
             <input
               value={form.location}
               onChange={(event) => updateField('location', event.target.value)}
-              className="min-h-12 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
               placeholder="Nimman, Old City, online, etc."
             />
           </label>
@@ -130,7 +130,7 @@ export default function IntakeForm() {
             <select
               value={form.format}
               onChange={(event) => updateField('format', event.target.value)}
-              className="min-h-12 w-full min-w-0 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 w-full min-w-0 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             >
               <option>Online video lesson</option>
               <option>On-site cafe lesson in Chiang Mai</option>
@@ -143,7 +143,7 @@ export default function IntakeForm() {
             <select
               value={form.level}
               onChange={(event) => updateField('level', event.target.value)}
-              className="min-h-12 w-full min-w-0 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 w-full min-w-0 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             >
               <option>Complete beginner</option>
               <option>I know a few words</option>
@@ -158,13 +158,13 @@ export default function IntakeForm() {
           <textarea
             value={form.goal}
             onChange={(event) => updateField('goal', event.target.value)}
-            className="min-h-28 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+            className="min-h-28 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             placeholder="Example: I want to order food, talk to condo staff, and use polite Thai without feeling shy."
           />
         </label>
 
         <fieldset className="mt-5">
-          <legend className="font-black text-tamarind">Which real-life situations do you need?</legend>
+          <legend className="font-bold text-tamarind">Which real-life situations do you need?</legend>
           <p className="mt-1 text-sm text-tamarind/60">Choose as many as apply.</p>
           <div className="mt-3 grid gap-2 md:grid-cols-2">
             {situationOptions.map((option) => {
@@ -175,7 +175,7 @@ export default function IntakeForm() {
                   type="button"
                   onClick={() => toggleSituation(option)}
                   aria-pressed={checked}
-                  className={`rounded-2xl border px-4 py-3 text-left font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${
+                  className={`rounded-none border px-4 py-3 text-left font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${
                     checked ? 'border-honey bg-sand/15 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind/70 hover:border-clay'
                   }`}
                 >
@@ -192,7 +192,7 @@ export default function IntakeForm() {
             <input
               value={form.schedule}
               onChange={(event) => updateField('schedule', event.target.value)}
-              className="min-h-12 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
               placeholder="Weekday morning, Sunday, etc."
             />
           </label>
@@ -201,20 +201,20 @@ export default function IntakeForm() {
             <input
               value={form.notes}
               onChange={(event) => updateField('notes', event.target.value)}
-              className="min-h-12 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
               placeholder="Accent, goal, deadline, hotel area..."
             />
           </label>
         </div>
       </form>
 
-      <aside className="min-w-0 rounded-[2rem] border border-honey bg-sand/10 p-5 shadow-xl shadow-tamarind/10 md:p-7">
-        <p className="text-sm font-black uppercase text-clay">Your booking message</p>
-        <h2 className="mt-3 text-3xl font-black leading-tight">Send a cleaner intake before the first lesson.</h2>
+      <aside className="min-w-0 rounded-none border border-honey bg-sand/10 p-5 md:p-7">
+        <p className="text-sm font-bold uppercase text-clay">Your booking message</p>
+        <h2 className="mt-3 text-3xl font-serif font-normal leading-tight">Send a cleaner intake before the first lesson.</h2>
         <p className="mt-4 leading-7 text-tamarind/70">
           This makes the lesson more professional: Mike can prepare the right mission, phrase bank, and correction focus before the call or on-site class.
         </p>
-        <div className="mt-5 rounded-2xl bg-surface p-4 text-sm leading-6 text-tamarind/72">
+        <div className="mt-5 rounded-none bg-surface p-4 text-sm leading-6 text-tamarind/72">
           <p><strong>Format:</strong> {form.format}</p>
           <p><strong>Level:</strong> {form.level}</p>
           <p><strong>Situations:</strong> {form.situations.join(', ') || '-'}</p>
@@ -230,13 +230,13 @@ export default function IntakeForm() {
           target="_blank"
           rel="noreferrer"
           onClick={handleSend}
-          className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-ink px-6 py-3 text-center font-black text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+          className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-none bg-ink px-6 py-3 text-center font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
           Send intake on WhatsApp
         </a>
         <a
           href="/lesson-report"
-          className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-6 py-3 text-center font-black text-clay transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+          className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-none border border-tamarind/15 bg-surface px-6 py-3 text-center font-bold text-clay transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
           View lesson report template
         </a>

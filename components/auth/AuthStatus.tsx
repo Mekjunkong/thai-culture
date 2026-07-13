@@ -67,7 +67,7 @@ export default function AuthStatus() {
       <button
         type="button"
         onClick={signOut}
-        className="rounded-xl border border-tamarind/10 px-3 py-2 font-bold text-tamarind/70 transition hover:border-clay hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+        className="rounded-none border border-tamarind/10 px-3 py-2 font-bold text-tamarind/70 transition hover:border-clay hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
       >
         Sign out
       </button>
