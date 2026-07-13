@@ -1,6 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
+import SpeakButton from '@/components/ui/SpeakButton'
 
 type Place = { id: string; label: string; thai: string; roman: string; clue: string }
 type Direction = { id: string; label: string; thai: string; roman: string; meaning: string }
@@ -89,6 +91,16 @@ export default function DriverStopMission() {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 text-pretty md:text-xl md:leading-9">
                 Practice the transport Thai you need with songthaews, Grab calls, taxis, and local drivers: stop here, go straight, turn left, and turn right.
               </p>
+              <div className="mt-6 overflow-hidden rounded-[1.5rem] shadow-lg shadow-tamarind/10">
+                <Image
+                  src="/assets/images/mission-driver-stop.jpg"
+                  alt="Red songthaew truck taxi driving on a Chiang Mai street"
+                  width={1066}
+                  height={1600}
+                  priority
+                  className="h-48 w-full object-cover md:h-56"
+                />
+              </div>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
                   <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
@@ -162,13 +174,19 @@ export default function DriverStopMission() {
 
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 <div className="rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                  <p className="text-sm font-black uppercase text-turmeric">Say this to stop</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-sm font-black uppercase text-turmeric">Say this to stop</p>
+                    <SpeakButton text={stopPhrase} onSpeak={() => setChecks((current) => ({ ...current, stop: true }))} />
+                  </div>
                   <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{stopPhrase}</p>
                   <p className="mt-4 text-lg text-surface/78">{stopRoman}</p>
                   <p className="mt-2 text-surface/78">Please stop {place.label.toLowerCase()}.</p>
                 </div>
                 <div className="rounded-[1.5rem] bg-jasmine p-5 md:p-7">
-                  <p className="text-sm font-black uppercase text-temple">Direction phrase</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-sm font-black uppercase text-temple">Direction phrase</p>
+                    <SpeakButton text={directionPhrase} onSpeak={() => setChecks((current) => ({ ...current, directions: true }))} />
+                  </div>
                   <p className="mt-3 text-4xl font-black leading-tight text-indigo md:text-5xl">{directionPhrase}</p>
                   <p className="mt-4 text-lg text-tamarind/70">{directionRoman}</p>
                   <p className="mt-2 text-tamarind/70">{direction.meaning}, please.</p>

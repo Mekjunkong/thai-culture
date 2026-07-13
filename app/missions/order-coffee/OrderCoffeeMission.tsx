@@ -1,6 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
+import { useThaiVoice } from '@/lib/speech'
 
 type Drink = {
   id: string
@@ -38,20 +40,6 @@ const steps = [
   'Answer cafe staff',
 ]
 
-function chooseBestThaiVoice(voices: SpeechSynthesisVoice[]) {
-  const thaiVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('th'))
-  if (thaiVoices.length === 0) return null
-
-  const preferredNames = ['google', 'microsoft', 'premwadee', 'kanya', 'narisa', 'thai']
-  return [...thaiVoices].sort((a, b) => {
-    const score = (voice: SpeechSynthesisVoice) => preferredNames.reduce(
-      (total, keyword, index) => total + (voice.name.toLowerCase().includes(keyword) ? 20 - index : 0),
-      voice.localService ? 3 : 0,
-    )
-    return score(b) - score(a)
-  })[0]
-}
-
 export default function OrderCoffeeMission() {
   const [drinkId, setDrinkId] = useState(drinks[0].id)
   const [sweetnessId, setSweetnessId] = useState('less')
@@ -59,9 +47,7 @@ export default function OrderCoffeeMission() {
   const [checks, setChecks] = useState({ listened: false, repeated: false, noLook: false })
   const [quizChoice, setQuizChoice] = useState<string | null>(null)
   const [completed, setCompleted] = useState(false)
-  const [thaiVoiceName, setThaiVoiceName] = useState<string | null>(null)
-  const [speechReady, setSpeechReady] = useState(false)
-  const [audioMessage, setAudioMessage] = useState('')
+  const { ready: speechReady, voiceName: thaiVoiceName, message: audioMessage, speak: speakText } = useThaiVoice()
 
   const drink = drinks.find((item) => item.id === drinkId) ?? drinks[0]
   const sweetness = sweetnessLevels.find((item) => item.id === sweetnessId) ?? sweetnessLevels[1]
@@ -100,23 +86,6 @@ export default function OrderCoffeeMission() {
   }, [])
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      setSpeechReady(true)
-      return
-    }
-
-    const loadVoices = () => {
-      const voice = chooseBestThaiVoice(window.speechSynthesis.getVoices())
-      setThaiVoiceName(voice?.name ?? null)
-      setSpeechReady(true)
-    }
-
-    loadVoices()
-    window.speechSynthesis.addEventListener('voiceschanged', loadVoices)
-    return () => window.speechSynthesis.removeEventListener('voiceschanged', loadVoices)
-  }, [])
-
-  useEffect(() => {
     if (canComplete) {
       window.localStorage.setItem('tlcm-order-coffee-complete', 'true')
       setCompleted(true)
@@ -124,23 +93,7 @@ export default function OrderCoffeeMission() {
   }, [canComplete])
 
   function speak(speed: 'slow' | 'natural') {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
-    const selectedVoice = chooseBestThaiVoice(window.speechSynthesis.getVoices())
-
-    if (!selectedVoice) {
-      setAudioMessage('This browser does not have a good Thai voice. Skip the robot audio and use the speak-out-loud cards below, then send Mike a real voice note for correction.')
-      return
-    }
-
-    window.speechSynthesis.cancel()
-    const utterance = new SpeechSynthesisUtterance(phrase)
-    utterance.voice = selectedVoice
-    utterance.lang = selectedVoice.lang || 'th-TH'
-    utterance.rate = speed === 'slow' ? 0.68 : 0.88
-    utterance.pitch = 0.96
-    window.speechSynthesis.speak(utterance)
-    setThaiVoiceName(selectedVoice.name)
-    setAudioMessage(`Computer audio: ${selectedVoice.name}. Real Thai pronunciation still needs a human voice-note correction.`)
+    speakText(phrase, speed)
     setChecks((current) => ({ ...current, listened: true }))
   }
 
@@ -172,6 +125,16 @@ export default function OrderCoffeeMission() {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 md:text-xl md:leading-9">
                 Choose your drink, choose sweetness, build the Thai phrase, then answer cafe staff. No grammar lecture - just one real phrase you can use today.
               </p>
+              <div className="mt-6 overflow-hidden rounded-[1.5rem] shadow-lg shadow-tamarind/10">
+                <Image
+                  src="/assets/images/mission-order-coffee.jpg"
+                  alt="Iced coffee in a glass on a cafe table"
+                  width={1600}
+                  height={1068}
+                  priority
+                  className="h-48 w-full object-cover md:h-56"
+                />
+              </div>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
                   <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>

@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { getDueIds, getLearnedCount, gradeCard, localDateKey, localYesterdayKey, type Grade } from '@/lib/srs'
 import Reveal from '@/components/ui/Reveal'
+import SpeakButton from '@/components/ui/SpeakButton'
 
 type Word = { id: string; thai: string; roman: string; english: string; emoji: string; note?: string }
 type Category = { id: string; title: string; emoji: string; situation: string; words: Word[] }
@@ -250,6 +252,10 @@ export default function ThaiPracticeApp() {
             </div>
           </section>
 
+          <Link href="/tones" className="mt-3 block rounded-2xl border border-indigo/30 bg-surface p-3 font-bold text-indigo">
+            🎵 New: Tone trainer — hear &amp; speak the 5 tones →
+          </Link>
+
           <section className="mt-5 grid gap-3">
             {categories.map((item, index) => {
               const done = progress.completed.includes(item.id)
@@ -303,6 +309,9 @@ export default function ThaiPracticeApp() {
               </>
             )}
           </button>
+          <div className="mt-3 flex justify-center">
+            <SpeakButton text={currentCard.thai} />
+          </div>
           <div className="mt-4 grid grid-cols-2 gap-3">
             <button type="button" onClick={() => setFlipped(false)} className="min-h-12 rounded-2xl border border-tamarind/10 bg-surface font-black text-indigo">Show Thai</button>
             <button type="button" onClick={nextCard} className="min-h-12 rounded-2xl bg-indigo font-black text-surface">Next card →</button>
@@ -329,6 +338,9 @@ export default function ThaiPracticeApp() {
             <p className="mt-5 text-center text-6xl" aria-hidden="true">{currentQuestion.word.emoji}</p>
             <h1 className="mt-5 text-center text-5xl font-black leading-tight text-indigo">{currentQuestion.word.thai}</h1>
             <p className="mt-3 text-center text-lg font-bold text-temple">{currentQuestion.word.roman}</p>
+            <div className="mt-4 flex justify-center">
+              <SpeakButton text={currentQuestion.word.thai} />
+            </div>
             <div className="mt-6 grid gap-3">
               {currentQuestion.options.map((option) => {
                 const isSelected = selected === option
@@ -365,7 +377,10 @@ export default function ThaiPracticeApp() {
               <>
                 <p className="mt-8 text-5xl font-black leading-tight text-indigo">{reviewCard.thai}</p>
                 <p className="mt-4 text-xl font-bold text-temple">{reviewCard.roman}</p>
-                <p className="mt-8 text-tamarind/60">Say it out loud, then reveal the meaning.</p>
+                <div className="mt-4 flex justify-center">
+                  <SpeakButton text={reviewCard.thai} />
+                </div>
+                <p className="mt-6 text-tamarind/60">Say it out loud, then reveal the meaning.</p>
                 <button
                   type="button"
                   onClick={() => setReviewRevealed(true)}

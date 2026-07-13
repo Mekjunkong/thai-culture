@@ -1,6 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { detectPitch, normalizeContour } from '@/lib/pitch'
+import { getContour } from '@/lib/toneContours'
+import PitchCanvas from '@/components/tones/PitchCanvas'
 
 /**
  * Listen → record → compare: play the native audio, record yourself, then A/B
@@ -11,11 +14,14 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
   const [supported, setSupported] = useState(true)
   const [recording, setRecording] = useState(false)
   const [myAudioUrl, setMyAudioUrl] = useState<string | null>(null)
+  const [myContour, setMyContour] = useState<number[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const recorderRef = useRef<MediaRecorder | null>(null)
   const chunksRef = useRef<Blob[]>([])
   const streamRef = useRef<MediaStream | null>(null)
   const myAudioUrlRef = useRef<string | null>(null)
+  const takeRef = useRef(0)
+  const nativeContour = getContour(nativeSrc)
 
   useEffect(() => {
     if (typeof window !== 'undefined' && (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === 'undefined')) {
@@ -51,7 +57,26 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
         setRecording(false)
         stream.getTracks().forEach((track) => track.stop())
         streamRef.current = null
+        // Only the latest take may write myContour: a re-record bumps takeRef,
+        // so a slower decode from an older take is discarded instead of
+        // clobbering the newer curve.
+        const take = takeRef.current
+        void (async () => {
+          const ctx = new AudioContext()
+          try {
+            const buffer = await ctx.decodeAudioData(await blob.arrayBuffer())
+            if (take === takeRef.current) {
+              setMyContour(normalizeContour(detectPitch(buffer.getChannelData(0), buffer.sampleRate)))
+            }
+          } catch {
+            if (take === takeRef.current) setMyContour(null)
+          } finally {
+            void ctx.close()
+          }
+        })()
       }
+      takeRef.current += 1
+      setMyContour(null)
       recorder.start()
       setRecording(true)
     } catch {
@@ -90,6 +115,11 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
           </div>
         )}
       </div>
+      {nativeContour && myAudioUrl && (
+        <div className="mt-3">
+          <PitchCanvas native={nativeContour} learner={myContour} />
+        </div>
+      )}
       {myAudioUrl && (
         <p className="mt-2 text-xs text-tamarind/60">
           Sounding different from the teacher at first is completely normal - that&apos;s exactly what practice is for. Play the teacher audio above, then your recording. Compare the <strong>rise and fall</strong> of each word - matching the melody matters more than speed. Happy with it? Send it to Mike on WhatsApp for real feedback.

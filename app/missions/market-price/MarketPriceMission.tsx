@@ -1,6 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
+import SpeakButton from '@/components/ui/SpeakButton'
 
 type MarketItem = {
   id: string
@@ -124,6 +126,16 @@ export default function MarketPriceMission() {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 md:text-xl md:leading-9">
                 Practice two useful phrases: ask “How much?” and buy fruit politely. Short, practical, and made for real market confidence.
               </p>
+              <div className="mt-6 overflow-hidden rounded-[1.5rem] shadow-lg shadow-tamarind/10">
+                <Image
+                  src="/assets/images/mission-market-price.jpg"
+                  alt="Fresh fruit in baskets at an outdoor market stall"
+                  width={1600}
+                  height={1077}
+                  priority
+                  className="h-48 w-full object-cover md:h-56"
+                />
+              </div>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
                   <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
@@ -161,7 +173,10 @@ export default function MarketPriceMission() {
           <section className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
             <h2 className="text-2xl font-black tracking-[-0.03em]">1. Ask the price</h2>
             <div className="mt-5 rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Say this first</p>
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Say this first</p>
+                <SpeakButton text={askPhrase} onSpeak={() => setChecks((current) => ({ ...current, asked: true }))} />
+              </div>
               <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{askPhrase}</p>
               <p className="mt-4 text-lg text-surface/78">{askRoman}</p>
               <p className="mt-2 text-surface/78">How much is it?</p>
@@ -242,7 +257,10 @@ export default function MarketPriceMission() {
               </div>
 
               <div className="mt-5 rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Then buy it</p>
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-black uppercase tracking-[0.16em] text-turmeric">Then buy it</p>
+                  <SpeakButton text={buyPhrase} onSpeak={() => setChecks((current) => ({ ...current, repeated: true }))} />
+                </div>
                 <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{buyPhrase}</p>
                 <p className="mt-4 text-lg text-surface/78">{buyRoman}</p>
                 <p className="mt-2 text-surface/78">I’d like {item.label.toLowerCase()}, {quantity.label.toLowerCase()}, please.</p>
