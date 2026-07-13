@@ -31,7 +31,7 @@ export default function Week1Page() {
     <>
       <Navbar />
       <main className="bg-jasmine px-4 py-10 md:py-14 text-tamarind">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
             <section className="rounded-3xl border border-tamarind/10 bg-surface p-6 shadow-sm md:p-8">
               <Link href="/lessons" className="text-sm font-semibold text-clay hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">

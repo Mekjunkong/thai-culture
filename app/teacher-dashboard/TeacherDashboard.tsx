@@ -78,7 +78,7 @@ export default function TeacherDashboard() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[0.95fr_1.05fr]">
       <section className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
         <p className="text-sm font-black uppercase text-clay">Today&apos;s operating system</p>
         <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">Run every student through the same professional workflow.</h2>
@@ -164,11 +164,11 @@ export default function TeacherDashboard() {
           </div>
           {copied ? <p className="rounded-full bg-honey px-4 py-2 text-sm font-black text-tamarind">Copied: {copied}</p> : null}
         </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-2">
           {productScripts.map((script) => (
             <article key={script.title} className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5">
               <h3 className="text-xl font-black text-clay">{script.title}</h3>
-              <p className="mt-3 min-h-28 leading-7 text-tamarind/70">{script.text}</p>
+              <p className="mt-3 min-h-28 [overflow-wrap:anywhere] leading-7 text-tamarind/70">{script.text}</p>
               <button
                 type="button"
                 onClick={() => copyScript(script.title, script.text)}

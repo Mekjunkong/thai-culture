@@ -99,7 +99,7 @@ export default function IntakeForm() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr]">
-      <form className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-xl shadow-tamarind/10 md:p-7">
+      <form className="min-w-0 rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-xl shadow-tamarind/10 md:p-7">
         <p className="mb-5 rounded-2xl bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
           Your answers below build a WhatsApp message to Mike - nothing is sent until you tap the button. Your progress is saved automatically if you need to come back to this later.
         </p>
@@ -125,12 +125,12 @@ export default function IntakeForm() {
         </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <label className="grid gap-2 font-bold text-tamarind/78">
+          <label className="grid min-w-0 gap-2 font-bold text-tamarind/78">
             Lesson format
             <select
               value={form.format}
               onChange={(event) => updateField('format', event.target.value)}
-              className="min-h-12 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 w-full min-w-0 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             >
               <option>Online video lesson</option>
               <option>On-site cafe lesson in Chiang Mai</option>
@@ -138,12 +138,12 @@ export default function IntakeForm() {
               <option>Not sure yet</option>
             </select>
           </label>
-          <label className="grid gap-2 font-bold text-tamarind/78">
+          <label className="grid min-w-0 gap-2 font-bold text-tamarind/78">
             Thai level
             <select
               value={form.level}
               onChange={(event) => updateField('level', event.target.value)}
-              className="min-h-12 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+              className="min-h-12 w-full min-w-0 rounded-2xl border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             >
               <option>Complete beginner</option>
               <option>I know a few words</option>
@@ -208,7 +208,7 @@ export default function IntakeForm() {
         </div>
       </form>
 
-      <aside className="rounded-[2rem] border border-honey bg-sand/10 p-5 shadow-xl shadow-tamarind/10 md:p-7">
+      <aside className="min-w-0 rounded-[2rem] border border-honey bg-sand/10 p-5 shadow-xl shadow-tamarind/10 md:p-7">
         <p className="text-sm font-black uppercase text-clay">Your booking message</p>
         <h2 className="mt-3 text-3xl font-black leading-tight">Send a cleaner intake before the first lesson.</h2>
         <p className="mt-4 leading-7 text-tamarind/70">
