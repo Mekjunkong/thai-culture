@@ -74,16 +74,16 @@ export default function DriverStopMission() {
       <section className="px-4 py-10 md:py-14">
         <div className="mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm font-bold text-tamarind/60">
-            <a href="/missions" className="text-indigo underline-offset-4 hover:underline">Missions</a>
+            <a href="/missions" className="text-clay underline-offset-4 hover:underline">Missions</a>
             <span aria-hidden="true">/</span>
             <span>Tell a driver where to stop</span>
           </nav>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="inline-flex min-h-11 items-center rounded-full border border-turmeric/40 bg-surface px-4 py-2 text-sm font-black uppercase text-indigo shadow-sm">
+              <p className="inline-flex min-h-11 items-center rounded-full border border-honey/40 bg-surface px-4 py-2 text-sm font-black uppercase text-clay shadow-sm">
                 Free 5-minute Thai mission
               </p>
-              <h1 className="mt-5 text-[clamp(2.5rem,7vw,5.6rem)] font-black leading-[0.94] tracking-[-0.06em] text-balance">
+              <h1 className="mt-5 font-serif text-[clamp(2.5rem,7vw,5.6rem)] font-bold leading-[1.05] text-balance">
                 Tell a driver where to stop.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-tamarind/75 text-pretty md:text-xl md:leading-9">
@@ -91,7 +91,7 @@ export default function DriverStopMission() {
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
-                  <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-banana/50 bg-banana/12 text-banana' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
+                  <div key={step} className={`rounded-2xl border p-3 text-sm font-bold ${progress[index] ? 'border-honey/50 bg-sand/12 text-honey' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
                     <span className="block text-xs uppercase">Step {index + 1}</span>
                     {step}
                   </div>
@@ -102,20 +102,20 @@ export default function DriverStopMission() {
             <aside className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/12 md:p-6" aria-label="Mission progress">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-black uppercase text-temple">Mission progress</p>
-                  <p className="mt-1 text-3xl font-black text-indigo">{progressPercent}%</p>
+                  <p className="text-sm font-black uppercase text-clay">Mission progress</p>
+                  <p className="mt-1 text-3xl font-black text-clay">{progressPercent}%</p>
                 </div>
                 <div className="flex size-20 items-center justify-center rounded-full bg-jasmine text-4xl shadow-inner" aria-hidden="true">
                   {completed ? '🏆' : '🚗'}
                 </div>
               </div>
               <div className="mt-4 h-4 overflow-hidden rounded-full bg-jasmine" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progressPercent} aria-label="Mission progress">
-                <div className="h-full rounded-full bg-banana transition-all duration-150 ease-out" style={{ width: `${progressPercent}%` }} />
+                <div className="h-full rounded-full bg-sand transition-all duration-150 ease-out" style={{ width: `${progressPercent}%` }} />
               </div>
               <p className="mt-4 rounded-2xl bg-jasmine p-4 text-sm leading-6 text-tamarind/75">
                 Today’s Thai win: <strong>I can tell a driver where to stop politely.</strong>
               </p>
-              <p className="mt-3 text-sm font-black text-indigo">Next: {nextAction}</p>
+              <p className="mt-3 text-sm font-black text-clay">Next: {nextAction}</p>
             </aside>
           </div>
         </div>
@@ -127,9 +127,9 @@ export default function DriverStopMission() {
             <h2 className="text-2xl font-black tracking-[-0.03em]">1. Choose where to stop</h2>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {places.map((item) => (
-                <button key={item.id} type="button" onClick={() => { setPlaceId(item.id); resetRoleplay() }} className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${placeId === item.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`} aria-pressed={placeId === item.id}>
+                <button key={item.id} type="button" onClick={() => { setPlaceId(item.id); resetRoleplay() }} className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${placeId === item.id ? 'border-honey bg-sand/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-honey/60'}`} aria-pressed={placeId === item.id}>
                   <span className="font-black text-tamarind">{item.label}</span>
-                  <span className="mt-1 block text-lg font-bold text-indigo">{item.thai}</span>
+                  <span className="mt-1 block text-lg font-bold text-clay">{item.thai}</span>
                   <span className="block text-sm text-tamarind/60">{item.roman} · {item.clue}</span>
                 </button>
               ))}
@@ -138,9 +138,9 @@ export default function DriverStopMission() {
             <h2 className="mt-8 text-2xl font-black tracking-[-0.03em]">2. Practice one direction</h2>
             <div className="mt-5 grid gap-3">
               {directions.map((item) => (
-                <button key={item.id} type="button" onClick={() => { setDirectionId(item.id); resetRoleplay() }} className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${directionId === item.id ? 'border-turmeric bg-banana/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-turmeric/60'}`} aria-pressed={directionId === item.id}>
+                <button key={item.id} type="button" onClick={() => { setDirectionId(item.id); resetRoleplay() }} className={`rounded-2xl border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${directionId === item.id ? 'border-honey bg-sand/12 shadow-md shadow-tamarind/8' : 'border-tamarind/10 bg-jasmine hover:border-honey/60'}`} aria-pressed={directionId === item.id}>
                   <span className="font-black text-tamarind">{item.label}</span>
-                  <span className="ml-2 font-bold text-indigo">{item.thai}</span>
+                  <span className="ml-2 font-bold text-clay">{item.thai}</span>
                   <span className="mt-1 block text-sm text-tamarind/60">{item.roman}</span>
                 </button>
               ))}
@@ -153,7 +153,7 @@ export default function DriverStopMission() {
                 <h2 className="text-2xl font-black tracking-[-0.03em]">3. Build your driver phrases</h2>
                 <div className="rounded-full bg-jasmine p-1 text-sm font-bold">
                   {(['ครับ', 'ค่ะ'] as const).map((ending) => (
-                    <button key={ending} type="button" onClick={() => { setParticle(ending); resetRoleplay() }} className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turmeric ${particle === ending ? 'bg-indigo text-surface' : 'text-tamarind/65'}`} aria-pressed={particle === ending}>
+                    <button key={ending} type="button" onClick={() => { setParticle(ending); resetRoleplay() }} className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay ${particle === ending ? 'bg-ink text-surface' : 'text-tamarind/65'}`} aria-pressed={particle === ending}>
                       {ending}
                     </button>
                   ))}
@@ -161,15 +161,15 @@ export default function DriverStopMission() {
               </div>
 
               <div className="mt-5 grid gap-4 md:grid-cols-2">
-                <div className="rounded-[1.5rem] bg-indigo p-5 text-surface md:p-7">
-                  <p className="text-sm font-black uppercase text-turmeric">Say this to stop</p>
+                <div className="rounded-[1.5rem] bg-ink p-5 text-surface md:p-7">
+                  <p className="text-sm font-black uppercase text-honey">Say this to stop</p>
                   <p className="mt-3 text-4xl font-black leading-tight md:text-5xl">{stopPhrase}</p>
                   <p className="mt-4 text-lg text-surface/78">{stopRoman}</p>
                   <p className="mt-2 text-surface/78">Please stop {place.label.toLowerCase()}.</p>
                 </div>
                 <div className="rounded-[1.5rem] bg-jasmine p-5 md:p-7">
-                  <p className="text-sm font-black uppercase text-temple">Direction phrase</p>
-                  <p className="mt-3 text-4xl font-black leading-tight text-indigo md:text-5xl">{directionPhrase}</p>
+                  <p className="text-sm font-black uppercase text-clay">Direction phrase</p>
+                  <p className="mt-3 text-4xl font-black leading-tight text-clay md:text-5xl">{directionPhrase}</p>
                   <p className="mt-4 text-lg text-tamarind/70">{directionRoman}</p>
                   <p className="mt-2 text-tamarind/70">{direction.meaning}, please.</p>
                 </div>
@@ -177,23 +177,23 @@ export default function DriverStopMission() {
 
               <div className="mt-5 grid gap-3 rounded-[1.5rem] bg-jasmine p-4 sm:grid-cols-3">
                 <div className="rounded-2xl bg-surface p-4">
-                  <p className="text-xs font-black uppercase text-temple">Stop</p>
-                  <p className="mt-2 text-2xl font-black text-indigo">จอด</p>
+                  <p className="text-xs font-black uppercase text-clay">Stop</p>
+                  <p className="mt-2 text-2xl font-black text-clay">จอด</p>
                   <p className="text-sm text-tamarind/60">jawt</p>
                 </div>
                 <div className="rounded-2xl bg-surface p-4">
-                  <p className="text-xs font-black uppercase text-temple">Place</p>
-                  <p className="mt-2 text-2xl font-black text-indigo">{place.thai}</p>
+                  <p className="text-xs font-black uppercase text-clay">Place</p>
+                  <p className="mt-2 text-2xl font-black text-clay">{place.thai}</p>
                   <p className="text-sm text-tamarind/60">{place.roman}</p>
                 </div>
                 <div className="rounded-2xl bg-surface p-4">
-                  <p className="text-xs font-black uppercase text-temple">Polite</p>
-                  <p className="mt-2 text-2xl font-black text-indigo">{particle}</p>
+                  <p className="text-xs font-black uppercase text-clay">Polite</p>
+                  <p className="mt-2 text-2xl font-black text-clay">{particle}</p>
                   <p className="text-sm text-tamarind/60">{particle === 'ครับ' ? 'khrap' : 'kha'}</p>
                 </div>
               </div>
 
-              <div className="mt-5 rounded-2xl border border-turmeric/30 bg-banana/10 p-4 text-sm leading-6 text-tamarind/75">
+              <div className="mt-5 rounded-2xl border border-honey/30 bg-sand/10 p-4 text-sm leading-6 text-tamarind/75">
                 <p className="font-black text-tamarind">Natural Thai note</p>
                 <p><strong>จอดตรงนี้ครับ/ค่ะ</strong> is short, polite, and enough for most local transport situations. Pointing at the map or place helps.</p>
               </div>
@@ -205,7 +205,7 @@ export default function DriverStopMission() {
                   ['noLook', 'I can say it without looking'],
                 ] as const).map(([key, label]) => (
                   <label key={key} className="flex cursor-pointer items-center gap-3 rounded-2xl bg-jasmine p-4 font-semibold text-tamarind/78">
-                    <input type="checkbox" checked={checks[key]} onChange={() => toggleCheck(key)} className="h-5 w-5 accent-indigo" />
+                    <input type="checkbox" checked={checks[key]} onChange={() => toggleCheck(key)} className="h-5 w-5 accent-clay" />
                     {label}
                   </label>
                 ))}
@@ -215,7 +215,7 @@ export default function DriverStopMission() {
             <div className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
               <h2 className="text-2xl font-black tracking-[-0.03em]">4. Driver roleplay</h2>
               <p className="mt-2 text-tamarind/70">Driver asks on the phone:</p>
-              <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-indigo">อยู่ตรงไหนครับ?</p>
+              <p className="mt-3 rounded-2xl bg-jasmine p-4 text-3xl font-black text-clay">อยู่ตรงไหนครับ?</p>
               <p className="mt-2 text-sm text-tamarind/60">yuu dtrong nai khrap? - Where are you?</p>
 
               <p className="mt-5 font-black text-tamarind">Choose how to say stop here:</p>
@@ -223,7 +223,7 @@ export default function DriverStopMission() {
                 {driverOptions.map((option) => {
                   const isSelected = driverChoice === option
                   const isCorrect = option === stopPhrase
-                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`} aria-pressed={isSelected}>{option}</button>
+                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected}>{option}</button>
                 })}
               </div>
 
@@ -232,12 +232,12 @@ export default function DriverStopMission() {
                 {directionOptions.map((option) => {
                   const isSelected = directionChoice === option
                   const isCorrect = option === directionPhrase
-                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-turmeric/60'}`} aria-pressed={isSelected}>{option}</button>
+                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-2xl border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected}>{option}</button>
                 })}
               </div>
 
               {(driverChoice || directionChoice) && (
-                <p className={`mt-4 rounded-2xl p-4 font-bold ${driverChoice === stopPhrase && directionChoice === directionPhrase ? 'bg-banana/12 text-banana' : 'bg-jasmine text-tamarind/70'}`}>
+                <p className={`mt-4 rounded-2xl p-4 font-bold ${driverChoice === stopPhrase && directionChoice === directionPhrase ? 'bg-sand/12 text-honey' : 'bg-jasmine text-tamarind/70'}`}>
                   {driverChoice === stopPhrase && directionChoice === directionPhrase ? 'Correct - transport mission almost complete!' : 'Keep going. Choose the stop phrase, then choose the direction phrase.'}
                 </p>
               )}
@@ -245,16 +245,16 @@ export default function DriverStopMission() {
           </section>
         </div>
 
-        <section className="mx-auto mt-6 max-w-6xl rounded-[2rem] border border-tamarind/10 bg-indigo p-6 text-surface shadow-xl shadow-tamarind/12 md:p-8">
+        <section className="mx-auto mt-6 max-w-6xl rounded-[2rem] border border-tamarind/10 bg-ink p-6 text-surface shadow-xl shadow-tamarind/12 md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-black uppercase text-turmeric">{completed ? 'Mission complete 🏆' : 'Finish the roleplay to complete'}</p>
+              <p className="text-sm font-black uppercase text-honey">{completed ? 'Mission complete 🏆' : 'Finish the roleplay to complete'}</p>
               <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-balance md:text-4xl">Send your driver voice note for correction.</h2>
               <p className="mt-3 max-w-2xl leading-7 text-surface/82 text-pretty">
                 Record yourself saying “{stopPhrase}” and “{directionPhrase}”. Mike can correct pronunciation, rhythm, and polite feeling.
               </p>
             </div>
-            <a href={`https://wa.me/66929894495?text=${whatsappText}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-6 py-3 text-center font-black text-tamarind shadow-lg shadow-tamarind/20 transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+            <a href={`https://wa.me/66929894495?text=${whatsappText}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-honey px-6 py-3 text-center font-black text-tamarind shadow-lg shadow-tamarind/20 transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
               WhatsApp Mike
             </a>
           </div>

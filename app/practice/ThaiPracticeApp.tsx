@@ -215,19 +215,19 @@ export default function ThaiPracticeApp() {
   if (screen === 'home') {
     return (
       <main className="bg-jasmine px-4 py-8 text-tamarind">
-        <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-5 shadow-2xl shadow-indigo/15">
-          <section className="rounded-[1.5rem] bg-gradient-to-br from-indigo to-indigo-soft p-6 text-surface">
-            <p className="text-sm font-bold text-turmeric">Kids-app style · built for Thai learners</p>
-            <h1 className="mt-3 text-4xl font-black leading-none tracking-[-0.05em] text-balance">Thai practice app for Chiang Mai life.</h1>
+        <div className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-5 shadow-2xl shadow-ink/15">
+          <section className="rounded-[1.5rem] bg-gradient-to-br from-ink to-ink/85 p-6 text-surface">
+            <p className="text-sm font-bold text-honey">Kids-app style · built for Thai learners</p>
+            <h1 className="mt-3 font-serif text-4xl font-bold leading-tight text-balance">Thai practice app for Chiang Mai life.</h1>
             <p className="mt-4 leading-7 text-surface/80 text-pretty">Flashcards, quick quizzes, stars, streaks, and practical phrase categories - adapted from your kids learning app idea.</p>
             <div className="mt-5 grid grid-cols-3 gap-3 text-center">
-              <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-turmeric">{progress.stars}</p><p className="text-xs font-bold">stars</p></div>
-              <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-turmeric">{progress.streak}</p><p className="text-xs font-bold">streak</p></div>
-              <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-turmeric">{completionPercent}%</p><p className="text-xs font-bold">done</p></div>
+              <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-honey">{progress.stars}</p><p className="text-xs font-bold">stars</p></div>
+              <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-honey">{progress.streak}</p><p className="text-xs font-bold">streak</p></div>
+              <div className="rounded-2xl bg-surface/10 p-3"><p className="text-2xl font-black text-honey">{completionPercent}%</p><p className="text-xs font-bold">done</p></div>
             </div>
           </section>
 
-          <section className="mt-5 rounded-[1.5rem] border-[3px] border-turmeric/50 bg-jasmine p-5 shadow-lg shadow-indigo/8">
+          <section className="mt-5 rounded-[1.5rem] border-[3px] border-honey/50 bg-jasmine p-5 shadow-lg shadow-ink/8">
             <div className="flex items-start gap-3">
               <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface text-3xl shadow-inner" aria-hidden="true">🧠</span>
               <div className="min-w-0 flex-1">
@@ -241,7 +241,7 @@ export default function ThaiPracticeApp() {
                   <button
                     type="button"
                     onClick={startReview}
-                    className="mt-3 min-h-11 w-full rounded-2xl bg-indigo px-3 py-2 font-black text-surface shadow-md shadow-indigo/15 transition duration-150 active:scale-[0.98]"
+                    className="mt-3 min-h-11 w-full rounded-2xl bg-ink px-3 py-2 font-black text-surface shadow-md shadow-ink/15 transition duration-150 active:scale-[0.98]"
                   >
                     Start review ({dueCount})
                   </button>
@@ -255,18 +255,18 @@ export default function ThaiPracticeApp() {
               const done = progress.completed.includes(item.id)
               return (
                 <Reveal key={item.id} index={index}>
-                  <article className="rounded-[1.5rem] border-[3px] border-surface/70 bg-jasmine p-4 shadow-lg shadow-indigo/8">
+                  <article className="rounded-[1.5rem] border-[3px] border-surface/70 bg-jasmine p-4 shadow-lg shadow-ink/8">
                     <div className="flex items-start gap-3">
                       <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface text-3xl shadow-inner" aria-hidden="true">{item.emoji}</span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-3">
                           <h2 className="text-xl font-black leading-tight">{item.title}</h2>
-                          {done && <span className="rounded-full bg-banana/15 px-2 py-1 text-xs font-black text-banana">Done</span>}
+                          {done && <span className="rounded-full bg-sand/15 px-2 py-1 text-xs font-black text-honey">Done</span>}
                         </div>
                         <p className="mt-1 text-sm leading-6 text-tamarind/65">{item.situation}</p>
                         <div className="mt-3 grid grid-cols-2 gap-2">
-                          <button type="button" onClick={() => startFlashcards(item)} className="min-h-11 rounded-2xl bg-indigo px-3 py-2 font-black text-surface shadow-md shadow-indigo/15 transition duration-150 active:scale-[0.98]">Flashcards</button>
-                          <button type="button" onClick={() => startQuiz(item)} className="min-h-11 rounded-2xl bg-turmeric px-3 py-2 font-black text-tamarind shadow-md shadow-tamarind/10 transition duration-150 active:scale-[0.98]">Quiz</button>
+                          <button type="button" onClick={() => startFlashcards(item)} className="min-h-11 rounded-2xl bg-ink px-3 py-2 font-black text-surface shadow-md shadow-ink/15 transition duration-150 active:scale-[0.98]">Flashcards</button>
+                          <button type="button" onClick={() => startQuiz(item)} className="min-h-11 rounded-2xl bg-honey px-3 py-2 font-black text-tamarind shadow-md shadow-tamarind/10 transition duration-150 active:scale-[0.98]">Quiz</button>
                         </div>
                       </div>
                     </div>
@@ -286,26 +286,26 @@ export default function ThaiPracticeApp() {
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
-            <p className="font-black text-indigo">{cardIndex + 1} / {category.words.length}</p>
+            <p className="font-black text-clay">{cardIndex + 1} / {category.words.length}</p>
           </div>
-          <button type="button" onClick={() => setFlipped((value) => !value)} className="min-h-[360px] w-full rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15 transition duration-150 active:scale-[0.99]" aria-pressed={flipped}>
+          <button type="button" onClick={() => setFlipped((value) => !value)} className="min-h-[360px] w-full rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-ink/15 transition duration-150 active:scale-[0.99]" aria-pressed={flipped}>
             <p className="text-6xl" aria-hidden="true">{currentCard.emoji}</p>
             {!flipped ? (
               <>
-                <p className="mt-8 text-5xl font-black leading-tight text-indigo">{currentCard.thai}</p>
-                <p className="mt-4 text-xl font-bold text-temple">{currentCard.roman}</p>
+                <p className="mt-8 text-5xl font-black leading-tight text-clay">{currentCard.thai}</p>
+                <p className="mt-4 text-xl font-bold text-clay">{currentCard.roman}</p>
                 <p className="mt-8 rounded-2xl bg-jasmine p-4 font-black text-tamarind/70">Tap to reveal meaning</p>
               </>
             ) : (
               <>
-                <p className="mt-8 text-4xl font-black leading-tight text-indigo">{currentCard.english}</p>
+                <p className="mt-8 text-4xl font-black leading-tight text-clay">{currentCard.english}</p>
                 <p className="mt-5 rounded-2xl bg-jasmine p-4 text-lg font-bold text-tamarind/70">Say it 3 times, then use it today.</p>
               </>
             )}
           </button>
           <div className="mt-4 grid grid-cols-2 gap-3">
-            <button type="button" onClick={() => setFlipped(false)} className="min-h-12 rounded-2xl border border-tamarind/10 bg-surface font-black text-indigo">Show Thai</button>
-            <button type="button" onClick={nextCard} className="min-h-12 rounded-2xl bg-indigo font-black text-surface">Next card →</button>
+            <button type="button" onClick={() => setFlipped(false)} className="min-h-12 rounded-2xl border border-tamarind/10 bg-surface font-black text-clay">Show Thai</button>
+            <button type="button" onClick={nextCard} className="min-h-12 rounded-2xl bg-ink font-black text-surface">Next card →</button>
           </div>
         </div>
       </main>
@@ -319,22 +319,22 @@ export default function ThaiPracticeApp() {
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
-            <p className="font-black text-indigo">⭐ {score}</p>
+            <p className="font-black text-clay">⭐ {score}</p>
           </div>
           <div className="h-3 overflow-hidden rounded-full bg-surface" role="progressbar" aria-valuenow={quizPercent} aria-valuemin={0} aria-valuemax={100} aria-label="Quiz progress">
-            <div className="h-full rounded-full bg-turmeric transition-all duration-150" style={{ width: `${quizPercent}%` }} />
+            <div className="h-full rounded-full bg-honey transition-all duration-150" style={{ width: `${quizPercent}%` }} />
           </div>
-          <section className="mt-5 rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 shadow-2xl shadow-indigo/15">
-            <p className="text-sm font-bold text-temple">Choose the meaning</p>
+          <section className="mt-5 rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 shadow-2xl shadow-ink/15">
+            <p className="text-sm font-bold text-clay">Choose the meaning</p>
             <p className="mt-5 text-center text-6xl" aria-hidden="true">{currentQuestion.word.emoji}</p>
-            <h1 className="mt-5 text-center text-5xl font-black leading-tight text-indigo">{currentQuestion.word.thai}</h1>
-            <p className="mt-3 text-center text-lg font-bold text-temple">{currentQuestion.word.roman}</p>
+            <h1 className="mt-5 text-center text-5xl font-black leading-tight text-clay">{currentQuestion.word.thai}</h1>
+            <p className="mt-3 text-center text-lg font-bold text-clay">{currentQuestion.word.roman}</p>
             <div className="mt-6 grid gap-3">
               {currentQuestion.options.map((option) => {
                 const isSelected = selected === option
                 const isCorrect = option === currentQuestion.word.english
                 return (
-                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-2xl border p-4 text-left font-black transition duration-150 ${isSelected && isCorrect ? 'border-banana bg-banana/15 text-banana' : isSelected ? 'border-temple/40 bg-temple/10 text-temple' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
+                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-2xl border p-4 text-left font-black transition duration-150 ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
                     {option}
                   </button>
                 )
@@ -357,31 +357,31 @@ export default function ThaiPracticeApp() {
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
             <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-black shadow-sm">←</button>
-            <p className="font-black text-indigo">{reviewQueue.length} left</p>
+            <p className="font-black text-clay">{reviewQueue.length} left</p>
           </div>
-          <div className="min-h-[360px] w-full rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15">
+          <div className="min-h-[360px] w-full rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-ink/15">
             <p className="text-6xl" aria-hidden="true">{reviewCard.emoji}</p>
             {!reviewRevealed ? (
               <>
-                <p className="mt-8 text-5xl font-black leading-tight text-indigo">{reviewCard.thai}</p>
-                <p className="mt-4 text-xl font-bold text-temple">{reviewCard.roman}</p>
+                <p className="mt-8 text-5xl font-black leading-tight text-clay">{reviewCard.thai}</p>
+                <p className="mt-4 text-xl font-bold text-clay">{reviewCard.roman}</p>
                 <p className="mt-8 text-tamarind/60">Say it out loud, then reveal the meaning.</p>
                 <button
                   type="button"
                   onClick={() => setReviewRevealed(true)}
-                  className="mt-6 min-h-12 w-full rounded-2xl bg-indigo font-black text-surface"
+                  className="mt-6 min-h-12 w-full rounded-2xl bg-ink font-black text-surface"
                 >
                   Show answer
                 </button>
               </>
             ) : (
               <>
-                <p className="mt-8 text-4xl font-black leading-tight text-indigo">{reviewCard.english}</p>
+                <p className="mt-8 text-4xl font-black leading-tight text-clay">{reviewCard.english}</p>
                 <div className="mt-6 grid grid-cols-4 gap-2">
-                  <button type="button" onClick={() => gradeReview('again')} className="min-h-12 rounded-2xl border-2 border-temple/40 bg-temple/10 text-sm font-black text-temple">Again</button>
-                  <button type="button" onClick={() => gradeReview('hard')} className="min-h-12 rounded-2xl border-2 border-turmeric/50 bg-turmeric/15 text-sm font-black text-tamarind">Hard</button>
-                  <button type="button" onClick={() => gradeReview('good')} className="min-h-12 rounded-2xl border-2 border-banana/50 bg-banana/12 text-sm font-black text-banana">Good</button>
-                  <button type="button" onClick={() => gradeReview('easy')} className="min-h-12 rounded-2xl border-2 border-indigo/40 bg-indigo/10 text-sm font-black text-indigo">Easy</button>
+                  <button type="button" onClick={() => gradeReview('again')} className="min-h-12 rounded-2xl border-2 border-clay/40 bg-clay/10 text-sm font-black text-clay">Again</button>
+                  <button type="button" onClick={() => gradeReview('hard')} className="min-h-12 rounded-2xl border-2 border-honey/50 bg-honey/15 text-sm font-black text-tamarind">Hard</button>
+                  <button type="button" onClick={() => gradeReview('good')} className="min-h-12 rounded-2xl border-2 border-honey/50 bg-sand/12 text-sm font-black text-honey">Good</button>
+                  <button type="button" onClick={() => gradeReview('easy')} className="min-h-12 rounded-2xl border-2 border-clay/40 bg-ink/10 text-sm font-black text-clay">Easy</button>
                 </div>
               </>
             )}
@@ -393,10 +393,10 @@ export default function ThaiPracticeApp() {
 
   return (
     <main className="min-h-screen bg-jasmine px-4 py-8 text-tamarind">
-      <section className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-indigo/15">
+      <section className="mx-auto max-w-[520px] rounded-[2rem] border-[3px] border-surface/70 bg-surface p-6 text-center shadow-2xl shadow-ink/15">
         <p className="text-7xl" aria-hidden="true">🏆</p>
-        <p className="mt-5 text-sm font-bold text-temple">Session complete</p>
-        <h1 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">You earned {sessionStars} stars.</h1>
+        <p className="mt-5 text-sm font-bold text-clay">Session complete</p>
+        <h1 className="mt-3 font-serif text-4xl font-bold leading-tight">You earned {sessionStars} stars.</h1>
         <p className="mt-4 leading-7 text-tamarind/70">
           {lastSessionType === 'review'
             ? `Daily review done - ${reviewDoneCount} phrase${reviewDoneCount === 1 ? '' : 's'} reviewed across every category. Each one will resurface right before you'd forget it.`
@@ -404,14 +404,14 @@ export default function ThaiPracticeApp() {
         </p>
         <div className="mt-6 grid gap-3">
           {lastSessionType === 'review' ? (
-            <button type="button" onClick={startReview} className="min-h-12 rounded-2xl bg-indigo font-black text-surface">Review more</button>
+            <button type="button" onClick={startReview} className="min-h-12 rounded-2xl bg-ink font-black text-surface">Review more</button>
           ) : (
-            <button type="button" onClick={() => startQuiz(category)} className="min-h-12 rounded-2xl bg-indigo font-black text-surface">Replay quiz</button>
+            <button type="button" onClick={() => startQuiz(category)} className="min-h-12 rounded-2xl bg-ink font-black text-surface">Replay quiz</button>
           )}
-          <button type="button" onClick={() => setScreen('home')} className="min-h-12 rounded-2xl bg-turmeric font-black text-tamarind">
+          <button type="button" onClick={() => setScreen('home')} className="min-h-12 rounded-2xl bg-honey font-black text-tamarind">
             {lastSessionType === 'review' ? 'Back to categories' : 'Choose another category'}
           </button>
-          <a href="https://wa.me/66929894495?text=Hi%20Mike%2C%20I%20finished%20a%20Thai%20practice%20session.%20Can%20I%20send%20a%20voice%20note%20for%20correction%3F" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/10 bg-jasmine font-black text-indigo">Send voice note to Mike</a>
+          <a href="https://wa.me/66929894495?text=Hi%20Mike%2C%20I%20finished%20a%20Thai%20practice%20session.%20Can%20I%20send%20a%20voice%20note%20for%20correction%3F" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/10 bg-jasmine font-black text-clay">Send voice note to Mike</a>
         </div>
       </section>
     </main>

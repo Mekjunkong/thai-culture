@@ -43,10 +43,10 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
-                className={`inline-flex min-h-11 items-center border-b-2 transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric ${
+                className={`inline-flex min-h-11 items-center border-b-2 transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${
                   active
-                    ? 'border-turmeric text-indigo'
-                    : 'border-transparent text-tamarind/68 hover:text-indigo'
+                    ? 'border-honey text-clay'
+                    : 'border-transparent text-tamarind/68 hover:text-clay'
                 }`}
               >
                 {item.label}
@@ -58,7 +58,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/book"
-            className="inline-flex min-h-11 items-center rounded-xl bg-indigo px-4 py-2 text-sm font-black text-surface transition duration-150 ease-out hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+            className="inline-flex min-h-11 items-center rounded-xl bg-ink px-4 py-2 text-sm font-black text-surface transition duration-150 ease-out hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
           >
             Book a trial
           </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className="inline-flex size-11 items-center justify-center rounded-xl border border-tamarind/12 bg-surface text-tamarind transition duration-150 ease-out hover:border-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-xl border border-tamarind/12 bg-surface text-tamarind transition duration-150 ease-out hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay lg:hidden"
           >
             {open ? (
               <XIcon className="size-5" weight="bold" aria-hidden="true" />
@@ -87,7 +87,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center rounded-xl px-3 font-bold text-tamarind/80 transition duration-150 ease-out hover:bg-jasmine hover:text-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turmeric"
+                  className="flex min-h-12 items-center rounded-xl px-3 font-bold text-tamarind/80 transition duration-150 ease-out hover:bg-jasmine hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
                 >
                   {item.label}
                 </Link>
@@ -97,7 +97,7 @@ export default function Navbar() {
           <Link
             href="/book"
             onClick={() => setOpen(false)}
-            className="mt-3 flex min-h-12 items-center justify-center rounded-xl bg-indigo px-4 font-black text-surface transition duration-150 ease-out hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turmeric"
+            className="mt-3 flex min-h-12 items-center justify-center rounded-xl bg-ink px-4 font-black text-surface transition duration-150 ease-out hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
           >
             Book a trial
           </Link>

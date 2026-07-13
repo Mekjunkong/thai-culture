@@ -53,7 +53,7 @@ export default function AuthStatus() {
 
   if (!email) {
     return (
-      <Link href="/login" className="inline-flex min-h-11 items-center text-tamarind/68 transition hover:text-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
+      <Link href="/login" className="inline-flex min-h-11 items-center text-tamarind/68 transition hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
         Login
       </Link>
     )
@@ -67,7 +67,7 @@ export default function AuthStatus() {
       <button
         type="button"
         onClick={signOut}
-        className="rounded-xl border border-tamarind/10 px-3 py-2 font-bold text-tamarind/70 transition hover:border-temple hover:text-temple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+        className="rounded-xl border border-tamarind/10 px-3 py-2 font-bold text-tamarind/70 transition hover:border-clay hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
       >
         Sign out
       </button>

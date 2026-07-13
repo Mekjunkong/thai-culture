@@ -1,19 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import {
-  ArrowRightIcon,
-  BasketIcon,
-  BowlFoodIcon,
-  BuildingApartmentIcon,
-  CarIcon,
-  CoffeeIcon,
-  HandWavingIcon,
-  MapPinIcon,
-  ToiletIcon,
-} from '@phosphor-icons/react/ssr'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
-import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
   title: '5-Minute Thai Missions for Chiang Mai | Thai Lessons Chiang Mai',
@@ -30,185 +18,143 @@ export const metadata: Metadata = {
   },
 }
 
+const eyebrow = 'text-xs font-medium uppercase tracking-[.14em] text-clay'
+const btnSolid =
+  'inline-flex min-h-11 items-center justify-center gap-2 bg-ink px-[26px] py-3.5 text-sm font-semibold text-paper transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay'
+
 const missions = [
   {
+    tag: 'Cafe',
+    status: 'Free · 5 min',
     title: 'Order coffee less sweet',
+    roman: 'kǐor gaa-fae yen wăan nói kráp',
+    thai: 'ขอกาแฟเย็นหวานน้อยครับ',
+    translation: '"I\'d like iced coffee, less sweet, please."',
+    outcome: 'Order a drink politely without switching to English.',
     href: '/missions/order-coffee',
-    icon: CoffeeIcon,
-    status: 'Live interactive mission',
-    time: '5 min',
-    level: 'Beginner',
-    phrase: 'ขอกาแฟเย็นหวานน้อยครับ',
-    outcome: 'Order one drink politely in a Chiang Mai cafe.',
-    bestFor: 'cafe confidence',
+    cta: 'Start mission',
   },
   {
-    title: 'Ask the price at a market',
+    tag: 'Market',
+    status: 'Free · 5 min',
+    title: 'Ask the market price',
+    roman: 'raa-khaa thâo-rài kráp',
+    thai: 'ราคาเท่าไหร่ครับ',
+    translation: '"How much is this?"',
+    outcome: 'Ask how much, hear a price, and buy fruit confidently.',
     href: '/missions/market-price',
-    icon: BasketIcon,
-    status: 'Live interactive mission',
-    time: '5 min',
-    level: 'Beginner',
-    phrase: 'ราคาเท่าไหร่ครับ',
-    outcome: 'Ask how much and buy one simple item confidently.',
-    bestFor: 'market survival',
+    cta: 'Start mission',
   },
   {
-    title: 'Say hello politely',
-    href: '/lessons/week-1',
-    icon: HandWavingIcon,
-    status: 'Lesson ready',
-    time: '3 min',
-    level: 'Beginner',
-    phrase: 'สวัสดีครับ / ค่ะ',
-    outcome: 'Greet people naturally and understand wai + khrap/kha.',
-    bestFor: 'first impressions',
-  },
-  {
-    title: 'Order food and spice level',
+    tag: 'Restaurant',
+    status: 'Free · 6 min',
+    title: 'Order food, choose spice level',
+    roman: 'ao khâo-soy mâi phèt kráp',
+    thai: 'เอาข้าวซอยไม่เผ็ดครับ',
+    translation: '"I\'ll have khao soi, not spicy, please."',
+    outcome: 'Order one meal, choose spice level, and ask for the bill.',
     href: '/missions/order-food-spice',
-    icon: BowlFoodIcon,
-    status: 'Live interactive mission',
-    time: '6 min',
-    level: 'Practical',
-    phrase: 'ไม่เผ็ดครับ',
-    outcome: 'Order local food and ask for not spicy / a little spicy.',
-    bestFor: 'restaurants',
+    cta: 'Start mission',
   },
   {
-    title: 'Tell a driver where to stop',
-    href: '/missions/driver-stop',
-    icon: CarIcon,
-    status: 'Live interactive mission',
-    time: '5 min',
-    level: 'Practical',
-    phrase: 'จอดตรงนี้ครับ',
+    tag: 'Transport',
+    status: 'Free · 5 min',
+    title: 'Tell a driver to stop',
+    roman: 'jòt trong-níi kráp',
+    thai: 'จอดตรงนี้ครับ',
+    translation: '"Stop right here, please."',
     outcome: 'Use simple directions with Grab, songthaew, or local drivers.',
-    bestFor: 'transport',
+    href: '/missions/driver-stop',
+    cta: 'Start mission',
   },
   {
+    tag: 'Greetings',
+    status: 'Lesson · 3 min',
+    title: 'Say hello politely',
+    roman: 'sà-wàt-dii kráp',
+    thai: 'สวัสดีครับ / ค่ะ',
+    translation: '"Hello" (with wai + khrap/kha).',
+    outcome: 'Greet people naturally and understand the wai gesture.',
+    href: '/lessons/week-1',
+    cta: 'Open lesson',
+  },
+  {
+    tag: 'Daily basics',
+    status: 'Phrasebook · 2 min',
     title: 'Ask where the bathroom is',
+    roman: 'hông-náam yùu thîi-năi kráp',
+    thai: 'ห้องน้ำอยู่ที่ไหนครับ',
+    translation: '"Where is the bathroom?"',
+    outcome: 'Ask in a cafe, mall, temple, or restaurant.',
     href: '/products/50-thai-phrases-chiang-mai.html',
-    icon: ToiletIcon,
-    status: 'Phrasebook',
-    time: '2 min',
-    level: 'Easy',
-    phrase: 'ห้องน้ำอยู่ที่ไหนครับ',
-    outcome: 'Ask for the bathroom in a cafe, mall, temple, or restaurant.',
-    bestFor: 'urgent basics',
+    cta: 'Open phrasebook',
   },
   {
-    title: 'Talk to condo security',
-    href: '/products/50-thai-phrases-chiang-mai.html',
-    icon: BuildingApartmentIcon,
-    status: 'Planned mission',
-    time: '5 min',
-    level: 'Daily life',
-    phrase: 'ช่วยหน่อยได้ไหมครับ',
-    outcome: 'Ask for simple help around your condo or apartment.',
-    bestFor: 'daily living',
-  },
-  {
+    tag: 'Culture',
+    status: 'Lesson · 5 min',
     title: 'Visit a temple politely',
-    href: '/lessons/week-4',
-    icon: MapPinIcon,
-    status: 'Lesson ready',
-    time: '5 min',
-    level: 'Culture',
-    phrase: 'ถ่ายรูปได้ไหมครับ',
+    roman: 'thàai rûup dâai măi kráp',
+    thai: 'ถ่ายรูปได้ไหมครับ',
+    translation: '"May I take a photo?"',
     outcome: 'Ask permission and avoid awkward cultural mistakes.',
-    bestFor: 'culture',
+    href: '/lessons/week-4',
+    cta: 'Open lesson',
+  },
+  {
+    tag: 'Daily life',
+    status: 'Planned mission',
+    title: 'Talk to condo security',
+    roman: 'chûai nòi dâai măi kráp',
+    thai: 'ช่วยหน่อยได้ไหมครับ',
+    translation: '"Could you please help me?"',
+    outcome: 'Ask for simple help around your condo or apartment.',
+    href: '/products/50-thai-phrases-chiang-mai.html',
+    cta: 'Open phrasebook',
   },
 ]
-
-const filters = ['Start with live missions', 'Then learn polite basics', 'Then book correction']
 
 export default function MissionsPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-jasmine text-tamarind">
-        <section className="px-4 py-12 md:py-16">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-              <div>
-                <p className="inline-flex min-h-11 items-center rounded-full border border-tamarind/10 bg-surface px-4 py-2 text-sm font-black text-indigo shadow-sm">
-                  Free Thai practice · No login to start
-                </p>
-                <h1 className="mt-6 text-5xl font-black leading-none tracking-[-0.06em] text-balance md:text-7xl">
-                  Pick one Thai mission and use it today.
-                </h1>
-                <p className="mt-6 text-lg leading-8 text-tamarind/72 text-pretty md:text-xl md:leading-9">
-                  Short practical missions for Chiang Mai life: cafes, markets, food, transport, greetings, condos, and temples. Start free, then book human correction when you want help speaking clearly.
-                </p>
-              </div>
-              <div className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm">
-                <p className="text-sm font-bold text-temple">Recommended learning path</p>
-                <div className="mt-4 grid gap-3">
-                  {filters.map((item, index) => (
-                    <div key={item} className="flex gap-3 rounded-2xl bg-jasmine p-4">
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-indigo text-sm font-black text-surface">{index + 1}</span>
-                      <p className="font-bold leading-7 text-tamarind/78 text-pretty">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      <main className="bg-paper font-public text-ink">
+        <div className="mx-auto max-w-[1180px] px-6 pt-16">
+          <span className={eyebrow}>Free Thai missions</span>
+          <h1 className="mt-4 max-w-[16ch] font-serif text-4xl font-bold leading-[1.15] text-ink sm:text-5xl">
+            Learn by doing one real situation at a time.
+          </h1>
+          <p className="mt-[18px] max-w-[52ch] text-base leading-[1.7] text-ink/68">
+            Every mission is a small practical win: phrase, meaning, pitch, and one
+            mini challenge. Start free, then book human correction when you want
+            help speaking clearly.
+          </p>
+        </div>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {missions.map((mission, index) => {
-                const isLive = mission.status.startsWith('Live')
-                const MissionIcon = mission.icon
-                return (
-                  <Reveal key={mission.title} index={index}>
-                    <Link href={mission.href} className="group block h-full rounded-[1.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric">
-                      <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out group-hover:-translate-y-0.5 group-hover:shadow-lg ${isLive ? 'border-turmeric bg-banana/10' : 'border-tamarind/10 bg-surface'} ${index === 0 ? 'lg:col-span-2' : ''}`}>
-                        <div className="flex items-start justify-between gap-4">
-                          <span className="flex size-12 items-center justify-center rounded-2xl bg-jasmine text-indigo shadow-inner" aria-hidden="true">
-                            <MissionIcon className="size-6" weight="duotone" />
-                          </span>
-                          <span className="rounded-full bg-jasmine px-3 py-1 text-xs font-black text-indigo">{mission.time}</span>
-                        </div>
-                        <p className="mt-5 text-xs font-black uppercase text-temple">{mission.status} · {mission.level}</p>
-                        <h2 className="mt-2 text-2xl font-black leading-tight text-balance">{mission.title}</h2>
-                        <p className="mt-2 text-sm font-bold text-tamarind/55">Best for: {mission.bestFor}</p>
-                        <div className="mt-4 rounded-2xl bg-indigo p-4 text-surface">
-                          <p className="text-xl font-black">{mission.phrase}</p>
-                        </div>
-                        <p className="mt-4 min-h-20 text-sm leading-6 text-tamarind/70 text-pretty">{mission.outcome}</p>
-                        <p className="mt-5 inline-flex items-center gap-2 border-t border-tamarind/10 pt-4 font-black text-indigo">
-                          {isLive ? 'Start interactive mission' : 'Open lesson'}
-                          <ArrowRightIcon className="size-4 transition duration-150 ease-out group-hover:translate-x-1" weight="bold" aria-hidden="true" />
-                        </p>
-                      </article>
-                    </Link>
-                  </Reveal>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-surface px-4 py-14">
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-center">
-            <div>
-              <p className="text-sm font-bold text-temple">Practice design</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] text-balance">
-                Practice first. Explanation second.
-              </h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {['Real situation', 'One useful phrase', 'Human correction'].map((item, index) => (
-                <Reveal key={item} index={index}>
-                  <div className="rounded-2xl border border-tamarind/10 bg-jasmine p-5 shadow-sm">
-                    <p className="font-black text-indigo">{item}</p>
-                    <p className="mt-2 text-sm leading-6 text-tamarind/65 text-pretty">Small, practical, and easy to try in Chiang Mai today.</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div className="mx-auto grid max-w-[1180px] gap-7 px-6 py-14 md:grid-cols-2">
+          {missions.map(mission => (
+            <article key={mission.title} className="border border-ink/10 p-8">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-clay">{mission.tag}</span>
+                <span className="text-xs text-ink/50">{mission.status}</span>
+              </div>
+              <h2 className="mt-3.5 font-serif text-[26px] font-normal text-ink">{mission.title}</h2>
+              <div className="mt-5 flex flex-col gap-1 bg-ink px-5 py-4 text-paper">
+                <span className="font-serif text-[21px] font-medium text-honey">{mission.roman}</span>
+                <span
+                  className="mt-0.5 self-start bg-paper px-2 py-0.5 text-[13px] font-medium text-clay"
+                  lang="th"
+                >
+                  {mission.thai}
+                </span>
+                <span className="text-sm text-paper/55">{mission.translation}</span>
+              </div>
+              <p className="mt-[18px] text-sm leading-[1.7] text-ink/65">{mission.outcome}</p>
+              <Link href={mission.href} className={`${btnSolid} mt-5`}>
+                {mission.cta} →
+              </Link>
+            </article>
+          ))}
+        </div>
       </main>
       <SiteFooter />
     </>

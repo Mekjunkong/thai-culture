@@ -12,7 +12,7 @@ export default function MarkdownContent({ content }: { content: string }) {
           <h1 className="mt-0 text-3xl font-bold text-tamarind text-balance md:text-4xl">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="mt-10 border-t border-tamarind/10 pt-8 text-2xl font-bold text-indigo text-balance">{children}</h2>
+          <h2 className="mt-10 border-t border-tamarind/10 pt-8 text-2xl font-bold text-clay text-balance">{children}</h2>
         ),
         h3: ({ children }) => (
           <h3 className="mt-8 text-xl font-bold text-tamarind text-balance">{children}</h3>
@@ -21,10 +21,10 @@ export default function MarkdownContent({ content }: { content: string }) {
           <p className="my-4 leading-8 text-tamarind/75 text-pretty">{children}</p>
         ),
         ul: ({ children }) => (
-          <ul className="my-4 space-y-2 pl-5 text-tamarind/75 marker:text-turmeric">{children}</ul>
+          <ul className="my-4 space-y-2 pl-5 text-tamarind/75 marker:text-honey">{children}</ul>
         ),
         ol: ({ children }) => (
-          <ol className="my-4 space-y-2 pl-5 text-tamarind/75 marker:text-turmeric">{children}</ol>
+          <ol className="my-4 space-y-2 pl-5 text-tamarind/75 marker:text-honey">{children}</ol>
         ),
         li: ({ children }) => <li className="pl-1 leading-7">{children}</li>,
         strong: ({ children }) => <strong className="font-semibold text-tamarind">{children}</strong>,
@@ -37,7 +37,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         th: ({ children }) => <th className="px-4 py-3 font-semibold">{children}</th>,
         td: ({ children }) => <td className="px-4 py-3 align-top text-tamarind/75">{children}</td>,
         blockquote: ({ children }) => (
-          <blockquote className="my-6 rounded-2xl border border-turmeric/40 bg-jasmine px-5 py-4 text-tamarind/85">
+          <blockquote className="my-6 rounded-2xl border border-honey/40 bg-jasmine px-5 py-4 text-tamarind/85">
             {children}
           </blockquote>
         ),

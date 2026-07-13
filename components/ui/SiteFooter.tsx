@@ -24,7 +24,7 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr] lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <p className="text-xl font-black">
-              Thai Lessons <span className="text-turmeric">Chiang Mai</span>
+              Thai Lessons <span className="text-honey">Chiang Mai</span>
             </p>
             <p className="mt-3 max-w-xs leading-7 text-jasmine/70 text-pretty">
               Practical Thai for expats and travelers. Learn one real situation at
@@ -34,20 +34,20 @@ export default function SiteFooter() {
               href={whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-turmeric px-5 py-3 font-black text-tamarind transition duration-150 ease-out hover:bg-turmeric-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-jasmine"
+              className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-honey px-5 py-3 font-black text-tamarind transition duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-jasmine"
             >
               Message on WhatsApp
             </a>
           </div>
 
           <nav aria-label="Learn for free">
-            <p className="text-sm font-black text-turmeric">Learn free</p>
+            <p className="text-sm font-black text-honey">Learn free</p>
             <ul className="mt-4 space-y-1">
               {learnLinks.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-10 items-center leading-6 text-jasmine/75 transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                    className="inline-flex min-h-10 items-center leading-6 text-jasmine/75 transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
                   >
                     {link.label}
                   </Link>
@@ -57,13 +57,13 @@ export default function SiteFooter() {
           </nav>
 
           <nav aria-label="Lessons and booking">
-            <p className="text-sm font-black text-turmeric">Lessons</p>
+            <p className="text-sm font-black text-honey">Lessons</p>
             <ul className="mt-4 space-y-1">
               {lessonLinks.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-10 items-center leading-6 text-jasmine/75 transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                    className="inline-flex min-h-10 items-center leading-6 text-jasmine/75 transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
                   >
                     {link.label}
                   </Link>
@@ -73,7 +73,7 @@ export default function SiteFooter() {
           </nav>
 
           <div>
-            <p className="text-sm font-black text-turmeric">Contact</p>
+            <p className="text-sm font-black text-honey">Contact</p>
             <ul className="mt-4 space-y-2 leading-7 text-jasmine/75">
               <li>Chiang Mai, Thailand</li>
               <li>Online lessons worldwide</li>
@@ -82,7 +82,7 @@ export default function SiteFooter() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="underline decoration-turmeric/60 underline-offset-4 transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                  className="underline decoration-honey/60 underline-offset-4 transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
                 >
                   +66 92 989 4495
                 </a>
@@ -96,7 +96,7 @@ export default function SiteFooter() {
           <p>© {new Date().getFullYear()} Thai Lessons Chiang Mai. All rights reserved.</p>
           <Link
             href="/teacher-dashboard"
-            className="inline-flex min-h-10 items-center transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+            className="inline-flex min-h-10 items-center transition duration-150 ease-out hover:text-jasmine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
           >
             For teachers
           </Link>

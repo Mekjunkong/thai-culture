@@ -78,17 +78,17 @@ export default function TeacherDashboard() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[0.95fr_1.05fr]">
       <section className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
-        <p className="text-sm font-black uppercase text-temple">Today&apos;s operating system</p>
+        <p className="text-sm font-black uppercase text-clay">Today&apos;s operating system</p>
         <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">Run every student through the same professional workflow.</h2>
         <div className="mt-6 rounded-2xl bg-jasmine p-4">
           <div className="flex items-center justify-between gap-4">
-            <p className="font-black text-indigo">Workflow progress</p>
+            <p className="font-black text-clay">Workflow progress</p>
             <p className="text-2xl font-black text-tamarind">{progress}%</p>
           </div>
           <div className="mt-3 h-3 overflow-hidden rounded-full bg-surface" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Teacher workflow progress">
-            <div className="h-full rounded-full bg-turmeric transition-all" style={{ width: `${progress}%` }} />
+            <div className="h-full rounded-full bg-honey transition-all" style={{ width: `${progress}%` }} />
           </div>
           <p className="mt-3 text-sm font-bold text-tamarind/65">Next: {nextAction}</p>
         </div>
@@ -96,18 +96,18 @@ export default function TeacherDashboard() {
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {leadStages.map((stage) => (
             <article key={stage.label} className="rounded-2xl border border-tamarind/10 bg-jasmine p-4">
-              <h3 className="font-black text-indigo">{stage.label}</h3>
+              <h3 className="font-black text-clay">{stage.label}</h3>
               <p className="mt-2 text-sm leading-6 text-tamarind/70">{stage.goal}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-turmeric bg-banana/10 p-5 shadow-lg shadow-tamarind/10 md:p-6">
-        <p className="text-sm font-black uppercase text-temple">Lead matching</p>
+      <section className="rounded-[2rem] border border-honey bg-sand/10 p-5 shadow-lg shadow-tamarind/10 md:p-6">
+        <p className="text-sm font-black uppercase text-clay">Lead matching</p>
         <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">Turn messy messages into a clear product recommendation.</h2>
         <div className="mt-6 overflow-hidden rounded-2xl border border-tamarind/10 bg-surface">
-          <div className="grid grid-cols-[1fr_1fr_0.9fr] gap-3 bg-indigo px-4 py-3 text-sm font-black text-surface">
+          <div className="grid grid-cols-[1fr_1fr_0.9fr] gap-3 bg-ink px-4 py-3 text-sm font-black text-surface">
             <span>Student says</span>
             <span>Send them to</span>
             <span>Offer</span>
@@ -115,7 +115,7 @@ export default function TeacherDashboard() {
           {missionMatches.map(([need, mission, href, offer]) => (
             <div key={need} className="grid grid-cols-[1fr_1fr_0.9fr] gap-3 border-t border-tamarind/10 px-4 py-3 text-sm leading-6 text-tamarind/72">
               <span className="font-bold text-tamarind">{need}</span>
-              <a className="font-black text-indigo underline-offset-4 hover:underline" href={href}>{mission}</a>
+              <a className="font-black text-clay underline-offset-4 hover:underline" href={href}>{mission}</a>
               <span>{offer}</span>
             </div>
           ))}
@@ -123,15 +123,15 @@ export default function TeacherDashboard() {
       </section>
 
       <section className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
-        <p className="text-sm font-black uppercase text-temple">Before class checklist</p>
+        <p className="text-sm font-black uppercase text-clay">Before class checklist</p>
         <div className="mt-5 grid gap-3">
           {prepChecklist.map((item) => (
-            <label key={item} className="flex cursor-pointer gap-3 rounded-2xl border border-tamarind/10 bg-jasmine p-4 transition hover:border-temple">
+            <label key={item} className="flex cursor-pointer gap-3 rounded-2xl border border-tamarind/10 bg-jasmine p-4 transition hover:border-clay">
               <input
                 type="checkbox"
                 checked={checkedPrep.includes(item)}
                 onChange={() => toggle(item, checkedPrep, setCheckedPrep)}
-                className="mt-1 size-5 accent-indigo"
+                className="mt-1 size-5 accent-clay"
               />
               <span className="font-bold leading-7 text-tamarind/74">{item}</span>
             </label>
@@ -140,15 +140,15 @@ export default function TeacherDashboard() {
       </section>
 
       <section className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
-        <p className="text-sm font-black uppercase text-temple">After class checklist</p>
+        <p className="text-sm font-black uppercase text-clay">After class checklist</p>
         <div className="mt-5 grid gap-3">
           {afterClassChecklist.map((item) => (
-            <label key={item} className="flex cursor-pointer gap-3 rounded-2xl border border-tamarind/10 bg-jasmine p-4 transition hover:border-temple">
+            <label key={item} className="flex cursor-pointer gap-3 rounded-2xl border border-tamarind/10 bg-jasmine p-4 transition hover:border-clay">
               <input
                 type="checkbox"
                 checked={checkedAfter.includes(item)}
                 onChange={() => toggle(item, checkedAfter, setCheckedAfter)}
-                className="mt-1 size-5 accent-indigo"
+                className="mt-1 size-5 accent-clay"
               />
               <span className="font-bold leading-7 text-tamarind/74">{item}</span>
             </label>
@@ -159,20 +159,20 @@ export default function TeacherDashboard() {
       <section className="lg:col-span-2 rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-black uppercase text-temple">WhatsApp follow-up scripts</p>
+            <p className="text-sm font-black uppercase text-clay">WhatsApp follow-up scripts</p>
             <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.04em] md:text-4xl">Copy messages that sell the next step without sounding pushy.</h2>
           </div>
-          {copied ? <p className="rounded-full bg-turmeric px-4 py-2 text-sm font-black text-tamarind">Copied: {copied}</p> : null}
+          {copied ? <p className="rounded-full bg-honey px-4 py-2 text-sm font-black text-tamarind">Copied: {copied}</p> : null}
         </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-2">
           {productScripts.map((script) => (
             <article key={script.title} className="rounded-[1.5rem] border border-tamarind/10 bg-jasmine p-5">
-              <h3 className="text-xl font-black text-indigo">{script.title}</h3>
-              <p className="mt-3 min-h-28 leading-7 text-tamarind/70">{script.text}</p>
+              <h3 className="text-xl font-black text-clay">{script.title}</h3>
+              <p className="mt-3 min-h-28 [overflow-wrap:anywhere] leading-7 text-tamarind/70">{script.text}</p>
               <button
                 type="button"
                 onClick={() => copyScript(script.title, script.text)}
-                className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-indigo px-5 py-3 font-black text-surface transition hover:bg-indigo-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turmeric"
+                className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-ink px-5 py-3 font-black text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
               >
                 Copy script
               </button>

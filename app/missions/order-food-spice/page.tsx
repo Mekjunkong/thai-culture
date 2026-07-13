@@ -24,7 +24,7 @@ export default function OrderFoodSpicePage() {
       <Navbar />
       <OrderFoodSpiceMission />
       <footer className="border-t border-tamarind/10 bg-surface px-4 py-8 text-center text-sm text-tamarind/65">
-        <Link href="/missions" className="font-bold text-indigo hover:text-indigo-soft">
+        <Link href="/missions" className="font-bold text-clay hover:text-clay/85">
           ← Back to mission library
         </Link>
       </footer>

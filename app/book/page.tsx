@@ -25,13 +25,13 @@ export default function BookPage() {
       <main className="bg-jasmine text-tamarind">
         <section className="px-4 py-12 md:py-16">
           <div className="mx-auto max-w-6xl">
-            <Link href="/products" className="font-black text-indigo hover:text-indigo-soft">← Back to products</Link>
+            <Link href="/products" className="font-black text-clay hover:text-clay/85">← Back to products</Link>
             <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-end">
               <div>
-                <p className="inline-flex rounded-full border border-tamarind/10 bg-surface px-4 py-2 text-sm font-black uppercase text-temple shadow-sm">
+                <p className="text-xs font-medium uppercase tracking-[.14em] text-clay">
                   Student intake
                 </p>
-                <h1 className="mt-6 text-5xl font-black leading-none tracking-[-0.06em] md:text-7xl">
+                <h1 className="mt-6 font-serif text-5xl font-bold leading-[1.05] md:text-7xl">
                   Tell me what Thai you need before class.
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-tamarind/72 md:text-xl md:leading-9">
@@ -42,8 +42,8 @@ export default function BookPage() {
                 {steps.map(([number, title, detail], index) => (
                   <Reveal key={title} index={index}>
                     <article className="rounded-2xl border border-tamarind/10 bg-surface p-4 shadow-sm">
-                      <p className="text-sm font-black text-temple">Step {number}</p>
-                      <h2 className="mt-1 text-xl font-black text-indigo">{title}</h2>
+                      <p className="text-sm font-black text-clay">Step {number}</p>
+                      <h2 className="mt-1 text-xl font-black text-clay">{title}</h2>
                       <p className="mt-1 leading-7 text-tamarind/70">{detail}</p>
                     </article>
                   </Reveal>
