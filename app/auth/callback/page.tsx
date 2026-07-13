@@ -50,12 +50,12 @@ export default function AuthCallbackPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-jasmine px-4 py-16 text-tamarind">
-        <section className="mx-auto max-w-xl rounded-[2rem] border border-tamarind/10 bg-surface p-6 text-center shadow-2xl shadow-tamarind/10 md:p-8">
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-clay">Google login</p>
+      <main className="min-h-screen bg-paper px-4 py-16 text-tamarind">
+        <section className="mx-auto max-w-xl rounded-none border border-tamarind/10 bg-surface p-6 text-center md:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-clay">Google login</p>
           <h1 className="mt-4 font-serif text-3xl font-bold text-balance">{message}</h1>
-          {error ? <p className="mt-4 rounded-2xl bg-clay/10 p-4 text-sm font-semibold text-clay">{error}</p> : null}
-          <Link href="/login" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-2xl bg-ink px-6 py-3 font-black text-surface transition hover:bg-ink/85">
+          {error ? <p className="mt-4 rounded-none bg-clay/10 p-4 text-sm font-semibold text-clay">{error}</p> : null}
+          <Link href="/login" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-none bg-ink px-6 py-3 font-bold text-surface transition hover:bg-ink/85">
             Back to login
           </Link>
         </section>

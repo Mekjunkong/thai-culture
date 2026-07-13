@@ -70,9 +70,9 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
 
   if (done) {
     return (
-      <div className="rounded-2xl bg-surface p-8 text-center shadow">
+      <div className="rounded-none bg-surface p-8 text-center shadow">
         <div className="mb-4 text-5xl" aria-hidden="true">{score === questions.length ? '🏆' : '📚'}</div>
-        <h3 className="mb-2 text-2xl font-bold text-tamarind text-balance">Quiz complete!</h3>
+        <h3 className="mb-2 text-2xl font-serif font-normal text-tamarind text-balance">Quiz complete!</h3>
         <p className="mb-4 text-tamarind/70">
           You scored <span className="font-bold text-clay tabular-nums">{score}/{questions.length}</span>
         </p>
@@ -84,7 +84,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
         <button
           type="button"
           onClick={resetQuiz}
-          className="mt-6 rounded-2xl bg-ink px-6 py-2 font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+          className="mt-6 rounded-none bg-ink px-6 py-2 font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
           Retry quiz
         </button>
@@ -93,15 +93,15 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
   }
 
   return (
-    <div className="rounded-2xl bg-surface p-8 shadow">
+    <div className="rounded-none bg-surface p-8 shadow">
       <div className="mb-4 flex items-center justify-between gap-4">
         <span className="text-sm text-tamarind/60">Question <span className="tabular-nums">{current + 1}</span> of <span className="tabular-nums">{questions.length}</span></span>
         <span className="text-sm font-semibold text-clay">Score: <span className="tabular-nums">{score}</span></span>
       </div>
-      <h3 className="mb-6 text-xl font-bold text-tamarind text-balance">{q.question}</h3>
+      <h3 className="mb-6 text-xl font-serif font-normal text-tamarind text-balance">{q.question}</h3>
       <div className="mb-6 grid gap-3">
         {q.options.map((opt, idx) => {
-          let cls = 'w-full rounded-2xl border-2 px-4 py-3 text-left font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay '
+          let cls = 'w-full rounded-none border-2 px-4 py-3 text-left font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay '
           if (selected === null) {
             cls += 'cursor-pointer border-tamarind/10 hover:border-honey hover:bg-jasmine'
           } else if (idx === q.correct) {
@@ -127,7 +127,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
         <button
           type="button"
           onClick={handleNext}
-          className="w-full rounded-2xl bg-ink py-3 font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+          className="w-full rounded-none bg-ink py-3 font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
           {current + 1 >= questions.length ? 'See results' : 'Next question →'}
         </button>

@@ -108,8 +108,8 @@ export default function AuthForm() {
   }
 
   return (
-    <div className="rounded-[2rem] border border-tamarind/10 bg-surface p-6 shadow-2xl shadow-tamarind/10 md:p-8">
-      <div className="flex rounded-2xl bg-jasmine p-1">
+    <div className="rounded-none border border-tamarind/10 bg-surface p-6 md:p-8">
+      <div className="flex rounded-none bg-jasmine p-1">
         {(['login', 'signup'] as const).map((item) => (
           <button
             key={item}
@@ -119,7 +119,7 @@ export default function AuthForm() {
               setError(null)
               setMessage(null)
             }}
-            className={`min-h-11 flex-1 rounded-xl px-4 py-2 text-sm font-black transition ${mode === item ? 'bg-ink text-surface shadow-sm' : 'text-tamarind/62 hover:text-clay'}`}
+            className={`min-h-11 flex-1 rounded-none px-4 py-2 text-sm font-bold transition ${mode === item ? 'bg-ink text-surface shadow-sm' : 'text-tamarind/62 hover:text-clay'}`}
           >
             {item === 'login' ? 'Login' : 'Create account'}
           </button>
@@ -131,7 +131,7 @@ export default function AuthForm() {
           type="button"
           onClick={signInWithGoogle}
           disabled={isLoading}
-          className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-2xl border border-tamarind/12 bg-surface px-5 py-3 font-black text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-clay hover:text-clay disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+          className="mt-6 flex min-h-12 w-full items-center justify-center gap-3 rounded-none border border-tamarind/12 bg-surface px-5 py-3 font-bold text-tamarind shadow-sm transition hover:-translate-y-0.5 hover:border-clay hover:text-clay disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface text-base" aria-hidden="true">G</span>
           Continue with Google
@@ -145,13 +145,13 @@ export default function AuthForm() {
       </div>
 
       {signedInEmail ? (
-        <div className="mt-6 rounded-2xl border border-honey/20 bg-sand/8 p-4">
+        <div className="mt-6 rounded-none border border-honey/20 bg-sand/8 p-4">
           <p className="font-bold text-tamarind">Signed in as</p>
           <p className="mt-1 break-all text-sm text-tamarind/70">{signedInEmail}</p>
           <button
             type="button"
             onClick={signOut}
-            className="mt-4 rounded-xl border border-tamarind/10 px-4 py-2 text-sm font-bold text-tamarind transition hover:border-clay hover:text-clay"
+            className="mt-4 rounded-none border border-tamarind/10 px-4 py-2 text-sm font-bold text-tamarind transition hover:border-clay hover:text-clay"
           >
             Sign out
           </button>
@@ -167,7 +167,7 @@ export default function AuthForm() {
             required
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-tamarind/12 bg-surface px-4 py-3 text-tamarind outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+            className="mt-2 w-full rounded-none border border-tamarind/12 bg-surface px-4 py-3 text-tamarind outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             placeholder="you@example.com"
           />
         </div>
@@ -181,7 +181,7 @@ export default function AuthForm() {
             minLength={6}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="mt-2 w-full rounded-2xl border border-tamarind/12 bg-surface px-4 py-3 text-tamarind outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
+            className="mt-2 w-full rounded-none border border-tamarind/12 bg-surface px-4 py-3 text-tamarind outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10"
             placeholder="At least 6 characters"
           />
         </div>
@@ -189,14 +189,14 @@ export default function AuthForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full rounded-2xl bg-ink px-5 py-3 font-black text-surface transition hover:-translate-y-0.5 hover:bg-ink/85 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
+          className="w-full rounded-none bg-ink px-5 py-3 font-bold text-surface transition hover:-translate-y-0.5 hover:bg-ink/85 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
           {isLoading ? 'Please wait…' : mode === 'login' ? 'Login to course' : 'Create course account'}
         </button>
       </form>
 
-      {message ? <p className="mt-4 rounded-2xl bg-sand/10 p-3 text-sm font-semibold text-honey">{message}</p> : null}
-      {error ? <p className="mt-4 rounded-2xl bg-clay/10 p-3 text-sm font-semibold text-clay">{error}</p> : null}
+      {message ? <p className="mt-4 rounded-none bg-sand/10 p-3 text-sm font-semibold text-honey">{message}</p> : null}
+      {error ? <p className="mt-4 rounded-none bg-clay/10 p-3 text-sm font-semibold text-clay">{error}</p> : null}
 
       <p className="mt-5 text-sm leading-6 text-tamarind/60">
         Your course progress is saved on this device. Use the same browser when you return to keep your place.

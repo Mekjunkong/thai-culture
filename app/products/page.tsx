@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
-import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
   title: 'Thai Lesson Products Online & On-site | Thai Lessons Chiang Mai',
@@ -103,7 +102,7 @@ export default function ProductsPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-jasmine text-tamarind">
+      <main className="bg-paper text-tamarind">
         <section className="px-4 py-12 md:py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
@@ -117,22 +116,22 @@ export default function ProductsPage() {
                 Start free, book a short correction session, or learn on-site in Chiang Mai with printable mission cards and real-world practice.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="#products" className="inline-flex min-h-13 items-center justify-center rounded-2xl bg-ink px-7 py-4 font-black text-surface shadow-lg shadow-ink/20 transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <Link href="#products" className="inline-flex min-h-13 items-center justify-center rounded-none bg-ink px-7 py-4 font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                   Compare products
                 </Link>
-                <a href="/products/onsite-chiang-mai-thai-lesson-pack.pdf" className="inline-flex min-h-13 items-center justify-center rounded-2xl border border-tamarind/15 bg-surface px-7 py-4 font-black text-tamarind shadow-sm transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <a href="/products/onsite-chiang-mai-thai-lesson-pack.pdf" className="inline-flex min-h-13 items-center justify-center rounded-none border border-tamarind/15 bg-surface px-7 py-4 font-bold text-tamarind shadow-sm transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                   Download workbook
                 </a>
               </div>
             </div>
 
-            <aside className="rounded-[2rem] border border-tamarind/10 bg-surface p-5 shadow-2xl shadow-tamarind/10">
+            <aside className="rounded-none border border-tamarind/10 bg-surface p-5">
               <p className="text-sm font-bold text-clay">Product promise</p>
-              <h2 className="mt-3 text-3xl font-black leading-tight">One useful Thai sentence you can use today.</h2>
+              <h2 className="mt-3 text-3xl font-serif font-normal leading-tight">One useful Thai sentence you can use today.</h2>
               <div className="mt-5 grid gap-3">
                 {deliverables.slice(0, 4).map((item) => (
-                  <div key={item} className="flex gap-3 rounded-2xl bg-jasmine p-4">
-                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-sand text-xs font-black text-surface">✓</span>
+                  <div key={item} className="flex gap-3 rounded-none bg-jasmine p-4">
+                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-sand text-xs font-bold text-surface">✓</span>
                     <p className="font-bold leading-6 text-tamarind/75">{item}</p>
                   </div>
                 ))}
@@ -145,26 +144,24 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
               <p className="text-sm font-bold text-clay">Product ladder</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">From free practice to real speaking support.</h2>
+              <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em] md:text-5xl">From free practice to real speaking support.</h2>
               <p className="mt-4 leading-8 text-tamarind/70">Try the method free first. When you want real feedback, pick the level of support that matches how long you are staying and how fast you want to improve.</p>
             </div>
             <div className="mt-10 grid gap-4 lg:grid-cols-5">
-              {productLadder.map((product, index) => (
-                <Reveal key={product.name} index={index}>
-                  <article className={`h-full rounded-[1.5rem] border p-5 shadow-sm transition duration-150 ease-out hover:-translate-y-0.5 hover:shadow-lg ${product.name === 'Starter Pack' ? 'border-honey bg-sand/10 shadow-lg shadow-tamarind/10' : 'border-tamarind/10 bg-jasmine'}`}>
-                    <p className="text-sm font-black text-clay">{product.level}</p>
-                    <h3 className="mt-3 text-2xl font-black leading-tight">{product.name}</h3>
-                    <p className="mt-3 text-xl font-black text-clay">{product.price}</p>
+              {productLadder.map((product) => (
+                  <article key={product.name} className={`h-full rounded-none border p-5 shadow-sm transition duration-150 ease-out hover:-translate-y-0.5 ${product.name === 'Starter Pack' ? 'border-honey bg-sand/10' : 'border-tamarind/10 bg-jasmine'}`}>
+                    <p className="text-sm font-bold text-clay">{product.level}</p>
+                    <h3 className="mt-3 text-2xl font-serif font-normal leading-tight">{product.name}</h3>
+                    <p className="mt-3 text-xl font-bold text-clay">{product.price}</p>
                     <p className="mt-3 text-sm font-bold text-tamarind/55">Best for: {product.bestFor}</p>
                     <p className="mt-4 min-h-24 leading-7 text-tamarind/70">{product.outcome}</p>
                     <ul className="mt-4 space-y-2 border-t border-tamarind/10 pt-4 text-sm leading-6 text-tamarind/70">
                       {product.includes.map((item) => <li key={item}>✓ {item}</li>)}
                     </ul>
-                    <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-ink px-5 py-3 font-black text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                    <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-none bg-ink px-5 py-3 font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                       {product.cta}
                     </Link>
                   </article>
-                </Reveal>
               ))}
             </div>
           </div>
@@ -172,25 +169,25 @@ export default function ProductsPage() {
 
         <section className="px-4 py-16 md:py-20">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
-            <article className="rounded-[2rem] border border-tamarind/10 bg-surface p-6 shadow-sm">
+            <article className="rounded-none border border-tamarind/10 bg-surface p-6 shadow-sm">
               <p className="text-sm font-bold text-clay">Online product</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">Remote lessons that still feel personal.</h2>
+              <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em]">Remote lessons that still feel personal.</h2>
               <div className="mt-6 grid gap-3">
                 {onlineFlow.map(([step, detail]) => (
-                  <div key={step} className="rounded-2xl bg-jasmine p-4">
-                    <p className="font-black text-clay">{step}</p>
+                  <div key={step} className="rounded-none bg-jasmine p-4">
+                    <p className="font-bold text-clay">{step}</p>
                     <p className="mt-1 leading-7 text-tamarind/70">{detail}</p>
                   </div>
                 ))}
               </div>
             </article>
-            <article className="rounded-[2rem] border border-honey bg-sand/10 p-6 shadow-lg shadow-tamarind/10">
+            <article className="rounded-none border border-honey bg-sand/10 p-6">
               <p className="text-sm font-bold text-clay">On-site product</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em]">Chiang Mai lessons should feel like a local mission.</h2>
+              <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em]">Chiang Mai lessons should feel like a local mission.</h2>
               <div className="mt-6 grid gap-3">
                 {onsiteFlow.map(([step, detail]) => (
-                  <div key={step} className="rounded-2xl bg-surface p-4">
-                    <p className="font-black text-clay">{step}</p>
+                  <div key={step} className="rounded-none bg-surface p-4">
+                    <p className="font-bold text-clay">{step}</p>
                     <p className="mt-1 leading-7 text-tamarind/70">{detail}</p>
                   </div>
                 ))}
@@ -202,31 +199,29 @@ export default function ProductsPage() {
         <section className="bg-ink px-4 py-16 text-surface md:py-20">
           <div className="mx-auto max-w-6xl">
             <p className="text-sm font-bold text-honey">5-lesson survival path</p>
-            <h2 className="mt-3 max-w-3xl text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">A real beginner package, not random lessons.</h2>
+            <h2 className="mt-3 max-w-3xl text-4xl font-serif font-normal leading-tight tracking-[-0.04em] md:text-5xl">A real beginner package, not random lessons.</h2>
             <div className="mt-10 grid gap-3 md:grid-cols-5">
-              {curriculum.map((item, index) => (
-                <Reveal key={item.lesson} index={index}>
-                  <article className="rounded-[1.5rem] border border-surface/10 bg-surface/10 p-5">
-                    <p className="text-sm font-black text-honey">{item.lesson}</p>
-                    <h3 className="mt-3 text-xl font-black leading-tight">{item.focus}</h3>
+              {curriculum.map((item) => (
+                  <article key={item.lesson} className="rounded-none border border-surface/10 bg-surface/10 p-5">
+                    <p className="text-sm font-bold text-honey">{item.lesson}</p>
+                    <h3 className="mt-3 text-xl font-serif font-normal leading-tight">{item.focus}</h3>
                     <p className="mt-3 text-sm leading-6 text-surface/75">{item.result}</p>
                   </article>
-                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
         <section id="book" className="px-4 py-16 md:py-20">
-          <div className="mx-auto max-w-4xl rounded-[2rem] bg-surface p-6 text-center shadow-2xl shadow-tamarind/10 md:p-10">
+          <div className="mx-auto max-w-4xl rounded-none bg-surface p-6 text-center md:p-10">
             <p className="text-sm font-bold text-clay">Best next step</p>
-            <h2 className="mt-3 text-4xl font-black leading-tight tracking-[-0.04em] md:text-5xl">Start with one trial or one Starter Pack.</h2>
+            <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em] md:text-5xl">Start with one trial or one Starter Pack.</h2>
             <p className="mx-auto mt-4 max-w-2xl leading-8 text-tamarind/70">Send one message with your situation: cafe, market, restaurant, driver, condo, work, dating, or daily life. I will suggest the best lesson format.</p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-honey px-6 py-3 font-black text-tamarind transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 font-bold text-tamarind transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                 Book a lesson
               </Link>
-              <Link href="/practice" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-tamarind/15 px-6 py-3 font-black text-clay transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+              <Link href="/practice" className="inline-flex min-h-12 items-center justify-center rounded-none border border-tamarind/15 px-6 py-3 font-bold text-clay transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                 Try free practice first
               </Link>
             </div>
