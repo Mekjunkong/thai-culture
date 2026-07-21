@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 
 type Place = { id: string; label: string; thai: string; roman: string; clue: string }
 type Direction = { id: string; label: string; thai: string; roman: string; meaning: string }
@@ -129,7 +130,7 @@ export default function DriverStopMission() {
               {places.map((item) => (
                 <button key={item.id} type="button" onClick={() => { setPlaceId(item.id); resetRoleplay() }} className={`rounded-none border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${placeId === item.id ? 'border-honey bg-sand/12' : 'border-tamarind/10 bg-jasmine hover:border-honey/60'}`} aria-pressed={placeId === item.id}>
                   <span className="font-bold text-tamarind">{item.label}</span>
-                  <span className="mt-1 block text-lg font-bold text-clay">{item.thai}</span>
+                  <span className="mt-1 block text-lg font-bold text-clay" lang="th">{item.thai}</span>
                   <span className="block text-sm text-tamarind/60">{item.roman} · {item.clue}</span>
                 </button>
               ))}
@@ -140,7 +141,7 @@ export default function DriverStopMission() {
               {directions.map((item) => (
                 <button key={item.id} type="button" onClick={() => { setDirectionId(item.id); resetRoleplay() }} className={`rounded-none border p-4 text-left transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${directionId === item.id ? 'border-honey bg-sand/12' : 'border-tamarind/10 bg-jasmine hover:border-honey/60'}`} aria-pressed={directionId === item.id}>
                   <span className="font-bold text-tamarind">{item.label}</span>
-                  <span className="ml-2 font-bold text-clay">{item.thai}</span>
+                  <span className="ml-2 font-bold text-clay" lang="th">{item.thai}</span>
                   <span className="mt-1 block text-sm text-tamarind/60">{item.roman}</span>
                 </button>
               ))}
@@ -153,7 +154,7 @@ export default function DriverStopMission() {
                 <h2 className="text-2xl font-serif font-normal tracking-[-0.03em]">3. Build your driver phrases</h2>
                 <div className="rounded-full bg-jasmine p-1 text-sm font-bold">
                   {(['ครับ', 'ค่ะ'] as const).map((ending) => (
-                    <button key={ending} type="button" onClick={() => { setParticle(ending); resetRoleplay() }} className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay ${particle === ending ? 'bg-ink text-surface' : 'text-tamarind/65'}`} aria-pressed={particle === ending}>
+                    <button key={ending} type="button" onClick={() => { setParticle(ending); resetRoleplay() }} className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay ${particle === ending ? 'bg-ink text-surface' : 'text-tamarind/65'}`} aria-pressed={particle === ending} lang="th">
                       {ending}
                     </button>
                   ))}
@@ -163,13 +164,13 @@ export default function DriverStopMission() {
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 <div className="rounded-none bg-ink p-5 text-surface md:p-7">
                   <p className="text-sm font-bold uppercase text-honey">Say this to stop</p>
-                  <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl">{stopPhrase}</p>
+                  <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl" lang="th">{stopPhrase}</p>
                   <p className="mt-4 text-lg text-surface/78">{stopRoman}</p>
                   <p className="mt-2 text-surface/78">Please stop {place.label.toLowerCase()}.</p>
                 </div>
                 <div className="rounded-none bg-jasmine p-5 md:p-7">
                   <p className="text-sm font-bold uppercase text-clay">Direction phrase</p>
-                  <p className="mt-3 text-4xl font-bold leading-tight text-clay md:text-5xl">{directionPhrase}</p>
+                  <p className="mt-3 text-4xl font-bold leading-tight text-clay md:text-5xl" lang="th">{directionPhrase}</p>
                   <p className="mt-4 text-lg text-tamarind/70">{directionRoman}</p>
                   <p className="mt-2 text-tamarind/70">{direction.meaning}, please.</p>
                 </div>
@@ -178,24 +179,24 @@ export default function DriverStopMission() {
               <div className="mt-5 grid gap-3 rounded-none bg-jasmine p-4 sm:grid-cols-3">
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase text-clay">Stop</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">จอด</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">จอด</p>
                   <p className="text-sm text-tamarind/60">jawt</p>
                 </div>
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase text-clay">Place</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">{place.thai}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">{place.thai}</p>
                   <p className="text-sm text-tamarind/60">{place.roman}</p>
                 </div>
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase text-clay">Polite</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">{particle}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">{particle}</p>
                   <p className="text-sm text-tamarind/60">{particle === 'ครับ' ? 'khrap' : 'kha'}</p>
                 </div>
               </div>
 
               <div className="mt-5 rounded-none border border-honey/30 bg-sand/10 p-4 text-sm leading-6 text-tamarind/75">
                 <p className="font-bold text-tamarind">Natural Thai note</p>
-                <p><strong>จอดตรงนี้ครับ/ค่ะ</strong> is short, polite, and enough for most local transport situations. Pointing at the map or place helps.</p>
+                <p><strong lang="th">จอดตรงนี้ครับ/ค่ะ</strong> is short, polite, and enough for most local transport situations. Pointing at the map or place helps.</p>
               </div>
 
               <div className="mt-5 grid gap-3">
@@ -215,7 +216,7 @@ export default function DriverStopMission() {
             <div className="rounded-none border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
               <h2 className="text-2xl font-serif font-normal tracking-[-0.03em]">4. Driver roleplay</h2>
               <p className="mt-2 text-tamarind/70">Driver asks on the phone:</p>
-              <p className="mt-3 rounded-none bg-jasmine p-4 text-3xl font-bold text-clay">อยู่ตรงไหนครับ?</p>
+              <p className="mt-3 rounded-none bg-jasmine p-4 text-3xl font-bold text-clay" lang="th">อยู่ตรงไหนครับ?</p>
               <p className="mt-2 text-sm text-tamarind/60">yuu dtrong nai khrap? - Where are you?</p>
 
               <p className="mt-5 font-bold text-tamarind">Choose how to say stop here:</p>
@@ -223,7 +224,7 @@ export default function DriverStopMission() {
                 {driverOptions.map((option) => {
                   const isSelected = driverChoice === option
                   const isCorrect = option === stopPhrase
-                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected}>{option}</button>
+                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected} lang="th">{option}</button>
                 })}
               </div>
 
@@ -232,7 +233,7 @@ export default function DriverStopMission() {
                 {directionOptions.map((option) => {
                   const isSelected = directionChoice === option
                   const isCorrect = option === directionPhrase
-                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected}>{option}</button>
+                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected} lang="th">{option}</button>
                 })}
               </div>
 
@@ -254,9 +255,14 @@ export default function DriverStopMission() {
                 Record yourself saying “{stopPhrase}” and “{directionPhrase}”. Mike can correct pronunciation, rhythm, and polite feeling.
               </p>
             </div>
-            <a href={`https://wa.me/66929894495?text=${whatsappText}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-              WhatsApp Mike
-            </a>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a href={`https://wa.me/66929894495?text=${whatsappText}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                WhatsApp Mike
+              </a>
+              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                Book a lesson
+              </Link>
+            </div>
           </div>
         </section>
       </main>

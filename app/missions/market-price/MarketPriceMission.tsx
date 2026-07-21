@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 
 type MarketItem = {
   id: string
@@ -162,14 +163,14 @@ export default function MarketPriceMission() {
             <h2 className="text-2xl font-serif font-normal tracking-[-0.03em]">1. Ask the price</h2>
             <div className="mt-5 rounded-none bg-ink p-5 text-surface md:p-7">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">Say this first</p>
-              <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl">{askPhrase}</p>
+              <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl" lang="th">{askPhrase}</p>
               <p className="mt-4 text-lg text-surface/78">{askRoman}</p>
               <p className="mt-2 text-surface/78">How much is it?</p>
             </div>
 
             <div className="mt-5 rounded-none border border-honey/30 bg-sand/10 p-4 text-sm leading-6 text-tamarind/75">
               <p className="font-bold text-tamarind">Pronunciation rhythm</p>
-              <p>Break it into chunks. Do not rush: <strong>ราคา</strong> · <strong>เท่าไหร่</strong> · <strong>{particle}</strong></p>
+              <p>Break it into chunks. Do not rush: <strong lang="th">ราคา</strong> · <strong lang="th">เท่าไหร่</strong> · <strong lang="th">{particle}</strong></p>
             </div>
 
             <div className="mt-5 grid gap-3">
@@ -195,7 +196,7 @@ export default function MarketPriceMission() {
                 >
                   <span className="text-3xl" aria-hidden="true">{marketItem.emoji}</span>
                   <span className="mt-3 block font-bold text-tamarind">{marketItem.label}</span>
-                  <span className="mt-1 block text-lg font-bold text-clay">{marketItem.thai}</span>
+                  <span className="mt-1 block text-lg font-bold text-clay" lang="th">{marketItem.thai}</span>
                   <span className="text-sm text-tamarind/60">{marketItem.roman}</span>
                 </button>
               ))}
@@ -214,6 +215,7 @@ export default function MarketPriceMission() {
                       onClick={() => setParticle(ending)}
                       className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay ${particle === ending ? 'bg-ink text-surface' : 'text-tamarind/65'}`}
                       aria-pressed={particle === ending}
+                      lang="th"
                     >
                       {ending}
                     </button>
@@ -235,7 +237,7 @@ export default function MarketPriceMission() {
                     aria-pressed={quantityId === marketQuantity.id}
                   >
                     <span className="font-bold text-tamarind">{marketQuantity.label}</span>
-                    <span className="mt-1 block text-lg font-bold text-clay">{marketQuantity.thai}</span>
+                    <span className="mt-1 block text-lg font-bold text-clay" lang="th">{marketQuantity.thai}</span>
                     <span className="text-sm text-tamarind/60">{marketQuantity.roman}</span>
                   </button>
                 ))}
@@ -243,7 +245,7 @@ export default function MarketPriceMission() {
 
               <div className="mt-5 rounded-none bg-ink p-5 text-surface md:p-7">
                 <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">Then buy it</p>
-                <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl">{buyPhrase}</p>
+                <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl" lang="th">{buyPhrase}</p>
                 <p className="mt-4 text-lg text-surface/78">{buyRoman}</p>
                 <p className="mt-2 text-surface/78">I’d like {item.label.toLowerCase()}, {quantity.label.toLowerCase()}, please.</p>
               </div>
@@ -251,17 +253,17 @@ export default function MarketPriceMission() {
               <div className="mt-5 grid gap-3 rounded-none bg-jasmine p-4 sm:grid-cols-3">
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-clay">Chunk 1</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">ขอ {item.thai}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">ขอ {item.thai}</p>
                   <p className="text-sm text-tamarind/60">khǎaw {item.roman}</p>
                 </div>
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-clay">Chunk 2</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">{quantity.thai}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">{quantity.thai}</p>
                   <p className="text-sm text-tamarind/60">{quantity.roman}</p>
                 </div>
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-clay">Polite ending</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">{particle}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">{particle}</p>
                   <p className="text-sm text-tamarind/60">{particle === 'ครับ' ? 'khrap' : 'kha'}</p>
                 </div>
               </div>
@@ -282,7 +284,7 @@ export default function MarketPriceMission() {
             <div className="rounded-none border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
               <h2 className="text-2xl font-serif font-normal tracking-[-0.03em]">4. Market roleplay</h2>
               <p className="mt-2 text-tamarind/70">Vendor says:</p>
-              <p className="mt-3 rounded-none bg-jasmine p-4 text-3xl font-bold text-clay">{priceWord.thai}</p>
+              <p className="mt-3 rounded-none bg-jasmine p-4 text-3xl font-bold text-clay" lang="th">{priceWord.thai}</p>
               <p className="mt-2 text-sm text-tamarind/60">{priceWord.roman} - {totalPrice} baht</p>
 
               <p className="mt-5 font-bold text-tamarind">What price did you hear?</p>
@@ -316,6 +318,7 @@ export default function MarketPriceMission() {
                       onClick={() => setRoleplayChoice(option)}
                       className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
                       aria-pressed={isSelected}
+                      lang="th"
                     >
                       {option}
                     </button>
@@ -343,14 +346,19 @@ export default function MarketPriceMission() {
                 Record yourself saying “{askPhrase}” and “{buyPhrase}”. Mike can correct pronunciation, rhythm, tone feeling, and politeness.
               </p>
             </div>
-            <a
-              href={`https://wa.me/66929894495?text=${whatsappText}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out"
-            >
-              WhatsApp Mike
-            </a>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href={`https://wa.me/66929894495?text=${whatsappText}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface"
+              >
+                WhatsApp Mike
+              </a>
+              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                Book a lesson
+              </Link>
+            </div>
           </div>
         </section>
       </main>

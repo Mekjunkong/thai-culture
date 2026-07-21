@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 
 type Drink = {
   id: string
@@ -219,7 +220,7 @@ export default function OrderCoffeeMission() {
                 >
                   <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
                   <span className="mt-3 block font-bold text-tamarind">{item.label}</span>
-                  <span className="mt-1 block text-lg font-bold text-clay">{item.thai}</span>
+                  <span className="mt-1 block text-lg font-bold text-clay" lang="th">{item.thai}</span>
                   <span className="text-sm text-tamarind/60">{item.roman}</span>
                 </button>
               ))}
@@ -236,7 +237,7 @@ export default function OrderCoffeeMission() {
                   aria-pressed={sweetnessId === item.id}
                 >
                   <span className="font-bold text-tamarind">{item.label}</span>
-                  <span className="ml-2 font-bold text-clay">{item.thai}</span>
+                  <span className="ml-2 font-bold text-clay" lang="th">{item.thai}</span>
                   <span className="mt-1 block text-sm text-tamarind/60">{item.roman}</span>
                 </button>
               ))}
@@ -255,6 +256,7 @@ export default function OrderCoffeeMission() {
                       onClick={() => setParticle(item)}
                       className={`rounded-full px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay ${particle === item ? 'bg-ink text-surface' : 'text-tamarind/65'}`}
                       aria-pressed={particle === item}
+                      lang="th"
                     >
                       {item}
                     </button>
@@ -264,7 +266,7 @@ export default function OrderCoffeeMission() {
 
               <div className="mt-5 rounded-none bg-ink p-5 text-surface md:p-7">
                 <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">Say this</p>
-                <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl">{phrase}</p>
+                <p className="mt-3 text-4xl font-bold leading-tight md:text-5xl" lang="th">{phrase}</p>
                 <p className="mt-4 text-lg text-surface/78">{roman}</p>
                 <p className="mt-2 text-surface/78">{meaning}</p>
               </div>
@@ -298,19 +300,19 @@ export default function OrderCoffeeMission() {
               <div className="mt-5 grid gap-3 rounded-none bg-jasmine p-4 sm:grid-cols-3">
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-clay">Chunk 1</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">ขอ {drink.thai}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">ขอ {drink.thai}</p>
                   <p className="text-sm text-tamarind/60">khǎaw {drink.roman}</p>
                 </div>
                 {!isWater && (
                   <div className="rounded-none bg-surface p-4">
                     <p className="text-xs font-bold uppercase tracking-[0.12em] text-clay">Chunk 2</p>
-                    <p className="mt-2 text-2xl font-bold text-clay">{sweetness.thai}</p>
+                    <p className="mt-2 text-2xl font-bold text-clay" lang="th">{sweetness.thai}</p>
                     <p className="text-sm text-tamarind/60">{sweetness.roman}</p>
                   </div>
                 )}
                 <div className="rounded-none bg-surface p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-clay">Polite ending</p>
-                  <p className="mt-2 text-2xl font-bold text-clay">{particle}</p>
+                  <p className="mt-2 text-2xl font-bold text-clay" lang="th">{particle}</p>
                   <p className="text-sm text-tamarind/60">{particle === 'ครับ' ? 'khrap' : 'kha'}</p>
                 </div>
               </div>
@@ -332,7 +334,7 @@ export default function OrderCoffeeMission() {
             <div className="rounded-none border border-tamarind/10 bg-surface p-5 shadow-sm md:p-6">
               <h2 className="text-2xl font-serif font-normal tracking-[-0.03em]">4. Cafe roleplay</h2>
               <p className="mt-2 text-tamarind/70">Cafe staff says:</p>
-              <p className="mt-3 rounded-none bg-jasmine p-4 text-3xl font-bold text-clay">เอาอะไรคะ?</p>
+              <p className="mt-3 rounded-none bg-jasmine p-4 text-3xl font-bold text-clay" lang="th">เอาอะไรคะ?</p>
               <p className="mt-2 text-sm text-tamarind/60">ao a-rai kha? - What would you like?</p>
               <div className="mt-5 grid gap-3">
                 {quizOptions.map((option) => {
@@ -345,6 +347,7 @@ export default function OrderCoffeeMission() {
                       onClick={() => setQuizChoice(option)}
                       className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
                       aria-pressed={isSelected}
+                      lang="th"
                     >
                       {option}
                     </button>
@@ -369,14 +372,19 @@ export default function OrderCoffeeMission() {
                 Reading is not enough. Record yourself saying the phrase and send it to Mike. He can correct pronunciation, speed, tone feeling, and politeness.
               </p>
             </div>
-            <a
-              href={`https://wa.me/66929894495?text=${whatsappText}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out"
-            >
-              WhatsApp Mike
-            </a>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href={`https://wa.me/66929894495?text=${whatsappText}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface"
+              >
+                WhatsApp Mike
+              </a>
+              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                Book a lesson
+              </Link>
+            </div>
           </div>
         </section>
       </main>

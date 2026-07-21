@@ -149,12 +149,12 @@ export default function HomePage() {
                 Pricing
               </a>
             </div>
-            <a
-              href="#pricing"
+            <Link
+              href="/book"
               className="inline-flex min-h-11 items-center justify-center bg-clay px-[22px] py-[11px] text-[13px] font-semibold text-paper transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
             >
               Book a trial
-            </a>
+            </Link>
           </nav>
 
           <section className="grid items-center gap-12 px-6 pt-16 lg:grid-cols-2">
@@ -170,9 +170,9 @@ export default function HomePage() {
                 <Link href="/missions" className={btnSolid}>
                   Try a free mission
                 </Link>
-                <a href="#pricing" className={btnOutline}>
+                <Link href="/book" className={btnOutline}>
                   Book a trial
-                </a>
+                </Link>
               </div>
               <div className="mt-[26px] flex max-w-[34ch] flex-col gap-1 bg-ink px-5 py-4 text-paper">
                 <span className="font-serif text-[22px] font-medium text-honey">
@@ -357,15 +357,17 @@ export default function HomePage() {
             </h2>
             <div className="grid">
               {faqs.map((faq, index) => (
-                <div
+                <details
                   key={faq.question}
-                  className={`border-t border-ink/12 py-5 ${
+                  className={`group border-t border-ink/12 py-5 ${
                     index === faqs.length - 1 ? 'border-b' : ''
                   }`}
                 >
-                  <h3 className="font-serif text-lg text-ink">{faq.question}</h3>
+                  <summary className="cursor-pointer list-none font-serif text-lg text-ink marker:content-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                    {faq.question}
+                  </summary>
                   <p className="mt-2 text-sm leading-[1.7] text-ink/65">{faq.answer}</p>
-                </div>
+                </details>
               ))}
             </div>
           </section>
@@ -374,9 +376,9 @@ export default function HomePage() {
             <p className="font-serif text-2xl italic">
               Start free — book a trial when you&apos;re ready for feedback.
             </p>
-            <a href="#pricing" className={`${btnAccent} mt-6`}>
+            <Link href="/book" className={`${btnAccent} mt-6`}>
               Book a 30-minute trial
-            </a>
+            </Link>
           </section>
 
           <footer className="mx-6 flex flex-col items-center justify-between gap-3 border-t border-ink/10 pb-10 pt-6 text-[13px] text-ink/55 sm:flex-row">

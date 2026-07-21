@@ -87,7 +87,6 @@ export default function SiteFooter() {
                   +66 92 989 4495
                 </a>
               </li>
-              <li>Replies within one day, Thai time</li>
             </ul>
           </div>
         </div>
