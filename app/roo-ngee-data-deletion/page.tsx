@@ -36,6 +36,7 @@ export default function RooNgeeDataDeletion() {
         <p className="mt-4 text-sm text-tamarind/60">Last updated: 11 August 2026</p>
 
         <div className="mt-10 space-y-8 text-base leading-8 text-tamarind/80">
+          <p><strong>Data controller:</strong> Pasuthun Junkong, Chiang Mai, Thailand.</p>
           <section>
             <h2 className="text-2xl font-black text-tamarind">How to request deletion</h2>
             <ol className="mt-4 list-decimal space-y-3 pl-6">

@@ -45,6 +45,9 @@ export default function RooNgeePrivacyPolicy() {
               and manage Page content through Meta&apos;s official tools. It is not offered as a
               public consumer application.
             </p>
+            <p className="mt-3">
+              <strong>Data controller:</strong> Pasuthun Junkong, Chiang Mai, Thailand.
+            </p>
           </section>
 
           <section>
@@ -123,8 +126,8 @@ export default function RooNgeePrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-black text-tamarind">7. Contact</h2>
             <p className="mt-3">
-              For privacy questions or requests, contact the Roo Ngee operator in Chiang Mai,
-              Thailand through WhatsApp at{' '}
+              For privacy questions or requests, contact Pasuthun Junkong, the Roo Ngee operator
+              in Chiang Mai, Thailand, through WhatsApp at{' '}
               <a className="font-bold text-indigo underline underline-offset-4" href={whatsappHref} target="_blank" rel="noreferrer">
                 +66 92 989 4495
               </a>
