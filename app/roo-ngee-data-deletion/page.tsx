@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   description: 'How to request deletion of data associated with Roo Ngee Publisher.',
   alternates: { canonical: '/roo-ngee-data-deletion' },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Data Deletion Instructions | Roo Ngee Publisher',
+    description: 'How to request deletion of data associated with Roo Ngee Publisher.',
+    url: '/roo-ngee-data-deletion',
+    siteName: 'Roo Ngee Publisher',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Data Deletion Instructions | Roo Ngee Publisher',
+    description: 'How to request deletion of data associated with Roo Ngee Publisher.',
+  },
 }
 
 const requestText = 'Data deletion request for Roo Ngee Publisher: '
@@ -41,6 +53,12 @@ export default function RooNgeeDataDeletion() {
                 not send your Facebook password, access token, or payment information.
               </li>
             </ol>
+            <p className="mt-4">
+              WhatsApp, a Meta service, processes the account or phone information and message
+              content you send. We use those details only to identify, verify, and complete your
+              request. Request messages and verification details are deleted or minimized after a
+              reasonable record-keeping period unless law or security needs require longer retention.
+            </p>
           </section>
 
           <section>
