@@ -18,7 +18,7 @@ export default function AudioPlayer({ src, label }: AudioPlayerProps) {
           <span className="text-2xl" aria-hidden="true">🎧</span>
           <div className="min-w-0 flex-1">
             <p className="mb-2 text-sm font-semibold text-tamarind">{label}</p>
-            <audio controls className="h-9 w-full" preload="none" src={src} />
+            <audio controls aria-label={`${label} audio`} className="h-9 w-full" preload="none" src={src} />
           </div>
         </div>
         <button

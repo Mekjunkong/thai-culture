@@ -12,6 +12,12 @@ export const metadata: Metadata = {
     title: 'Thai Lesson Products Online & On-site',
     description: 'A clear product ladder for practical Thai missions, online coaching, on-site Chiang Mai lessons, and voice-note correction.',
     url: '/products',
+    images: [{
+      url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+      width: 1200,
+      height: 630,
+      alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+    }],
     type: 'website',
   },
 }

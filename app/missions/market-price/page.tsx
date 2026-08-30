@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     title: 'Ask the Price in Thai - Chiang Mai Market Mission',
     description: 'A fun, beginner-friendly Thai mission for expats: ask how much and buy fruit at a Chiang Mai market.',
     url: '/missions/market-price',
+    images: [{
+      url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+      width: 1200,
+      height: 630,
+      alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+    }],
     type: 'article',
   },
 }

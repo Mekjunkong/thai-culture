@@ -86,7 +86,7 @@ export default function RecordCompare({ nativeSrc }: { nativeSrc: string }) {
         {myAudioUrl && (
           <div className="flex min-w-0 flex-1 items-center gap-2">
             <span className="text-xs font-semibold text-tamarind/60">You:</span>
-            <audio controls src={myAudioUrl} className="h-9 min-w-0 flex-1" />
+            <audio controls aria-label="Your recorded Thai practice" src={myAudioUrl} className="h-9 min-w-0 flex-1" />
           </div>
         )}
       </div>

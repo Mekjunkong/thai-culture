@@ -291,7 +291,7 @@ export default function ThaiPracticeApp() {
             <p className="text-6xl" aria-hidden="true">{currentCard.emoji}</p>
             {!flipped ? (
               <>
-                <p className="mt-8 text-5xl font-bold leading-tight text-clay">{currentCard.thai}</p>
+                <p className="mt-8 text-5xl font-bold leading-tight text-clay" lang="th">{currentCard.thai}</p>
                 <p className="mt-4 text-xl font-bold text-clay">{currentCard.roman}</p>
                 <p className="mt-8 rounded-none bg-jasmine p-4 font-bold text-tamarind/70">Tap to reveal meaning</p>
               </>
@@ -326,14 +326,14 @@ export default function ThaiPracticeApp() {
           <section className="mt-5 rounded-none border border-surface/70 bg-surface p-6">
             <p className="text-sm font-bold text-clay">Choose the meaning</p>
             <p className="mt-5 text-center text-6xl" aria-hidden="true">{currentQuestion.word.emoji}</p>
-            <h1 className="mt-5 text-center text-5xl font-bold leading-tight text-clay">{currentQuestion.word.thai}</h1>
+            <h1 className="mt-5 text-center text-5xl font-bold leading-tight text-clay" lang="th">{currentQuestion.word.thai}</h1>
             <p className="mt-3 text-center text-lg font-bold text-clay">{currentQuestion.word.roman}</p>
             <div className="mt-6 grid gap-3">
               {currentQuestion.options.map((option) => {
                 const isSelected = selected === option
                 const isCorrect = option === currentQuestion.word.english
                 return (
-                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-none border p-4 text-left font-bold transition duration-150 ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
+                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-none border p-4 text-left font-bold transition duration-150 ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
                     {option}
                   </button>
                 )
@@ -362,7 +362,7 @@ export default function ThaiPracticeApp() {
             <p className="text-6xl" aria-hidden="true">{reviewCard.emoji}</p>
             {!reviewRevealed ? (
               <>
-                <p className="mt-8 text-5xl font-bold leading-tight text-clay">{reviewCard.thai}</p>
+                <p className="mt-8 text-5xl font-bold leading-tight text-clay" lang="th">{reviewCard.thai}</p>
                 <p className="mt-4 text-xl font-bold text-clay">{reviewCard.roman}</p>
                 <p className="mt-8 text-tamarind/60">Say it out loud, then reveal the meaning.</p>
                 <button
@@ -379,7 +379,7 @@ export default function ThaiPracticeApp() {
                 <div className="mt-6 grid grid-cols-4 gap-2">
                   <button type="button" onClick={() => gradeReview('again')} className="min-h-12 rounded-none border-2 border-clay/40 bg-clay/10 text-sm font-bold text-clay">Again</button>
                   <button type="button" onClick={() => gradeReview('hard')} className="min-h-12 rounded-none border-2 border-honey/50 bg-honey/15 text-sm font-bold text-tamarind">Hard</button>
-                  <button type="button" onClick={() => gradeReview('good')} className="min-h-12 rounded-none border-2 border-honey/50 bg-sand/12 text-sm font-bold text-honey">Good</button>
+                  <button type="button" onClick={() => gradeReview('good')} className="min-h-12 rounded-none border-2 border-honey/50 bg-sand/12 text-sm font-bold text-tamarind">Good</button>
                   <button type="button" onClick={() => gradeReview('easy')} className="min-h-12 rounded-none border-2 border-clay/40 bg-ink/10 text-sm font-bold text-clay">Easy</button>
                 </div>
               </>

@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     title: 'Order Food and Choose Spice Level in Thai - Chiang Mai Mission',
     description: 'A practical Thai restaurant mission for expats: order food, control spice level, and ask for the bill.',
     url: '/missions/order-food-spice',
+    images: [{
+      url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+      width: 1200,
+      height: 630,
+      alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+    }],
     type: 'article',
   },
 }

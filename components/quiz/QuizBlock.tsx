@@ -105,7 +105,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
           if (selected === null) {
             cls += 'cursor-pointer border-tamarind/10 hover:border-honey hover:bg-jasmine'
           } else if (idx === q.correct) {
-            cls += 'border-honey bg-sand/10 text-honey'
+            cls += 'border-honey bg-sand/10 text-tamarind'
           } else if (idx === selected) {
             cls += 'border-clay bg-clay/10 text-clay'
           } else {

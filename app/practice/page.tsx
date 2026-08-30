@@ -12,6 +12,12 @@ export const metadata: Metadata = {
     title: 'Thai Practice App for Expats in Chiang Mai',
     description: 'Practice useful Thai with flashcards, mini quizzes, stars, and Chiang Mai daily-life categories.',
     url: '/practice',
+    images: [{
+      url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+      width: 1200,
+      height: 630,
+      alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+    }],
     type: 'website',
   },
 }
