@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     title: '5-Minute Thai Missions for Chiang Mai',
     description: 'Choose a real Chiang Mai situation and practice one useful Thai phrase in 3-5 minutes.',
     url: '/missions',
+    images: [{
+      url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+      width: 1200,
+      height: 630,
+      alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+    }],
     type: 'website',
   },
 }

@@ -127,7 +127,7 @@ export default function MarketPriceMission() {
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
-                  <div key={step} className={`rounded-none border p-3 text-sm font-bold ${progress[index] ? 'border-honey/50 bg-sand/12 text-honey' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
+                  <div key={step} className={`rounded-none border p-3 text-sm font-bold ${progress[index] ? 'border-honey/50 bg-sand/12 text-tamarind' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
                     <span className="block text-xs uppercase tracking-[0.12em]">Step {index + 1}</span>
                     {step}
                   </div>
@@ -297,7 +297,7 @@ export default function MarketPriceMission() {
                       key={price}
                       type="button"
                       onClick={() => setPriceChoice(price)}
-                      className={`rounded-none border p-4 text-center text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
+                      className={`rounded-none border p-4 text-center text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
                       aria-pressed={isSelected}
                     >
                       {price} baht
@@ -316,7 +316,7 @@ export default function MarketPriceMission() {
                       key={option}
                       type="button"
                       onClick={() => setRoleplayChoice(option)}
-                      className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
+                      className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`}
                       aria-pressed={isSelected}
                       lang="th"
                     >
@@ -327,7 +327,7 @@ export default function MarketPriceMission() {
               </div>
 
               {(priceChoice || roleplayChoice) && (
-                <p className={`mt-4 rounded-none p-4 font-bold ${priceChoice === totalPrice && roleplayChoice === buyPhrase ? 'bg-sand/12 text-honey' : 'bg-jasmine text-tamarind/70'}`}>
+                <p className={`mt-4 rounded-none p-4 font-bold ${priceChoice === totalPrice && roleplayChoice === buyPhrase ? 'bg-sand/12 text-tamarind' : 'bg-jasmine text-tamarind/70'}`}>
                   {priceChoice === totalPrice && roleplayChoice === buyPhrase
                     ? 'Correct - market mission almost complete!'
                     : 'Keep going. Listen for the baht amount, then choose the phrase that buys your item.'}

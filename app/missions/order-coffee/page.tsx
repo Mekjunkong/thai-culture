@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     title: 'Order Coffee in Thai - Chiang Mai Mission',
     description: 'A fun, beginner-friendly Thai mission for expats: order coffee less sweet in Chiang Mai.',
     url: '/missions/order-coffee',
+    images: [{
+      url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+      width: 1200,
+      height: 630,
+      alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+    }],
     type: 'article',
   },
 }

@@ -92,7 +92,7 @@ export default function DriverStopMission() {
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-4" aria-label="Mission steps">
                 {steps.map((step, index) => (
-                  <div key={step} className={`rounded-none border p-3 text-sm font-bold ${progress[index] ? 'border-honey/50 bg-sand/12 text-honey' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
+                  <div key={step} className={`rounded-none border p-3 text-sm font-bold ${progress[index] ? 'border-honey/50 bg-sand/12 text-tamarind' : 'border-tamarind/10 bg-surface text-tamarind/65'}`}>
                     <span className="block text-xs uppercase">Step {index + 1}</span>
                     {step}
                   </div>
@@ -224,7 +224,7 @@ export default function DriverStopMission() {
                 {driverOptions.map((option) => {
                   const isSelected = driverChoice === option
                   const isCorrect = option === stopPhrase
-                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected} lang="th">{option}</button>
+                  return <button key={option} type="button" onClick={() => setDriverChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected} lang="th">{option}</button>
                 })}
               </div>
 
@@ -233,12 +233,12 @@ export default function DriverStopMission() {
                 {directionOptions.map((option) => {
                   const isSelected = directionChoice === option
                   const isCorrect = option === directionPhrase
-                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-honey' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected} lang="th">{option}</button>
+                  return <button key={option} type="button" onClick={() => setDirectionChoice(option)} className={`rounded-none border p-4 text-left text-lg font-bold transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind hover:border-honey/60'}`} aria-pressed={isSelected} lang="th">{option}</button>
                 })}
               </div>
 
               {(driverChoice || directionChoice) && (
-                <p className={`mt-4 rounded-none p-4 font-bold ${driverChoice === stopPhrase && directionChoice === directionPhrase ? 'bg-sand/12 text-honey' : 'bg-jasmine text-tamarind/70'}`}>
+                <p className={`mt-4 rounded-none p-4 font-bold ${driverChoice === stopPhrase && directionChoice === directionPhrase ? 'bg-sand/12 text-tamarind' : 'bg-jasmine text-tamarind/70'}`}>
                   {driverChoice === stopPhrase && directionChoice === directionPhrase ? 'Correct - transport mission almost complete!' : 'Keep going. Choose the stop phrase, then choose the direction phrase.'}
                 </p>
               )}
