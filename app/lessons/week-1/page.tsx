@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AudioPlayer from '@/components/lesson/AudioPlayer'
 import QuizBlock from '@/components/quiz/QuizBlock'
@@ -7,10 +8,24 @@ import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
 
-export const metadata = {
-  title: 'Week 1: Greetings & Politeness Particles | Thai Culture & Language',
+export const metadata: Metadata = {
+  title: 'Week 1: Greetings & Politeness Particles | Thai Lessons Chiang Mai',
   description: 'Free beginner Thai lesson covering sawasdee, wai, khrap, kha, and mai pen rai with cultural context and a quiz.',
   alternates: { canonical: '/lessons/week-1' },
+  openGraph: {
+    title: 'Week 1: Greetings & Politeness Particles',
+    description: 'Free beginner Thai lesson covering sawasdee, wai, khrap, kha, and mai pen rai with cultural context and a quiz.',
+    url: '/lessons/week-1',
+    images: [
+      {
+        url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+      },
+    ],
+    type: 'article',
+  },
 }
 
 function getLessonContent() {

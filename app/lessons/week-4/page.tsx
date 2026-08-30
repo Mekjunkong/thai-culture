@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import CheckoutButton from '@/components/checkout/CheckoutButton'
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
@@ -7,10 +8,24 @@ import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Week 4: Transport, Temples, Markets & Local Etiquette | Thai Lessons Chiang Mai',
   description: 'Beginner Thai lesson for getting around Chiang Mai, talking to drivers, asking for help, and understanding temple and market etiquette.',
   alternates: { canonical: '/lessons/week-4' },
+  openGraph: {
+    title: 'Week 4: Transport, Temples, Markets & Local Etiquette',
+    description: 'Beginner Thai lesson for getting around Chiang Mai, talking to drivers, asking for help, and understanding temple and market etiquette.',
+    url: '/lessons/week-4',
+    images: [
+      {
+        url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+      },
+    ],
+    type: 'article',
+  },
 }
 
 const week4Questions: QuizQuestion[] = [

@@ -10,6 +10,21 @@ export const metadata: Metadata = {
   description:
     'Send a structured intake for online or on-site Thai lessons in Chiang Mai so your first lesson is prepared around your real-life situation.',
   alternates: { canonical: '/book' },
+  openGraph: {
+    title: 'Book Thai Lesson Intake | Thai Lessons Chiang Mai',
+    description:
+      'Send a structured intake for online or on-site Thai lessons in Chiang Mai so your first lesson is prepared around your real-life situation.',
+    url: '/book',
+    images: [
+      {
+        url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+      },
+    ],
+    type: 'website',
+  },
 }
 
 const steps = [
