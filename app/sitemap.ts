@@ -17,12 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/lessons/week-4', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/practice', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/products', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/products/50-thai-phrases-chiang-mai.html', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/book', priority: 0.7, changeFrequency: 'monthly' },
   ]
 
   return routes.map(route => ({
     url: `${baseUrl}${route.path}`,
-    lastModified: new Date(),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }))

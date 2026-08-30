@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AudioPlayer from '@/components/lesson/AudioPlayer'
 import CheckoutButton from '@/components/checkout/CheckoutButton'
@@ -8,10 +9,24 @@ import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
 
-export const metadata = {
-  title: 'Week 2: Numbers, Prices, Colors & Everyday Objects | Thai Culture & Language',
+export const metadata: Metadata = {
+  title: 'Week 2: Numbers, Prices, Colors & Everyday Objects | Thai Lessons Chiang Mai',
   description: 'Beginner Thai lesson covering numbers, prices, colors, everyday objects, market phrases, and a quick quiz.',
   alternates: { canonical: '/lessons/week-2' },
+  openGraph: {
+    title: 'Week 2: Numbers, Prices, Colors & Everyday Objects',
+    description: 'Beginner Thai lesson covering numbers, prices, colors, everyday objects, market phrases, and a quick quiz.',
+    url: '/lessons/week-2',
+    images: [
+      {
+        url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+      },
+    ],
+    type: 'article',
+  },
 }
 
 const week2Questions: QuizQuestion[] = [

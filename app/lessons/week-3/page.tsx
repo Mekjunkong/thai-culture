@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import CheckoutButton from '@/components/checkout/CheckoutButton'
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
@@ -7,10 +8,24 @@ import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Week 3: Ordering Food, Coffee & Spice Levels | Thai Lessons Chiang Mai',
   description: 'Beginner Thai lesson for ordering food and coffee in Chiang Mai: spice levels, sweetness, eat here, takeaway, and bill please.',
   alternates: { canonical: '/lessons/week-3' },
+  openGraph: {
+    title: 'Week 3: Ordering Food, Coffee & Spice Levels',
+    description: 'Beginner Thai lesson for ordering food and coffee in Chiang Mai: spice levels, sweetness, eat here, takeaway, and bill please.',
+    url: '/lessons/week-3',
+    images: [
+      {
+        url: '/assets/brand/og-thai-lessons-chiang-mai.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thai Lessons Chiang Mai - real-life Thai missions for expats',
+      },
+    ],
+    type: 'article',
+  },
 }
 
 const week3Questions: QuizQuestion[] = [
