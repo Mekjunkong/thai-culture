@@ -3,7 +3,7 @@ import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AudioPlayer from '@/components/lesson/AudioPlayer'
-import CheckoutButton from '@/components/checkout/CheckoutButton'
+
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
@@ -142,9 +142,9 @@ export default function Week2Page() {
             <div className="mt-6 rounded-none bg-ink p-5 text-surface">
               <p className="font-bold">Next: Week 3</p>
               <p className="mt-2 text-sm leading-6 text-surface/85">Ordering food, spice levels and café Thai.</p>
-              <CheckoutButton className="mt-4 w-full rounded-lg bg-honey px-4 py-2 font-semibold text-tamarind transition hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Unlock lifetime access - ฿690
-              </CheckoutButton>
+              <Link href="/book?product=guided-starter-course" className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-honey px-4 py-2 text-center font-semibold text-tamarind transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                Request Guided Starter Course · ฿690
+              </Link>
             </div>
             <Link href="/lessons/week-1" className="mt-4 block text-center text-sm font-semibold text-clay hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
               Review Week 1

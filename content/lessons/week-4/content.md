@@ -80,7 +80,7 @@ The student must complete three scenes without notes:
 2. buy one item and ask the price
 3. tell a driver where to stop
 
-Teacher gives feedback in three categories:
+Use these three categories for your own review:
 
 - pronunciation
 - politeness
@@ -88,6 +88,6 @@ Teacher gives feedback in three categories:
 
 ## 7. Real-life mission
 
-Use Thai in one transport situation. If that feels too hard, record a voice note pretending to talk to a driver:
+Use Thai in one transport situation. If that feels too hard, record yourself pretending to talk to a driver, then replay it and check the phrases:
 
 **ผมอยู่ตรงนี้ครับ จอดตรงนี้ครับ ขอบคุณครับ**

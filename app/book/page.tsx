@@ -33,7 +33,9 @@ const steps = [
   ['3', 'Get a prepared first mission', 'The lesson starts faster because the phrase bank and roleplay are already selected.'],
 ]
 
-export default function BookPage() {
+export default function BookPage({ searchParams }: { searchParams: { product?: string } }) {
+  const isCourseRequest = searchParams.product === 'guided-starter-course'
+
   return (
     <>
       <Navbar />
@@ -44,13 +46,15 @@ export default function BookPage() {
             <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-end">
               <div>
                 <p className="text-xs font-medium uppercase tracking-[.14em] text-clay">
-                  Student intake
+                  {isCourseRequest ? 'Guided Starter Course · ฿690' : 'Student intake'}
                 </p>
                 <h1 className="mt-6 font-serif text-5xl font-bold leading-[1.05] md:text-7xl">
-                  Tell me what Thai you need before class.
+                  {isCourseRequest ? 'Request self-study access.' : 'Tell me what Thai you need before class.'}
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-tamarind/72 md:text-xl md:leading-9">
-                  This turns booking from a vague chat into a professional lesson brief for online coaching or an on-site Chiang Mai mission.
+                  {isCourseRequest
+                    ? 'Send a request for the four-week Guided Starter Course. Mike confirms payment and grants lifetime access manually; this form does not complete a purchase or unlock access automatically.'
+                    : 'This turns booking from a vague chat into a professional lesson brief for online coaching or an on-site Chiang Mai mission.'}
                 </p>
               </div>
               <div className="grid gap-3">

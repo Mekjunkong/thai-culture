@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import CheckoutButton from '@/components/checkout/CheckoutButton'
+
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
@@ -99,7 +99,7 @@ export default function Week4Page() {
               </span>
               <h2 className="mt-4 text-2xl font-serif font-normal text-tamarind text-balance">Put the starter course into real Chiang Mai life</h2>
               <p className="mt-2 max-w-2xl text-tamarind/70 text-pretty">
-                This final beginner lesson combines direction Thai, help phrases, temple etiquette, and a three-scene graduation roleplay for live lessons.
+                This final beginner lesson combines direction Thai, help phrases, temple etiquette, and a three-scene graduation roleplay for self-study practice.
               </p>
             </section>
 
@@ -127,11 +127,11 @@ export default function Week4Page() {
               <li className="rounded-none bg-surface p-3">5. Graduation roleplay</li>
             </ol>
             <div className="mt-6 rounded-none bg-ink p-5 text-surface">
-              <p className="font-bold">Course complete</p>
-              <p className="mt-2 text-sm leading-6 text-surface/85">Next step: live speaking correction and a personalized Chiang Mai roleplay plan.</p>
-              <CheckoutButton className="mt-4 block w-full rounded-lg bg-honey px-4 py-2 text-center font-semibold text-tamarind transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Book Starter Pack
-              </CheckoutButton>
+              <p className="font-bold">Week 4 checkpoint</p>
+              <p className="mt-2 text-sm leading-6 text-surface/85">Next step: revisit any phrases that felt difficult, then repeat the mission at your own pace.</p>
+              <Link href="/book?product=guided-starter-course" className="mt-4 block w-full rounded-lg bg-honey px-4 py-2 text-center font-semibold text-tamarind transition hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
+                Request Guided Starter Course · ฿690
+              </Link>
             </div>
             <Link href="/lessons/week-1" className="mt-4 block text-center text-sm font-semibold text-clay hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
               Review Week 1
