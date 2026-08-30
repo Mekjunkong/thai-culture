@@ -183,7 +183,7 @@ export default function ProductsPage() {
             </article>
             <article className="rounded-none border border-honey bg-sand/10 p-6">
               <p className="text-sm font-bold text-clay">On-site product</p>
-              <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em]">Chiang Mai lessons should feel like a local mission.</h2>
+              <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em]">On-site Thai lessons in Chiang Mai</h2>
               <div className="mt-6 grid gap-3">
                 {onsiteFlow.map(([step, detail]) => (
                   <div key={step} className="rounded-none bg-surface p-4">
