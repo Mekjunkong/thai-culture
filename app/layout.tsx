@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Newsreader, Public_Sans } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import '../styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${inter.variable} ${newsreader.variable} ${publicSans.variable} font-public antialiased`}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   )
