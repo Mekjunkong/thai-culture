@@ -135,8 +135,9 @@ export default function HomePage() {
             aria-label="Main"
             className="flex items-center justify-between border-b border-ink/8 px-6 py-[26px]"
           >
-            <Link href="/" className="font-serif text-xl text-ink">
-              Thai Lessons <span className="font-bold italic text-clay">Chiang Mai</span>
+            <Link href="/" className="inline-flex items-center gap-3 font-serif text-xl text-ink">
+              <img className="h-11 w-11 shrink-0 object-contain" src="/assets/brand/thai-lessons-chiang-mai-doisuthep-icon.svg" alt="" aria-hidden="true" />
+              <span>Thai Lessons <span className="font-bold italic text-clay">Chiang Mai</span><small className="mt-1 block font-sans text-[8px] font-bold uppercase tracking-[0.18em] text-ink/50">Tua Mueang · Online</small></span>
             </Link>
             <div className="hidden gap-8 text-[13.5px] text-ink/65 md:flex">
               <Link href="/missions" className="inline-flex min-h-11 items-center hover:text-clay">
