@@ -1,5 +1,3 @@
-# Week 4: Transport, Temples, Markets & Local Etiquette
-
 ## Goal
 By the end of this lesson you can move around Chiang Mai more comfortably: talk to drivers, behave politely at temples and markets, ask for help, and understand common etiquette mistakes foreigners make.
 

@@ -1,5 +1,3 @@
-# Week 1: Greetings, Wai & Politeness Particles
-
 ## Goal
 By the end of this lesson you can walk into a cafe, hotel, market, condo lobby, or coworking space and greet people politely without sounding stiff or rude.
 

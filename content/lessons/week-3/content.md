@@ -1,5 +1,3 @@
-# Week 3: Ordering Food, Coffee & Spice Levels
-
 ## Goal
 By the end of this lesson you can order one dish or drink, ask for less sugar or less spice, understand common staff questions, and ask for the bill politely.
 
