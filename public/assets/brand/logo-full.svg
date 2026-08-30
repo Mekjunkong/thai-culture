@@ -1,27 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 240" role="img" aria-labelledby="title desc">
-  <title id="title">Thai Lessons Chiang Mai</title>
-  <desc id="desc">Premium academy-style logo for Thai Lessons Chiang Mai.</desc>
-  <defs>
-    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFF8EA"/>
-      <stop offset="0.52" stop-color="#F7E8C5"/>
-      <stop offset="1" stop-color="#E7C982"/>
-    </linearGradient>
-    <linearGradient id="midnight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#151A33"/>
-      <stop offset="1" stop-color="#273566"/>
-    </linearGradient>
-  </defs>
-  <rect x="18" y="18" width="204" height="204" rx="48" fill="url(#midnight)"/>
-  <rect x="34" y="34" width="172" height="172" rx="36" fill="url(#ivory)"/>
-  <rect x="46" y="46" width="148" height="148" rx="28" fill="none" stroke="#151A33" stroke-opacity="0.14" stroke-width="2"/>
-  <circle cx="174" cy="62" r="10" fill="#B8892B"/>
-  <path d="M66 146 C83 127 98 122 113 136 C126 149 136 147 148 133 C163 116 181 118 195 137" fill="none" stroke="#151A33" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M72 166 C96 157 118 157 141 166 C161 174 178 173 194 167" fill="none" stroke="#B8892B" stroke-width="4.5" stroke-linecap="round"/>
-  <text x="120" y="111" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#151A33" letter-spacing="-2">TL</text>
-  <path d="M84 188 H156" stroke="#151A33" stroke-width="3.5" stroke-linecap="round" opacity="0.22"/>
-  <text x="260" y="91" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#151A33" letter-spacing="-1.8">Thai Lessons</text>
-  <text x="260" y="143" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#151A33" letter-spacing="-1.8">Chiang Mai</text>
-  <path d="M262 165 H600" stroke="#B8892B" stroke-width="3" stroke-linecap="round"/>
-  <text x="260" y="196" font-family="Avenir Next, Montserrat, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#6F5A32" letter-spacing="3.6">PRIVATE THAI ACADEMY</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" role="img" aria-labelledby="title desc">
+  <title id="title">Thai Lessons Chiang Mai — Doi Suthep Lanna logo</title>
+  <desc id="desc">A premium emblem combining the Doi Suthep ridgeline with a simplified Lanna chedi and open doorway.</desc>
+  <rect width="980" height="300" fill="#F5F0E7"/>
+  <g transform="translate(36 34)">
+    <!-- Doi Suthep ridgeline -->
+    <path d="M0 205C46 191 77 166 112 117c17-24 29-49 39-76 10 28 23 53 41 76 36 47 68 72 116 88v20H0Z" fill="#1F2923"/>
+    <!-- Lanna chedi / gateway -->
+    <path d="M151 38 169 77 151 96 133 77Z" fill="#B18A43"/>
+    <path d="M151 86 139 111h24Z" fill="#B18A43"/>
+    <path d="M128 112h46v13h-46zM121 125h60v16h-60zM111 141h80v18h-80zM99 159h104v20H99zM89 179h124v22H89z" fill="#B18A43"/>
+    <path d="M75 201h152l-20 18H95Z" fill="#B18A43"/>
+    <!-- open passage -->
+    <path d="M131 201h40v70h-40Z" fill="#B18A43"/>
+    <path d="M139 271v-38c0-9 5-14 12-14s12 5 12 14v38Z" fill="#F5F0E7"/>
+    <!-- fine Lanna-like accent -->
+    <path d="M95 112c16-16 36-24 56-24s40 8 56 24" fill="none" stroke="#F5F0E7" stroke-width="4"/>
+  </g>
+  <g transform="translate(345 77)">
+    <text x="0" y="25" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="6" fill="#B18A43">CHIANG MAI</text>
+    <text x="0" y="94" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="700" fill="#1F2923" letter-spacing="-2.3">Thai Lessons</text>
+    <path d="M2 119h488" stroke="#D5C9B7" stroke-width="2"/>
+    <text x="0" y="155" font-family="'Noto Sans Tai Tham', 'Tai Tham', sans-serif" font-size="24" fill="#1F2923">ᨲ᩠ᩅᩫᨾᩮᩥᩬᨦ</text>
+    <text x="156" y="153" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="3.1" fill="#6F6B61">TUA MUEANG · LANGUAGE IN PLACE</text>
+  </g>
 </svg>
