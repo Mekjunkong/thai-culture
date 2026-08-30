@@ -1,5 +1,3 @@
-# Week 2: Numbers, Prices, Colors & Market Thai
-
 ## Goal
 By the end of this lesson you can ask prices, understand common numbers, buy one or two items, and avoid awkward bargaining mistakes.
 
