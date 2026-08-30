@@ -113,7 +113,7 @@ Thank you.
 
 ## 7. Listening practice with prices
 
-Ask your teacher to say these prices in random order. You write the number.
+Read these prices aloud in random order, cover the numerals, and write down the number you hear in your own recording. Replay it to check your listening and pronunciation.
 
 - 20 บาท
 - 35 บาท
@@ -126,4 +126,4 @@ Ask your teacher to say these prices in random order. You write the number.
 
 1. Ask a price using **อันนี้เท่าไหร่ครับ/คะ**.
 2. Buy one item using **เอาหนึ่งอันครับ/ค่ะ**.
-3. Send your teacher a voice note saying three prices in Thai.
+3. Record yourself saying three prices in Thai, then replay the recording and check the numbers against the list above. Private lessons and personal voice correction are outside this self-study course.

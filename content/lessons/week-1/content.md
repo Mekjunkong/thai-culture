@@ -20,7 +20,7 @@ You will learn:
 | I speak a little Thai | ผม/ฉันพูดไทยนิดหน่อย | phǒm/chǎn phûut Thai nít-nòi | I speak a little Thai |
 | Please speak slowly | พูดช้าๆ ได้ไหมครับ / คะ | phûut cháa-cháa dâai mái khrap / kha? | Can you speak slowly? |
 
-**Teacher note:** Do not overload the student with tones first. Make them useful and polite first, then correct one sound at a time.
+**Study note:** Do not overload yourself with tones first. Make the phrases useful and polite first, then review one sound at a time.
 
 ## 2. The wai: what foreigners actually need
 
@@ -89,7 +89,7 @@ Before the next lesson, do these three things in Chiang Mai or online:
 
 1. Say **sawasdee khrap/kha** to one service worker.
 2. Say **khàawp-khun khrap/kha** after paying.
-3. Send your teacher a voice note with these three phrases.
+3. Record yourself saying these three phrases, then replay the recording and notice whether each phrase sounds clear and polite. Private lessons and personal voice correction are outside this self-study course.
 
 ## 7. Quick self-check
 

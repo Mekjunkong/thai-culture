@@ -26,22 +26,11 @@ const weeks = [
   { number: 4, href: '/lessons/week-4', title: 'Transport & local etiquette', meta: 'Week 4 · 40 min · Free preview', cta: 'Explore →' },
 ]
 
-const courseStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  name: 'Guided Starter Course',
-  description: 'A four-week self-study path for practical beginner Thai.',
-  provider: { '@type': 'Organization', name: 'Thai Lessons Chiang Mai', url: 'https://thailessonschiangmai.com' },
-  isAccessibleForFree: true,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'THB' },
-  hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT2H' },
-}
-
 export default function LessonsIndexPage() {
   return (
     <>
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseStructuredData) }} />
+
       <main className="bg-paper font-public text-ink">
         <section className="mx-auto max-w-[1180px] px-6 pb-14 pt-16 md:pt-20">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">

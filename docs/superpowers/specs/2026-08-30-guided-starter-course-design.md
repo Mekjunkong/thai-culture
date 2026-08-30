@@ -1,7 +1,7 @@
 # Guided Starter Course — Product Design Specification
 
-**Date:** 2026-08-30  
-**Status:** Approved design; implementation not included in this document  
+**Date:** 2026-08-30
+**Status:** Approved design; implementation not included in this document
 **Product:** ฿690 Self-study Lifetime Course
 
 > **Commercial approval gate:** The price, inclusions, and payment activation described here require Mike's explicit commercial approval before launch. The repository's current Stripe configuration is not proof of an active checkout. Do not represent a payment as successful unless the selected payment flow has been executed and verified in the real environment.
@@ -183,7 +183,7 @@ Only the following MVP models are in scope:
 
 Mike provides approved payment instructions or confirms payment through an agreed manual channel, then grants lifetime access through an auditable admin process.
 
-**Pros:** can launch without assuming Stripe is live; supports local payment realities.  
+**Pros:** can launch without assuming Stripe is live; supports local payment realities.
 **Risks:** operational delay, manual mistakes, need for a clear receipt/access record, and no claim of instant access.
 
 Required UX: payment instructions, “waiting for confirmation” state, expected response window approved by Mike, and a support/contact path that does not promise personal course support.
@@ -192,7 +192,7 @@ Required UX: payment instructions, “waiting for confirmation” state, expecte
 
 Use one specific Stripe Payment Link after Mike confirms the product, amount, currency, tax/refund language, destination account, and access-granting workflow. Access must be granted only from a real, verified Stripe event or an explicitly reconciled transaction record.
 
-**Pros:** less manual handling and clearer payment records.  
+**Pros:** less manual handling and clearer payment records.
 **Risks:** current code's fallback/test Price IDs do not establish that a live link, live price, webhook, or fulfillment path exists.
 
 Required UX: provider handoff, pending verification state, verified success state, failure/cancellation state, and a recovery path when payment succeeded but access has not yet appeared.

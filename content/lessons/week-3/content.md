@@ -61,12 +61,14 @@ Eat here?
 *gin thîi-nîi khrap, khàawp-khun khrap*  
 Eat here, thank you.
 
-## 5. Teacher roleplay cards
+## 5. Self-study roleplay cards
 
-1. **Cafe:** student orders iced coffee, less sweet, one glass.
-2. **Noodle shop:** student orders one bowl, asks for no chili.
-3. **Street food:** student points to one item and asks price.
-4. **Restaurant:** student asks for the bill and says thank you.
+Practice each scene aloud. Read the **Student** line, pause to imagine the staff response, then say your answer without looking at the romanization.
+
+1. **Cafe:** order iced coffee, less sweet, one glass.
+2. **Noodle shop:** order one bowl, asking for no chili.
+3. **Street food:** point to one item and ask the price.
+4. **Restaurant:** ask for the bill and say thank you.
 
 ## 6. Common staff questions
 

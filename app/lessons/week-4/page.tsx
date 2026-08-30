@@ -99,7 +99,7 @@ export default function Week4Page() {
               </span>
               <h2 className="mt-4 text-2xl font-serif font-normal text-tamarind text-balance">Put the starter course into real Chiang Mai life</h2>
               <p className="mt-2 max-w-2xl text-tamarind/70 text-pretty">
-                This final beginner lesson combines direction Thai, help phrases, temple etiquette, and a three-scene graduation roleplay for live lessons.
+                This final beginner lesson combines direction Thai, help phrases, temple etiquette, and a three-scene graduation roleplay for self-study practice.
               </p>
             </section>
 
