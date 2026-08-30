@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import CheckoutButton from '@/components/checkout/CheckoutButton'
+
 import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
@@ -99,7 +99,7 @@ export default function Week3Page() {
               </span>
               <h2 className="mt-4 text-2xl font-serif font-normal text-tamarind text-balance">Useful Thai for the first meal you order alone</h2>
               <p className="mt-2 max-w-2xl text-tamarind/70 text-pretty">
-                This module turns phrase knowledge into a real restaurant/cafe roleplay: choose an item, specify sweetness or spice, answer staff questions, and ask for the bill.
+                This module turns phrase knowledge into a self-study restaurant/cafe roleplay: choose an item, specify sweetness or spice, answer staff questions, and ask for the bill.
               </p>
             </section>
 
@@ -133,9 +133,9 @@ export default function Week3Page() {
                 Open Week 4 →
               </Link>
             </div>
-            <CheckoutButton className="mt-4 block w-full rounded-lg bg-ink px-4 py-3 text-center font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
-              Book live practice
-            </CheckoutButton>
+            <Link href="/book?product=guided-starter-course" className="mt-4 block w-full rounded-lg bg-ink px-4 py-3 text-center font-semibold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+              Request Guided Starter Course · ฿690
+            </Link>
           </aside>
         </div>
       </main>

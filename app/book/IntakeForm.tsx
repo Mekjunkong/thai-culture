@@ -40,6 +40,11 @@ const initialState: IntakeState = {
 
 export default function IntakeForm() {
   const [form, setForm] = useState<IntakeState>(initialState)
+  const [courseRequest, setCourseRequest] = useState(false)
+
+  useEffect(() => {
+    setCourseRequest(new URLSearchParams(window.location.search).get('product') === 'guided-starter-course')
+  }, [])
 
   // Restore an in-progress draft (e.g. phone locked mid-form, tab reloaded).
   useEffect(() => {
@@ -79,7 +84,9 @@ export default function IntakeForm() {
   const message = useMemo(() => {
     return encodeURIComponent(
       [
-        'Hi Mike, I want to book Thai Lessons Chiang Mai.',
+        courseRequest
+          ? 'Hi Mike, I want to request the Guided Starter Course (฿690, self-study, lifetime access).'
+          : 'Hi Mike, I want to book Thai Lessons Chiang Mai.',
         '',
         `Name: ${form.name || '-'}`,
         `Where I live/stay: ${form.location || '-'}`,
@@ -90,16 +97,24 @@ export default function IntakeForm() {
         `Best time/day: ${form.schedule || '-'}`,
         `Notes: ${form.notes || '-'}`,
         '',
-        'Please suggest the best first mission and price.',
+        courseRequest
+          ? 'Please confirm payment instructions and manually confirm my course access. I understand this request is not an automatic purchase or instant access.'
+          : 'Please suggest the best first mission and price.',
       ].join('\n')
     )
-  }, [form])
+  }, [form, courseRequest])
 
   const needsNudge = !form.name.trim() || !form.goal.trim()
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr]">
       <form className="min-w-0 rounded-none border border-tamarind/10 bg-surface p-5 md:p-7">
+        {courseRequest && (
+          <p className="mb-5 rounded-none border-l-2 border-honey bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
+            <span className="block text-clay">Guided Starter Course · ฿690</span>
+            Self-study, lifetime access. This is a manual access request: Mike confirms payment and grants access after review. Nothing is purchased or unlocked automatically.
+          </p>
+        )}
         <p className="mb-5 rounded-none bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
           Your answers below build a WhatsApp message to Mike - nothing is sent until you tap the button. Your progress is saved automatically if you need to come back to this later.
         </p>
@@ -210,9 +225,11 @@ export default function IntakeForm() {
 
       <aside className="min-w-0 rounded-none border border-honey bg-sand/10 p-5 md:p-7">
         <p className="text-sm font-bold uppercase text-clay">Your booking message</p>
-        <h2 className="mt-3 text-3xl font-serif font-normal leading-tight">Send a cleaner intake before the first lesson.</h2>
+        <h2 className="mt-3 text-3xl font-serif font-normal leading-tight">{courseRequest ? 'Request your Guided Starter Course access.' : 'Send a cleaner intake before the first lesson.'}</h2>
         <p className="mt-4 leading-7 text-tamarind/70">
-          This makes the lesson more professional: Mike can prepare the right mission, phrase bank, and correction focus before the call or on-site class.
+          {courseRequest
+            ? 'Choose the course here and send your request. Mike will reply with payment instructions or confirmation, then handle access manually.'
+            : 'This makes the lesson more professional: Mike can prepare the right mission, phrase bank, and correction focus before the call or on-site class.'}
         </p>
         <div className="mt-5 rounded-none bg-surface p-4 text-sm leading-6 text-tamarind/72">
           <p><strong>Format:</strong> {form.format}</p>
@@ -232,7 +249,7 @@ export default function IntakeForm() {
           onClick={handleSend}
           className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-none bg-ink px-6 py-3 text-center font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
         >
-          Send intake on WhatsApp
+          {courseRequest ? 'Send course request on WhatsApp' : 'Send intake on WhatsApp'}
         </a>
         <a
           href="/lesson-report"

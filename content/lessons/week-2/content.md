@@ -7,6 +7,7 @@ You will learn:
 - the special Thai forms for 20 and final 1
 - how prices sound in real markets
 - how to ask, buy, decline, and ask for a bag
+- four useful colors for describing everyday things
 - when bargaining is normal and when it is not
 
 ## 1. Numbers 0–10
@@ -54,7 +55,20 @@ Two patterns matter most:
 | Decline politely | ไม่เอา ขอบคุณครับ / ค่ะ | mâi ao, khàawp-khun khrap/kha | I do not want it, thank you. |
 | Ask for bag | มีถุงไหมครับ / คะ | mii thǔng mái khrap/kha? | Do you have a bag? |
 
-## 4. Bargaining culture
+## 4. Colors for everyday objects
+
+Use **สี (sǐi)** before a color word. These four are enough to start describing common things at a market:
+
+| English | Thai | Romanization |
+|---|---|---|
+| red | สีแดง | sǐi daeng |
+| blue | สีฟ้า | sǐi fáa |
+| green | สีเขียว | sǐi khǐiao |
+| white | สีขาว | sǐi khǎao |
+
+For example, **เสื้อสีแดง** (*sʉ̂a sǐi daeng*) means “red shirt.” This is a description practice, not a promise that every seller will use the same shade labels.
+
+## 5. Bargaining culture
 
 Bargaining is okay in:
 
@@ -75,7 +89,7 @@ Better beginner phrase than “too expensive”:
 *lót dâai nít-nòi mái khrap/kha?*  
 Can you discount a little?
 
-## 5. Mini dialogue: buying mangoes
+## 6. Mini dialogue: buying mangoes
 
 **Student:** สวัสดีครับ อันนี้เท่าไหร่ครับ  
 *sà-wàt-dii khrap, an-níi thâo-rài khrap?*  
@@ -97,7 +111,7 @@ Yes.
 *khàawp-khun khrap*  
 Thank you.
 
-## 6. Listening practice with prices
+## 7. Listening practice with prices
 
 Ask your teacher to say these prices in random order. You write the number.
 
@@ -108,7 +122,7 @@ Ask your teacher to say these prices in random order. You write the number.
 - 100 บาท
 - 150 บาท
 
-## 7. Real-life mission
+## 8. Real-life mission
 
 1. Ask a price using **อันนี้เท่าไหร่ครับ/คะ**.
 2. Buy one item using **เอาหนึ่งอันครับ/ค่ะ**.
