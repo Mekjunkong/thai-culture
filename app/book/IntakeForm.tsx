@@ -59,7 +59,7 @@ export default function IntakeForm() {
   }
 
   function handleSend() {
-    window.localStorage.removeItem(DRAFT_KEY)
+    // Keep the draft until the user confirms the request was sent successfully.
   }
 
   function toggleSituation(option: string) {
