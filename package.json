@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "check:booking-flow": "node scripts/check-booking-flow.mjs",
-    "check:learning-hub": "node scripts/check-learning-hub.mjs"
+    "check:learning-hub": "node scripts/check-learning-hub.mjs",
+    "check:lesson-navigation": "node scripts/check-lesson-navigation.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

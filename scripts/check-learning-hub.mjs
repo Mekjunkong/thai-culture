@@ -3,13 +3,14 @@ import { readFileSync } from 'node:fs'
 
 const page = readFileSync('app/learn/page.tsx', 'utf8')
 const hub = readFileSync('components/learner/LearnerHub.tsx', 'utf8')
+const progress = readFileSync('lib/learner-progress.ts', 'utf8')
 const data = readFileSync('lib/learner-course.ts', 'utf8')
 const navbar = readFileSync('components/ui/Navbar.tsx', 'utf8')
 
 assert.match(page, /<LearnerHub \/>/)
 assert.match(page, /canonical: '\/learn'/)
 assert.match(hub, /'use client'/)
-assert.match(hub, /window\.localStorage/)
+assert.match(progress, /window\.localStorage/)
 assert.match(hub, /Continue with Week \{nextLesson\.week\}/)
 assert.match(hub, /Not started/)
 assert.match(hub, /In progress/)
