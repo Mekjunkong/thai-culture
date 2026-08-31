@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export interface QuizQuestion {
   id: number
@@ -43,8 +43,13 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
   const [selected, setSelected] = useState<number | null>(null)
   const [score, setScore] = useState(0)
   const [done, setDone] = useState(false)
+  const headingRef = useRef<HTMLHeadingElement>(null)
 
   const q = questions[current]
+
+  useEffect(() => {
+    headingRef.current?.focus()
+  }, [current, done])
 
   function resetQuiz() {
     setCurrent(0)
@@ -72,7 +77,8 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
     return (
       <div className="rounded-none bg-surface p-8 text-center shadow">
         <div className="mb-4 text-5xl" aria-hidden="true">{score === questions.length ? '🏆' : '📚'}</div>
-        <h3 className="mb-2 text-2xl font-serif font-normal text-tamarind text-balance">Quiz complete!</h3>
+        <h3 ref={headingRef} tabIndex={-1} className="mb-2 text-2xl font-serif font-normal text-tamarind text-balance focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Quiz complete!</h3>
+        <p className="sr-only" role="status" aria-live="polite">Quiz complete. You scored {score} out of {questions.length}.</p>
         <p className="mb-4 text-tamarind/70">
           You scored <span className="font-bold text-clay tabular-nums">{score}/{questions.length}</span>
         </p>
@@ -98,7 +104,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
         <span className="text-sm text-tamarind/60">Question <span className="tabular-nums">{current + 1}</span> of <span className="tabular-nums">{questions.length}</span></span>
         <span className="text-sm font-semibold text-clay">Score: <span className="tabular-nums">{score}</span></span>
       </div>
-      <h3 className="mb-6 text-xl font-serif font-normal text-tamarind text-balance">{q.question}</h3>
+      <h3 ref={headingRef} tabIndex={-1} className="mb-6 text-xl font-serif font-normal text-tamarind text-balance focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">{q.question}</h3>
       <div className="mb-6 grid gap-3">
         {q.options.map((opt, idx) => {
           let cls = 'w-full rounded-none border-2 px-4 py-3 text-left font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay '
@@ -112,7 +118,7 @@ export default function QuizBlock({ questions = defaultQuestions }: QuizBlockPro
             cls += 'border-tamarind/10 text-tamarind/50'
           }
           return (
-            <button key={`${q.id}-${opt}`} type="button" className={cls} onClick={() => handleSelect(idx)}>
+            <button key={`${q.id}-${opt}`} type="button" className={cls} onClick={() => handleSelect(idx)} aria-pressed={selected === idx}>
               {opt}
             </button>
           )

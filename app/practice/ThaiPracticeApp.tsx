@@ -283,11 +283,12 @@ export default function ThaiPracticeApp() {
     return (
       <main className="min-h-screen bg-paper px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px]">
-          <div className="mb-4 flex items-center justify-between">
-            <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-bold shadow-sm">←</button>
-            <p className="font-bold text-clay">{cardIndex + 1} / {category.words.length}</p>
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <button type="button" onClick={() => setScreen('home')} aria-label="Back to practice categories" className="min-h-11 rounded-full bg-surface px-4 font-bold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">←</button>
+            <h1 className="font-serif text-2xl font-bold text-clay">{category.title} flashcards</h1>
+            <p className="font-bold text-clay" aria-label={`Card ${cardIndex + 1} of ${category.words.length}`}>{cardIndex + 1} / {category.words.length}</p>
           </div>
-          <button type="button" onClick={() => setFlipped((value) => !value)} className="min-h-[360px] w-full rounded-none border border-surface/70 bg-surface p-6 text-center transition duration-150 active:scale-[0.99]" aria-pressed={flipped}>
+          <button type="button" onClick={() => setFlipped((value) => !value)} className="min-h-[360px] w-full rounded-none border border-surface/70 bg-surface p-6 text-center transition duration-150 active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay" aria-pressed={flipped}>
             <p className="text-6xl" aria-hidden="true">{currentCard.emoji}</p>
             {!flipped ? (
               <>
@@ -303,8 +304,8 @@ export default function ThaiPracticeApp() {
             )}
           </button>
           <div className="mt-4 grid grid-cols-2 gap-3">
-            <button type="button" onClick={() => setFlipped(false)} className="min-h-12 rounded-none border border-tamarind/10 bg-surface font-bold text-clay">Show Thai</button>
-            <button type="button" onClick={nextCard} className="min-h-12 rounded-none bg-ink font-bold text-surface">Next card →</button>
+            <button type="button" onClick={() => setFlipped(false)} className="min-h-12 rounded-none border border-tamarind/10 bg-surface font-bold text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Show Thai</button>
+            <button type="button" onClick={nextCard} className="min-h-12 rounded-none bg-ink font-bold text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Next card →</button>
           </div>
         </div>
       </main>
@@ -317,7 +318,7 @@ export default function ThaiPracticeApp() {
       <main className="min-h-screen bg-paper px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
-            <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-bold shadow-sm">←</button>
+            <button type="button" onClick={() => setScreen('home')} aria-label="Back to practice categories" className="min-h-11 rounded-full bg-surface px-4 font-bold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">←</button>
             <p className="font-bold text-clay">⭐ {score}</p>
           </div>
           <div className="h-3 overflow-hidden rounded-full bg-surface" role="progressbar" aria-valuenow={quizPercent} aria-valuemin={0} aria-valuemax={100} aria-label="Quiz progress">
@@ -333,7 +334,7 @@ export default function ThaiPracticeApp() {
                 const isSelected = selected === option
                 const isCorrect = option === currentQuestion.word.english
                 return (
-                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-none border p-4 text-left font-bold transition duration-150 ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
+                  <button key={option} type="button" onClick={() => pickAnswer(option)} className={`min-h-14 rounded-none border p-4 text-left font-bold transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay ${isSelected && isCorrect ? 'border-honey bg-sand/15 text-tamarind' : isSelected ? 'border-clay/40 bg-clay/10 text-clay' : 'border-tamarind/10 bg-jasmine text-tamarind'}`} aria-pressed={isSelected}>
                     {option}
                   </button>
                 )
@@ -355,7 +356,8 @@ export default function ThaiPracticeApp() {
       <main className="min-h-screen bg-paper px-4 py-8 text-tamarind">
         <div className="mx-auto max-w-[520px]">
           <div className="mb-4 flex items-center justify-between">
-            <button type="button" onClick={() => setScreen('home')} className="min-h-11 rounded-full bg-surface px-4 font-bold shadow-sm">←</button>
+            <button type="button" onClick={() => setScreen('home')} aria-label="Back to practice categories" className="min-h-11 rounded-full bg-surface px-4 font-bold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">←</button>
+            <h1 className="font-serif text-2xl font-bold text-clay">Daily review</h1>
             <p className="font-bold text-clay">{reviewQueue.length} left</p>
           </div>
           <div className="min-h-[360px] w-full rounded-none border border-surface/70 bg-surface p-6 text-center">
@@ -368,7 +370,7 @@ export default function ThaiPracticeApp() {
                 <button
                   type="button"
                   onClick={() => setReviewRevealed(true)}
-                  className="mt-6 min-h-12 w-full rounded-none bg-ink font-bold text-surface"
+                  className="mt-6 min-h-12 w-full rounded-none bg-ink font-bold text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay"
                 >
                   Show answer
                 </button>
@@ -377,10 +379,10 @@ export default function ThaiPracticeApp() {
               <>
                 <p className="mt-8 text-4xl font-bold leading-tight text-clay">{reviewCard.english}</p>
                 <div className="mt-6 grid grid-cols-4 gap-2">
-                  <button type="button" onClick={() => gradeReview('again')} className="min-h-12 rounded-none border-2 border-clay/40 bg-clay/10 text-sm font-bold text-clay">Again</button>
-                  <button type="button" onClick={() => gradeReview('hard')} className="min-h-12 rounded-none border-2 border-honey/50 bg-honey/15 text-sm font-bold text-tamarind">Hard</button>
-                  <button type="button" onClick={() => gradeReview('good')} className="min-h-12 rounded-none border-2 border-honey/50 bg-sand/12 text-sm font-bold text-tamarind">Good</button>
-                  <button type="button" onClick={() => gradeReview('easy')} className="min-h-12 rounded-none border-2 border-clay/40 bg-ink/10 text-sm font-bold text-clay">Easy</button>
+                  <button type="button" onClick={() => gradeReview('again')} className="min-h-12 rounded-none border-2 border-clay/40 bg-clay/10 text-sm font-bold text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Again</button>
+                  <button type="button" onClick={() => gradeReview('hard')} className="min-h-12 rounded-none border-2 border-honey/50 bg-honey/15 text-sm font-bold text-tamarind focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Hard</button>
+                  <button type="button" onClick={() => gradeReview('good')} className="min-h-12 rounded-none border-2 border-honey/50 bg-sand/12 text-sm font-bold text-tamarind focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Good</button>
+                  <button type="button" onClick={() => gradeReview('easy')} className="min-h-12 rounded-none border-2 border-clay/40 bg-ink/10 text-sm font-bold text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">Easy</button>
                 </div>
               </>
             )}
