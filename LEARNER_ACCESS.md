@@ -10,9 +10,14 @@ The protected delivery foundation is:
 - Missing/invalid auth, missing profile, pending entitlement, missing server configuration, and unprocessed payment all resolve to a non-content access message.
 - The browser cookie is only a bearer token; it is never treated as proof of payment. Supabase verifies it, and the server checks the profile entitlement.
 
-## Current content boundary blocker
+## Content boundary
 
-The repository Markdown used by `/learn/[slug]` is also currently rendered by the public preview routes. Therefore this slice creates a real server-side entitlement gate for the learner delivery boundary, but it does **not** make the Markdown exclusive. Before calling the paid course content-protected, split or replace the public preview content and keep only the full content behind `/learn/[slug]`.
+Each course lesson has two Markdown sources under `content/lessons/week-*`:
+
+- `preview.md` is the limited, useful content rendered by public `/lessons/week-*` routes.
+- `full.md` is rendered only by `/learn/[slug]`, after verified Supabase authentication and `profiles.subscription_tier = 'lifetime'` access.
+
+`lib/course-content.ts` is the single allowlisted content model. The protected route remains dynamic and reads `full.md` only after the entitlement check; invalid slugs resolve to `notFound()` before any content read. The deterministic `npm run check:course-content` check verifies the four-slug allowlist, source split, preview markers, and route wiring.
 
 ## Activation prerequisite
 

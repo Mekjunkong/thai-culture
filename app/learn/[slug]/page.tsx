@@ -1,9 +1,8 @@
-import { readFileSync } from 'fs'
-import { join } from 'path'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
 import { getLearnerAccess, getLearnerLesson } from '@/lib/learner-access'
+import { getCourseContent } from '@/lib/course-content'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,7 +33,7 @@ export default async function ProtectedLessonPage({ params }: { params: { slug: 
     )
   }
 
-  const content = readFileSync(join(process.cwd(), lesson.source), 'utf-8')
+  const content = getCourseContent(params.slug, 'full')
   return (
     <main className="min-h-screen bg-paper px-4 py-10 text-ink md:py-14">
       <article className="mx-auto max-w-4xl border border-ink/10 bg-surface p-6 shadow-sm md:p-10">

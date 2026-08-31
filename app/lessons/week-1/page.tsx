@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs'
-import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AudioPlayer from '@/components/lesson/AudioPlayer'
@@ -7,6 +5,7 @@ import QuizBlock from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
+import { getCourseContent } from '@/lib/course-content'
 
 export const metadata: Metadata = {
   title: 'Week 1: Greetings & Politeness Particles | Thai Lessons Chiang Mai',
@@ -30,10 +29,7 @@ export const metadata: Metadata = {
 
 function getLessonContent() {
   try {
-    return readFileSync(
-      join(process.cwd(), 'content/lessons/week-1/content.md'),
-      'utf-8'
-    )
+    return getCourseContent('week-1', 'preview')
   } catch {
     return '# Lesson content loading...\n\nContent file not found.'
   }
@@ -73,7 +69,7 @@ export default function Week1Page() {
                   </span>
                   <h2 id="audio-practice" className="mt-4 text-2xl font-serif font-normal text-tamarind text-balance">Listen, repeat, then read</h2>
                   <p className="mt-2 max-w-2xl text-tamarind/70 text-pretty">
-                    Two real MP3 practice tracks are ready for this module. Use them before reading the full lesson so the phrases feel familiar first.
+                    Two real MP3 practice tracks are ready for this preview. Use them before reading the preview so the phrases feel familiar first.
                   </p>
                 </div>
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-none bg-ink text-3xl text-surface" aria-hidden="true">🎧</span>

@@ -1,13 +1,9 @@
 import { cookies } from 'next/headers'
 import { createAdminClient, getAuthenticatedUser } from '@/lib/supabase'
 import { ACCESS_TOKEN_COOKIE } from '@/lib/auth-cookie'
+import { COURSE_LESSONS } from '@/lib/course-content'
 
-export const LEARNER_LESSONS = [
-  { slug: 'week-1', title: 'Greetings & politeness', source: 'content/lessons/week-1/content.md' },
-  { slug: 'week-2', title: 'Numbers, prices, colors & objects', source: 'content/lessons/week-2/content.md' },
-  { slug: 'week-3', title: 'Food, coffee & spice levels', source: 'content/lessons/week-3/content.md' },
-  { slug: 'week-4', title: 'Transport & local etiquette', source: 'content/lessons/week-4/content.md' },
-] as const
+export const LEARNER_LESSONS = COURSE_LESSONS.map(({ slug, title, fullSource: source }) => ({ slug, title, source }))
 
 export type LearnerLesson = (typeof LEARNER_LESSONS)[number]
 export type LearnerAccess =
