@@ -1,27 +1,57 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getStripe, STRIPE_PLANS, PlanKey } from '@/lib/stripe'
+import { getStripe, getLifetimePriceId } from '@/lib/stripe'
+import { getAuthenticatedUser } from '@/lib/supabase'
+
+const PRODUCTION_ORIGIN = 'https://thai-culture-ruby.vercel.app'
+
+function getAppUrl() {
+  const configured = process.env.NEXT_PUBLIC_APP_URL?.trim()
+  if (process.env.NODE_ENV !== 'production') return configured || 'http://localhost:3000'
+  if (!configured) throw new Error('NEXT_PUBLIC_APP_URL is required in production')
+  const url = new URL(configured)
+  if (url.protocol !== 'https:' || url.origin !== PRODUCTION_ORIGIN || url.pathname !== '/') {
+    throw new Error('NEXT_PUBLIC_APP_URL must be the approved HTTPS production origin')
+  }
+  return url.origin
+}
 
 export async function POST(req: NextRequest) {
+  let user
   try {
-    const body = await req.json().catch(() => ({})) as {
-      plan?: PlanKey; userId?: string; email?: string
-    }
-    const plan = body.plan ?? 'lifetime'
-    const planConfig = STRIPE_PLANS[plan]
-    if (!planConfig) {
-      return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
-    }
+    const authorization = req.headers.get('authorization') ?? ''
+    const match = authorization.match(/^Bearer\s+(.+)$/i)
+    if (!match) return NextResponse.json({ error: 'Authentication required' }, { status: 401 })
+    user = await getAuthenticatedUser(match[1])
+  } catch (err) {
+    console.error('[Checkout] Auth configuration error:', err)
+    return NextResponse.json({ error: 'Checkout is not configured' }, { status: 503 })
+  }
+
+  if (!user) return NextResponse.json({ error: 'Authentication required' }, { status: 401 })
+
+  const body = await req.json().catch(() => ({})) as { plan?: unknown }
+  if (body.plan !== undefined && body.plan !== 'lifetime') {
+    return NextResponse.json({ error: 'Only the lifetime plan is available' }, { status: 400 })
+  }
+
+  let priceId: string
+  let appUrl: string
+  try {
+    priceId = getLifetimePriceId()
+    appUrl = getAppUrl()
+  } catch (err) {
+    console.error('[Checkout] Configuration error:', err)
+    return NextResponse.json({ error: 'Checkout is not configured' }, { status: 503 })
+  }
+
+  try {
     const session = await getStripe().checkout.sessions.create({
-      mode: planConfig.interval ? 'subscription' : 'payment',
-      ...(body.email ? { customer_email: body.email } : {}),
-      line_items: [{ price: planConfig.priceId, quantity: 1 }],
-      metadata: {
-        plan,
-        ...(body.userId ? { userId: body.userId } : {}),
-        product: 'thai-culture-starter-course',
-      },
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/?checkout=success#pricing`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/?checkout=cancelled#pricing`,
+      mode: 'payment',
+      ...(user.email ? { customer_email: user.email } : {}),
+      line_items: [{ price: priceId, quantity: 1 }],
+      metadata: { plan: 'lifetime', userId: user.id, product: 'thai-culture-starter-course' },
+      success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${appUrl}/checkout/cancelled`,
       allow_promotion_codes: true,
     })
     return NextResponse.json({ url: session.url })

@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:learner-access": "node scripts/check-learner-access.mjs",
+    "check:course-content": "node scripts/check-course-content.mjs",
+    "check:stripe-security": "bash scripts/check-stripe-security.sh",
+    "check:safe-redirect": "node scripts/check-safe-redirect.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

@@ -120,6 +120,39 @@ export interface Database {
         }
         Relationships: []
       }
+      stripe_webhook_events: {
+        Row: {
+          event_id: string
+          event_type: string
+          status: 'processing' | 'processed' | 'failed'
+          attempts: number
+          claimed_at: string
+          last_error: string | null
+          processed_at: string | null
+          created_at: string
+        }
+        Insert: {
+          event_id: string
+          event_type: string
+          status?: 'processing' | 'processed' | 'failed'
+          attempts?: number
+          claimed_at?: string
+          last_error?: string | null
+          processed_at?: string | null
+          created_at?: string
+        }
+        Update: {
+          event_id?: string
+          event_type?: string
+          status?: 'processing' | 'processed' | 'failed'
+          attempts?: number
+          claimed_at?: string
+          last_error?: string | null
+          processed_at?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       subscriptions: {
         Row: {
           id: string

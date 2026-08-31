@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs'
-import { join } from 'path'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -7,6 +5,7 @@ import QuizBlock, { type QuizQuestion } from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
+import { getCourseContent } from '@/lib/course-content'
 
 export const metadata: Metadata = {
   title: 'Week 4: Transport, Temples, Markets & Local Etiquette | Thai Lessons Chiang Mai',
@@ -61,7 +60,7 @@ const week4Questions: QuizQuestion[] = [
 
 function getLessonContent() {
   try {
-    return readFileSync(join(process.cwd(), 'content/lessons/week-4/content.md'), 'utf-8')
+    return getCourseContent('week-4', 'preview')
   } catch {
     return '# Lesson content loading...\n\nContent file not found.'
   }
