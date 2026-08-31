@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from 'react'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
+import { clearAccessToken, storeAccessToken } from '@/lib/auth-cookie'
 
 const localAccountKey = 'thai-culture-local-account'
 
@@ -57,7 +58,15 @@ export default function AuthForm() {
       if (result.error) throw result.error
 
       const currentEmail = result.data.user?.email ?? email
+      if (result.data.session?.access_token) {
+        storeAccessToken(result.data.session.access_token, result.data.session.expires_in)
+      }
       setSignedInEmail(currentEmail)
+      const next = new URLSearchParams(window.location.search).get('next')
+      if (next && next.startsWith('/') && !next.startsWith('//')) {
+        window.location.assign(next)
+        return
+      }
       setMessage(mode === 'signup'
         ? 'Account created. If email confirmation is needed, check your inbox before logging in.'
         : 'You are logged in. Welcome back to your course.'
@@ -80,7 +89,9 @@ export default function AuthForm() {
     }
 
     setIsLoading(true)
-    const redirectTo = `${window.location.origin}/auth/callback?next=/lessons/week-1`
+    const next = new URLSearchParams(window.location.search).get('next')
+    const safeNext = next && next.startsWith('/') && !next.startsWith('//') ? next : '/learn'
+    const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(safeNext)}`
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo },
@@ -102,6 +113,7 @@ export default function AuthForm() {
     }
 
     await supabase.auth.signOut()
+    clearAccessToken()
     setSignedInEmail(null)
     setMessage('Signed out.')
     window.dispatchEvent(new Event('thai-culture-auth-change'))

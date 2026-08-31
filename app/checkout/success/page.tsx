@@ -28,8 +28,8 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
       <p className="mt-5 text-base leading-7 text-ink/70">
         Access is granted only after the signed Stripe webhook is verified and processed. This page never grants access by itself.
       </p>
-      <Link href="/lessons" className="mt-8 inline-flex w-fit bg-honey px-6 py-3 font-semibold text-ink">
-        Return to the course preview
+      <Link href="/learn" className="mt-8 inline-flex w-fit bg-honey px-6 py-3 font-semibold text-ink">
+        Open the learner area
       </Link>
     </main>
   )

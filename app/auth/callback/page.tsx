@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Navbar from '@/components/ui/Navbar'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
+import { storeAccessToken } from '@/lib/auth-cookie'
 
 export default function AuthCallbackPage() {
   const router = useRouter()
@@ -20,7 +21,8 @@ export default function AuthCallbackPage() {
       }
 
       const params = new URLSearchParams(window.location.search)
-      const next = params.get('next') || '/lessons/week-1'
+      const requestedNext = params.get('next')
+      const next = requestedNext && requestedNext.startsWith('/') && !requestedNext.startsWith('//') ? requestedNext : '/learn'
       const hasAuthCode = params.has('code')
 
       const { data, error: sessionError } = hasAuthCode
@@ -39,6 +41,7 @@ export default function AuthCallbackPage() {
         return
       }
 
+      storeAccessToken(data.session.access_token, data.session.expires_in)
       setMessage('Google login complete. Sending you to the course…')
       window.dispatchEvent(new Event('thai-culture-auth-change'))
       router.replace(next)
