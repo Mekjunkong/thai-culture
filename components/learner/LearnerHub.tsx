@@ -6,52 +6,36 @@ import {
   emptyLearnerProgress,
   getFirstIncompleteLesson,
   learnerLessons,
-  LEARNER_PROGRESS_KEY,
   type LessonProgressStatus,
 } from '@/lib/learner-course'
-
-function readProgress() {
-  const initial = emptyLearnerProgress()
-
-  try {
-    const saved = JSON.parse(window.localStorage.getItem(LEARNER_PROGRESS_KEY) ?? '{}') as Record<string, LessonProgressStatus>
-    for (const lesson of learnerLessons) {
-      if (saved[String(lesson.week)] === 'not-started' || saved[String(lesson.week)] === 'in-progress' || saved[String(lesson.week)] === 'complete') {
-        initial[lesson.week] = saved[String(lesson.week)]
-      }
-    }
-  } catch {
-    // Corrupt or unavailable local storage should leave the learner at a truthful blank state.
-  }
-
-  return initial
-}
+import { readLearnerProgress, setLearnerLessonStatus, writeLearnerProgress } from '@/lib/learner-progress'
 
 export default function LearnerHub() {
   const [progress, setProgress] = useState<Record<number, LessonProgressStatus>>(emptyLearnerProgress)
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
-    setProgress(readProgress())
+    setProgress(readLearnerProgress())
     setHydrated(true)
   }, [])
 
   useEffect(() => {
-    if (hydrated) window.localStorage.setItem(LEARNER_PROGRESS_KEY, JSON.stringify(progress))
+    if (hydrated) writeLearnerProgress(progress)
   }, [hydrated, progress])
 
   const nextLesson = useMemo(() => getFirstIncompleteLesson(progress), [progress])
   const completedCount = learnerLessons.filter(lesson => progress[lesson.week] === 'complete').length
 
   function startLesson(week: number) {
-    setProgress(current => ({ ...current, [week]: current[week] === 'complete' ? 'complete' : 'in-progress' }))
+    const current = readLearnerProgress()
+    const status = current[week] === 'complete' ? 'complete' : 'in-progress'
+    setProgress(setLearnerLessonStatus(week, status))
   }
 
   function toggleComplete(week: number) {
-    setProgress(current => ({
-      ...current,
-      [week]: current[week] === 'complete' ? 'in-progress' : 'complete',
-    }))
+    const current = readLearnerProgress()
+    const nextStatus = current[week] === 'complete' ? 'in-progress' : 'complete'
+    setProgress(setLearnerLessonStatus(week, nextStatus))
   }
 
   return (

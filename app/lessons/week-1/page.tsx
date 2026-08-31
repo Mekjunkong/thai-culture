@@ -7,6 +7,7 @@ import QuizBlock from '@/components/quiz/QuizBlock'
 import Navbar from '@/components/ui/Navbar'
 import SiteFooter from '@/components/ui/SiteFooter'
 import MarkdownContent from '@/components/lesson/MarkdownContent'
+import LessonNavigation from '@/components/learner/LessonNavigation'
 
 export const metadata: Metadata = {
   title: 'Week 1: Greetings & Politeness Particles | Thai Lessons Chiang Mai',
@@ -96,6 +97,7 @@ export default function Week1Page() {
                 <QuizBlock />
               </div>
             </section>
+            <LessonNavigation week={1} />
           </div>
 
           <aside className="h-fit rounded-none border border-tamarind/10 bg-surface p-6 shadow-sm lg:sticky lg:top-24">
