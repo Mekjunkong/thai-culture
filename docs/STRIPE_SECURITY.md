@@ -8,6 +8,8 @@ Stripe remains disabled until all of these are true:
 4. In production set `NEXT_PUBLIC_APP_URL=https://thai-culture-ruby.vercel.app` (the checkout route rejects other origins and all HTTP origins). Local development may use `http://localhost:3000`.
 5. Configure the Stripe webhook endpoint and test signature delivery only after the migration and environment checks are complete. No production activation is performed by this change.
 
+The migration includes a retryable `failed` state and a ten-minute processing lease. If a handler crashes, a later delivery can reclaim the event; apply the migration before enabling the endpoint. Stripe test events must use an `sk_test_` key, and live events must use an `sk_live_` key; mismatches are rejected.
+
 ## Access enforcement status
 
 The existing `/lessons/week-*` routes remain public previews for SEO and product discovery. This change does **not** claim those pages are protected. The webhook grants the `lifetime` profile/subscription state only after strict Stripe object validation, profile existence validation, and event-level idempotency.

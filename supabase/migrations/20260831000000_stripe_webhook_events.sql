@@ -3,7 +3,10 @@
 create table if not exists public.stripe_webhook_events (
   event_id     text primary key,
   event_type   text not null,
-  status       text not null default 'processing' check (status in ('processing', 'processed')),
+  status       text not null default 'processing' check (status in ('processing', 'processed', 'failed')),
+  attempts     integer not null default 1,
+  claimed_at   timestamptz not null default now(),
+  last_error   text,
   processed_at timestamptz,
   created_at   timestamptz not null default now()
 );

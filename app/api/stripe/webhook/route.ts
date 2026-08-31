@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { getStripe } from '@/lib/stripe'
+import { getStripe, getStripeMode } from '@/lib/stripe'
 import { createAdminClient } from '@/lib/supabase'
 import { hasExpectedLifetimeSnapshot, isValidUuid } from '@/lib/stripe-validation'
 
 type DbError = { message: string; code?: string } | null
+const STALE_LEASE_MS = 10 * 60 * 1000
 
 function persistenceError(error: DbError) {
   if (error) throw new Error(`Supabase persistence failed: ${error?.message}`)
@@ -31,6 +32,10 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const keyIsLive = getStripeMode() === 'live'
+    if (event.livemode !== keyIsLive) {
+      return NextResponse.json({ error: 'Stripe mode mismatch' }, { status: 503 })
+    }
     const db = createAdminClient()
     // This table must exist before webhook activation. The unique event ID is
     // the idempotency boundary; subscriptions.user_id alone is not sufficient.
@@ -41,12 +46,19 @@ export async function POST(req: NextRequest) {
     })
     if (claimError) {
       if (claimError.code === '23505') {
-        const { data, error } = await db.from('stripe_webhook_events').select('status').eq('event_id', event.id).maybeSingle()
+        const { data, error } = await db.from('stripe_webhook_events').select('status, claimed_at').eq('event_id', event.id).maybeSingle()
         persistenceError(error)
         if (data?.status === 'processed') return NextResponse.json({ received: true, duplicate: true })
-        return NextResponse.json({ error: 'Event is already being processed' }, { status: 409 })
+        const stale = data?.status === 'failed' || (data?.claimed_at && Date.now() - Date.parse(data.claimed_at) > STALE_LEASE_MS)
+        if (!stale) return NextResponse.json({ error: 'Event is already being processed' }, { status: 409 })
+        const { data: reclaimed, error: reclaimError } = await db.from('stripe_webhook_events')
+          .update({ status: 'processing', claimed_at: new Date().toISOString(), attempts: 2, last_error: null })
+          .eq('event_id', event.id).neq('status', 'processed').select('event_id').maybeSingle()
+        persistenceError(reclaimError)
+        if (!reclaimed) return NextResponse.json({ error: 'Event is already being processed' }, { status: 409 })
+      } else {
+        persistenceError(claimError)
       }
-      persistenceError(claimError)
     }
 
     switch (event.type) {
@@ -103,10 +115,16 @@ export async function POST(req: NextRequest) {
         break
     }
 
-    const { error: completeError } = await db.from('stripe_webhook_events').update({ status: 'processed', processed_at: new Date().toISOString() }).eq('event_id', event.id)
+    const { error: completeError } = await db.from('stripe_webhook_events').update({ status: 'processed', processed_at: new Date().toISOString(), last_error: null }).eq('event_id', event.id)
     persistenceError(completeError)
   } catch (err) {
     console.error('[Stripe Webhook] Error:', err)
+    try {
+      const db = createAdminClient()
+      await db.from('stripe_webhook_events').update({ status: 'failed', last_error: err instanceof Error ? err.message.slice(0, 500) : 'Unknown webhook error' }).eq('event_id', event.id).neq('status', 'processed')
+    } catch (markError) {
+      console.error('[Stripe Webhook] Could not mark retryable failure:', markError)
+    }
     if (configurationError(err)) return NextResponse.json({ error: 'Webhook is not configured' }, { status: 503 })
     return NextResponse.json({ error: 'Webhook could not be processed' }, { status: 500 })
   }
