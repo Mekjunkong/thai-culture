@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { readMissionProgress, writeMissionProgress } from '@/lib/mission-progress'
 
 type MarketItem = {
   id: string
@@ -59,6 +60,7 @@ export default function MarketPriceMission() {
   const [priceChoice, setPriceChoice] = useState<number | null>(null)
   const [roleplayChoice, setRoleplayChoice] = useState<string | null>(null)
   const [completed, setCompleted] = useState(false)
+  const [restored, setRestored] = useState(false)
 
   const item = items.find((marketItem) => marketItem.id === itemId) ?? items[0]
   const quantity = quantities.find((marketQuantity) => marketQuantity.id === quantityId) ?? quantities[0]
@@ -86,16 +88,33 @@ export default function MarketPriceMission() {
   const nextAction = progressCount < 1 ? 'Ask the price out loud' : progressCount < 2 ? 'Choose fruit' : progressCount < 3 ? 'Practice the buying phrase' : progressCount < 4 ? 'Finish the vendor roleplay' : checks.noLook ? 'Mission complete' : 'Say both phrases without looking'
 
   useEffect(() => {
-    const saved = window.localStorage.getItem('tlcm-market-price-complete')
-    if (saved === 'true') setCompleted(true)
+    const saved = readMissionProgress('tlcm-market-price-state', {
+      itemId: items[0].id,
+      quantityId: quantities[0].id,
+      particle: 'ครับ' as const,
+      checks: { asked: false, repeated: false, noLook: false },
+      priceChoice: null as number | null,
+      roleplayChoice: null as string | null,
+      completed: false,
+    }, 'tlcm-market-price-complete')
+    setItemId(saved.itemId)
+    setQuantityId(saved.quantityId)
+    setParticle(saved.particle)
+    setChecks(saved.checks)
+    setPriceChoice(saved.priceChoice)
+    setRoleplayChoice(saved.roleplayChoice)
+    setCompleted(saved.completed)
+    setRestored(true)
   }, [])
 
   useEffect(() => {
-    if (canComplete) {
-      window.localStorage.setItem('tlcm-market-price-complete', 'true')
-      setCompleted(true)
-    }
+    if (canComplete) setCompleted(true)
   }, [canComplete])
+
+  useEffect(() => {
+    if (!restored) return
+    writeMissionProgress('tlcm-market-price-state', { itemId, quantityId, particle, checks, priceChoice, roleplayChoice, completed }, undefined, 'tlcm-market-price-complete')
+  }, [restored, itemId, quantityId, particle, checks, priceChoice, roleplayChoice, completed])
 
   function toggleCheck(key: keyof typeof checks) {
     setChecks((current) => ({ ...current, [key]: !current[key] }))
@@ -340,7 +359,7 @@ export default function MarketPriceMission() {
         <section className="mx-auto mt-6 max-w-6xl rounded-none border border-tamarind/10 bg-ink p-6 text-surface md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">{completed ? 'Mission complete 🏆' : 'Finish the roleplay to complete'}</p>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">{completed ? 'Practice complete — self-check saved 🏆' : 'Finish the roleplay to save your self-check'}</p>
               <h2 className="mt-3 text-3xl font-serif font-normal tracking-[-0.04em] md:text-4xl">Send your market voice note for correction.</h2>
               <p className="mt-3 max-w-2xl leading-7 text-surface/82">
                 Record yourself saying “{askPhrase}” and “{buyPhrase}”. Mike can correct pronunciation, rhythm, tone feeling, and politeness.
@@ -355,9 +374,10 @@ export default function MarketPriceMission() {
               >
                 WhatsApp Mike
               </a>
-              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Book a lesson
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/missions" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">All missions</Link>
+                <Link href="/learn" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">Learning hub</Link>
+              </div>
             </div>
           </div>
         </section>

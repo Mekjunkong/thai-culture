@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { readMissionProgress, writeMissionProgress } from '@/lib/mission-progress'
 
 type Drink = {
   id: string
@@ -60,6 +61,7 @@ export default function OrderCoffeeMission() {
   const [checks, setChecks] = useState({ listened: false, repeated: false, noLook: false })
   const [quizChoice, setQuizChoice] = useState<string | null>(null)
   const [completed, setCompleted] = useState(false)
+  const [restored, setRestored] = useState(false)
   const [thaiVoiceName, setThaiVoiceName] = useState<string | null>(null)
   const [speechReady, setSpeechReady] = useState(false)
   const [audioMessage, setAudioMessage] = useState('')
@@ -96,8 +98,21 @@ export default function OrderCoffeeMission() {
   const nextAction = progressCount < 2 ? 'Choose your drink and sweetness' : progressCount < 3 ? 'Practice the phrase out loud' : progressCount < 4 ? 'Finish the cafe roleplay' : checks.noLook ? 'Mission complete' : 'Say it once without looking'
 
   useEffect(() => {
-    const saved = window.localStorage.getItem('tlcm-order-coffee-complete')
-    if (saved === 'true') setCompleted(true)
+    const saved = readMissionProgress('tlcm-order-coffee-state', {
+      drinkId: drinks[0].id,
+      sweetnessId: 'less',
+      particle: 'ครับ' as const,
+      checks: { listened: false, repeated: false, noLook: false },
+      quizChoice: null as string | null,
+      completed: false,
+    }, 'tlcm-order-coffee-complete')
+    setDrinkId(saved.drinkId)
+    setSweetnessId(saved.sweetnessId)
+    setParticle(saved.particle)
+    setChecks(saved.checks)
+    setQuizChoice(saved.quizChoice)
+    setCompleted(saved.completed)
+    setRestored(true)
   }, [])
 
   useEffect(() => {
@@ -118,11 +133,13 @@ export default function OrderCoffeeMission() {
   }, [])
 
   useEffect(() => {
-    if (canComplete) {
-      window.localStorage.setItem('tlcm-order-coffee-complete', 'true')
-      setCompleted(true)
-    }
+    if (canComplete) setCompleted(true)
   }, [canComplete])
+
+  useEffect(() => {
+    if (!restored) return
+    writeMissionProgress('tlcm-order-coffee-state', { drinkId, sweetnessId, particle, checks, quizChoice, completed }, undefined, 'tlcm-order-coffee-complete')
+  }, [restored, drinkId, sweetnessId, particle, checks, quizChoice, completed])
 
   function speak(speed: 'slow' | 'natural') {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
@@ -366,7 +383,7 @@ export default function OrderCoffeeMission() {
         <section className="mx-auto mt-6 max-w-6xl rounded-none border border-tamarind/10 bg-ink p-6 text-surface md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">{completed ? 'Mission complete 🏆' : 'Finish the checklist to complete'}</p>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-honey">{completed ? 'Practice complete — self-check saved 🏆' : 'Finish the checklist to save your self-check'}</p>
               <h2 className="mt-3 text-3xl font-serif font-normal tracking-[-0.04em] md:text-4xl">Send your voice note for correction.</h2>
               <p className="mt-3 max-w-2xl leading-7 text-surface/82">
                 Reading is not enough. Record yourself saying the phrase and send it to Mike. He can correct pronunciation, speed, tone feeling, and politeness.
@@ -381,9 +398,10 @@ export default function OrderCoffeeMission() {
               >
                 WhatsApp Mike
               </a>
-              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Book a lesson
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/missions" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">All missions</Link>
+                <Link href="/learn" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">Learning hub</Link>
+              </div>
             </div>
           </div>
         </section>

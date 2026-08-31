@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { readMissionProgress, writeMissionProgress } from '@/lib/mission-progress'
 
 type Place = { id: string; label: string; thai: string; roman: string; clue: string }
 type Direction = { id: string; label: string; thai: string; roman: string; meaning: string }
@@ -29,6 +30,7 @@ export default function DriverStopMission() {
   const [driverChoice, setDriverChoice] = useState<string | null>(null)
   const [directionChoice, setDirectionChoice] = useState<string | null>(null)
   const [completed, setCompleted] = useState(false)
+  const [restored, setRestored] = useState(false)
 
   const place = places.find((item) => item.id === placeId) ?? places[0]
   const direction = directions.find((item) => item.id === directionId) ?? directions[0]
@@ -47,15 +49,33 @@ export default function DriverStopMission() {
   const nextAction = progressCount < 1 ? 'Choose where to stop' : progressCount < 2 ? 'Practice one direction phrase' : progressCount < 3 ? 'Finish the driver roleplay' : checks.stop ? 'Mission complete' : 'Say stop here out loud'
 
   useEffect(() => {
-    if (window.localStorage.getItem('tlcm-driver-stop-complete') === 'true') setCompleted(true)
+    const saved = readMissionProgress('tlcm-driver-stop-state', {
+      placeId: places[0].id,
+      directionId: directions[0].id,
+      particle: 'ครับ' as const,
+      checks: { stop: false, directions: false, noLook: false },
+      driverChoice: null as string | null,
+      directionChoice: null as string | null,
+      completed: false,
+    }, 'tlcm-driver-stop-complete')
+    setPlaceId(saved.placeId)
+    setDirectionId(saved.directionId)
+    setParticle(saved.particle)
+    setChecks(saved.checks)
+    setDriverChoice(saved.driverChoice)
+    setDirectionChoice(saved.directionChoice)
+    setCompleted(saved.completed)
+    setRestored(true)
   }, [])
 
   useEffect(() => {
-    if (canComplete) {
-      window.localStorage.setItem('tlcm-driver-stop-complete', 'true')
-      setCompleted(true)
-    }
+    if (canComplete) setCompleted(true)
   }, [canComplete])
+
+  useEffect(() => {
+    if (!restored) return
+    writeMissionProgress('tlcm-driver-stop-state', { placeId, directionId, particle, checks, driverChoice, directionChoice, completed }, undefined, 'tlcm-driver-stop-complete')
+  }, [restored, placeId, directionId, particle, checks, driverChoice, directionChoice, completed])
 
   function resetRoleplay() {
     setDriverChoice(null)
@@ -249,7 +269,7 @@ export default function DriverStopMission() {
         <section className="mx-auto mt-6 max-w-6xl rounded-none border border-tamarind/10 bg-ink p-6 text-surface md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-bold uppercase text-honey">{completed ? 'Mission complete 🏆' : 'Finish the roleplay to complete'}</p>
+              <p className="text-sm font-bold uppercase text-honey">{completed ? 'Practice complete — self-check saved 🏆' : 'Finish the roleplay to save your self-check'}</p>
               <h2 className="mt-3 text-3xl font-serif font-normal tracking-[-0.04em] text-balance md:text-4xl">Send your driver voice note for correction.</h2>
               <p className="mt-3 max-w-2xl leading-7 text-surface/82 text-pretty">
                 Record yourself saying “{stopPhrase}” and “{directionPhrase}”. Mike can correct pronunciation, rhythm, and polite feeling.
@@ -259,9 +279,10 @@ export default function DriverStopMission() {
               <a href={`https://wa.me/66929894495?text=${whatsappText}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-none bg-honey px-6 py-3 text-center font-bold text-tamarind transition duration-150 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
                 WhatsApp Mike
               </a>
-              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Book a lesson
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/missions" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">All missions</Link>
+                <Link href="/learn" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">Learning hub</Link>
+              </div>
             </div>
           </div>
         </section>
