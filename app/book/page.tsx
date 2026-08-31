@@ -27,14 +27,22 @@ export const metadata: Metadata = {
   },
 }
 
-const steps = [
+const lessonSteps = [
   ['1', 'Choose your situation', 'Cafe, market, restaurant, transport, condo, work, or daily social Thai.'],
   ['2', 'Send your intake', 'Your WhatsApp message includes level, goals, schedule, and lesson format.'],
   ['3', 'Get a prepared first mission', 'The lesson starts faster because the phrase bank and roleplay are already selected.'],
 ]
 
+const courseSteps = [
+  ['1', 'Tell Mike where to match access', 'Share your name, login or account email, and a WhatsApp or other contact.'],
+  ['2', 'Receive current payment instructions', 'Mike replies manually. This request does not complete a purchase or unlock access.'],
+  ['3', 'Use the same account after confirmation', 'Once payment is checked, lifetime course access can be granted to the email you provided.'],
+]
+
 export default function BookPage({ searchParams }: { searchParams: { product?: string } }) {
   const isCourseRequest = searchParams.product === 'guided-starter-course'
+
+  const steps = isCourseRequest ? courseSteps : lessonSteps
 
   return (
     <>
