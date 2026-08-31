@@ -57,8 +57,8 @@ export default function IntakeForm({ courseRequest }: { courseRequest: boolean }
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     if (courseRequest && !event.currentTarget.checkValidity()) {
-      event.preventDefault()
       event.currentTarget.reportValidity()
       return
     }
