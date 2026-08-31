@@ -3,7 +3,7 @@ import Link from 'next/link'
 const learnLinks = [
   { href: '/missions', label: 'Free 5-minute missions' },
   { href: '/practice', label: 'Practice app' },
-  { href: '/lessons', label: 'Free 4-week course' },
+  { href: '/lessons', label: 'Guided Starter Course' },
   { href: '/products/50-thai-phrases-chiang-mai.html', label: '50 Chiang Mai phrases' },
 ]
 

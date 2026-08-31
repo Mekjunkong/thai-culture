@@ -9,7 +9,7 @@ import BrandLogo from './BrandLogo'
 const navItems = [
   { href: '/missions', label: 'Missions' },
   { href: '/practice', label: 'Practice app' },
-  { href: '/lessons', label: 'Free course' },
+  { href: '/lessons', label: 'Guided course' },
   { href: '/products', label: 'Products' },
   { href: '/#pricing', label: 'Pricing' },
 ]

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Navbar from '@/components/ui/Navbar'
 
 export const metadata = {
   alternates: { canonical: '/' },
@@ -52,6 +53,15 @@ const pricing = [
     cta: 'Book a trial',
     href: '/book',
     featured: true,
+  },
+  {
+    tag: 'Independent learning',
+    name: 'Guided Starter Course',
+    price: '฿690 one-time',
+    detail: 'Self-study access for four weeks, with lifetime access to the guided course, audio where available, quizzes, practice materials, and real-life missions. No private lessons or personal correction.',
+    cta: 'Request course access',
+    href: '/book?product=guided-starter-course',
+    featured: false,
   },
   {
     tag: 'Most useful',
@@ -131,32 +141,7 @@ export default function HomePage() {
       />
       <div className="bg-paper font-public text-ink">
         <div className="mx-auto max-w-[1180px]">
-          <nav
-            aria-label="Main"
-            className="flex items-center justify-between border-b border-ink/8 px-6 py-[26px]"
-          >
-            <Link href="/" className="inline-flex items-center gap-3 font-serif text-xl text-ink">
-              <img className="h-11 w-11 shrink-0 object-contain" src="/assets/brand/thai-lessons-chiang-mai-doisuthep-icon.svg" alt="" aria-hidden="true" />
-              <span>Thai Lessons <span className="font-bold italic text-clay">Chiang Mai</span><small className="mt-1 block font-sans text-[8px] font-bold uppercase tracking-[0.18em] text-ink/50">Tua Mueang · Online</small></span>
-            </Link>
-            <div className="hidden gap-8 text-[13.5px] text-ink/65 md:flex">
-              <Link href="/missions" className="inline-flex min-h-11 items-center hover:text-clay">
-                Missions
-              </Link>
-              <Link href="/lessons" className="inline-flex min-h-11 items-center hover:text-clay">
-                Free course
-              </Link>
-              <a href="#pricing" className="inline-flex min-h-11 items-center hover:text-clay">
-                Pricing
-              </a>
-            </div>
-            <Link
-              href="/book"
-              className="inline-flex min-h-11 items-center justify-center bg-clay px-[22px] py-[11px] text-[13px] font-semibold text-paper transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
-            >
-              Book a trial
-            </Link>
-          </nav>
+          <Navbar />
 
           <section className="grid items-center gap-12 px-6 pt-16 lg:grid-cols-2">
             <div>
@@ -306,12 +291,36 @@ export default function HomePage() {
             </div>
           </section>
 
+          <section className="px-6 py-14" aria-labelledby="preview-heading">
+            <span className={eyebrow}>A small preview</span>
+            <h2 id="preview-heading" className="mt-3.5 font-serif text-[30px] font-normal text-ink">
+              See the kind of practice you will repeat.
+            </h2>
+            <div className="mt-7 grid gap-4 md:grid-cols-3">
+              <Link href="/lessons/week-1" className="border-t border-ink/15 py-5 transition-colors hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <span className="text-xs font-semibold uppercase tracking-[.12em] text-clay">Week 1 lesson</span>
+                <h3 className="mt-2 font-serif text-xl text-ink">Greet politely and use particles</h3>
+                <p className="mt-2 text-sm leading-6 text-ink/65">Read the phrase, hear the rhythm where audio is available, then try the self-check.</p>
+              </Link>
+              <Link href="/missions/order-coffee" className="border-t border-ink/15 py-5 transition-colors hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <span className="text-xs font-semibold uppercase tracking-[.12em] text-clay">5-minute mission</span>
+                <h3 className="mt-2 font-serif text-xl text-ink">Order coffee less sweet</h3>
+                <p className="mt-2 text-sm leading-6 text-ink/65">Practice one useful request in a real cafe situation, without a long lesson first.</p>
+              </Link>
+              <Link href="/practice" className="border-t border-ink/15 py-5 transition-colors hover:text-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
+                <span className="text-xs font-semibold uppercase tracking-[.12em] text-clay">Practice app</span>
+                <h3 className="mt-2 font-serif text-xl text-ink">Repeat until it feels usable</h3>
+                <p className="mt-2 text-sm leading-6 text-ink/65">Use flashcards and quizzes to revisit beginner phrases at your own pace.</p>
+              </Link>
+            </div>
+          </section>
+
           <section id="pricing" className="scroll-mt-6 px-6 pb-16">
             <span className={eyebrow}>Lessons and pricing</span>
             <h2 className="mb-10 mt-3.5 font-serif text-[32px] font-normal text-ink">
               Start free. Book help when you want feedback.
             </h2>
-            <div className="grid gap-px bg-ink/12 md:grid-cols-3">
+            <div className="grid gap-px bg-ink/12 md:grid-cols-2 lg:grid-cols-4">
               {pricing.map(tier => (
                 <div
                   key={tier.name}

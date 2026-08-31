@@ -34,7 +34,7 @@ const productLadder = [
     cta: 'Open practice app',
   },
   {
-    level: '02',
+    level: '03',
     name: '30-Minute Speaking Trial',
     price: '฿199 online / ฿299 on-site',
     bestFor: 'First correction and confidence check',
@@ -44,7 +44,18 @@ const productLadder = [
     cta: 'Book trial',
   },
   {
-    level: '03',
+    level: '02',
+    name: 'Guided Starter Course',
+    price: '฿690 one-time',
+    bestFor: 'Beginners who want a clear self-study month',
+    outcome: 'Follow a four-week path toward useful greetings, prices, food orders, transport, and local etiquette.',
+    includes: ['Self-study four-week course', 'Audio where reviewed and available', 'Quizzes, practice materials, and missions', 'Lifetime access after manual confirmation'],
+    excludes: 'No private lessons, WhatsApp voice correction, or personal coaching.',
+    href: '/book?product=guided-starter-course',
+    cta: 'Request course access',
+  },
+  {
+    level: '04',
     name: 'Starter Pack',
     price: '฿990 online / ฿1,290 on-site',
     bestFor: 'Beginners who want a useful first week',
@@ -54,7 +65,7 @@ const productLadder = [
     cta: 'Book Starter Pack',
   },
   {
-    level: '04',
+    level: '05',
     name: 'Chiang Mai Mission Walk',
     price: '฿1,500-฿2,500',
     bestFor: 'On-site learners who want real-world practice',
@@ -64,7 +75,7 @@ const productLadder = [
     cta: 'Ask for mission walk',
   },
   {
-    level: '05',
+    level: '06',
     name: '5-Lesson Survival Path',
     price: 'Custom package',
     bestFor: 'Expats staying in Chiang Mai for 1 month or longer',
@@ -153,7 +164,7 @@ export default function ProductsPage() {
               <h2 className="mt-3 text-4xl font-serif font-normal leading-tight tracking-[-0.04em] md:text-5xl">From free practice to real speaking support.</h2>
               <p className="mt-4 leading-8 text-tamarind/70">Try the method free first. When you want real feedback, pick the level of support that matches how long you are staying and how fast you want to improve.</p>
             </div>
-            <div className="mt-10 grid gap-4 lg:grid-cols-5">
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {productLadder.map((product) => (
                   <article key={product.name} className={`h-full rounded-none border p-5 shadow-sm transition duration-150 ease-out hover:-translate-y-0.5 ${product.name === 'Starter Pack' ? 'border-honey bg-sand/10' : 'border-tamarind/10 bg-jasmine'}`}>
                     <p className="text-sm font-bold text-clay">{product.level}</p>
@@ -164,6 +175,7 @@ export default function ProductsPage() {
                     <ul className="mt-4 space-y-2 border-t border-tamarind/10 pt-4 text-sm leading-6 text-tamarind/70">
                       {product.includes.map((item) => <li key={item}>✓ {item}</li>)}
                     </ul>
+                    {'excludes' in product && <p className="mt-3 text-xs leading-5 text-tamarind/60">{product.excludes}</p>}
                     <Link href={product.href} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-none bg-ink px-5 py-3 font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">
                       {product.cta}
                     </Link>

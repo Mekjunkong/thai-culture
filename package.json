@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:booking-flow": "node scripts/check-booking-flow.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
