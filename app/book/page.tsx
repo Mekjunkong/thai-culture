@@ -82,7 +82,7 @@ export default function BookPage({ searchParams }: { searchParams: { product?: s
 
         <section className="px-4 pb-20">
           <div className="mx-auto max-w-6xl">
-            <IntakeForm />
+            <IntakeForm courseRequest={isCourseRequest} />
           </div>
         </section>
       </main>

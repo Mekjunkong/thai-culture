@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useState } from 'react'
+import { FormEvent, useEffect, useMemo, useState } from 'react'
 
 type IntakeState = {
   name: string
@@ -36,12 +36,10 @@ const initialState: IntakeState = {
 
 const inputClass = 'min-h-12 w-full rounded-none border border-tamarind/15 bg-jasmine px-4 py-3 font-semibold outline-none transition focus:border-clay focus:ring-4 focus:ring-clay/10'
 
-export default function IntakeForm() {
+export default function IntakeForm({ courseRequest }: { courseRequest: boolean }) {
   const [form, setForm] = useState<IntakeState>(initialState)
-  const [courseRequest, setCourseRequest] = useState(false)
 
   useEffect(() => {
-    setCourseRequest(new URLSearchParams(window.location.search).get('product') === 'guided-starter-course')
     try {
       const raw = window.localStorage.getItem(DRAFT_KEY)
       if (raw) setForm(current => ({ ...current, ...JSON.parse(raw) }))
@@ -58,8 +56,15 @@ export default function IntakeForm() {
     setForm(current => ({ ...current, [field]: value }))
   }
 
-  function handleSend() {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    if (courseRequest && !event.currentTarget.checkValidity()) {
+      event.preventDefault()
+      event.currentTarget.reportValidity()
+      return
+    }
+
     // Keep the draft until the user confirms the request was sent successfully.
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank', 'noopener,noreferrer')
   }
 
   function toggleSituation(option: string) {
@@ -101,7 +106,7 @@ export default function IntakeForm() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr]">
-      <form className="min-w-0 rounded-none border border-tamarind/10 bg-surface p-5 md:p-7" aria-labelledby="intake-heading">
+      <form onSubmit={handleSubmit} className="min-w-0 rounded-none border border-tamarind/10 bg-surface p-5 md:p-7" aria-labelledby="intake-heading" noValidate={!courseRequest}>
         <h2 id="intake-heading" className="sr-only">{courseRequest ? 'Guided Starter Course request' : 'Lesson intake'}</h2>
         {courseRequest && (
           <p className="mb-5 border border-honey bg-jasmine px-4 py-3 text-sm font-semibold leading-6 text-tamarind/75">
@@ -114,7 +119,7 @@ export default function IntakeForm() {
         </p>
         <div className="grid gap-4 md:grid-cols-2">
           <label htmlFor="intake-name" className="grid gap-2 font-bold text-tamarind/78">Name
-            <input id="intake-name" name="name" required value={form.name} onChange={event => updateField('name', event.target.value)} className={inputClass} placeholder="Your name" autoComplete="name" />
+            <input id="intake-name" name="name" required={courseRequest} value={form.name} onChange={event => updateField('name', event.target.value)} className={inputClass} placeholder="Your name" autoComplete="name" />
           </label>
           <label htmlFor="intake-email" className="grid gap-2 font-bold text-tamarind/78">{courseRequest ? 'Login or account email' : 'Email'}
             <input id="intake-email" name="email" type="email" required={courseRequest} value={form.email} onChange={event => updateField('email', event.target.value)} className={inputClass} placeholder="you@example.com" autoComplete="email" aria-describedby={courseRequest ? 'email-help' : undefined} />
@@ -157,7 +162,7 @@ export default function IntakeForm() {
         <p className="mt-4 leading-7 text-tamarind/70">{courseRequest ? 'Mike will reply with the current manual payment instructions and confirm access after checking payment. The account email helps match access later.' : 'Your answers help Mike prepare the right mission, phrase bank, and correction focus.'}</p>
         <div className="mt-5 bg-surface p-4 text-sm leading-6 text-tamarind/72"><p><strong>Name:</strong> {form.name || 'Not written yet'}</p><p><strong>Email:</strong> {form.email || 'Not written yet'}</p><p><strong>Contact:</strong> {form.contact || 'Not written yet'}</p>{courseRequest ? <p><strong>Goal:</strong> {form.goal || 'Optional, not written'}</p> : <><p><strong>Format:</strong> {form.format}</p><p><strong>Situations:</strong> {form.situations.join(', ') || '-'}</p></>}</div>
         {(courseRequest ? courseMissing : lessonMissing) && <p role="alert" className="mt-4 text-sm font-semibold text-clay">{courseRequest ? 'Add your name, account email, and contact before sending the course request.' : 'Add your name and goal above, or send as-is if you would rather explain over chat.'}</p>}
-        <a href={`https://wa.me/${whatsappNumber}?text=${message}`} target="_blank" rel="noreferrer" onClick={handleSend} className="mt-5 inline-flex min-h-12 w-full items-center justify-center bg-ink px-6 py-3 text-center font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">{courseRequest ? 'Send course request on WhatsApp' : 'Send intake on WhatsApp'}</a>
+        <button type="submit" className="mt-5 inline-flex min-h-12 w-full items-center justify-center bg-ink px-6 py-3 text-center font-bold text-surface transition hover:bg-ink/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">{courseRequest ? 'Send course request on WhatsApp' : 'Send intake on WhatsApp'}</button>
         {!courseRequest && <a href="/lesson-report" className="mt-3 inline-flex min-h-12 w-full items-center justify-center border border-tamarind/15 bg-surface px-6 py-3 text-center font-bold text-clay transition hover:border-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay">View lesson report template</a>}
       </aside>
     </div>
