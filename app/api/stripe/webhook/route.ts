@@ -2,11 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { getStripe } from '@/lib/stripe'
 import { createAdminClient } from '@/lib/supabase'
+import { hasExpectedLifetimeSnapshot, isValidUuid } from '@/lib/stripe-validation'
 
-type LifetimePlan = 'lifetime'
+type DbError = { message: string; code?: string } | null
 
-function persistenceError(error: { message: string } | null) {
-  if (error) throw new Error(`Supabase persistence failed: ${error.message}`)
+function persistenceError(error: DbError) {
+  if (error) throw new Error(`Supabase persistence failed: ${error?.message}`)
+}
+
+function configurationError(error: unknown) {
+  return error instanceof Error && /Missing|configured|configuration|stripe_webhook_events|relation .* does not exist/i.test(error.message)
 }
 
 export async function POST(req: NextRequest) {
@@ -21,33 +26,50 @@ export async function POST(req: NextRequest) {
   try {
     event = getStripe().webhooks.constructEvent(body, sig, webhookSecret)
   } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : 'Unknown'
-    return NextResponse.json({ error: `Webhook error: ${msg}` }, { status: 400 })
+    if (configurationError(err)) return NextResponse.json({ error: 'Webhook is not configured' }, { status: 503 })
+    return NextResponse.json({ error: 'Invalid webhook signature' }, { status: 400 })
   }
 
   try {
     const db = createAdminClient()
+    // This table must exist before webhook activation. The unique event ID is
+    // the idempotency boundary; subscriptions.user_id alone is not sufficient.
+    const { error: claimError } = await db.from('stripe_webhook_events').insert({
+      event_id: event.id,
+      event_type: event.type,
+      status: 'processing',
+    })
+    if (claimError) {
+      if (claimError.code === '23505') {
+        const { data, error } = await db.from('stripe_webhook_events').select('status').eq('event_id', event.id).maybeSingle()
+        persistenceError(error)
+        if (data?.status === 'processed') return NextResponse.json({ received: true, duplicate: true })
+        return NextResponse.json({ error: 'Event is already being processed' }, { status: 409 })
+      }
+      persistenceError(claimError)
+    }
+
     switch (event.type) {
       case 'checkout.session.completed': {
-        const session = event.data.object as Stripe.Checkout.Session
-        const plan = session.metadata?.plan
-        const userId = session.metadata?.userId
-        if (plan !== 'lifetime' || !userId) {
-          return NextResponse.json({ error: 'Unsupported or incomplete checkout metadata' }, { status: 400 })
+        const snapshot = event.data.object as Stripe.Checkout.Session
+        const { session, valid, userId } = await (await import('@/lib/stripe-validation')).retrieveAndValidateLifetimeSession(snapshot.id)
+        // Require both the signed event snapshot and a fresh Stripe read to agree.
+        if (!valid || !hasExpectedLifetimeSnapshot(snapshot) || !userId || session.id !== snapshot.id) {
+          throw new Error('Checkout session did not match the approved lifetime product')
         }
+        const { data: profile, error: profileLookupError } = await db.from('profiles').select('id').eq('id', userId).maybeSingle()
+        persistenceError(profileLookupError)
+        if (!profile || !isValidUuid(profile.id)) throw new Error('Checkout user profile does not exist')
 
         const { error: subscriptionError } = await db.from('subscriptions').upsert({
           user_id: userId,
           stripe_customer_id: typeof session.customer === 'string' ? session.customer : null,
-          stripe_subscription_id: typeof session.subscription === 'string' ? session.subscription : null,
+          stripe_subscription_id: null,
           status: 'active',
-          plan: 'lifetime' satisfies LifetimePlan,
+          plan: 'lifetime',
         }, { onConflict: 'user_id' })
         persistenceError(subscriptionError)
-
-        const { error: profileError } = await db.from('profiles')
-          .update({ subscription_tier: 'lifetime' })
-          .eq('id', userId)
+        const { error: profileError } = await db.from('profiles').update({ subscription_tier: 'lifetime' }).eq('id', userId)
         persistenceError(profileError)
         break
       }
@@ -63,32 +85,30 @@ export async function POST(req: NextRequest) {
       }
       case 'customer.subscription.deleted': {
         const sub = event.data.object as Stripe.Subscription
-        const { data, error } = await db.from('subscriptions')
-          .update({ status: 'canceled' })
-          .eq('stripe_subscription_id', sub.id)
-          .select('user_id').maybeSingle()
+        const { data, error } = await db.from('subscriptions').update({ status: 'canceled' }).eq('stripe_subscription_id', sub.id).select('user_id').maybeSingle()
         persistenceError(error)
         if (data?.user_id) {
-          const { error: profileError } = await db.from('profiles')
-            .update({ subscription_tier: 'free' }).eq('id', data.user_id)
+          const { error: profileError } = await db.from('profiles').update({ subscription_tier: 'free' }).eq('id', data.user_id)
           persistenceError(profileError)
         }
         break
       }
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice
-        const { error } = await db.from('subscriptions')
-          .update({ status: 'past_due' })
-          .eq('stripe_subscription_id', typeof invoice.subscription === 'string' ? invoice.subscription : '')
+        const { error } = await db.from('subscriptions').update({ status: 'past_due' }).eq('stripe_subscription_id', typeof invoice.subscription === 'string' ? invoice.subscription : '')
         persistenceError(error)
         break
       }
       default:
-        console.log(`[Stripe] Unhandled: ${event.type}`)
+        break
     }
+
+    const { error: completeError } = await db.from('stripe_webhook_events').update({ status: 'processed', processed_at: new Date().toISOString() }).eq('event_id', event.id)
+    persistenceError(completeError)
   } catch (err) {
     console.error('[Stripe Webhook] Error:', err)
-    return NextResponse.json({ error: 'Handler error' }, { status: 500 })
+    if (configurationError(err)) return NextResponse.json({ error: 'Webhook is not configured' }, { status: 503 })
+    return NextResponse.json({ error: 'Webhook could not be processed' }, { status: 500 })
   }
 
   return NextResponse.json({ received: true })

@@ -2,7 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getStripe, getLifetimePriceId } from '@/lib/stripe'
 import { getAuthenticatedUser } from '@/lib/supabase'
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
+const PRODUCTION_ORIGIN = 'https://thai-culture-ruby.vercel.app'
+
+function getAppUrl() {
+  const configured = process.env.NEXT_PUBLIC_APP_URL?.trim()
+  if (process.env.NODE_ENV !== 'production') return configured || 'http://localhost:3000'
+  if (!configured) throw new Error('NEXT_PUBLIC_APP_URL is required in production')
+  const url = new URL(configured)
+  if (url.protocol !== 'https:' || url.origin !== PRODUCTION_ORIGIN || url.pathname !== '/') {
+    throw new Error('NEXT_PUBLIC_APP_URL must be the approved HTTPS production origin')
+  }
+  return url.origin
+}
 
 export async function POST(req: NextRequest) {
   let user
@@ -24,10 +35,12 @@ export async function POST(req: NextRequest) {
   }
 
   let priceId: string
+  let appUrl: string
   try {
     priceId = getLifetimePriceId()
+    appUrl = getAppUrl()
   } catch (err) {
-    console.error('[Checkout] Price configuration error:', err)
+    console.error('[Checkout] Configuration error:', err)
     return NextResponse.json({ error: 'Checkout is not configured' }, { status: 503 })
   }
 
@@ -36,11 +49,7 @@ export async function POST(req: NextRequest) {
       mode: 'payment',
       ...(user.email ? { customer_email: user.email } : {}),
       line_items: [{ price: priceId, quantity: 1 }],
-      metadata: {
-        plan: 'lifetime',
-        userId: user.id,
-        product: 'thai-culture-starter-course',
-      },
+      metadata: { plan: 'lifetime', userId: user.id, product: 'thai-culture-starter-course' },
       success_url: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${appUrl}/checkout/cancelled`,
       allow_promotion_codes: true,
