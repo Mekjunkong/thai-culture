@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { readMissionProgress, writeMissionProgress } from '@/lib/mission-progress'
 
 type FoodItem = {
   id: string
@@ -56,6 +57,7 @@ export default function OrderFoodSpiceMission() {
   const [roleplayChoice, setRoleplayChoice] = useState<string | null>(null)
   const [billChoice, setBillChoice] = useState<string | null>(null)
   const [completed, setCompleted] = useState(false)
+  const [restored, setRestored] = useState(false)
 
   const food = foods.find((item) => item.id === foodId) ?? foods[0]
   const spice = spiceLevels.find((item) => item.id === spiceId) ?? spiceLevels[0]
@@ -92,16 +94,35 @@ export default function OrderFoodSpiceMission() {
   const nextAction = progressCount < 1 ? 'Choose food' : progressCount < 2 ? 'Choose spice and eat here/takeaway' : progressCount < 3 ? 'Repeat the full phrase' : progressCount < 4 ? 'Finish the restaurant roleplay' : checks.noLook ? 'Mission complete' : 'Say it once without looking'
 
   useEffect(() => {
-    const saved = window.localStorage.getItem('tlcm-order-food-spice-complete')
-    if (saved === 'true') setCompleted(true)
+    const saved = readMissionProgress('tlcm-order-food-spice-state', {
+      foodId: foods[0].id,
+      spiceId: spiceLevels[0].id,
+      diningId: diningOptions[0].id,
+      particle: 'ครับ' as const,
+      checks: { repeated: false, noLook: false },
+      roleplayChoice: null as string | null,
+      billChoice: null as string | null,
+      completed: false,
+    }, 'tlcm-order-food-spice-complete')
+    setFoodId(saved.foodId)
+    setSpiceId(saved.spiceId)
+    setDiningId(saved.diningId)
+    setParticle(saved.particle)
+    setChecks(saved.checks)
+    setRoleplayChoice(saved.roleplayChoice)
+    setBillChoice(saved.billChoice)
+    setCompleted(saved.completed)
+    setRestored(true)
   }, [])
 
   useEffect(() => {
-    if (canComplete) {
-      window.localStorage.setItem('tlcm-order-food-spice-complete', 'true')
-      setCompleted(true)
-    }
+    if (canComplete) setCompleted(true)
   }, [canComplete])
+
+  useEffect(() => {
+    if (!restored) return
+    writeMissionProgress('tlcm-order-food-spice-state', { foodId, spiceId, diningId, particle, checks, roleplayChoice, billChoice, completed }, undefined, 'tlcm-order-food-spice-complete')
+  }, [restored, foodId, spiceId, diningId, particle, checks, roleplayChoice, billChoice, completed])
 
   function toggleCheck(key: keyof typeof checks) {
     setChecks((current) => ({ ...current, [key]: !current[key] }))
@@ -363,7 +384,7 @@ export default function OrderFoodSpiceMission() {
         <section className="mx-auto mt-6 max-w-6xl rounded-none border border-tamarind/10 bg-ink p-6 text-surface md:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="text-sm font-bold uppercase text-honey">{completed ? 'Mission complete 🏆' : 'Finish the roleplay to complete'}</p>
+              <p className="text-sm font-bold uppercase text-honey">{completed ? 'Practice complete — self-check saved 🏆' : 'Finish the roleplay to save your self-check'}</p>
               <h2 className="mt-3 text-3xl font-serif font-normal tracking-[-0.04em] text-balance md:text-4xl">Send your restaurant voice note for correction.</h2>
               <p className="mt-3 max-w-2xl leading-7 text-surface/82 text-pretty">
                 Record yourself saying “{orderPhrase}” and “{billPhrase}”. Mike can correct pronunciation, rhythm, tone feeling, and politeness.
@@ -378,9 +399,10 @@ export default function OrderFoodSpiceMission() {
               >
                 WhatsApp Mike
               </a>
-              <Link href="/book" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-6 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">
-                Book a lesson
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/missions" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">All missions</Link>
+                <Link href="/learn" className="inline-flex min-h-12 items-center justify-center rounded-none border border-surface/40 px-5 py-3 text-center font-bold text-surface transition duration-150 ease-out hover:border-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-surface">Learning hub</Link>
+              </div>
             </div>
           </div>
         </section>

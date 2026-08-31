@@ -9,6 +9,7 @@
     "lint": "next lint",
     "check:booking-flow": "node scripts/check-booking-flow.mjs",
     "check:learning-hub": "node scripts/check-learning-hub.mjs",
+    "check:mission-progress": "node scripts/check-mission-progress.mjs",
     "check:lesson-navigation": "node scripts/check-lesson-navigation.mjs"
   },
   "dependencies": {
