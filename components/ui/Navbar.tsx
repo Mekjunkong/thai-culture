@@ -10,6 +10,7 @@ const navItems = [
   { href: '/missions', label: 'Missions' },
   { href: '/practice', label: 'Practice app' },
   { href: '/lessons', label: 'Guided course' },
+  { href: '/learn', label: 'Learning hub' },
   { href: '/products', label: 'Products' },
   { href: '/#pricing', label: 'Pricing' },
 ]
